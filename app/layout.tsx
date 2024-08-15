@@ -34,7 +34,11 @@ export default function RootLayout({
       >
         <DarkModeProvider>
           <div>{children}</div>
-          <Toaster />
+          <Toaster
+            toastOptions={{
+              className: "dark:bg-dark3 dark:text-light2",
+            }}
+          />
         </DarkModeProvider>
       </body>
     </html>

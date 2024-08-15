@@ -8,7 +8,7 @@ const DarkModeToggle = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <Button onClick={toggleDarkMode} variant="icon">
+    <Button onClick={toggleDarkMode} variant="icon" type="button">
       {darkMode ? <SunRegular /> : <MoonRegular />}
     </Button>
   );

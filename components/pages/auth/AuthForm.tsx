@@ -33,6 +33,7 @@ import Loader from "@/components/shared/Loader";
 import clsx from "clsx";
 // icons
 import { EyeCrossedRegular, EyeRegular, LogoRegular } from "@/components/svg";
+import DarkModeToggle from "@/components/shared/DarkModeToggle";
 
 // form schema
 const formSchema = z.object({
@@ -75,9 +76,9 @@ const AuthForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex items-center gap-[150px] bg-white p-[30px]"
+        className="flex items-center gap-[150px] bg-white dark:bg-dark1 p-[30px]"
       >
-        <div className="max-xl:hidden bg-gray-100 rounded-3xl h-screen w-1/2 flex items-center justify-center">
+        <div className="max-xl:hidden bg-gray-100 dark:bg-dark2 rounded-3xl h-screen w-1/2 flex items-center justify-center">
           <Image
             src={images.authLogin}
             priority
@@ -90,7 +91,7 @@ const AuthForm = () => {
           <div className="sm:w-[400px]">
             <div className="mb-[20px]">
               <LogoRegular className="text-[50px] logo-color" />
-              <h1 className="text-gray-600 mb-[10px] font-bold text-2xl">
+              <h1 className="text-gray-600 dark:text-light2 mb-[10px] font-bold text-2xl">
                 Welcome back! 👋🏻
               </h1>
               <p className="text-gray-500 tracking-tight text-sm">
@@ -156,11 +157,15 @@ const AuthForm = () => {
                 variant="secondary"
                 disabled={loading}
                 className={clsx("w-full", {
-                  "bg-gray-100 text-dark1": loading,
+                  "bg-gray-100 text-dark1 dark:bg-dark2 dark:text-light1":
+                    loading,
                 })}
               >
                 {loading ? <Loader text="Sending data..." /> : "Submit"}
               </Button>
+              <div className="w-full flex justify-center">
+                <DarkModeToggle />
+              </div>
             </div>
           </div>
         </div>
