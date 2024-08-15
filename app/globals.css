@@ -46,6 +46,10 @@
   }
 }
 
+.pages_spaces {
+  @apply text-dark1 dark:text-light1 pt-[90px] pl-[320px] max-md:px-4 md:pr-4 max-lg:pb-[50px] lg:mb-[200px] min-h-screen transition-all duration-150;
+}
+
 .btn_icon {
   @apply h-auto w-auto rounded-xl bg-transparent p-2 text-[21px];
 }

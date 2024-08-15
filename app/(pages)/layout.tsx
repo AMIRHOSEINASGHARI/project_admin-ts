@@ -19,7 +19,7 @@ const PagesLayout = async ({ children }: { children: React.ReactNode }) => {
     <div>
       <Navbar />
       <Sidebar />
-      <div>{children}</div>
+      <div className="pages_spaces">{children}</div>
     </div>
   );
 };
