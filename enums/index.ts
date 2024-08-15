@@ -8,4 +8,15 @@ export enum ResponseMessages {
   SUCCESSFULLY_UPDATED = "Successfully Updated!",
   SUCCESSFULLY_DELETED = "Successfully Deleted!",
   SOMTHING_WENT_WRONG = "Somthing Went Wrong!",
+  LOGGED_IN_SUCCESSFULLY = "Logged In Successfully!",
+}
+
+export enum ResponseCodes {
+  SUCCESSFULLY_FETCHED = 200,
+  SUCCESSFULLY_CREATED = 201,
+  SUCCESSFULLY_UPDATED = 201,
+  SUCCESSFULLY_DELETED = 201,
+  UN_AUTHORIZED = 401,
+  NOT_FOUND = 404,
+  SERVER_ERROR = 500,
 }

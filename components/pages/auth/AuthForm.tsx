@@ -27,6 +27,7 @@ import Loader from "@/components/shared/Loader";
 import clsx from "clsx";
 // icons
 import { EyeCrossedRegular, EyeRegular, LogoRegular } from "@/components/svg";
+import { useFormStatus } from "react-dom";
 
 // form schema
 const formSchema = z.object({
@@ -42,6 +43,7 @@ const formSchema = z.object({
 
 const AuthForm = () => {
   const { replace } = useRouter();
+  const { action, data, method, pending } = useFormStatus();
   const [passwordType, setPasswordType] = useState<"password" | "text">(
     "password"
   );
