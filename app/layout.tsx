@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 // lib
 import { cn } from "@/lib/utils";
+// provider
+import DarkModeProvider from "@/providers/DarkModeProvider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -28,7 +30,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <DarkModeProvider>{children}</DarkModeProvider>
       </body>
     </html>
   );
