@@ -2,6 +2,7 @@
 
 // next
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
@@ -80,4 +81,9 @@ export const loginUser = async (data: {
     console.log(error);
     throw new Error(error);
   }
+};
+
+export const signOut = () => {
+  cookies().delete("accessToken");
+  redirect("/");
 };

@@ -38,14 +38,22 @@ export default function DarkModeProvider({
 
   useEffect(() => {
     const root = window.document.documentElement;
-    const initialDarkMode = root.classList.contains("dark");
+    const initialDarkMode = localStorage.getItem("theme") === "dark";
+
+    if (initialDarkMode) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+
     setDarkMode(initialDarkMode);
   }, []);
 
   const toggleDarkMode = () => {
     const root = window.document.documentElement;
-    root.classList.toggle("dark");
-    setDarkMode(!darkMode);
+    const isDark = root.classList.toggle("dark");
+    setDarkMode(isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   };
 
   return (
