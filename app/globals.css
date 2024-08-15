@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn_icon {
+  @apply h-auto w-auto rounded-xl bg-transparent p-2 text-[21px];
+}
