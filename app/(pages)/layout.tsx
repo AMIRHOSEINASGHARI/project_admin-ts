@@ -4,7 +4,9 @@ import React from "react";
 import { redirect } from "next/navigation";
 // utils
 import { getServerSession } from "@/utils/session";
+// cmp
 import Navbar from "@/components/shared/layout/Navbar";
+import Sidebar from "@/components/shared/layout/Sidebar";
 
 const PagesLayout = async ({ children }: { children: React.ReactNode }) => {
   const session = getServerSession();
@@ -16,6 +18,7 @@ const PagesLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Navbar />
+      <Sidebar />
       <div>{children}</div>
     </div>
   );

@@ -3,7 +3,6 @@ import {
   MenuBarsRegular,
   PowerRegular,
   SearchRegular,
-  UserRegular,
 } from "@/components/svg";
 import DarkModeToggle from "../DarkModeToggle";
 import SignoutButton from "../SignoutButton";

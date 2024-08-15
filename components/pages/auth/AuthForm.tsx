@@ -28,12 +28,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import DarkModeToggle from "@/components/shared/DarkModeToggle";
 import toast from "react-hot-toast";
 import Loader from "@/components/shared/Loader";
 import clsx from "clsx";
 // icons
 import { EyeCrossedRegular, EyeRegular, LogoRegular } from "@/components/svg";
-import DarkModeToggle from "@/components/shared/DarkModeToggle";
 
 // form schema
 const formSchema = z.object({

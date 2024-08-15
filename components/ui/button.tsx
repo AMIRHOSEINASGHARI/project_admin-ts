@@ -5,22 +5,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300",
   {
     variants: {
       variant: {
         default:
-          "py-2 px-4 rounded-[8px] bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
+          "text-sm py-2 px-4 rounded-[8px] bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
         destructive:
-          "py-2 px-4 rounded-[8px] bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
+          "text-sm py-2 px-4 rounded-[8px] bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
         outline:
-          "py-2 px-4 rounded-[8px] border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+          "text-sm py-2 px-4 rounded-[8px] border border-slate-200 bg-white hover:bg-light2 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50",
         secondary:
-          "p-4 rounded-[8px] bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
+          "text-sm p-4 rounded-[8px] bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
         ghost:
-          "py-2 px-4 rounded-[8px] text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-50",
-        link: "py-2 px-4 rounded-[8px] text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-50",
-        icon: "p-[12px] rounded-full text-[16px] hover:bg-slate-100 hover:dark:bg-slate-800 hover:text-slate-900 dark:text-slate-300",
+          "text-sm py-2 px-4 rounded-[8px] text-slate-900 hover:bg-light2 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+        link: "py-2 px-4 rounded-[8px] text-slate-900 hover:bg-light2 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+        icon: "p-[12px] rounded-full text-icon hover:bg-light2 hover:dark:bg-slate-800 hover:text-slate-900 dark:text-light3",
       },
       size: {
         default: "",

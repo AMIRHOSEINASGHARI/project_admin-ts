@@ -8,8 +8,11 @@ export { default as AngleUpRegular } from "../../public/icons/AngleUpRegular.svg
 export { default as ArrowTrendDownRegular } from "../../public/icons/ArrowTrendDownRegular.svg";
 export { default as ArrowTrendUpRegular } from "../../public/icons/ArrowTrendUpRegular.svg";
 export { default as BellRegular } from "../../public/icons/BellRegular.svg";
+export { default as BlogTextRegular } from "../../public/icons/BlogTextRegular.svg";
+export { default as BoxOpenRegular } from "../../public/icons/BoxOpen.svg";
 export { default as CalendarRegular } from "../../public/icons/CalendarRegular.svg";
 export { default as CategoryRegular } from "../../public/icons/CategoryRegular.svg";
+export { default as ChartHistogramRegular } from "../../public/icons/ChartHistogram.svg";
 export { default as CheckRegular } from "../../public/icons/CheckRegular.svg";
 export { default as CloudUploadRegular } from "../../public/icons/CloudUploadRegular.svg";
 export { default as CoinRegular } from "../../public/icons/CoinRegular.svg";
