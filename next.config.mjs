@@ -10,14 +10,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "",
-        hostname: "",
-        port: "",
-        pathname: "",
-      },
-    ],
+    remotePatterns: [],
   },
 };
 
