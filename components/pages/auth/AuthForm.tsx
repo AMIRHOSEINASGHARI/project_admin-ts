@@ -90,7 +90,7 @@ const AuthForm = () => {
         <div className="max-xl:flex max-xl:justify-center max-xl:mt-16 max-xl:w-full">
           <div className="sm:w-[400px]">
             <div className="mb-[20px]">
-              <LogoRegular className="text-[50px] logo-color" />
+              <LogoRegular className="text-[50px] text-primary-dark" />
               <h1 className="text-gray-600 dark:text-light2 mb-[10px] font-bold text-2xl">
                 Welcome back! 👋🏻
               </h1>

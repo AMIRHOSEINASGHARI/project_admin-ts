@@ -1,13 +1,10 @@
-import {
-  BellRegular,
-  MenuBarsRegular,
-  PowerRegular,
-  SearchRegular,
-} from "@/components/svg";
+// cmp
+import { Button } from "@/components/ui/button";
 import DarkModeToggle from "../DarkModeToggle";
 import SignoutButton from "../SignoutButton";
-import { Button } from "@/components/ui/button";
 import MobileNav from "./MobileNav";
+// icons
+import { BellRegular, PowerRegular, SearchRegular } from "@/components/svg";
 
 const Navbar = () => {
   return (
