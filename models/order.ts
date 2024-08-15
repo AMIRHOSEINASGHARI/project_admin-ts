@@ -29,4 +29,6 @@ const orderSchema = new Schema({
   },
 });
 
-export const Order = models?.Order || model("Order", orderSchema);
+const OrderModel = models?.Order || model("Order", orderSchema);
+
+export default OrderModel;

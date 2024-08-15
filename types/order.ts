@@ -1,0 +1,31 @@
+// types
+import { ProductType } from "./product";
+import { UserType } from "./user";
+
+export type PaymentMethodType = "Paypal" | "Cash On Delivery" | "Credit Card";
+
+export type OrderItemType = {
+  productId: ProductType;
+  quantity: number;
+  cost: number;
+  discount: number;
+};
+
+export type OrderSummaryType = {
+  totalProducts?: number;
+  totalPrice?: number;
+  totalDiscount?: number;
+  totalPayable?: number;
+};
+
+export type OrderType = {
+  status?: string;
+  deliveryAddress: string;
+  userId: UserType;
+  phoneNumber: number;
+  displayName: string;
+  paymentMethod?: PaymentMethodType;
+  items: OrderItemType[];
+  summary?: OrderSummaryType;
+  createdAt: Date;
+};

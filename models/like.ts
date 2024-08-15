@@ -8,4 +8,6 @@ const likeSchema = new Schema({
   blog: { type: Schema.Types.ObjectId, ref: "Blog" },
 });
 
-export const Like = models?.Like || model("Like", likeSchema);
+const LikeModel = models?.Like || model("Like", likeSchema);
+
+export default LikeModel;
