@@ -7,6 +7,7 @@ import {
 import DarkModeToggle from "../DarkModeToggle";
 import SignoutButton from "../SignoutButton";
 import { Button } from "@/components/ui/button";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   return (
@@ -14,10 +15,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-[8px]">
           <div className="md:hidden">
-            {/* <MobileNav /> */}
-            <Button variant="icon">
-              <MenuBarsRegular />
-            </Button>
+            <MobileNav />
           </div>
         </div>
         <div className="flex items-center gap-1">
