@@ -10,16 +10,16 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "py-2 px-4 rounded-[12px] bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
+          "py-2 px-4 rounded-[8px] bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
         destructive:
-          "py-2 px-4 rounded-[12px] bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
+          "py-2 px-4 rounded-[8px] bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
         outline:
-          "py-2 px-4 rounded-[12px] border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+          "py-2 px-4 rounded-[8px] border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50",
         secondary:
-          "py-2 px-4 rounded-[12px] bg-slate-100 text-slate-900 hover:bg-slate-100/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
+          "p-4 rounded-[8px] bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
         ghost:
-          "py-2 px-4 rounded-[12px] text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-50",
-        link: "py-2 px-4 rounded-[12px] text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+          "py-2 px-4 rounded-[8px] text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+        link: "py-2 px-4 rounded-[8px] text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-50",
         icon: "p-[12px] rounded-full text-[16px] hover:bg-slate-100 hover:dark:bg-slate-800 hover:text-slate-900 dark:text-slate-100",
       },
       size: {
