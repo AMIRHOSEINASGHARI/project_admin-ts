@@ -156,7 +156,7 @@ const AuthForm = () => {
                 variant="secondary"
                 disabled={loading}
                 className={clsx("w-full", {
-                  "bg-gray-100": loading,
+                  "bg-gray-100 text-dark1": loading,
                 })}
               >
                 {loading ? <Loader text="Sending data..." /> : "Submit"}
