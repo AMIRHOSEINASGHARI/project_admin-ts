@@ -7,6 +7,7 @@ import { Button } from "../ui/button";
 const SignoutButton = ({
   title,
   variant,
+  classNames,
 }: {
   title: JSX.Element | string;
   variant:
@@ -19,9 +20,14 @@ const SignoutButton = ({
     | "icon"
     | null
     | undefined;
+  classNames?: string;
 }) => {
   return (
-    <Button onClick={() => signOut()} variant={variant}>
+    <Button
+      onClick={() => signOut()}
+      variant={variant}
+      className={classNames || ""}
+    >
       {title}
     </Button>
   );

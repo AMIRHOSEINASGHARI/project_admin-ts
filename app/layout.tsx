@@ -7,6 +7,7 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 // provider
 import DarkModeProvider from "@/providers/DarkModeProvider";
+import ReactQueryClientProvider from "@/providers/ReactQueryClientProvider";
 // cmp
 import { Toaster } from "react-hot-toast";
 
@@ -32,14 +33,16 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <DarkModeProvider>
-          <div>{children}</div>
-          <Toaster
-            toastOptions={{
-              className: "dark:bg-dark3 dark:text-light2",
-            }}
-          />
-        </DarkModeProvider>
+        <ReactQueryClientProvider>
+          <DarkModeProvider>
+            <div>{children}</div>
+            <Toaster
+              toastOptions={{
+                className: "dark:bg-dark3 dark:text-light2",
+              }}
+            />
+          </DarkModeProvider>
+        </ReactQueryClientProvider>
       </body>
     </html>
   );

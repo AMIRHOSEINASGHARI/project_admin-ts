@@ -10,7 +10,20 @@ const nextConfig = {
     return config;
   },
   images: {
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/dchurrccr/image/upload/**",
+      },
+      {
+        protocol: "https",
+        hostname: "coin-images.coingecko.com",
+        port: "",
+        pathname: "/coins/images/**",
+      },
+    ],
   },
 };
 

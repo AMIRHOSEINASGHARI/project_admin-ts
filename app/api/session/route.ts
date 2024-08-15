@@ -28,7 +28,11 @@ export async function GET() {
     }
 
     return NextResponse.json(
-      { msg: ResponseMessages.SUCCESSFULLY_FETCHED, session },
+      {
+        msg: ResponseMessages.SUCCESSFULLY_FETCHED,
+        code: ResponseCodes.SUCCESSFULLY_FETCHED,
+        session,
+      },
       { status: ResponseCodes.SUCCESSFULLY_FETCHED }
     );
   } catch (error) {
