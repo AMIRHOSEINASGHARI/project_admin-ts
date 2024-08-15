@@ -13,14 +13,19 @@ import { SECRET_KEY, SESSION_EXPIRATION } from "@/utils/vars";
 // jwt
 import { sign } from "jsonwebtoken";
 
-export const loginUser = async (data: {
-  username: string;
-  password: string;
-}) => {
+export const loginUser = async (formData: FormData) => {
   try {
     await connectDB();
 
-    const { username, password } = data;
+    const username = formData.get("username") as string | null;
+    const password = formData.get("password") as string | null;
+
+    if (!username || !password) {
+      return {
+        message: ResponseMessages.MISSING_CREDENTIALS,
+        code: ResponseCodes.BAD_REQUEST,
+      };
+    }
 
     const admin = await AdminModel.findOne({ username });
 
