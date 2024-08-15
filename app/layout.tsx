@@ -7,6 +7,8 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 // provider
 import DarkModeProvider from "@/providers/DarkModeProvider";
+// cmp
+import { Toaster } from "react-hot-toast";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -30,7 +32,10 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <DarkModeProvider>{children}</DarkModeProvider>
+        <DarkModeProvider>
+          <div>{children}</div>
+          <Toaster />
+        </DarkModeProvider>
       </body>
     </html>
   );

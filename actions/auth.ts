@@ -13,12 +13,14 @@ import { SECRET_KEY, SESSION_EXPIRATION } from "@/utils/vars";
 // jwt
 import { sign } from "jsonwebtoken";
 
-export const loginUser = async (formData: FormData) => {
+export const loginUser = async (data: {
+  username: string;
+  password: string;
+}) => {
   try {
     await connectDB();
 
-    const username = formData.get("username") as string | null;
-    const password = formData.get("password") as string | null;
+    const { username, password } = data;
 
     if (!username || !password) {
       return {

@@ -4,28 +4,25 @@
 import { useState } from "react";
 
 const useServerAction = (
-  asyncAction: Function,
-  fnInput: object
-): {
-  loading: boolean;
-  fn: Function;
-  data: { message: string; code: number } | null;
-} => {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [data, setData] = useState(null);
+  asyncAction: Function
+): { loading: boolean; action: Function } => {
+  // asyncAction => to calling server action
+  // fnInput => the input of server action
+  // afterAction => the action we want to be done after the server action is done
 
-  const fn = async () => {
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const action = async (fnInput: object) => {
     setLoading(() => true);
     const result = await asyncAction(fnInput);
     setLoading(() => false);
 
-    setData(() => result);
+    return result;
   };
 
   return {
     loading,
-    fn,
-    data,
+    action,
   };
 };
 

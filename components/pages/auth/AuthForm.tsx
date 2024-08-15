@@ -9,6 +9,12 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+// actions
+import { loginUser } from "@/actions/auth";
+// hooks
+import useServerAction from "@/hooks/callServerAction";
+// enums
+import { ResponseCodes } from "@/enums";
 // constants
 import { images } from "@/constants";
 // cmp
@@ -42,6 +48,7 @@ const formSchema = z.object({
 
 const AuthForm = () => {
   const { replace } = useRouter();
+  const { loading, action } = useServerAction(loginUser);
   const [passwordType, setPasswordType] = useState<"password" | "text">(
     "password"
   );
@@ -53,7 +60,16 @@ const AuthForm = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {};
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const result = await action(values);
+
+    if (result?.code === ResponseCodes.SUCCESSFULLY_CREATED) {
+      toast.success(result?.message);
+      replace("/dashboard");
+    } else {
+      toast.error(result?.message);
+    }
+  };
 
   return (
     <Form {...form}>
@@ -138,12 +154,12 @@ const AuthForm = () => {
               <Button
                 type="submit"
                 variant="secondary"
-                disabled={false}
+                disabled={loading}
                 className={clsx("w-full", {
-                  "bg-gray-100": false,
+                  "bg-gray-100": loading,
                 })}
               >
-                {false ? <Loader text="Sending data..." /> : "Submit"}
+                {loading ? <Loader text="Sending data..." /> : "Submit"}
               </Button>
             </div>
           </div>
