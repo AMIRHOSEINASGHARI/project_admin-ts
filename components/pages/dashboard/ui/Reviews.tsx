@@ -57,8 +57,10 @@ const Reviews = () => {
                   <BarChart accessibilityLayer data={chartData}>
                     <Bar
                       dataKey="performance"
-                      fill="var(--color-performance)"
                       radius={4}
+                      className={
+                        profit >= 0 ? "fill-primary-dark" : "fill-[#b91c1c]"
+                      }
                     />
                   </BarChart>
                 </ChartContainer>

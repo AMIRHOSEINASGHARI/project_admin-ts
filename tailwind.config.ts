@@ -34,8 +34,8 @@ const config = {
         dark: "0px 0px 2px 0px rgba(0,0,0,0.7), 0px 12px 24px -4px rgba(0,0,0,0.4)",
       },
       colors: {
-        "primary-dark": "#00a76f",
-        "primary-light": "#00a76f14",
+        "primary-dark": "#0d9488",
+        "primary-light": "#0557441c",
         light1: "#f8fafc",
         light2: "#f1f5f9",
         light3: "#e2e8f0",
