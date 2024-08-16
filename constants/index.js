@@ -92,3 +92,84 @@ export const menuLinks = [
     link: "/account",
   },
 ];
+
+export const dashboardReviews = [
+  {
+    title: "Total Revenues",
+    count: 576000,
+    profit: 15,
+    chartData: [
+      { month: "January", performance: 240 },
+      { month: "February", performance: 305 },
+      { month: "March", performance: 165 },
+      { month: "April", performance: 73 },
+      { month: "May", performance: 56 },
+      { month: "June", performance: 100 },
+    ],
+  },
+  {
+    title: "Total Products",
+    count: 16585,
+    profit: -5,
+    chartData: [
+      { month: "January", performance: 200 },
+      { month: "February", performance: 450 },
+      { month: "March", performance: 360 },
+      { month: "April", performance: 659 },
+      { month: "May", performance: 200 },
+      { month: "June", performance: 150 },
+    ],
+  },
+  {
+    title: "Total Users",
+    count: 102365,
+    profit: 12,
+    chartData: [
+      { month: "January", performance: 150 },
+      { month: "February", performance: 600 },
+      { month: "March", performance: 580 },
+      { month: "April", performance: 650 },
+      { month: "May", performance: 300 },
+      { month: "June", performance: 400 },
+    ],
+  },
+  {
+    title: "Comments To Answer",
+    count: 3650,
+    profit: 63,
+    chartData: [
+      { month: "January", performance: 176 },
+      { month: "February", performance: 360 },
+      { month: "March", performance: 200 },
+      { month: "April", performance: 100 },
+      { month: "May", performance: 208 },
+      { month: "June", performance: 214 },
+    ],
+  },
+  {
+    title: "Total Orders",
+    count: 4500,
+    profit: -8,
+    chartData: [
+      { month: "January", performance: 100 },
+      { month: "February", performance: 150 },
+      { month: "March", performance: 237 },
+      { month: "April", performance: 150 },
+      { month: "May", performance: 209 },
+      { month: "June", performance: 150 },
+    ],
+  },
+  {
+    title: "Blogs",
+    count: 2000,
+    profit: -10,
+    chartData: [
+      { month: "January", performance: 18 },
+      { month: "February", performance: 30 },
+      { month: "March", performance: 23 },
+      { month: "April", performance: 73 },
+      { month: "May", performance: 10 },
+      { month: "June", performance: 50 },
+    ],
+  },
+];

@@ -31,6 +31,7 @@ const config = {
       },
       boxShadow: {
         card: "0px 0px 2px 0px rgba(145,158,171,0.2), 0px 12px 24px -4px rgba(145,158,171,0.12)",
+        dark: "0px 0px 2px 0px rgba(0,0,0,0.7), 0px 12px 24px -4px rgba(0,0,0,0.4)",
       },
       colors: {
         "primary-dark": "#00a76f",
@@ -38,15 +39,16 @@ const config = {
         light1: "#f8fafc",
         light2: "#f1f5f9",
         light3: "#e2e8f0",
-        dark1: "#020617",
-        dark2: "#0f172a",
-        dark3: "#1e293b",
+        dark1: "#090a0b",
+        dark2: "#121517",
+        dark3: "#202427",
       },
       fontSize: {
         "x-small": "10px",
         small: "13px",
         base: "15px",
-        large: "17px",
+        large: "24px",
+        " x-large": "30px",
         icon: "18px",
       },
     },
