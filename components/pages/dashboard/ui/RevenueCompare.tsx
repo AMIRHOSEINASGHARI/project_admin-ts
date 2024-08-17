@@ -41,7 +41,7 @@ const RevenueCompare = () => {
   //   TODO: bug in tooltip color
 
   return (
-    <Card>
+    <Card className="flex flex-col flex-1">
       <div className="space-y-5">
         <div>
           <h1 className="heading1">Users</h1>
@@ -53,7 +53,7 @@ const RevenueCompare = () => {
             <span className="text-small">Desktop</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="bg-secondary-dark rounded-full w-4 h-4" />
+            <div className="bg-primary-high-dark rounded-full w-4 h-4" />
             <span className="text-small">Mobile</span>
           </div>
         </div>
@@ -84,7 +84,7 @@ const RevenueCompare = () => {
           <Bar
             dataKey="mobile"
             stackId="a"
-            className="fill-secondary-dark"
+            className="fill-primary-high-dark"
             radius={[8, 8, 0, 0]}
           />
         </BarChart>
