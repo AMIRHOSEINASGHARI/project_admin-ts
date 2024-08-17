@@ -34,8 +34,9 @@ const config = {
         dark: "0px 0px 2px 0px rgba(0,0,0,0.7), 0px 12px 24px -4px rgba(0,0,0,0.4)",
       },
       colors: {
-        "primary-dark": "#0d9488",
-        "primary-light": "#0557441c",
+        "primary-dark": "#2563eb", // blue
+        "primary-light": "#1725541c", // blue
+        "secondary-dark": "#172554", // blue
         light1: "#f8fafc",
         light2: "#f1f5f9",
         light3: "#e2e8f0",
@@ -48,7 +49,7 @@ const config = {
         small: "13px",
         base: "15px",
         large: "24px",
-        " x-large": "30px",
+        "x-large": "30px",
         icon: "18px",
       },
     },

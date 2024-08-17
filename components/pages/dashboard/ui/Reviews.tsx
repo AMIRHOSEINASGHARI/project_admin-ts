@@ -15,16 +15,16 @@ const Reviews = () => {
       {dashboardReviews.map((el, i) => {
         const { title, count, profit, chartData } = el;
 
-        const color = profit >= 0 ? "#047857" : "#b91c1c";
+        // const color = profit >= 0 ? "#047857" : "#b91c1c";
         const chartConfig = {
           performance: {
             label: "Performance",
-            color,
+            // color,
           },
         } satisfies ChartConfig;
 
         return (
-          <Card key={i} className="flex flex-1 min-w-[300px]">
+          <Card key={i} className="flex flex-1 min-w-[280px]">
             <div className="w-full">
               <span className="text-small">{title}</span>
               <div className="flex justify-between w-full mt-5">
