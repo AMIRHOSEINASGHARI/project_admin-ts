@@ -13,8 +13,8 @@ const View = ({
   return (
     <div
       className={clsx(className || "", {
-        "space-y-8": orientation === "vertical",
-        "space-x-8": orientation === "horizental",
+        "space-y-5": orientation === "vertical",
+        "space-x-5": orientation === "horizental",
       })}
     >
       {children}

@@ -26,7 +26,7 @@ const chartData = [
   { month: "December", desktop: 150, mobile: 70 },
 ];
 
-const RevenueCompare = () => {
+const UsersCompare = () => {
   const chartConfig = {
     desktop: {
       label: "Desktop",
@@ -93,4 +93,4 @@ const RevenueCompare = () => {
   );
 };
 
-export default RevenueCompare;
+export default UsersCompare;
