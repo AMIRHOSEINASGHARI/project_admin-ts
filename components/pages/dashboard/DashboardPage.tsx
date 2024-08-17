@@ -1,3 +1,5 @@
+// react
+import { Suspense } from "react";
 // cmp
 import View from "@/components/shared/layout/View";
 import Reviews from "./ui/Reviews";
@@ -5,6 +7,7 @@ import UsersCompare from "./ui/UsersCompare";
 import RevenuePieChart from "./ui/RevenuePieChart";
 import NewInvoices from "./ui/NewInvoices";
 import UpcommingEvents from "./ui/UpcommingEvents";
+import LoaderBar from "@/components/shared/LoaderBar";
 
 const DashboardPage = () => {
   return (
@@ -16,7 +19,9 @@ const DashboardPage = () => {
       </View>
       <View className="flex flex-col xl:flex-row gap-5">
         <NewInvoices />
-        <UpcommingEvents />
+        <Suspense fallback={<LoaderBar />}>
+          <UpcommingEvents />
+        </Suspense>
       </View>
     </View>
   );

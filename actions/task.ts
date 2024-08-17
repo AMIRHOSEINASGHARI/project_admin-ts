@@ -29,6 +29,10 @@ export const upcommingEvents = async () => {
     };
   } catch (error: any) {
     console.log(error);
-    throw new Error(error);
+    return {
+      tasks: null,
+      message: error.message,
+      code: ResponseCodes.SERVER_ERROR,
+    };
   }
 };

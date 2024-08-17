@@ -45,6 +45,8 @@ const config = {
         dark1: "#090a0b",
         dark2: "#121517",
         dark3: "#202427",
+        "error-light": "#ef4444", // red-500
+        "error-dark": "#dc2626", // red-600
       },
       fontSize: {
         "x-small": "10px",
