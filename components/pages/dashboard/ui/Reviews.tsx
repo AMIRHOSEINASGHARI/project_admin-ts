@@ -8,10 +8,11 @@ import { Bar, BarChart } from "recharts";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 // icons
 import { ArrowTrendDownRegular, ArrowTrendUpRegular } from "@/components/svg";
+import View from "@/components/shared/layout/View";
 
 const Reviews = () => {
   return (
-    <div className="flex flex-wrap gap-5">
+    <View className="flex flex-wrap gap-5">
       {dashboardReviews.map((el, i) => {
         const { title, count, profit, chartData } = el;
 
@@ -24,7 +25,7 @@ const Reviews = () => {
         } satisfies ChartConfig;
 
         return (
-          <Card key={i} className="flex flex-1 min-w-[280px]">
+          <Card key={i} className="flex flex-1 min-w-[250px]">
             <div className="w-full">
               <span className="text-small">{title}</span>
               <div className="flex justify-between w-full mt-5">
@@ -52,7 +53,7 @@ const Reviews = () => {
                 </div>
                 <ChartContainer
                   config={chartConfig}
-                  className="min-h-[40px] min-w-[100px]"
+                  className="min-h-[40px] min-w-[70px]"
                 >
                   <BarChart accessibilityLayer data={chartData}>
                     <Bar
@@ -69,7 +70,7 @@ const Reviews = () => {
           </Card>
         );
       })}
-    </div>
+    </View>
   );
 };
 

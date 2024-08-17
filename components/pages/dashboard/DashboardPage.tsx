@@ -8,6 +8,7 @@ import RevenuePieChart from "./ui/RevenuePieChart";
 import NewInvoices from "./ui/NewInvoices";
 import UpcommingEvents from "./ui/UpcommingEvents";
 import LoaderBar from "@/components/shared/LoaderBar";
+import RevenueRadialChart from "./ui/RevenueRadialChart";
 
 const DashboardPage = () => {
   return (
@@ -17,6 +18,7 @@ const DashboardPage = () => {
         <UsersCompare />
         <RevenuePieChart />
       </View>
+      <RevenueRadialChart />
       <View className="flex flex-col xl:flex-row gap-5">
         <NewInvoices />
         <Suspense fallback={<LoaderBar />}>
