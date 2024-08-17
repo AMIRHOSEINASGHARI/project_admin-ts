@@ -4,13 +4,24 @@
 import * as React from "react";
 // cmp
 import { Label, Pie, PieChart } from "recharts";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { Separator } from "@/components/ui/separator";
+import ChartBadgeColor from "@/components/shared/ChartBadgeColor";
 
 const chartData = [
   { category: "phone", revenue: 275, fill: "var(--color-phone)" },
@@ -52,11 +63,15 @@ const RevenuePieChart = () => {
   }, []);
 
   return (
-    <Card className="flex flex-col h-fit">
+    <Card className="flex flex-col xl:w-[33%] w-full">
+      <CardHeader>
+        <CardTitle>Total Revenue</CardTitle>
+        <CardDescription>for the last 6 months</CardDescription>
+      </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          className="mx-auto aspect-square min-h-[230px] max-h-[400px]"
         >
           <PieChart>
             <ChartTooltip
@@ -100,15 +115,13 @@ const RevenuePieChart = () => {
                 }}
               />
             </Pie>
+            <ChartLegend
+              content={<ChartLegendContent nameKey="category" />}
+              className="flex-wrap gap-2 [&>*]:justify-center border-t dark:border-dark3"
+            />
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="leading-none text-muted-foreground flex flex-col text-center gap-2">
-          Showing total revenue for the last 6 months
-          <span>(Thosand dollars)</span>
-        </div>
-      </CardFooter>
     </Card>
   );
 };

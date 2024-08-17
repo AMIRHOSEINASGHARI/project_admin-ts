@@ -9,7 +9,13 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { Card } from "@/components/ui/card";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import ChartBadgeColor from "@/components/shared/ChartBadgeColor";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -42,25 +48,17 @@ const UsersCompare = () => {
 
   return (
     <Card className="flex flex-col flex-1">
-      <div className="space-y-5">
-        <div>
-          <h1 className="heading1">Users</h1>
-          <span className="subheading">(+43%) than last year</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <div className="bg-primary-dark rounded-full w-4 h-4" />
-            <span className="text-small">Desktop</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="bg-primary-high-dark rounded-full w-4 h-4" />
-            <span className="text-small">Mobile</span>
-          </div>
-        </div>
+      <CardHeader>
+        <CardTitle>Users</CardTitle>
+        <CardDescription>(+43%) than last year</CardDescription>
+      </CardHeader>
+      <div className="flex items-center gap-4 my-5">
+        <ChartBadgeColor text="Desktop" color="primary-dark" />
+        <ChartBadgeColor text="Mobile" color="primary-high-dark" />
       </div>
       <ChartContainer
         config={chartConfig}
-        className="lg:max-h-[300px] max-lg:h-[400px] w-full mt-8"
+        className="lg:max-h-[300px] max-lg:h-[400px] w-full"
       >
         <BarChart accessibilityLayer data={chartData}>
           <CartesianGrid
