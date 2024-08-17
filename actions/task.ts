@@ -7,6 +7,7 @@ import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
 import AdminModel from "@/models/admin";
 import TaskModel from "@/models/task";
+import { TaskType } from "@/types/task";
 
 export const upcommingEvents = async () => {
   try {
@@ -19,10 +20,10 @@ export const upcommingEvents = async () => {
         select: "username name avatar roll",
       })
       .sort({ createdAt: -1 })
-      .lean();
+      .lean<TaskType[]>();
 
     return {
-      tasks: tasks.splice(0, 4),
+      tasks: tasks?.splice(0, 5),
       message: ResponseMessages.SUCCESSFULLY_FETCHED,
       code: ResponseCodes.SUCCESSFULLY_FETCHED,
     };

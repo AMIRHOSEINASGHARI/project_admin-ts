@@ -1,3 +1,5 @@
+// mongoose
+import { Document } from "mongoose";
 // types
 import { ProductType } from "./product";
 import { OrderType } from "./order";
@@ -16,7 +18,7 @@ export type CartType = {
   checkoutStatus?: "pending" | "completed";
 };
 
-export type UserType = {
+export type UserType = Document & {
   username: string;
   displayName?: string;
   password: string;

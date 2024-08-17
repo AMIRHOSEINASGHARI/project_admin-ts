@@ -1,3 +1,5 @@
+// mongoose
+import { Document } from "mongoose";
 // types
 import { ProductType } from "./product";
 import { UserType } from "./user";
@@ -18,7 +20,7 @@ export type OrderSummaryType = {
   totalPayable?: number;
 };
 
-export type OrderType = {
+export type OrderType = Document & {
   status?: string;
   deliveryAddress: string;
   userId: UserType;

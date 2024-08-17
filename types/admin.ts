@@ -1,8 +1,10 @@
+// mongoose
+import { Document } from "mongoose";
 // types
 import { BlogType } from "./blog";
 import { ProductType } from "./product";
 
-export type AdminType = {
+export type AdminType = Document & {
   username: string;
   password: string;
   name: string;

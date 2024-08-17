@@ -1,8 +1,10 @@
+// mongoose
+import { Document } from "mongoose";
 // types
 import { ProductType } from "./product";
 import { UserType } from "./user";
 
-export type CommentType = {
+export type CommentType = Document & {
   title: string;
   description: string;
   productId: ProductType;

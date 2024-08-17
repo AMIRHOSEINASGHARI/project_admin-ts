@@ -1,3 +1,5 @@
+// mongoose
+import { Document } from "mongoose";
 // types
 import { OrderType } from "./order";
 import { LikeType } from "./like";
@@ -9,7 +11,7 @@ export type ProductOrderType = {
   quantity?: number;
 };
 
-export type ProductType = {
+export type ProductType = Document & {
   title: string;
   description?: string;
   image: string;
