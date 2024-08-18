@@ -36,7 +36,7 @@ const config = {
       colors: {
         "primary-high-dark": "#115e59", // blue-950
         "primary-dark": "#0d9488", // blue-600
-        "primary-light": "#1725541c", // blue
+        "primary-light": "#1725541c", // blue- low opacity
         "primary-light-2": "#14b8a6", // blue-500
         "primary-light-3": "#2dd4bf", // blue-400
         light1: "#f8fafc",

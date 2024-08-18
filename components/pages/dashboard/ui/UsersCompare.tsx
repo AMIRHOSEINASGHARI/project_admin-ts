@@ -4,8 +4,6 @@ import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
@@ -15,7 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import ChartBadgeColor from "@/components/shared/ChartBadgeColor";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -52,10 +49,6 @@ const UsersCompare = () => {
         <CardTitle>Users</CardTitle>
         <CardDescription>(+43%) than last year</CardDescription>
       </CardHeader>
-      <div className="flex items-center gap-4 my-5">
-        <ChartBadgeColor text="Desktop" color="primary-dark" />
-        <ChartBadgeColor text="Mobile" color="primary-high-dark" />
-      </div>
       <ChartContainer
         config={chartConfig}
         className="lg:max-h-[300px] max-lg:h-[400px] w-full"

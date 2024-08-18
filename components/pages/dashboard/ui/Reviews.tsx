@@ -12,7 +12,7 @@ import View from "@/components/shared/layout/View";
 
 const Reviews = () => {
   return (
-    <View className="flex flex-wrap gap-5">
+    <View variant="flex-wrap">
       {dashboardReviews.map((el, i) => {
         const { title, count, profit, chartData } = el;
 

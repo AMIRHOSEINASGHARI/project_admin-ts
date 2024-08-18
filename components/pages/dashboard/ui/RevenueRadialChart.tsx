@@ -93,7 +93,7 @@ const charts = [
 
 const RevenueRadialChart = () => {
   return (
-    <View className="flex flex-wrap gap-5">
+    <View variant="flex-wrap">
       {charts.map((item) => (
         <Card key={item.id} className="flex flex-1 min-w-[250px]">
           <CardContent className="flex-1 pb-0">

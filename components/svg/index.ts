@@ -1,6 +1,6 @@
 // Logo
 export { default as LogoRegular } from "../../public/LogoRegular.svg";
-// Icons
+// Icons-regular
 export { default as AngleDownRegular } from "../../public/icons/AngleDownRegular.svg";
 export { default as AngleLeftRegular } from "../../public/icons/AngleLeftRegular.svg";
 export { default as AngleRightRegular } from "../../public/icons/AngleRightRegular.svg";
@@ -61,3 +61,9 @@ export { default as UserPenRegular } from "../../public/icons/UserPenRegular.svg
 export { default as UserRegular } from "../../public/icons/UserRegular.svg";
 export { default as UsersRegular } from "../../public/icons/UsersRegular.svg";
 export { default as Youtube } from "../../public/icons/Youtube.svg";
+export { default as ShapeSquare } from "../../public/icons/ShapeSquare.svg";
+// Icons-fill
+export { default as BagsFill } from "../../public/icons/BagsFill.svg";
+export { default as CartFill } from "../../public/icons/CartFill.svg";
+export { default as UsersFill } from "../../public/icons/UsersFill.svg";
+export { default as MessageFill } from "../../public/icons/MessageFill.svg";
