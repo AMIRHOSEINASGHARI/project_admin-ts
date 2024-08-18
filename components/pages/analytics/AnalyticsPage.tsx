@@ -6,6 +6,7 @@ import ConversionRates from "./ui/ConversionRates";
 import CurrentSubject from "./ui/CurrentSubject";
 import News from "./ui/News";
 import TrafficBySite from "./ui/TrafficBySite";
+import Tasks from "./ui/Tasks";
 
 const AnalyticsPage = () => {
   return (
@@ -24,6 +25,7 @@ const AnalyticsPage = () => {
       <News />
       <View variant="flex-gap">
         <TrafficBySite />
+        <Tasks />
       </View>
     </View>
   );
