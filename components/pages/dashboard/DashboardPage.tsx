@@ -14,12 +14,12 @@ const DashboardPage = () => {
   return (
     <View orientation="vertical">
       <Reviews />
-      <View className="flex flex-col xl:flex-row gap-5">
+      <View variant="flex-gap">
         <UsersCompare />
         <RevenuePieChart />
       </View>
       <RevenueRadialChart />
-      <View className="flex flex-col xl:flex-row gap-5">
+      <View variant="flex-gap">
         <NewInvoices />
         <Suspense fallback={<LoaderBar />}>
           <UpcommingEvents />

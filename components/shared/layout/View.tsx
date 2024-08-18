@@ -10,7 +10,7 @@ const View = ({
   children: React.ReactNode;
   orientation?: "vertical" | "horizental";
   className?: string;
-  variant?: "flex-wrap";
+  variant?: "flex-wrap" | "flex-gap";
 }) => {
   return (
     <div
@@ -18,6 +18,7 @@ const View = ({
         "space-y-5": orientation === "vertical",
         "space-x-5": orientation === "horizental",
         "flex flex-wrap gap-5": variant === "flex-wrap",
+        "flex flex-col xl:flex-row gap-5": variant === "flex-gap",
       })}
     >
       {children}

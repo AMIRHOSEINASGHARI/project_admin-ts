@@ -155,7 +155,7 @@ const AnalyticsCards = () => {
           <div className="flex items-center justify-between">
             <div className="flex flex-col gap-3">
               <span className="font-medium text-small">{card.text}</span>
-              <span className="font-bold text-large">{card.value}</span>
+              <span className="bold-value">{card.value}</span>
             </div>
             <ChartComponent
               chartData={card.chart.chartData}

@@ -56,7 +56,7 @@ const News = () => {
               key={item.id}
               className="hover:bg-transparent dark:hover:bg-transparent"
             >
-              <TableCell className="flex items-center gap-3">
+              <TableCell className="flex items-center gap-3 min-w-[600px]">
                 <Image
                   src={item.image}
                   width={150}

@@ -120,3 +120,11 @@
 .subheading {
   @apply text-small text-dark3 dark:text-light3;
 }
+
+.bold-value {
+  @apply font-bold text-large;
+}
+
+.bold-value-2 {
+  @apply font-medium;
+}

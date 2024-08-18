@@ -25,10 +25,8 @@ export { default as EyeCrossedRegular } from "../../public/icons/EyeCrossedRegul
 export { default as EyeRegular } from "../../public/icons/EyeRegular.svg";
 export { default as FileEditRegular } from "../../public/icons/FileEditRegular.svg";
 export { default as FilterListRegular } from "../../public/icons/FilterListRegular.svg";
-export { default as Google } from "../../public/icons/Google.svg";
 export { default as HeadphonesRegular } from "../../public/icons/HeadphonesRegular.svg";
 export { default as HomeRegular } from "../../public/icons/HomeRegular.svg";
-export { default as Instagram } from "../../public/icons/Instagram.svg";
 export { default as LikeRegular } from "../../public/icons/LikeRegular.svg";
 export { default as LocationRegular } from "../../public/icons/LocationRegular.svg";
 export { default as LockRegular } from "../../public/icons/LockRegular.svg";
@@ -54,13 +52,15 @@ export { default as SunRegular } from "../../public/icons/SunRegular.svg";
 export { default as TelegramRegular } from "../../public/icons/TelegramRegular.svg";
 export { default as TodoAltRegular } from "../../public/icons/TodoAltRegular.svg";
 export { default as TrashRegular } from "../../public/icons/TrashRegular.svg";
-export { default as Twitter } from "../../public/icons/Twitter.svg";
 export { default as UnLockRegular } from "../../public/icons/UnLockRegular.svg";
 export { default as UserAddRegular } from "../../public/icons/UserAddRegular.svg";
 export { default as UserPenRegular } from "../../public/icons/UserPenRegular.svg";
 export { default as UserRegular } from "../../public/icons/UserRegular.svg";
 export { default as UsersRegular } from "../../public/icons/UsersRegular.svg";
+export { default as Google } from "../../public/icons/Google.svg";
+export { default as Twitter } from "../../public/icons/Twitter.svg";
 export { default as Youtube } from "../../public/icons/Youtube.svg";
+export { default as Instagram } from "../../public/icons/Instagram.svg";
 export { default as ShapeSquare } from "../../public/icons/ShapeSquare.svg";
 // Icons-fill
 export { default as BagsFill } from "../../public/icons/BagsFill.svg";

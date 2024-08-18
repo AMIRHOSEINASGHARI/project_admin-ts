@@ -5,6 +5,7 @@ import WebsiteVisits from "./ui/WebsiteVisits";
 import ConversionRates from "./ui/ConversionRates";
 import CurrentSubject from "./ui/CurrentSubject";
 import News from "./ui/News";
+import TrafficBySite from "./ui/TrafficBySite";
 
 const AnalyticsPage = () => {
   return (
@@ -12,15 +13,18 @@ const AnalyticsPage = () => {
       <View orientation="vertical">
         <AnalyticsCards />
       </View>
-      <View className="flex flex-col xl:flex-row gap-5">
+      <View variant="flex-gap">
         <CurrentVisits />
         <WebsiteVisits />
       </View>
-      <View className="flex flex-col xl:flex-row gap-5">
+      <View variant="flex-gap">
         <ConversionRates />
         <CurrentSubject />
       </View>
       <News />
+      <View variant="flex-gap">
+        <TrafficBySite />
+      </View>
     </View>
   );
 };
