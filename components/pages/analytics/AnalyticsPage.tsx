@@ -4,6 +4,7 @@ import CurrentVisits from "./ui/CurrentVisits";
 import WebsiteVisits from "./ui/WebsiteVisits";
 import ConversionRates from "./ui/ConversionRates";
 import CurrentSubject from "./ui/CurrentSubject";
+import News from "./ui/News";
 
 const AnalyticsPage = () => {
   return (
@@ -19,6 +20,7 @@ const AnalyticsPage = () => {
         <ConversionRates />
         <CurrentSubject />
       </View>
+      <News />
     </View>
   );
 };
