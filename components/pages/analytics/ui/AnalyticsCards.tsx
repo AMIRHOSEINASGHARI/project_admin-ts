@@ -20,8 +20,8 @@ const cardsData = [
   {
     icon: <BagsFill />,
     profit: 2.6,
-    startColor: "#34d399", // Emerald-400
-    endColor: "#a7f3d0", // Emerald-200
+    startColor: "#6ee7b7", // Emerald-300
+    endColor: "#ecfdf5", // Emerald-50
     iconColor: "text-[#059669]", // Emerald-600
     textColor: "text-[#022c22]", // Emerald-950
     trendIcon: <ArrowTrendUpRegular />,
@@ -48,8 +48,8 @@ const cardsData = [
   {
     icon: <UsersFill />,
     profit: -0.1,
-    startColor: "#c084fc", // Purple-400
-    endColor: "#e9d5ff", // Purple-200
+    startColor: "#d8b4fe", // Purple-300
+    endColor: "#faf5ff", // Purple-50
     iconColor: "text-[#9333ea]", // Purple-600
     textColor: "text-[#3b0764]", // Purple-950
     trendIcon: <ArrowTrendDownRegular />,
@@ -76,8 +76,8 @@ const cardsData = [
   {
     icon: <CartFill />,
     profit: 2.8,
-    startColor: "#facc15", // Yellow-400
-    endColor: "#fef08a", // Yellow-200
+    startColor: "#fde047", // Yellow-300
+    endColor: "#fefce8", // Yellow-50
     iconColor: "text-[#ca8a04]", // Yellow-600
     textColor: "text-[#422006]", // Yellow-950
     trendIcon: <ArrowTrendUpRegular />,
@@ -104,8 +104,8 @@ const cardsData = [
   {
     icon: <MessageFill />,
     profit: 3.6,
-    startColor: "#fb7185", // Rose-400
-    endColor: "#fecdd3", // Rose-200
+    startColor: "#fda4af", // Rose-300
+    endColor: "#fff1f2", // Rose-50
     iconColor: "text-[#e11d48]", // Rose-600
     textColor: "text-[#4c0519]", // Rose-950
     trendIcon: <ArrowTrendUpRegular />,

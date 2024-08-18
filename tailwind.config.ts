@@ -34,11 +34,11 @@ const config = {
         dark: "0px 0px 2px 0px rgba(0,0,0,0.7), 0px 12px 24px -4px rgba(0,0,0,0.4)",
       },
       colors: {
-        "primary-high-dark": "#115e59", // blue-950
-        "primary-dark": "#0d9488", // blue-600
-        "primary-light": "#1725541c", // blue- low opacity
-        "primary-light-2": "#14b8a6", // blue-500
-        "primary-light-3": "#2dd4bf", // blue-400
+        "primary-high-dark": "#115e59", // teal-950
+        "primary-dark": "#0d9488", // teal-600
+        "primary-light": "#1725541c", // teal- low opacity
+        "primary-light-2": "#14b8a6", // teal-500
+        "primary-light-3": "#2dd4bf", // teal-400
         light1: "#f8fafc",
         light2: "#f1f5f9",
         light3: "#e2e8f0",
