@@ -22,15 +22,15 @@ const chartConfig = {
   },
   kids: {
     label: "Kids",
-    color: "#f87171",
+    color: "#ef4444", // Red-500
   },
   mens: {
     label: "Mens",
-    color: "#facc15",
+    color: "#eab308", // Yellow-500
   },
   womens: {
     label: "Womens",
-    color: "#4ade80",
+    color: "#10b981", // Emerald-500
   },
 } satisfies ChartConfig;
 
@@ -56,7 +56,11 @@ const SaleByGender = () => {
               cursor={false}
               content={<ChartTooltipContent hideLabel nameKey="gender" />}
             />
-            <RadialBar dataKey="sales" background cornerRadius={10}>
+            <RadialBar
+              dataKey="sales"
+              background={{ fill: "var(--radial-chart-bg)" }}
+              cornerRadius={10}
+            >
               <LabelList
                 position="insideStart"
                 dataKey="gender"
