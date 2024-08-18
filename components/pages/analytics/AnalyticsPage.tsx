@@ -3,6 +3,7 @@ import AnalyticsCards from "./ui/AnalyticsCards";
 import CurrentVisits from "./ui/CurrentVisits";
 import WebsiteVisits from "./ui/WebsiteVisits";
 import ConversionRates from "./ui/ConversionRates";
+import CurrentSubject from "./ui/CurrentSubject";
 
 const AnalyticsPage = () => {
   return (
@@ -16,6 +17,7 @@ const AnalyticsPage = () => {
       </View>
       <View className="flex flex-col xl:flex-row gap-5">
         <ConversionRates />
+        <CurrentSubject />
       </View>
     </View>
   );
