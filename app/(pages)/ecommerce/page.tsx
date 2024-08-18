@@ -1,7 +1,7 @@
-import React from "react";
+import EcommercePage from "@/components/pages/ecommerce/EcommercePage";
 
 const Ecommerce = () => {
-  return <div>Ecommerce</div>;
+  return <EcommercePage />;
 };
 
 export default Ecommerce;

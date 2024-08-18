@@ -1,10 +1,12 @@
+// next
+import Image from "next/image";
 // constants
 import { images } from "@/constants";
 // cmp
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
+// icons
 import { AngleRightRegular } from "@/components/svg";
 
 const data = [

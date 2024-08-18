@@ -34,7 +34,7 @@ const config = {
         dark: "0px 0px 2px 0px rgba(0,0,0,0.7), 0px 12px 24px -4px rgba(0,0,0,0.4)",
       },
       colors: {
-        "primary-high-dark": "#115e59", // teal-950
+        "primary-high-dark": "#042f2e", // teal-950
         "primary-dark": "#0d9488", // teal-600
         "primary-light": "#1725541c", // teal- low opacity
         "primary-light-2": "#14b8a6", // teal-500
