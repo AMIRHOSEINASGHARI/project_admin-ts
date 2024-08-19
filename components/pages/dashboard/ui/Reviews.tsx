@@ -16,11 +16,13 @@ const Reviews = () => {
       {dashboardReviews.map((el, i) => {
         const { title, count, profit, chartData } = el;
 
-        // const color = profit >= 0 ? "#047857" : "#b91c1c";
+        const color =
+          profit >= 0 ? "var(--default-chart-primary-1)" : "var(--chart-rose)";
+
         const chartConfig = {
           performance: {
             label: "Performance",
-            // color,
+            color,
           },
         } satisfies ChartConfig;
 
@@ -58,10 +60,8 @@ const Reviews = () => {
                   <BarChart accessibilityLayer data={chartData}>
                     <Bar
                       dataKey="performance"
+                      fill="var(--color-performance)"
                       radius={4}
-                      className={
-                        profit >= 0 ? "fill-primary-dark" : "fill-[#b91c1c]"
-                      }
                     />
                   </BarChart>
                 </ChartContainer>

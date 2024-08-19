@@ -27,11 +27,11 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--chart-1)",
+    color: "var(--default-chart-primary-1)",
   },
   mobile: {
     label: "Mobile",
-    color: "var(--chart-2)",
+    color: "var(--default-chart-primary-2)",
   },
 } satisfies ChartConfig;
 
@@ -73,12 +73,12 @@ const ConversionRates = () => {
             />
             <Bar
               dataKey="desktop"
-              className="fill-primary-dark"
+              className="fill-primary-1"
               radius={[0, 4, 4, 0]}
             />
             <Bar
               dataKey="mobile"
-              className="fill-primary-high-dark"
+              className="fill-primary-2"
               radius={[0, 4, 4, 0]}
             />
           </BarChart>

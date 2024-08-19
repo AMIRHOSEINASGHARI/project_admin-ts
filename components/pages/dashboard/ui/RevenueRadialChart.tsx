@@ -16,7 +16,7 @@ const charts = [
   {
     id: "conversations",
     title: "Conversations",
-    color: "var(--chart-1)",
+    color: "var(--default-chart-primary-1)",
     chartData: [
       {
         name: "conversations",
@@ -35,7 +35,7 @@ const charts = [
   {
     id: "applications",
     title: "Applications",
-    color: "#4f46e5",
+    color: "var(--chart-yellow)",
     chartData: [
       {
         name: "applications",
@@ -54,7 +54,7 @@ const charts = [
   {
     id: "downloads",
     title: "Downloads",
-    color: "#eab308",
+    color: "var(--chart-purple)",
     chartData: [
       {
         name: "downloads",
@@ -73,7 +73,7 @@ const charts = [
   {
     id: "files",
     title: "Files",
-    color: "#f43f5e",
+    color: "var(--chart-blue)",
     chartData: [
       {
         name: "files",

@@ -64,23 +64,23 @@ const chartData = [
 const chartConfig = {
   series1: {
     label: "series1",
-    color: "var(--chart-1)",
+    color: "var(--default-chart-primary-1)",
   },
   series2: {
     label: "series2",
-    color: "var(--chart-2)",
+    color: "var(--default-chart-primary-2)",
   },
   series3: {
     label: "series3",
-    color: "var(--chart-3)",
+    color: "var(--default-chart-primary-light)",
   },
   series4: {
     label: "series4",
-    color: "var(--chart-4)",
+    color: "var(--default-chart-primary-light-2)",
   },
   series5: {
     label: "series5",
-    color: "var(--chart-5)",
+    color: "var(--default-chart-primary-light-3)",
   },
 } satisfies ChartConfig;
 

@@ -37,23 +37,23 @@ const chartConfig = {
   },
   phone: {
     label: "phone",
-    color: "var(--chart-1)",
+    color: "var(--default-chart-primary-1)",
   },
   laptop: {
     label: "laptop",
-    color: "var(--chart-2)",
+    color: "var(--default-chart-primary-2)",
   },
   tv: {
     label: "tv",
-    color: "var(--chart-3)",
+    color: "var(--default-chart-primary-light)",
   },
   headphone: {
     label: "headphone",
-    color: "var(--chart-4)",
+    color: "var(--default-chart-primary-light-2)",
   },
   other: {
     label: "Other",
-    color: "var(--chart-5)",
+    color: "var(--default-chart-primary-light-3)",
   },
 } satisfies ChartConfig;
 

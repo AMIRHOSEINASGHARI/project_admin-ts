@@ -40,7 +40,7 @@ const cardsData = [
       chartConfig: {
         desktop: {
           label: "Desktop",
-          color: "hsl(var(--chart-1))",
+          color: "hsl(var(--default-chart-primary-1))",
         },
       } satisfies ChartConfig,
     },
@@ -68,7 +68,7 @@ const cardsData = [
       chartConfig: {
         desktop: {
           label: "Desktop",
-          color: "hsl(var(--chart-1))",
+          color: "hsl(var(--default-chart-primary-1))",
         },
       } satisfies ChartConfig,
     },
@@ -96,7 +96,7 @@ const cardsData = [
       chartConfig: {
         desktop: {
           label: "Desktop",
-          color: "hsl(var(--chart-1))",
+          color: "hsl(var(--default-chart-primary-1))",
         },
       } satisfies ChartConfig,
     },
@@ -124,7 +124,7 @@ const cardsData = [
       chartConfig: {
         desktop: {
           label: "Desktop",
-          color: "hsl(var(--chart-1))",
+          color: "hsl(var(--default-chart-primary-1))",
         },
       } satisfies ChartConfig,
     },

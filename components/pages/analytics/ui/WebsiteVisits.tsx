@@ -37,7 +37,7 @@ const WebsiteVisits = () => {
     },
     mobile: {
       label: "Mobile",
-      color: "var(--chart-1)",
+      color: "var(--default-chart-primary-1)",
     },
   } satisfies ChartConfig;
 
@@ -66,8 +66,8 @@ const WebsiteVisits = () => {
             tickFormatter={(value) => value.slice(0, 3)}
           />
           <ChartTooltip content={<ChartTooltipContent />} />
-          <Bar dataKey="desktop" className="fill-primary-dark" radius={4} />
-          <Bar dataKey="mobile" className="fill-primary-high-dark" radius={4} />
+          <Bar dataKey="desktop" className="fill-primary-1" radius={4} />
+          <Bar dataKey="mobile" className="fill-primary-2" radius={4} />
         </BarChart>
       </ChartContainer>
     </Card>

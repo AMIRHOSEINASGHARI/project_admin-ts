@@ -33,11 +33,11 @@ const UsersCompare = () => {
   const chartConfig = {
     desktop: {
       label: "Desktop",
-      color: "var(--chart-desktop)",
+      color: "var(--default-chart-primary-1)",
     },
     mobile: {
       label: "Mobile",
-      color: "var(--chart-1)",
+      color: "var(--default-chart-primary-2)",
     },
   } satisfies ChartConfig;
 
@@ -69,13 +69,15 @@ const UsersCompare = () => {
           <Bar
             dataKey="desktop"
             stackId="a"
-            className="fill-primary-dark"
+            // className="fill-primary-1"
+            fill="var(--color-desktop)"
             radius={[0, 0, 8, 8]}
           />
           <Bar
             dataKey="mobile"
             stackId="a"
-            className="fill-primary-high-dark"
+            // className="fill-primary-2"
+            fill="var(--color-mobile)"
             radius={[8, 8, 0, 0]}
           />
         </BarChart>

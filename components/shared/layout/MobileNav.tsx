@@ -42,7 +42,7 @@ const MobileNav = () => {
     <div>
       <Link
         href="/dashboard"
-        className="flex items-center gap-[10px] text-primary-dark"
+        className="flex items-center gap-[10px] text-primary-1"
       >
         <LogoRegular className="ml-[8px] text-[40px]" />
       </Link>
@@ -56,7 +56,7 @@ const MobileNav = () => {
           <Fragment key={item.title}>
             <li
               className={clsx("rounded-xl", {
-                "bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-white font-medium":
+                "bg-primary-light text-primary-1 dark:bg-primary-1 dark:text-white font-medium":
                   pathname === item.link,
                 "text-dark3 dark:text-light3 hover:dark:bg-dark2 hover:bg-light2":
                   pathname !== item.link,

@@ -17,7 +17,7 @@ const Sidebar = () => {
 
   return (
     <aside className="w-[300px] max-md:hidden fixed z-30 left-0 h-screen bg-white dark:bg-dark1 border-r border-gray-200 dark:border-dark2 overflow-y-auto sidebarScroll">
-      <div className="flex items-center justify-between fixed bg-white text-primary-dark dark:bg-dark1 border-r border-gray-200 dark:border-dark2 p-4 top-0 w-[300px] z-20">
+      <div className="flex items-center justify-between fixed bg-white text-primary-1 dark:bg-dark1 border-r border-gray-200 dark:border-dark2 p-4 top-0 w-[300px] z-20">
         <Link href="/dashboard" className="flex items-center gap-[10px]">
           <LogoRegular className="ml-[8px] text-[40px]" />
         </Link>
@@ -32,7 +32,7 @@ const Sidebar = () => {
           <Fragment key={item.title}>
             <li
               className={clsx("rounded-xl", {
-                "bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-white font-medium":
+                "bg-primary-light text-primary-1 dark:bg-primary-1 dark:text-white font-medium":
                   pathname === item.link,
                 "text-dark3 dark:text-light3 hover:dark:bg-dark2 hover:bg-light2":
                   pathname !== item.link,
