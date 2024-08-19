@@ -33,21 +33,21 @@ const chartData = [
 const chartConfig = {
   womens: {
     label: "Womens",
-    color: "var(--chart-rose)",
+    color: "var(--chart-green)",
   },
   mens: {
     label: "Mens",
-    color: "var(--chart-purple)",
+    color: "var(--chart-amber)",
   },
   kids: {
     label: "Kids",
-    color: "var(--chart-blue)",
+    color: "var(--chart-rose)",
   },
 } satisfies ChartConfig;
 
 const SaleByGender = () => {
   return (
-    <Card className="flex flex-col w-full">
+    <Card className="flex flex-col w-full xl:w-[30%]">
       <CardHeader className="pb-0">
         <CardTitle>Sale by gender</CardTitle>
       </CardHeader>

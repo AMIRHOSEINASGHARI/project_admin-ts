@@ -1,6 +1,7 @@
 import View from "@/components/shared/layout/View";
 import EcommercePageCards from "./ui/EcommercePageCards";
 import SaleByGender from "./ui/SaleByGender";
+import YearlySales from "./ui/YearlySales";
 
 const EcommercePage = () => {
   return (
@@ -8,6 +9,7 @@ const EcommercePage = () => {
       <EcommercePageCards />
       <View variant="flex-gap">
         <SaleByGender />
+        <YearlySales />
       </View>
     </View>
   );

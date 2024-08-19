@@ -29,13 +29,13 @@
     --default-chart-primary-light-2: theme("colors.primary-light-2");
     --default-chart-primary-light-3: theme("colors.primary-light-3");
     --radial-chart-bg: theme("colors.light3");
-    --chart-blue: #2563eb; /*  blue-600 */
-    --chart-amber: #d97706; /* amber-600 */
-    --chart-teal: #0d9488; /* teal-600 */
-    --chart-rose: #e11d48; /* rose-600 */
-    --chart-green: #16a34a; /* green-600 */
-    --chart-purple: #9333ea; /* purple-600 */
-    --chart-yellow: #ca8a04; /* yellow-600 */
+    --chart-blue: #3b82f6; /*  blue-500 */
+    --chart-amber: #f59e0b; /* amber-500 */
+    --chart-teal: #14b8a6; /* teal-500 */
+    --chart-rose: #f43f5e; /* rose-500 */
+    --chart-green: #22c55e; /* green-500 */
+    --chart-purple: #a855f7; /* purple-500 */
+    --chart-yellow: #eab308; /* yellow-500 */
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -143,4 +143,8 @@
 
 .bold-value-2 {
   @apply font-medium;
+}
+
+.chart-cartesian-grid {
+  @apply stroke-light3 dark:stroke-dark3;
 }

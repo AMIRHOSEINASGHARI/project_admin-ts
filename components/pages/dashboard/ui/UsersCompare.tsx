@@ -54,10 +54,7 @@ const UsersCompare = () => {
         className="lg:max-h-[300px] max-lg:h-[400px] w-full"
       >
         <BarChart accessibilityLayer data={chartData}>
-          <CartesianGrid
-            vertical={false}
-            className="stroke-light3 dark:stroke-dark3"
-          />
+          <CartesianGrid vertical={false} className="chart-cartesian-grid" />
           <XAxis
             dataKey="month"
             tickLine={false}
