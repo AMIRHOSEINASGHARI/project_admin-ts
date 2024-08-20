@@ -2,7 +2,6 @@
 
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import {
-  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -13,36 +12,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 186, mobile: 80 },
-  { month: "July", desktop: 305, mobile: 120 },
-  { month: "August", desktop: 214, mobile: 140 },
-  { month: "September", desktop: 100, mobile: 150 },
-  { month: "October", desktop: 214, mobile: 140 },
-  { month: "November", desktop: 300, mobile: 120 },
-  { month: "December", desktop: 150, mobile: 70 },
-];
+// constatns
+import {
+  usersCompare_chartConfig,
+  usersCompare_chartData,
+} from "@/constants/charts";
 
 const UsersCompare = () => {
-  const chartConfig = {
-    desktop: {
-      label: "Desktop",
-      color: "var(--default-chart-primary-1)",
-    },
-    mobile: {
-      label: "Mobile",
-      color: "var(--default-chart-primary-2)",
-    },
-  } satisfies ChartConfig;
-
-  //   TODO: bug in tooltip color
-
   return (
     <Card className="flex flex-col flex-1">
       <CardHeader>
@@ -50,10 +26,10 @@ const UsersCompare = () => {
         <CardDescription>(+43%) than last year</CardDescription>
       </CardHeader>
       <ChartContainer
-        config={chartConfig}
+        config={usersCompare_chartConfig}
         className="lg:max-h-[300px] max-lg:h-[400px] w-full"
       >
-        <BarChart accessibilityLayer data={chartData}>
+        <BarChart accessibilityLayer data={usersCompare_chartData}>
           <CartesianGrid vertical={false} className="chart-cartesian-grid" />
           <XAxis
             dataKey="month"

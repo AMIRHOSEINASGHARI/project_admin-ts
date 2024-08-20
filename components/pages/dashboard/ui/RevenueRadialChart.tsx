@@ -10,91 +10,14 @@ import {
   RadialBarChart,
 } from "recharts";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChartConfig, ChartContainer } from "@/components/ui/chart";
-
-const charts = [
-  {
-    id: "conversations",
-    title: "Conversations",
-    color: "var(--default-chart-primary-1)",
-    chartData: [
-      {
-        name: "conversations",
-        number: 150,
-      },
-    ],
-    chartConfig: {
-      numbers: {
-        label: "Numbers",
-      },
-      conversations: {
-        label: "Conversations",
-      },
-    } satisfies ChartConfig,
-  },
-  {
-    id: "applications",
-    title: "Applications",
-    color: "var(--chart-yellow)",
-    chartData: [
-      {
-        name: "applications",
-        number: 320,
-      },
-    ],
-    chartConfig: {
-      numbers: {
-        label: "Numbers",
-      },
-      conversations: {
-        label: "Applications",
-      },
-    } satisfies ChartConfig,
-  },
-  {
-    id: "downloads",
-    title: "Downloads",
-    color: "var(--chart-purple)",
-    chartData: [
-      {
-        name: "downloads",
-        number: 260,
-      },
-    ],
-    chartConfig: {
-      numbers: {
-        label: "Numbers",
-      },
-      conversations: {
-        label: "Downloads",
-      },
-    } satisfies ChartConfig,
-  },
-  {
-    id: "files",
-    title: "Files",
-    color: "var(--chart-blue)",
-    chartData: [
-      {
-        name: "files",
-        number: 90,
-      },
-    ],
-    chartConfig: {
-      numbers: {
-        label: "Numbers",
-      },
-      conversations: {
-        label: "Files",
-      },
-    } satisfies ChartConfig,
-  },
-];
+import { ChartContainer } from "@/components/ui/chart";
+// constants
+import { revenueRadialChart_charts } from "@/constants/charts";
 
 const RevenueRadialChart = () => {
   return (
     <View variant="flex-wrap">
-      {charts.map((item) => (
+      {revenueRadialChart_charts.map((item) => (
         <Card key={item.id} className="flex flex-1 min-w-[250px]">
           <CardContent className="flex-1 pb-0">
             <ChartContainer

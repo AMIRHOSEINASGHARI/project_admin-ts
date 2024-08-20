@@ -1,15 +1,21 @@
 import {
+  ArrowTrendDownRegular,
+  ArrowTrendUpRegular,
+  BagsFill,
   BlogTextRegular,
   BoxOpenRegular,
+  CartFill,
   ChartHistogramRegular,
   CoinRegular,
   CommentRegular,
   HomeRegular,
+  MessageFill,
   OrderHistoryRegular,
   PlusRegular,
   SettingsSlidersRegular,
   ShopRegular,
   TodoAltRegular,
+  UsersFill,
   UsersRegular,
 } from "@/components/svg";
 
@@ -93,83 +99,204 @@ export const menuLinks = [
   },
 ];
 
-export const dashboardReviews = [
+export const analyticsCards_cardsData = [
   {
-    title: "Total Revenues",
-    count: 576000,
-    profit: 15,
-    chartData: [
-      { month: "January", performance: 240 },
-      { month: "February", performance: 305 },
-      { month: "March", performance: 165 },
-      { month: "April", performance: 73 },
-      { month: "May", performance: 56 },
-      { month: "June", performance: 100 },
-    ],
+    icon: <BagsFill />,
+    profit: 2.6,
+    startColor: "#6ee7b7", // Emerald-300
+    endColor: "#ecfdf5", // Emerald-50
+    iconColor: "text-[#059669]", // Emerald-600
+    textColor: "text-[#022c22]", // Emerald-950
+    trendIcon: <ArrowTrendUpRegular />,
+    chartColor: "#059669",
+    text: "Weekly sales",
+    value: "714k",
+    chart: {
+      chartData: [
+        { month: "January", desktop: 22 },
+        { month: "February", desktop: 8 },
+        { month: "March", desktop: 35 },
+        { month: "April", desktop: 50 },
+        { month: "May", desktop: 82 },
+        { month: "June", desktop: 84 },
+      ],
+      chartConfig: {
+        desktop: {
+          label: "Desktop",
+          color: "hsl(var(--default-chart-primary-1))",
+        },
+      },
+    },
   },
   {
-    title: "Total Products",
-    count: 16585,
-    profit: -5,
-    chartData: [
-      { month: "January", performance: 200 },
-      { month: "February", performance: 450 },
-      { month: "March", performance: 360 },
-      { month: "April", performance: 659 },
-      { month: "May", performance: 200 },
-      { month: "June", performance: 150 },
-    ],
+    icon: <UsersFill />,
+    profit: -0.1,
+    startColor: "#d8b4fe", // Purple-300
+    endColor: "#faf5ff", // Purple-50
+    iconColor: "text-[#9333ea]", // Purple-600
+    textColor: "text-[#3b0764]", // Purple-950
+    trendIcon: <ArrowTrendDownRegular />,
+    chartColor: "#9333ea",
+    text: "New users",
+    value: "1.35m",
+    chart: {
+      chartData: [
+        { month: "January", desktop: 56 },
+        { month: "February", desktop: 47 },
+        { month: "March", desktop: 40 },
+        { month: "April", desktop: 62 },
+        { month: "May", desktop: 73 },
+        { month: "June", desktop: 30 },
+      ],
+      chartConfig: {
+        desktop: {
+          label: "Desktop",
+          color: "hsl(var(--default-chart-primary-1))",
+        },
+      },
+    },
   },
   {
-    title: "Total Users",
-    count: 102365,
-    profit: 12,
-    chartData: [
-      { month: "January", performance: 150 },
-      { month: "February", performance: 600 },
-      { month: "March", performance: 580 },
-      { month: "April", performance: 650 },
-      { month: "May", performance: 300 },
-      { month: "June", performance: 400 },
-    ],
+    icon: <CartFill />,
+    profit: 2.8,
+    startColor: "#fde047", // Yellow-300
+    endColor: "#fefce8", // Yellow-50
+    iconColor: "text-[#ca8a04]", // Yellow-600
+    textColor: "text-[#422006]", // Yellow-950
+    trendIcon: <ArrowTrendUpRegular />,
+    chartColor: "#ca8a04",
+    text: "Purchase orders",
+    value: "1.72m",
+    chart: {
+      chartData: [
+        { month: "January", desktop: 40 },
+        { month: "February", desktop: 70 },
+        { month: "March", desktop: 50 },
+        { month: "April", desktop: 28 },
+        { month: "May", desktop: 70 },
+        { month: "June", desktop: 75 },
+      ],
+      chartConfig: {
+        desktop: {
+          label: "Desktop",
+          color: "hsl(var(--default-chart-primary-1))",
+        },
+      },
+    },
   },
   {
-    title: "Comments To Answer",
-    count: 3650,
-    profit: 63,
-    chartData: [
-      { month: "January", performance: 176 },
-      { month: "February", performance: 360 },
-      { month: "March", performance: 200 },
-      { month: "April", performance: 100 },
-      { month: "May", performance: 208 },
-      { month: "June", performance: 214 },
-    ],
+    icon: <MessageFill />,
+    profit: 3.6,
+    startColor: "#fda4af", // Rose-300
+    endColor: "#fff1f2", // Rose-50
+    iconColor: "text-[#e11d48]", // Rose-600
+    textColor: "text-[#4c0519]", // Rose-950
+    trendIcon: <ArrowTrendUpRegular />,
+    chartColor: "#e11d48",
+    text: "Messages",
+    value: "234",
+    chart: {
+      chartData: [
+        { month: "January", desktop: 56 },
+        { month: "February", desktop: 30 },
+        { month: "March", desktop: 23 },
+        { month: "April", desktop: 47 },
+        { month: "May", desktop: 40 },
+        { month: "June", desktop: 62 },
+      ],
+      chartConfig: {
+        desktop: {
+          label: "Desktop",
+          color: "hsl(var(--default-chart-primary-1))",
+        },
+      },
+    },
+  },
+];
+
+export const ecommercePageCards_cards = [
+  {
+    id: "1",
+    title: "Product sold",
+    value: "765",
+    profit: 2.6,
+    chart: {
+      chartData: [
+        { month: "January", desktop: 22 },
+        { month: "February", desktop: 8 },
+        { month: "March", desktop: 35 },
+        { month: "April", desktop: 50 },
+        { month: "May", desktop: 82 },
+        { month: "June", desktop: 84 },
+        { month: "July", desktop: 77 },
+        { month: "August", desktop: 12 },
+      ],
+      chartConfig: {
+        desktop: {
+          label: "Desktop",
+          color: "#10b981",
+        },
+      },
+      chartColor: {
+        stopColor: "#10b981", // Teal-500
+        endColor: "#86efac", // Teal-300
+      },
+    },
   },
   {
-    title: "Total Orders",
-    count: 4500,
-    profit: -8,
-    chartData: [
-      { month: "January", performance: 100 },
-      { month: "February", performance: 150 },
-      { month: "March", performance: 237 },
-      { month: "April", performance: 150 },
-      { month: "May", performance: 209 },
-      { month: "June", performance: 150 },
-    ],
+    id: "2",
+    title: "Total balance",
+    value: "18,765",
+    profit: -0.1,
+    chart: {
+      chartData: [
+        { month: "January", desktop: 56 },
+        { month: "February", desktop: 47 },
+        { month: "March", desktop: 40 },
+        { month: "April", desktop: 62 },
+        { month: "May", desktop: 73 },
+        { month: "June", desktop: 30 },
+        { month: "July", desktop: 23 },
+        { month: "August", desktop: 54 },
+      ],
+      chartConfig: {
+        desktop: {
+          label: "Desktop",
+          color: "#eab308",
+        },
+      },
+      chartColor: {
+        stopColor: "#eab308", // Yellow-500
+        endColor: "#fde047", // Yellow-300
+      },
+    },
   },
   {
-    title: "Blogs",
-    count: 2000,
-    profit: -10,
-    chartData: [
-      { month: "January", performance: 18 },
-      { month: "February", performance: 30 },
-      { month: "March", performance: 23 },
-      { month: "April", performance: 73 },
-      { month: "May", performance: 10 },
-      { month: "June", performance: 50 },
-    ],
+    id: "3",
+    title: "Sales profit",
+    value: "4,876",
+    profit: 0.6,
+    chart: {
+      chartData: [
+        { month: "January", desktop: 40 },
+        { month: "February", desktop: 70 },
+        { month: "March", desktop: 75 },
+        { month: "April", desktop: 70 },
+        { month: "May", desktop: 50 },
+        { month: "June", desktop: 28 },
+        { month: "July", desktop: 7 },
+        { month: "August", desktop: 64 },
+      ],
+      chartConfig: {
+        desktop: {
+          label: "Desktop",
+          color: "#a855f7",
+        },
+      },
+      chartColor: {
+        stopColor: "#a855f7", // Purple-500
+        endColor: "#d8b4fe", // Purple-300
+      },
+    },
   },
 ];

@@ -1,7 +1,7 @@
 "use client";
 
 // constants
-import { dashboardReviews } from "@/constants";
+import { dashboardReviews_chartData } from "@/constants/charts";
 // cmp
 import { Card } from "@/components/ui/card";
 import { Bar, BarChart } from "recharts";
@@ -13,7 +13,7 @@ import View from "@/components/shared/layout/View";
 const Reviews = () => {
   return (
     <View variant="flex-wrap">
-      {dashboardReviews.map((el, i) => {
+      {dashboardReviews_chartData.map((el, i) => {
         const { title, count, profit, chartData } = el;
 
         const color =

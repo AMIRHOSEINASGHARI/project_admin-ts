@@ -1,49 +1,20 @@
 "use client";
 
 // cmp
-import { Legend, PolarAngleAxis, RadialBar, RadialBarChart } from "recharts";
+import { PolarAngleAxis, RadialBar, RadialBarChart } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  ChartConfig,
   ChartContainer,
   ChartLegend,
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-const chartData = [
-  {
-    gender: "kids",
-    value: (270 / 360) * 100,
-    fill: "var(--color-kids)",
-  },
-  {
-    gender: "mens",
-    value: (180 / 360) * 100,
-    fill: "var(--color-mens)",
-  },
-  {
-    gender: "womens",
-    value: (90 / 360) * 100,
-    fill: "var(--color-womens)",
-  },
-];
-
-const chartConfig = {
-  womens: {
-    label: "Womens",
-    color: "var(--chart-green)",
-  },
-  mens: {
-    label: "Mens",
-    color: "var(--chart-amber)",
-  },
-  kids: {
-    label: "Kids",
-    color: "var(--chart-rose)",
-  },
-} satisfies ChartConfig;
+// constants
+import {
+  saleByGender_chartConfig,
+  saleByGender_chartData,
+} from "@/constants/charts";
 
 const SaleByGender = () => {
   return (
@@ -53,7 +24,7 @@ const SaleByGender = () => {
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
-          config={chartConfig}
+          config={saleByGender_chartConfig}
           className="mx-auto aspect-square min-w-[150px] max-w-[300px]"
         >
           <RadialBarChart
@@ -63,7 +34,7 @@ const SaleByGender = () => {
               top: -10,
               bottom: -10,
             }}
-            data={chartData}
+            data={saleByGender_chartData}
             innerRadius="40%"
             barSize={17}
             startAngle={90}

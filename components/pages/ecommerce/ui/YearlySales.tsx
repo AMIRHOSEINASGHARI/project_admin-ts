@@ -17,35 +17,11 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-const chartData = [
-  { date: "2024-04-03", income: 167, expense: 120 },
-  { date: "2024-04-09", income: 59, expense: 110 },
-  { date: "2024-04-19", income: 243, expense: 180 },
-  { date: "2024-04-26", income: 75, expense: 130 },
-  { date: "2024-05-14", income: 448, expense: 490 },
-  { date: "2024-05-19", income: 235, expense: 180 },
-  { date: "2024-06-10", income: 155, expense: 200 },
-  { date: "2024-06-14", income: 426, expense: 380 },
-  { date: "2024-06-16", income: 371, expense: 310 },
-  { date: "2024-06-21", income: 169, expense: 210 },
-  { date: "2024-06-27", income: 448, expense: 490 },
-  { date: "2024-06-28", income: 149, expense: 200 },
-];
-
-const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
-  income: {
-    label: "Total income",
-    color: "var(--chart-amber)",
-  },
-  expense: {
-    label: "Total expense",
-    color: "var(--chart-green)",
-  },
-} satisfies ChartConfig;
+// constants
+import {
+  yearlySales_chartConfig,
+  yearlySales_chartData,
+} from "@/constants/charts";
 
 const YearlySales = () => {
   return (
@@ -56,10 +32,10 @@ const YearlySales = () => {
       </CardHeader>
       <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
         <ChartContainer
-          config={chartConfig}
+          config={yearlySales_chartConfig}
           className="aspect-auto h-[250px] w-full"
         >
-          <AreaChart data={chartData}>
+          <AreaChart data={yearlySales_chartData}>
             <defs>
               <linearGradient id="fillincome" x1="0" y1="0" x2="0" y2="1">
                 <stop

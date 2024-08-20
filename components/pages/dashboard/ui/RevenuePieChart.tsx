@@ -13,53 +13,24 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  ChartConfig,
   ChartContainer,
   ChartLegend,
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { Separator } from "@/components/ui/separator";
-import ChartBadgeColor from "@/components/shared/ChartBadgeColor";
-
-const chartData = [
-  { category: "phone", revenue: 275, fill: "var(--color-phone)" },
-  { category: "laptop", revenue: 200, fill: "var(--color-laptop)" },
-  { category: "tv", revenue: 287, fill: "var(--color-tv)" },
-  { category: "headphone", revenue: 173, fill: "var(--color-headphone)" },
-  { category: "other", revenue: 190, fill: "var(--color-other)" },
-];
-
-const chartConfig = {
-  revenue: {
-    label: "revenue",
-  },
-  phone: {
-    label: "phone",
-    color: "var(--default-chart-primary-1)",
-  },
-  laptop: {
-    label: "laptop",
-    color: "var(--default-chart-primary-2)",
-  },
-  tv: {
-    label: "tv",
-    color: "var(--default-chart-primary-light)",
-  },
-  headphone: {
-    label: "headphone",
-    color: "var(--default-chart-primary-light-2)",
-  },
-  other: {
-    label: "Other",
-    color: "var(--default-chart-primary-light-3)",
-  },
-} satisfies ChartConfig;
+// constants
+import {
+  revenuePieChart_chartConfig,
+  revenuePieChart_chartData,
+} from "@/constants/charts";
 
 const RevenuePieChart = () => {
   const totalRevenue = React.useMemo(() => {
-    return chartData.reduce((acc, curr) => acc + curr.revenue, 0);
+    return revenuePieChart_chartData.reduce(
+      (acc, curr) => acc + curr.revenue,
+      0
+    );
   }, []);
 
   return (
@@ -70,7 +41,7 @@ const RevenuePieChart = () => {
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
-          config={chartConfig}
+          config={revenuePieChart_chartConfig}
           className="mx-auto aspect-square min-h-[230px] max-h-[400px]"
         >
           <PieChart>
@@ -79,7 +50,7 @@ const RevenuePieChart = () => {
               content={<ChartTooltipContent hideLabel />}
             />
             <Pie
-              data={chartData}
+              data={revenuePieChart_chartData}
               dataKey="revenue"
               nameKey="category"
               innerRadius={60}

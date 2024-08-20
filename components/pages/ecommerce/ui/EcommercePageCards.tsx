@@ -13,98 +13,13 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import clsx from "clsx";
-
-const cards = [
-  {
-    id: "1",
-    title: "Product sold",
-    value: "765",
-    profit: 2.6,
-    chart: {
-      chartData: [
-        { month: "January", desktop: 22 },
-        { month: "February", desktop: 8 },
-        { month: "March", desktop: 35 },
-        { month: "April", desktop: 50 },
-        { month: "May", desktop: 82 },
-        { month: "June", desktop: 84 },
-        { month: "July", desktop: 77 },
-        { month: "August", desktop: 12 },
-      ],
-      chartConfig: {
-        desktop: {
-          label: "Desktop",
-          color: "#10b981",
-        },
-      } satisfies ChartConfig,
-      chartColor: {
-        stopColor: "#10b981", // Teal-500
-        endColor: "#86efac", // Teal-300
-      },
-    },
-  },
-  {
-    id: "2",
-    title: "Total balance",
-    value: "18,765",
-    profit: -0.1,
-    chart: {
-      chartData: [
-        { month: "January", desktop: 56 },
-        { month: "February", desktop: 47 },
-        { month: "March", desktop: 40 },
-        { month: "April", desktop: 62 },
-        { month: "May", desktop: 73 },
-        { month: "June", desktop: 30 },
-        { month: "July", desktop: 23 },
-        { month: "August", desktop: 54 },
-      ],
-      chartConfig: {
-        desktop: {
-          label: "Desktop",
-          color: "#eab308",
-        },
-      } satisfies ChartConfig,
-      chartColor: {
-        stopColor: "#eab308", // Yellow-500
-        endColor: "#fde047", // Yellow-300
-      },
-    },
-  },
-  {
-    id: "3",
-    title: "Sales profit",
-    value: "4,876",
-    profit: 0.6,
-    chart: {
-      chartData: [
-        { month: "January", desktop: 40 },
-        { month: "February", desktop: 70 },
-        { month: "March", desktop: 75 },
-        { month: "April", desktop: 70 },
-        { month: "May", desktop: 50 },
-        { month: "June", desktop: 28 },
-        { month: "July", desktop: 7 },
-        { month: "August", desktop: 64 },
-      ],
-      chartConfig: {
-        desktop: {
-          label: "Desktop",
-          color: "#a855f7",
-        },
-      } satisfies ChartConfig,
-      chartColor: {
-        stopColor: "#a855f7", // Purple-500
-        endColor: "#d8b4fe", // Purple-300
-      },
-    },
-  },
-];
+// constants
+import { ecommercePageCards_cards } from "@/constants";
 
 const EcommercePageCards = () => {
   return (
     <View variant="flex-wrap">
-      {cards.map((card) => (
+      {ecommercePageCards_cards.map((card) => (
         <Card key={card.title} className="flex flex-col flex-1 min-w-[270px]">
           <span className="text-small font-medium">{card.title}</span>
           <div className="flex items-center justify-between">

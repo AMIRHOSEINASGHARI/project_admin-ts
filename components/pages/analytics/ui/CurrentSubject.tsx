@@ -4,85 +4,15 @@
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-const chartData = [
-  {
-    subject: "English",
-    series1: 186,
-    series2: 80,
-    series3: 50,
-    series4: 40,
-    series5: 120,
-  },
-  {
-    subject: "History",
-    series1: 305,
-    series2: 200,
-    series3: 150,
-    series4: 50,
-    series5: 40,
-  },
-  {
-    subject: "Physics",
-    series1: 237,
-    series2: 120,
-    series3: 130,
-    series4: 150,
-    series5: 30,
-  },
-  {
-    subject: "Geography",
-    series1: 73,
-    series2: 190,
-    series3: 140,
-    series4: 120,
-    series5: 200,
-  },
-  {
-    subject: "Chinese",
-    series1: 209,
-    series2: 130,
-    series3: 150,
-    series4: 100,
-    series5: 200,
-  },
-  {
-    subject: "Math",
-    series1: 214,
-    series2: 140,
-    series3: 110,
-    series4: 124,
-    series5: 140,
-  },
-];
-
-const chartConfig = {
-  series1: {
-    label: "series1",
-    color: "var(--default-chart-primary-1)",
-  },
-  series2: {
-    label: "series2",
-    color: "var(--default-chart-primary-2)",
-  },
-  series3: {
-    label: "series3",
-    color: "var(--default-chart-primary-light)",
-  },
-  series4: {
-    label: "series4",
-    color: "var(--default-chart-primary-light-2)",
-  },
-  series5: {
-    label: "series5",
-    color: "var(--default-chart-primary-light-3)",
-  },
-} satisfies ChartConfig;
+// constants
+import {
+  currentSubject_chartConfig,
+  currentSubject_chartData,
+} from "@/constants/charts";
 
 const CurrentSubject = () => {
   return (
@@ -92,11 +22,11 @@ const CurrentSubject = () => {
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
-          config={chartConfig}
+          config={currentSubject_chartConfig}
           className="mx-auto aspect-square max-h-[300px]"
         >
           <RadarChart
-            data={chartData}
+            data={currentSubject_chartData}
             margin={{
               top: 10,
               right: 10,
@@ -111,7 +41,7 @@ const CurrentSubject = () => {
             <PolarAngleAxis
               dataKey="subject"
               tick={({ x, y, textAnchor, value, index, ...props }) => {
-                const data = chartData[index];
+                const data = currentSubject_chartData[index];
 
                 return (
                   <text

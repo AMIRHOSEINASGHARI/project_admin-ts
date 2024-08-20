@@ -1,7 +1,7 @@
 "use client";
 
+// cmp
 import { Bar, BarChart, XAxis, YAxis } from "recharts";
-
 import {
   Card,
   CardContent,
@@ -10,30 +10,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-const chartData = [
-  { month: "Italy", desktop: 44, mobile: 53 },
-  { month: "Japan", desktop: 55, mobile: 32 },
-  { month: "China", desktop: 41, mobile: 33 },
-  { month: "Canada", desktop: 64, mobile: 52 },
-  { month: "France", desktop: 22, mobile: 13 },
-];
-
-const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--default-chart-primary-1)",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "var(--default-chart-primary-2)",
-  },
-} satisfies ChartConfig;
+// constants
+import {
+  conversionRates_chartConfig,
+  conversionRates_chartData,
+} from "@/constants/charts";
 
 const ConversionRates = () => {
   return (
@@ -44,12 +29,12 @@ const ConversionRates = () => {
       </CardHeader>
       <CardContent>
         <ChartContainer
-          config={chartConfig}
+          config={conversionRates_chartConfig}
           className="lg:max-h-[300px] max-lg:h-[400px] w-full"
         >
           <BarChart
             accessibilityLayer
-            data={chartData}
+            data={conversionRates_chartData}
             layout="vertical"
             margin={{
               left: 5,
@@ -73,12 +58,12 @@ const ConversionRates = () => {
             />
             <Bar
               dataKey="desktop"
-              className="fill-primary-1"
+              fill="var(--color-desktop)"
               radius={[0, 4, 4, 0]}
             />
             <Bar
               dataKey="mobile"
-              className="fill-primary-2"
+              fill="var(--color-mobile)"
               radius={[0, 4, 4, 0]}
             />
           </BarChart>
