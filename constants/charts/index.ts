@@ -5,6 +5,7 @@ export const dashboardReviews_chartData = [
     title: "Total Revenues",
     count: 576000,
     profit: 15,
+    chartColor: "var(--default-chart-primary-1)",
     chartData: [
       { month: "January", performance: 240 },
       { month: "February", performance: 305 },
@@ -18,6 +19,7 @@ export const dashboardReviews_chartData = [
     title: "Total Products",
     count: 16585,
     profit: -5,
+    chartColor: "var(--chart-blue)",
     chartData: [
       { month: "January", performance: 200 },
       { month: "February", performance: 450 },
@@ -31,6 +33,7 @@ export const dashboardReviews_chartData = [
     title: "Total Users",
     count: 102365,
     profit: 12,
+    chartColor: "var(--chart-amber)",
     chartData: [
       { month: "January", performance: 150 },
       { month: "February", performance: 600 },
@@ -44,6 +47,7 @@ export const dashboardReviews_chartData = [
     title: "Comments To Answer",
     count: 3650,
     profit: 63,
+    chartColor: "var(--chart-teal)",
     chartData: [
       { month: "January", performance: 176 },
       { month: "February", performance: 360 },
@@ -57,6 +61,7 @@ export const dashboardReviews_chartData = [
     title: "Total Orders",
     count: 4500,
     profit: -8,
+    chartColor: "var(--chart-rose)",
     chartData: [
       { month: "January", performance: 100 },
       { month: "February", performance: 150 },
@@ -70,6 +75,7 @@ export const dashboardReviews_chartData = [
     title: "Blogs",
     count: 2000,
     profit: -10,
+    chartColor: "var(--chart-green)",
     chartData: [
       { month: "January", performance: 18 },
       { month: "February", performance: 30 },
@@ -103,7 +109,7 @@ export const usersCompare_chartConfig = {
   },
   mobile: {
     label: "Mobile",
-    color: "var(--default-chart-primary-2)",
+    color: "var(--chart-yellow)",
   },
 } satisfies ChartConfig;
 
@@ -137,7 +143,7 @@ export const revenuePieChart_chartConfig = {
   },
   other: {
     label: "Other",
-    color: "var(--default-chart-primary-light-3)",
+    color: "var(--chart-yellow)",
   },
 } satisfies ChartConfig;
 
@@ -250,7 +256,7 @@ export const currentVisits_chartConfig = {
   },
   other: {
     label: "Other",
-    color: "var(--default-chart-primary-light-3)",
+    color: "var(--chart-yellow)",
   },
 } satisfies ChartConfig;
 
@@ -276,7 +282,7 @@ export const websiteVisits_chartConfig = {
   },
   mobile: {
     label: "Mobile",
-    color: "var(--default-chart-primary-2)",
+    color: "var(--chart-yellow)",
   },
 } satisfies ChartConfig;
 
@@ -295,7 +301,7 @@ export const conversionRates_chartConfig = {
   },
   mobile: {
     label: "Mobile",
-    color: "var(--default-chart-primary-2)",
+    color: "var(--chart-yellow)",
   },
 } satisfies ChartConfig;
 
@@ -369,7 +375,7 @@ export const currentSubject_chartConfig = {
   },
   series5: {
     label: "series5",
-    color: "var(--default-chart-primary-light-3)",
+    color: "var(--chart-yellow)",
   },
 } satisfies ChartConfig;
 
@@ -394,7 +400,7 @@ export const saleByGender_chartData = [
 export const saleByGender_chartConfig = {
   womens: {
     label: "Womens",
-    color: "var(--chart-green)",
+    color: "var(--default-chart-primary-1)",
   },
   mens: {
     label: "Mens",
@@ -431,6 +437,6 @@ export const yearlySales_chartConfig = {
   },
   expense: {
     label: "Total expense",
-    color: "var(--chart-green)",
+    color: "var(--default-chart-primary-1)",
   },
 } satisfies ChartConfig;

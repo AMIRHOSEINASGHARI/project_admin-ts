@@ -14,15 +14,12 @@ const Reviews = () => {
   return (
     <View variant="flex-wrap">
       {dashboardReviews_chartData.map((el, i) => {
-        const { title, count, profit, chartData } = el;
-
-        const color =
-          profit >= 0 ? "var(--default-chart-primary-1)" : "var(--chart-rose)";
+        const { title, count, profit, chartData, chartColor } = el;
 
         const chartConfig = {
           performance: {
             label: "Performance",
-            color,
+            color: chartColor,
           },
         } satisfies ChartConfig;
 
