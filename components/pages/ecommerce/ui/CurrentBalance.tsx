@@ -34,12 +34,15 @@ const CurrentBalance = () => {
         </div>
       ))}
       <View className="flex items-center gap-4">
-        <Button variant="ghost" className="w-full font-medium bg-theme-yellow">
+        <Button
+          variant="ghost"
+          className="w-full font-medium bg-theme-yellow hover:bg-theme-yellow dark:text-dark1"
+        >
           Request
         </Button>
         <Button
           variant="ghost"
-          className="w-full font-medium bg-primary-1 text-white"
+          className="w-full font-medium bg-primary-1 hover:bg-primary-1 text-white"
         >
           Transfer
         </Button>

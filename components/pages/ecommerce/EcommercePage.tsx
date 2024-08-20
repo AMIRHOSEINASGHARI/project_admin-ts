@@ -4,6 +4,7 @@ import SaleByGender from "./ui/SaleByGender";
 import YearlySales from "./ui/YearlySales";
 import SalesOverview from "./ui/SalesOverview";
 import CurrentBalance from "./ui/CurrentBalance";
+import BestSalesman from "./ui/BestSalesman";
 
 const EcommercePage = () => {
   return (
@@ -16,6 +17,9 @@ const EcommercePage = () => {
       <View variant="flex-gap">
         <SalesOverview />
         <CurrentBalance />
+      </View>
+      <View variant="flex-gap">
+        <BestSalesman />
       </View>
     </View>
   );

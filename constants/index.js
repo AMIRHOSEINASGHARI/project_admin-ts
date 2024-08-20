@@ -300,3 +300,38 @@ export const ecommercePageCards_cards = [
     },
   },
 ];
+
+export const bestSalesman_data = [
+  {
+    id: "1",
+    image: images.admin,
+    name: "Jayvion Simon",
+    product: "CAP",
+    country: "/flags/germany.png",
+    total: 83.74,
+  },
+  {
+    id: "2",
+    image: images.admin2,
+    name: "Lucian Obrien",
+    product: "Branded shoes",
+    country: "/flags/uk.png",
+    total: 97.14,
+  },
+  {
+    id: "3",
+    image: images.admin3,
+    name: "Deja Brady",
+    product: "Headphone",
+    country: "/flags/france.png",
+    total: 68.71,
+  },
+  {
+    id: "4",
+    image: images.admin,
+    name: "Harrison Stein",
+    product: "Cell phone",
+    country: "/flags/kor.png",
+    total: 85.21,
+  },
+];
