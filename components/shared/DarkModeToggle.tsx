@@ -1,6 +1,6 @@
 "use client";
 
-import { useDarkMode } from "@/providers/DarkModeProvider";
+import { useDarkMode } from "@/providers/ThemeProvider";
 import { Button } from "../ui/button";
 import { MoonRegular, SunRegular } from "../svg";
 

@@ -1,7 +1,11 @@
 "use client";
 
 // react
-import { useEffect, useState } from "react";
+import { useState } from "react";
+// types
+import { PresetType } from "@/types/shared";
+// providers
+import { useDarkMode, useThemePreset } from "@/providers/ThemeProvider";
 // cmp
 import {
   Sheet,
@@ -12,6 +16,13 @@ import {
 } from "@/components/ui/sheet";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 // icons
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { Card } from "@/components/ui/card";
+import View from "./View";
+// icons
 import {
   CrossRegular,
   MoonRegular,
@@ -21,14 +32,6 @@ import {
   SidebarRegular,
   SunRegular,
 } from "@/components/svg";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
-import { useDarkMode, useThemePreset } from "@/providers/DarkModeProvider";
-import { Switch } from "@/components/ui/switch";
-import { Card } from "@/components/ui/card";
-import View from "./View";
-import { PresetType } from "@/types/shared";
 
 type PresetButton = {
   name: PresetType;
@@ -60,8 +63,6 @@ const AppearanceSettings = () => {
   const onOpen = () => {
     setOpen(true);
   };
-
-  console.log(themePreset === "sky");
 
   const presets: PresetButton[] = [
     {
@@ -114,7 +115,7 @@ const AppearanceSettings = () => {
       <View className="space-y-11">
         <Card
           onClick={toggleDarkMode}
-          className="cursor-pointer flex flex-col gap-4 card_hover"
+          className="cursor-pointer flex flex-col gap-4 bg-white/50 dark:bg-dark2/50"
         >
           <div className="flex items-center justify-between">
             {darkMode ? (
@@ -126,27 +127,27 @@ const AppearanceSettings = () => {
           </div>
           <span className="text-small">Dark mode</span>
         </Card>
-        <Card className="relative space-y-4">
+        <Card className="relative space-y-4 bg-white/50 dark:bg-dark2/50">
           <Badge className="absolute -top-3 left-5">Nav</Badge>
           <span className="text-small text-dark3 dark:text-light3">Color</span>
           <View variant="flex-wrap">
-            <div className="flex flex-1 items-center justify-center gap-3 p-5 border rounded-xl dark:border-dark3 cursor-pointer w-full card_hover">
+            <div className="flex flex-1 items-center justify-center gap-3 p-5 border rounded-xl dark:border-dark3 cursor-pointer w-full">
               <SidebarRegular className="text-icon" />
               <span className="text-small">Integrate</span>
             </div>
-            <div className="flex flex-1 items-center justify-center gap-3 p-5 border rounded-xl dark:border-dark3 cursor-pointer w-full card_hover">
+            <div className="flex flex-1 items-center justify-center gap-3 p-5 border rounded-xl dark:border-dark3 cursor-pointer w-full">
               <SidebarLeftFill className="text-icon" />
               <span className="text-small">Apparent</span>
             </div>
           </View>
         </Card>
-        <Card className="relative space-y-4">
+        <Card className="relative space-y-4 bg-white/50 dark:bg-dark2/50">
           <Badge className="absolute -top-3 left-5">Presets</Badge>
           <View className="grid grid-cols-3 gap-3">
             {presets.map((item) => (
               <div
                 key={item.name}
-                className={`w-full  h-[50px] flex items-center justify-center rounded-xl card_hover cursor-pointer ${
+                className={`w-full  h-[50px] flex items-center justify-center rounded-xl cursor-pointer ${
                   item.color
                 } ${item.isActive && item.background}`}
                 onClick={() => changeThemePreset(item.name)}

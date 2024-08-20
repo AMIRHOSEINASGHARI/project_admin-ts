@@ -6,8 +6,8 @@ import { Inter } from "next/font/google";
 // lib
 import { cn } from "@/lib/utils";
 // provider
-import DarkModeProvider from "@/providers/DarkModeProvider";
 import ReactQueryClientProvider from "@/providers/ReactQueryClientProvider";
+import ThemeProvider from "@/providers/ThemeProvider";
 // cmp
 import { Toaster } from "react-hot-toast";
 
@@ -32,14 +32,14 @@ export default function RootLayout({
         )}
       >
         <ReactQueryClientProvider>
-          <DarkModeProvider>
+          <ThemeProvider>
             <div>{children}</div>
             <Toaster
               toastOptions={{
                 className: "dark:bg-dark3 dark:text-light2",
               }}
             />
-          </DarkModeProvider>
+          </ThemeProvider>
         </ReactQueryClientProvider>
       </body>
     </html>

@@ -26,7 +26,9 @@ const AnalyticsCards = () => {
           </div>
           <div className="flex items-center justify-between mb-7">
             <div className={`text-[45px] ${card.iconColor}`}>{card.icon}</div>
-            <div className="flex items-center gap-1 font-bold text-sm">
+            <div
+              className={`flex items-center gap-1 font-bold text-sm ${card.textColor} dark:${card.textColor}`}
+            >
               <div>{card.trendIcon}</div>
               <span>{card.profit}%</span>
             </div>

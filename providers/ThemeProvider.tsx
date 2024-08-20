@@ -18,11 +18,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export default function DarkModeProvider({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function ThemeProvider({ children }: { children: ReactNode }) {
   const [darkMode, setDarkMode] = useState(false);
   const [themePreset, setThemePreset] = useState<PresetType | null>(null);
 
