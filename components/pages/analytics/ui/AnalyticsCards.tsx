@@ -16,7 +16,7 @@ const AnalyticsCards = () => {
       {analyticsCards_cardsData.map((card) => (
         <Card
           key={card.text}
-          className={`flex flex-col flex-1 overflow-hidden min-w-[250px] relative ${card.textColor} dark:${card.textColor}`}
+          className={`flex flex-col flex-1 overflow-hidden min-w-[250px] relative ${card.textColor} dark:text-dark1`}
           style={{
             backgroundImage: `linear-gradient(to top left, ${card.startColor}, ${card.endColor}`,
           }}
