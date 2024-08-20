@@ -5,8 +5,6 @@ import { PolarAngleAxis, RadialBar, RadialBarChart } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
@@ -51,7 +49,6 @@ const SaleByGender = () => {
               background={{ fill: "var(--radial-chart-bg)" }}
               cornerRadius={50}
             />
-            <ChartLegend content={<ChartLegendContent nameKey="gender" />} />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent nameKey="gender" />}

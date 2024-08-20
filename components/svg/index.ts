@@ -45,8 +45,10 @@ export { default as RectanglesMixedRegular } from "../../public/icons/Rectangles
 export { default as RemoveUserRegular } from "../../public/icons/RemoveUserRegular.svg";
 export { default as SearchRegular } from "../../public/icons/SearchRegular.svg";
 export { default as SettingsSlidersRegular } from "../../public/icons/SettingsSlidersRegular.svg";
+export { default as SettingsRegular } from "../../public/icons/SettingsRegular.svg";
 export { default as ShieldRegular } from "../../public/icons/ShieldRegular.svg";
 export { default as ShopRegular } from "../../public/icons/ShopRegular.svg";
+export { default as SidebarRegular } from "../../public/icons/SidebarRegular.svg";
 export { default as StarRegular } from "../../public/icons/StarRegular.svg";
 export { default as SunRegular } from "../../public/icons/SunRegular.svg";
 export { default as TelegramRegular } from "../../public/icons/TelegramRegular.svg";
@@ -67,3 +69,4 @@ export { default as BagsFill } from "../../public/icons/BagsFill.svg";
 export { default as CartFill } from "../../public/icons/CartFill.svg";
 export { default as UsersFill } from "../../public/icons/UsersFill.svg";
 export { default as MessageFill } from "../../public/icons/MessageFill.svg";
+export { default as SidebarLeftFill } from "../../public/icons/SidebarLeftFill.svg";

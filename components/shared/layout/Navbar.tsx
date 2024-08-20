@@ -6,6 +6,7 @@ import MobileNav from "./MobileNav";
 import ShowProfile from "./ShowProfile";
 // icons
 import { BellRegular, PowerRegular, SearchRegular } from "@/components/svg";
+import AppearanceSettings from "./AppearanceSettings";
 
 const Navbar = () => {
   return (
@@ -24,7 +25,8 @@ const Navbar = () => {
           <Button variant="icon">
             <BellRegular />
           </Button>
-          <DarkModeToggle />
+          {/* <DarkModeToggle /> */}
+          <AppearanceSettings />
           <ShowProfile />
         </div>
       </div>

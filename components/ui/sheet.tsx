@@ -66,10 +66,10 @@ const SheetContent = React.forwardRef<
       {...props}
     >
       {children}
-      <SheetPrimitive.Close className="absolute right-4 top-4 p-2 rounded-full dark:text-light3 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800">
+      {/* <SheetPrimitive.Close className="absolute right-4 top-4 p-2 rounded-full dark:text-light3 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800">
         <CrossRegular />
         <span className="sr-only">Close</span>
-      </SheetPrimitive.Close>
+      </SheetPrimitive.Close> */}
     </SheetPrimitive.Content>
   </SheetPortal>
 ));
