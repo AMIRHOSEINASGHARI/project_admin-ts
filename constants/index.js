@@ -123,7 +123,7 @@ export const analyticsCards_cardsData = [
       chartConfig: {
         desktop: {
           label: "Desktop",
-          color: "hsl(var(--default-chart-primary-1))",
+          color: "hsl(var(--primary-1))",
         },
       },
     },
@@ -151,7 +151,7 @@ export const analyticsCards_cardsData = [
       chartConfig: {
         desktop: {
           label: "Desktop",
-          color: "hsl(var(--default-chart-primary-1))",
+          color: "hsl(var(--primary-1))",
         },
       },
     },
@@ -179,7 +179,7 @@ export const analyticsCards_cardsData = [
       chartConfig: {
         desktop: {
           label: "Desktop",
-          color: "hsl(var(--default-chart-primary-1))",
+          color: "hsl(var(--primary-1))",
         },
       },
     },
@@ -207,7 +207,7 @@ export const analyticsCards_cardsData = [
       chartConfig: {
         desktop: {
           label: "Desktop",
-          color: "hsl(var(--default-chart-primary-1))",
+          color: "hsl(var(--primary-1))",
         },
       },
     },

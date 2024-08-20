@@ -5,7 +5,7 @@ export const dashboardReviews_chartData = [
     title: "Total Revenues",
     count: 576000,
     profit: 15,
-    chartColor: "var(--default-chart-primary-1)",
+    chartColor: "var(--primary-1)",
     chartData: [
       { month: "January", performance: 240 },
       { month: "February", performance: 305 },
@@ -105,7 +105,7 @@ export const usersCompare_chartData = [
 export const usersCompare_chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--default-chart-primary-1)",
+    color: "var(--primary-1)",
   },
   mobile: {
     label: "Mobile",
@@ -127,19 +127,19 @@ export const revenuePieChart_chartConfig = {
   },
   phone: {
     label: "phone",
-    color: "var(--default-chart-primary-1)",
+    color: "var(--primary-1)",
   },
   laptop: {
     label: "laptop",
-    color: "var(--default-chart-primary-2)",
+    color: "var(--primary-2)",
   },
   tv: {
     label: "tv",
-    color: "var(--default-chart-primary-light)",
+    color: "var(--primary-light)",
   },
   headphone: {
     label: "headphone",
-    color: "var(--default-chart-primary-light-2)",
+    color: "var(--primary-light-2)",
   },
   other: {
     label: "Other",
@@ -151,7 +151,7 @@ export const revenueRadialChart_charts = [
   {
     id: "conversations",
     title: "Conversations",
-    color: "var(--default-chart-primary-1)",
+    color: "var(--primary-1)",
     chartData: [
       {
         name: "conversations",
@@ -240,19 +240,19 @@ export const currentVisits_chartConfig = {
   },
   chrome: {
     label: "Chrome",
-    color: "var(--default-chart-primary-1)",
+    color: "var(--primary-1)",
   },
   safari: {
     label: "Safari",
-    color: "var(--default-chart-primary-2)",
+    color: "var(--primary-2)",
   },
   firefox: {
     label: "Firefox",
-    color: "var(--default-chart-primary-light)",
+    color: "var(--primary-light)",
   },
   edge: {
     label: "Edge",
-    color: "var(--default-chart-primary-light-2)",
+    color: "var(--primary-light-2)",
   },
   other: {
     label: "Other",
@@ -278,7 +278,7 @@ export const websiteVisits_chartData = [
 export const websiteVisits_chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--default-chart-primary-1)",
+    color: "var(--primary-1)",
   },
   mobile: {
     label: "Mobile",
@@ -297,7 +297,7 @@ export const conversionRates_chartData = [
 export const conversionRates_chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--default-chart-primary-1)",
+    color: "var(--primary-1)",
   },
   mobile: {
     label: "Mobile",
@@ -359,19 +359,19 @@ export const currentSubject_chartData = [
 export const currentSubject_chartConfig = {
   series1: {
     label: "series1",
-    color: "var(--default-chart-primary-1)",
+    color: "var(--primary-1)",
   },
   series2: {
     label: "series2",
-    color: "var(--default-chart-primary-2)",
+    color: "var(--primary-2)",
   },
   series3: {
     label: "series3",
-    color: "var(--default-chart-primary-light)",
+    color: "var(--primary-light)",
   },
   series4: {
     label: "series4",
-    color: "var(--default-chart-primary-light-2)",
+    color: "var(--primary-light-2)",
   },
   series5: {
     label: "series5",
@@ -400,7 +400,7 @@ export const saleByGender_chartData = [
 export const saleByGender_chartConfig = {
   womens: {
     label: "Womens",
-    color: "var(--default-chart-primary-1)",
+    color: "var(--primary-1)",
   },
   mens: {
     label: "Mens",
@@ -437,6 +437,6 @@ export const yearlySales_chartConfig = {
   },
   expense: {
     label: "Total expense",
-    color: "var(--default-chart-primary-1)",
+    color: "var(--primary-1)",
   },
 } satisfies ChartConfig;

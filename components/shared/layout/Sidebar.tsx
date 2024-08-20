@@ -5,6 +5,8 @@ import { Fragment } from "react";
 // next
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+// providers
+import { useNavColor } from "@/providers/ThemeProvider";
 // constants
 import { menuLinks } from "@/constants";
 // cmp
@@ -14,10 +16,20 @@ import { LogoRegular } from "@/components/svg";
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const { navColor } = useNavColor();
+
+  const color =
+    navColor === "Integrate"
+      ? "bg-white dark:bg-dark1 border-gray-200 dark:border-dark2"
+      : "bg-dark1 dark:bg-dark2 border-gray-200 dark:border-dark2";
 
   return (
-    <aside className="w-[300px] max-md:hidden fixed z-30 left-0 h-screen bg-white dark:bg-dark1 border-r border-gray-200 dark:border-dark2 overflow-y-auto sidebarScroll">
-      <div className="flex items-center justify-between fixed bg-white text-primary-1 dark:bg-dark1 border-r border-gray-200 dark:border-dark2 p-4 top-0 w-[300px] z-20">
+    <aside
+      className={`w-[300px] max-md:hidden fixed z-30 left-0 h-screen border-r overflow-y-auto sidebarScroll ${color}`}
+    >
+      <div
+        className={`flex items-center justify-between fixed text-primary-1 border-r p-4 top-0 w-[300px] z-20 ${color}`}
+      >
         <Link href="/dashboard" className="flex items-center gap-[10px]">
           <LogoRegular className="ml-[8px] text-[40px]" />
         </Link>
@@ -32,10 +44,12 @@ const Sidebar = () => {
           <Fragment key={item.title}>
             <li
               className={clsx("rounded-xl", {
-                "bg-primary-light text-primary-1 dark:bg-primary-1 dark:text-white font-medium":
+                "bg-primary-1 text-white dark:bg-primary-2 dark:text-white font-medium":
                   pathname === item.link,
                 "text-dark3 dark:text-light3 hover:dark:bg-dark2 hover:bg-light2":
                   pathname !== item.link,
+                "text-slate-400 hover:bg-slate-900 dark:hover:bg-slate-700/30":
+                  pathname !== item.link && navColor === "Apparent",
               })}
             >
               <Link

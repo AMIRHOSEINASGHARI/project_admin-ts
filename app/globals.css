@@ -23,11 +23,6 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 142 86% 28%;
-    --default-chart-primary-1: theme("colors.primary-1");
-    --default-chart-primary-2: theme("colors.primary-2");
-    --default-chart-primary-light: theme("colors.primary-light");
-    --default-chart-primary-light-2: theme("colors.primary-light-2");
-    --default-chart-primary-light-3: theme("colors.primary-light-3");
     --radial-chart-bg: theme("colors.light3");
     --chart-blue: #3b82f6; /*  blue-500 */
     --chart-amber: #f59e0b; /* amber-500 */
@@ -70,11 +65,11 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 142 86% 28%;
-    --default-chart-primary-1: theme("colors.primary-1");
-    --default-chart-primary-2: theme("colors.primary-2");
-    --default-chart-primary-light: theme("colors.primary-light");
-    --default-chart-primary-light-2: theme("colors.primary-light-2");
-    --default-chart-primary-light-3: theme("colors.primary-light-3");
+    --primary-1: theme("colors.primary-1");
+    --primary-2: theme("colors.primary-2");
+    --primary-light: theme("colors.primary-light");
+    --primary-light-2: theme("colors.primary-light-2");
+    --primary-light-3: theme("colors.primary-light-3");
     --radial-chart-bg: theme("colors.dark3");
     --chart-blue: #0284c7; /*  blue-700 */
     --chart-amber: #f59e0b; /* amber-700 */
