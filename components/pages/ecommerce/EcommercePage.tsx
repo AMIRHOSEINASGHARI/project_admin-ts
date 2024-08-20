@@ -3,6 +3,7 @@ import EcommercePageCards from "./ui/EcommercePageCards";
 import SaleByGender from "./ui/SaleByGender";
 import YearlySales from "./ui/YearlySales";
 import SalesOverview from "./ui/SalesOverview";
+import CurrentBalance from "./ui/CurrentBalance";
 
 const EcommercePage = () => {
   return (
@@ -14,6 +15,7 @@ const EcommercePage = () => {
       </View>
       <View variant="flex-gap">
         <SalesOverview />
+        <CurrentBalance />
       </View>
     </View>
   );
