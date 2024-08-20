@@ -5,6 +5,8 @@ import { Fragment, useState } from "react";
 // next
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+// providers
+import { useNavColor } from "@/providers/ThemeProvider";
 // constants
 import { menuLinks } from "@/constants";
 // cmp
@@ -33,6 +35,12 @@ const HiddenTags = () => (
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { navColor } = useNavColor();
+
+  const color =
+    navColor === "Integrate"
+      ? "bg-white/70 dark:bg-dark1/70 border-gray-200 dark:border-dark2"
+      : "bg-dark1/90 dark:bg-dark2/70 border-gray-200 dark:border-dark2";
 
   const onOpenChange = () => {
     setOpen(!open);
@@ -56,10 +64,12 @@ const MobileNav = () => {
           <Fragment key={item.title}>
             <li
               className={clsx("rounded-xl", {
-                "bg-primary-light text-primary-1 dark:bg-primary-1 dark:text-white font-medium":
+                "bg-primary-1 text-white dark:bg-primary-2 dark:text-white font-medium":
                   pathname === item.link,
                 "text-dark3 dark:text-light3 hover:dark:bg-dark2 hover:bg-light2":
                   pathname !== item.link,
+                "text-slate-400 hover:bg-slate-900 dark:hover:bg-slate-700/30":
+                  pathname !== item.link && navColor === "Apparent",
               })}
             >
               <Link
@@ -97,7 +107,7 @@ const MobileNav = () => {
           <MenuBarsRegular />
         </div>
       </SheetTrigger>
-      <SheetContent side="left">
+      <SheetContent side="left" className={`backdrop-blur-2xl ${color}`}>
         <HiddenTags />
         {sheetContent}
       </SheetContent>
