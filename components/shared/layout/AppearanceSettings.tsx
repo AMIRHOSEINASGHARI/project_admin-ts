@@ -3,9 +3,13 @@
 // react
 import { useState } from "react";
 // types
-import { PresetType } from "@/types/shared";
+import { NavColor, PresetType } from "@/types/shared";
 // providers
-import { useDarkMode, useThemePreset } from "@/providers/ThemeProvider";
+import {
+  useDarkMode,
+  useNavColor,
+  useThemePreset,
+} from "@/providers/ThemeProvider";
 // cmp
 import {
   Sheet,
@@ -32,11 +36,18 @@ import {
   SidebarRegular,
   SunRegular,
 } from "@/components/svg";
+import clsx from "clsx";
 
 type PresetButton = {
   name: PresetType;
   color: string;
   background: string;
+  isActive: boolean;
+};
+
+type NavColorButton = {
+  name: NavColor;
+  icon: JSX.Element;
   isActive: boolean;
 };
 
@@ -53,6 +64,7 @@ const AppearanceSettings = () => {
   const [open, setOpen] = useState(false);
   const { darkMode, toggleDarkMode } = useDarkMode();
   const { themePreset, changeThemePreset } = useThemePreset();
+  const { navColor, changeNavColor } = useNavColor();
 
   const onOpenChange = () => {
     setOpen(!open);
@@ -103,6 +115,19 @@ const AppearanceSettings = () => {
     },
   ];
 
+  const navColors: NavColorButton[] = [
+    {
+      name: "Integrate",
+      icon: <SidebarRegular className="text-icon" />,
+      isActive: navColor === "Integrate",
+    },
+    {
+      name: "Apparent",
+      icon: <SidebarLeftFill className="text-icon" />,
+      isActive: navColor === "Apparent",
+    },
+  ];
+
   const sheetContent = (
     <div>
       <div className="flex items-center justify-between">
@@ -131,14 +156,22 @@ const AppearanceSettings = () => {
           <Badge className="absolute -top-3 left-5">Nav</Badge>
           <span className="text-small text-dark3 dark:text-light3">Color</span>
           <View variant="flex-wrap">
-            <div className="flex flex-1 items-center justify-center gap-3 p-5 border rounded-xl dark:border-dark3 cursor-pointer w-full">
-              <SidebarRegular className="text-icon" />
-              <span className="text-small">Integrate</span>
-            </div>
-            <div className="flex flex-1 items-center justify-center gap-3 p-5 border rounded-xl dark:border-dark3 cursor-pointer w-full">
-              <SidebarLeftFill className="text-icon" />
-              <span className="text-small">Apparent</span>
-            </div>
+            {navColors.map((item) => (
+              <div
+                key={item.name}
+                className={`flex flex-1 items-center justify-center gap-3 p-5 border rounded-xl dark:border-dark3 cursor-pointer w-full text-slate-500`}
+                onClick={() => changeNavColor(item.name)}
+              >
+                <div
+                  className={clsx({
+                    "text-primary-1": item.isActive,
+                  })}
+                >
+                  {item.icon}
+                </div>
+                <span className="text-small">{item.name}</span>
+              </div>
+            ))}
           </View>
         </Card>
         <Card className="relative space-y-4 bg-white/50 dark:bg-dark2/50">
