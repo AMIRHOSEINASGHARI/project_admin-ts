@@ -440,3 +440,24 @@ export const yearlySales_chartConfig = {
     color: "var(--primary-1)",
   },
 } satisfies ChartConfig;
+
+export const salesOverview_data = [
+  {
+    title: "Total profit",
+    max: 90000,
+    value: 8374,
+    color: "bg-primary-1 dark:bg-primary-1",
+  },
+  {
+    title: "Total income",
+    max: 75000,
+    value: 9714,
+    color: "bg-theme-sky dark:bg-theme-sky",
+  },
+  {
+    title: "Total expenses",
+    max: 25000,
+    value: 6871,
+    color: "bg-theme-yellow dark:bg-theme-yellow",
+  },
+];
