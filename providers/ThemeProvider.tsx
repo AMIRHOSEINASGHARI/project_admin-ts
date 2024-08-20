@@ -1,6 +1,6 @@
 "use client";
 
-import { PresetType } from "@/types/shared";
+import { NavColor, PresetType } from "@/types/shared";
 import React, {
   createContext,
   useContext,
@@ -14,6 +14,8 @@ interface ThemeContextType {
   toggleDarkMode: () => void;
   themePreset: PresetType | null;
   changeThemePreset: (presetName: PresetType) => void;
+  navColor: NavColor | null;
+  changeNavColor: (name: NavColor) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -21,6 +23,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export default function ThemeProvider({ children }: { children: ReactNode }) {
   const [darkMode, setDarkMode] = useState(false);
   const [themePreset, setThemePreset] = useState<PresetType | null>(null);
+  const [navColor, setNavColor] = useState<NavColor | null>(null);
 
   const toggleDarkMode = () => {
     const root = window.document.documentElement;
@@ -39,6 +42,15 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     window.localStorage.setItem("preset", presetName);
   };
 
+  const changeNavColor = (name: NavColor) => {
+    if (!name) return;
+
+    setNavColor(name);
+
+    window.localStorage.setItem("navColor", name);
+  };
+
+  // dark mode check
   useEffect(() => {
     const root = window.document.documentElement;
     const initialDarkMode = localStorage.getItem("theme") === "dark";
@@ -52,6 +64,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     setDarkMode(initialDarkMode);
   }, []);
 
+  // preset check
   useEffect(() => {
     const initialThemePreset: PresetType | null = localStorage.getItem(
       "preset"
@@ -64,6 +77,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     setThemePreset(initialThemePreset);
   }, []);
 
+  // setting default preset color
   useEffect(() => {
     const root = document.documentElement;
     const preset = localStorage.getItem("preset");
@@ -113,19 +127,34 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, [themePreset]);
 
+  //   nav color check
+  useEffect(() => {
+    const initialNavColor = localStorage.getItem("navColor") as NavColor;
+
+    if (initialNavColor === null) {
+      localStorage.setItem("navColor", "Integrate");
+    }
+
+    setNavColor(initialNavColor);
+  }, []);
+
   return (
     <ThemeContext.Provider
-      value={{ darkMode, toggleDarkMode, themePreset, changeThemePreset }}
+      value={{
+        darkMode,
+        toggleDarkMode,
+        themePreset,
+        changeThemePreset,
+        navColor,
+        changeNavColor,
+      }}
     >
       {children}
     </ThemeContext.Provider>
   );
 }
 
-export function useDarkMode(): {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-} {
+export function useDarkMode() {
   const context = useContext(ThemeContext);
 
   if (!context) {
@@ -143,5 +172,17 @@ export function useThemePreset() {
   return {
     themePreset: context.themePreset,
     changeThemePreset: context.changeThemePreset,
+  };
+}
+
+export function useNavColor() {
+  const context = useContext(ThemeContext);
+
+  if (!context) {
+    throw new Error("useNavColor must be used within a ThemeProvider");
+  }
+  return {
+    navColor: context.navColor,
+    changeNavColor: context.changeNavColor,
   };
 }
