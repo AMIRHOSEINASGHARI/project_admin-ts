@@ -499,3 +499,26 @@ export const totalBalance_expense_chartConfig = {
     color: "var(--theme-rose)",
   },
 } satisfies ChartConfig;
+
+export const balanceStatistics_chartData = [
+  { year: "2019", income: 76, savings: 46, investment: 23 },
+  { year: "2020", income: 42, savings: 44, investment: 22 },
+  { year: "2021", income: 29, savings: 24, investment: 37 },
+  { year: "2022", income: 41, savings: 43, investment: 38 },
+  { year: "2023", income: 27, savings: 44, investment: 32 },
+  { year: "2024", income: 96, savings: 43, investment: 25 },
+];
+export const balanceStatistics_chartConfig = {
+  income: {
+    label: "Income",
+    color: "var(--primary-1)",
+  },
+  savings: {
+    label: "Savings",
+    color: "var(--theme-yellow)",
+  },
+  investment: {
+    label: "Investment",
+    color: "var(--theme-sky)",
+  },
+} satisfies ChartConfig;

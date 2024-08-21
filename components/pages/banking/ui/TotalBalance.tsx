@@ -30,7 +30,7 @@ import { Line, LineChart, XAxis, YAxis } from "recharts";
 
 const TotalBalance = () => {
   return (
-    <Card className="w-full xl:w-[70%] space-y-4">
+    <Card className="w-full space-y-4">
       <Header />
       <TabsButtons />
     </Card>
