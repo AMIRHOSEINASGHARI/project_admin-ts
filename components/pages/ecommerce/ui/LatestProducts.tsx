@@ -38,6 +38,7 @@ const LatestProducts = async () => {
       <CardContent className="flex flex-col gap-4">
         {data?.products?.map((product) => (
           <Link
+            key={product._id}
             href={`/products/${product._id}`}
             className="flex items-center gap-3"
           >
