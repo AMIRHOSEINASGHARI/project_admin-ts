@@ -8,6 +8,8 @@ export { default as AngleUpRegular } from "../../public/icons/AngleUpRegular.svg
 export { default as ArrowTrendDownRegular } from "../../public/icons/ArrowTrendDownRegular.svg";
 export { default as ArrowTrendUpRegular } from "../../public/icons/ArrowTrendUpRegular.svg";
 export { default as BellRegular } from "../../public/icons/BellRegular.svg";
+export { default as BankRegular } from "../../public/icons/BankRegular.svg";
+export { default as BookAltRegular } from "../../public/icons/BookAltRegular.svg";
 export { default as BlogTextRegular } from "../../public/icons/BlogTextRegular.svg";
 export { default as BoxOpenRegular } from "../../public/icons/BoxOpen.svg";
 export { default as CalendarRegular } from "../../public/icons/CalendarRegular.svg";
@@ -16,6 +18,7 @@ export { default as ChartHistogramRegular } from "../../public/icons/ChartHistog
 export { default as CheckRegular } from "../../public/icons/CheckRegular.svg";
 export { default as CloudUploadRegular } from "../../public/icons/CloudUploadRegular.svg";
 export { default as CoinRegular } from "../../public/icons/CoinRegular.svg";
+export { default as CourseRegular } from "../../public/icons/CourseRegular.svg";
 export { default as CommentRegular } from "../../public/icons/CommentRegular.svg";
 export { default as CrossRegular } from "../../public/icons/CrossRegular.svg";
 export { default as DislikeRegular } from "../../public/icons/DislikeRegular.svg";

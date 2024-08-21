@@ -17,6 +17,9 @@ import {
   TodoAltRegular,
   UsersFill,
   UsersRegular,
+  BankRegular,
+  BookAltRegular,
+  CourseRegular,
 } from "@/components/svg";
 
 export const images = {
@@ -51,6 +54,21 @@ export const menuLinks = [
     title: "Ecommerce",
     image: <ShopRegular />,
     link: "/ecommerce",
+  },
+  {
+    title: "Banking",
+    image: <BankRegular />,
+    link: "/banking",
+  },
+  {
+    title: "Booking",
+    image: <BookAltRegular />,
+    link: "/booking",
+  },
+  {
+    title: "Course",
+    image: <CourseRegular />,
+    link: "/course",
   },
   {
     title: "Orders",
