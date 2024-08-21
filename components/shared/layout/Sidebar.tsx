@@ -46,9 +46,9 @@ const Sidebar = () => {
               className={clsx("rounded-xl", {
                 "bg-primary-1 text-white dark:bg-primary-2 dark:text-white font-medium":
                   pathname === item.link,
-                "text-dark3 dark:text-light3 hover:dark:bg-dark2 hover:bg-light2":
+                "text-dark3 dark:text-light3 hover:dark:bg-dark2 hover:bg-light3":
                   pathname !== item.link,
-                "text-slate-400 hover:bg-slate-900 dark:hover:bg-slate-700/30":
+                "text-slate-400 hover:bg-slate-600/30 dark:hover:bg-slate-600/30":
                   pathname !== item.link && navColor === "Apparent",
               })}
             >

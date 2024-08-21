@@ -451,7 +451,7 @@ export const salesOverview_data = [
   {
     title: "Total income",
     max: 75000,
-    value: 50000,
+    value: 30000,
     color: "bg-theme-sky dark:bg-theme-sky",
   },
   {
@@ -461,3 +461,41 @@ export const salesOverview_data = [
     color: "bg-theme-yellow dark:bg-theme-yellow",
   },
 ];
+
+export const totalBalance_income_chartData = [
+  { month: "January", income: 5 },
+  { month: "February", income: 31 },
+  { month: "March", income: 33 },
+  { month: "April", income: 50 },
+  { month: "May", income: 80 },
+  { month: "June", income: 76 },
+  { month: "July", income: 72 },
+  { month: "August", income: 76 },
+  { month: "September", income: 89 },
+];
+
+export const totalBalance_income_chartConfig = {
+  income: {
+    label: "Income",
+    color: "var(--primary-1)",
+  },
+} satisfies ChartConfig;
+
+export const totalBalance_expense_chartData = [
+  { month: "January", expense: 10 },
+  { month: "February", expense: 41 },
+  { month: "March", expense: 35 },
+  { month: "April", expense: 51 },
+  { month: "May", expense: 42 },
+  { month: "June", expense: 62 },
+  { month: "July", expense: 69 },
+  { month: "August", expense: 91 },
+  { month: "September", expense: 148 },
+];
+
+export const totalBalance_expense_chartConfig = {
+  expense: {
+    label: "Expense",
+    color: "var(--theme-rose)",
+  },
+} satisfies ChartConfig;

@@ -1,5 +1,7 @@
+import BankingPage from "@/components/pages/banking/BankingPage";
+
 const Banking = () => {
-  return <div>Banking</div>;
+  return <BankingPage />;
 };
 
 export default Banking;
