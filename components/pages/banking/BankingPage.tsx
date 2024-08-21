@@ -4,6 +4,7 @@ import TotalBalance from "./ui/TotalBalance";
 import BalanceStatistics from "./ui/BalanceStatistics";
 import RecentTransitions from "./ui/RecentTransitions";
 import CurrentBalance from "./ui/CurrentBalance";
+import QuickTransfer from "./ui/QuickTransfer";
 
 const BankingPage = () => {
   return (
@@ -15,6 +16,7 @@ const BankingPage = () => {
       </View>
       <View className="w-full xl:w-[30%]" orientation="vertical">
         <CurrentBalance />
+        <QuickTransfer />
       </View>
     </View>
   );

@@ -8,6 +8,7 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 // icons
 import { AngleRightRegular } from "@/components/svg";
+import CardAttatchmentButton from "@/components/shared/CardAttatchmentButton";
 
 const data = [
   {
@@ -82,9 +83,7 @@ const News = () => {
         </TableBody>
       </Table>
       <div className="flex justify-end w-full">
-        <Button variant="link" className="text-small font-semibold">
-          View all <AngleRightRegular className="text-lg" />
-        </Button>
+        <CardAttatchmentButton />
       </div>
     </Card>
   );

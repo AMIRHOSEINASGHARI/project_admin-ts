@@ -29,10 +29,65 @@ export const images = {
   admin: "/images/admin-1.jpg",
   admin2: "/images/admin-2.jpg",
   admin3: "/images/admin-3.jpg",
+  admin4: "/images/admin-4.png",
+  admin5: "/images/admin-5.png",
+  admin6: "/images/admin-6.png",
+  admin7: "/images/admin-7.png",
+  admin8: "/images/admin-8.png",
+  admin9: "/images/admin-9.png",
+  admin10: "/images/admin-10.png",
+  admin11: "/images/admin-11.png",
   notFound: "/images/404.svg",
   notAllowed: "/images/not-allowed.png",
   error: "/images/sad.png",
 };
+
+export const fakeNames = [
+  {
+    name: "Melanie Noble",
+    image: images.admin,
+  },
+  {
+    name: "Chase Day",
+    image: images.admin2,
+  },
+  {
+    name: "Shawn Manning",
+    image: images.admin3,
+  },
+  {
+    name: "Soren Durham",
+    image: images.admin4,
+  },
+  {
+    name: "Cortez Herring",
+    image: images.admin5,
+  },
+  {
+    name: "Jayvion Simon",
+    image: images.admin6,
+  },
+  {
+    name: "Lucian Obrien",
+    image: images.admin7,
+  },
+  {
+    name: "Deja Brady",
+    image: images.admin8,
+  },
+  {
+    name: "Harrison Stein",
+    image: images.admin9,
+  },
+  {
+    name: "Reece Chung",
+    image: images.admin10,
+  },
+  {
+    name: "Lainey Davidson",
+    image: images.admin11,
+  },
+];
 
 export const menuLinks = [
   {

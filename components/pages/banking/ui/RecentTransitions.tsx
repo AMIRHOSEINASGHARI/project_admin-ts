@@ -22,6 +22,7 @@ import {
 import clsx from "clsx";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import CardAttatchmentButton from "@/components/shared/CardAttatchmentButton";
 
 const RecentTransitions = () => {
   const tableHeads = ["Description", "Date", "Amount", "Status"];
@@ -151,9 +152,7 @@ const RecentTransitions = () => {
         </Table>
       </CardContent>
       <div className="flex justify-end w-full">
-        <Button variant="link" className="text-small font-semibold">
-          View all <AngleRightRegular className="text-lg" />
-        </Button>
+        <CardAttatchmentButton />
       </div>
     </Card>
   );
