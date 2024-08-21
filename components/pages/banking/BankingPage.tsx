@@ -3,6 +3,7 @@ import View from "@/components/shared/layout/View";
 import TotalBalance from "./ui/TotalBalance";
 import BalanceStatistics from "./ui/BalanceStatistics";
 import RecentTransitions from "./ui/RecentTransitions";
+import CurrentBalance from "./ui/CurrentBalance";
 
 const BankingPage = () => {
   return (
@@ -13,7 +14,7 @@ const BankingPage = () => {
         <RecentTransitions />
       </View>
       <View className="w-full xl:w-[30%]" orientation="vertical">
-        others
+        <CurrentBalance />
       </View>
     </View>
   );

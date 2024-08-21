@@ -353,3 +353,24 @@ export const bestSalesman_data = [
     total: 85.21,
   },
 ];
+
+export const currentBalance_carouselData = [
+  {
+    total: 23432.63,
+    cardNumber: "**** **** **** 3640",
+    cardHolder: "Deja Brady",
+    expirationDate: "11/22",
+  },
+  {
+    total: 18000.54,
+    cardNumber: "**** **** **** 8864",
+    cardHolder: "Harrison Stein",
+    expirationDate: "11/25",
+  },
+  {
+    total: 2000.89,
+    cardNumber: "**** **** **** 7755",
+    cardHolder: "Reece Chung",
+    expirationDate: "11/22",
+  },
+];
