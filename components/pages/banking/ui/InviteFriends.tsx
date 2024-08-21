@@ -22,11 +22,11 @@ const InviteFriends = () => {
             height={200}
             alt="image"
             priority
-            className="w-[120px]"
+            className="sm:w-[120px] sm:h-[120px] w-[80px] h-[80px]"
           />
         </div>
       </div>
-      <p className="text-small text-white">
+      <p className="sm:text-small text-x-small text-white">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,
         provident?
       </p>

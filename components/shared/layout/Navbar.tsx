@@ -1,12 +1,11 @@
 // cmp
 import { Button } from "@/components/ui/button";
-import DarkModeToggle from "../DarkModeToggle";
 import SignoutButton from "../SignoutButton";
 import MobileNav from "./MobileNav";
 import ShowProfile from "./ShowProfile";
+import AppearanceSettings from "./AppearanceSettings";
 // icons
 import { BellRegular, PowerRegular, SearchRegular } from "@/components/svg";
-import AppearanceSettings from "./AppearanceSettings";
 
 const Navbar = () => {
   return (
@@ -16,12 +15,17 @@ const Navbar = () => {
           <div className="md:hidden flex items-center justify-center">
             <MobileNav />
           </div>
+          <div className="md:pl-[40px] lg:pl-[50px]">
+            <Button variant="icon" className="gap-3">
+              <SearchRegular />
+              <span className="text-small text-slate-500 max-md:hidden">
+                Search...
+              </span>
+            </Button>
+          </div>
         </div>
         <div className="flex items-center gap-1">
           <SignoutButton title={<PowerRegular />} variant="icon" />
-          <Button variant="icon">
-            <SearchRegular />
-          </Button>
           <Button variant="icon">
             <BellRegular />
           </Button>
