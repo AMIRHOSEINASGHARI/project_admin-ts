@@ -8,3 +8,20 @@ export type TabDataType = {
   content: JSX.Element;
   value: "Income" | "Expense";
 };
+
+export type TransitionType = "Receive money from" | "Payment for";
+
+export type TransitionStatusType = "Progress" | "Completed" | "Failed";
+
+export type RecentTransitionsTableData = {
+  id: string;
+  image: string;
+  type: TransitionType;
+  user: string;
+  date: {
+    date: string;
+    hour: string;
+  };
+  amount: number;
+  status: TransitionStatusType;
+};

@@ -508,6 +508,7 @@ export const balanceStatistics_chartData = [
   { year: "2023", income: 27, savings: 44, investment: 32 },
   { year: "2024", income: 96, savings: 43, investment: 25 },
 ];
+
 export const balanceStatistics_chartConfig = {
   income: {
     label: "Income",
