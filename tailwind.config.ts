@@ -32,7 +32,7 @@ const config = {
       },
       boxShadow: {
         card: "0px 0px 2px 0px rgba(145,158,171,0.2), 0px 12px 24px -4px rgba(145,158,171,0.12)",
-        dark: "0px 0px 2px 0px rgba(0,0,0,0.7), 0px 12px 24px -4px rgba(0,0,0,0.4)",
+        dark: "0px 0px 2px 0px rgba(0,0,0,0.2), 0px 12px 24px -4px rgba(0,0,0,0.12)",
       },
       colors: {
         "primary-1": "var(--primary-1)", // teal-600
@@ -50,9 +50,12 @@ const config = {
         light1: "#f8fafc",
         light2: "#f1f5f9",
         light3: "#e2e8f0",
-        dark1: "#090a0b",
-        dark2: "#121517",
-        dark3: "#202427",
+        // dark1: "#090a0b",
+        // dark2: "#121517",
+        // dark3: "#202427",
+        dark1: "#141a21",
+        dark2: "#182027",
+        dark3: "#202831",
         "error-light": "#ef4444", // red-500
         "error-dark": "#dc2626", // red-600
       },
