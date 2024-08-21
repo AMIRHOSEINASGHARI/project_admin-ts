@@ -46,46 +46,57 @@ export const fakeNames = [
   {
     name: "Melanie Noble",
     image: images.admin,
+    email: "nannie.abernathy70@yahoo.com",
   },
   {
     name: "Chase Day",
     image: images.admin2,
+    email: "nannie.abernathy70@yahoo.com",
   },
   {
     name: "Shawn Manning",
     image: images.admin3,
+    email: "nannie.abernathy70@yahoo.com",
   },
   {
     name: "Soren Durham",
     image: images.admin4,
+    email: "nannie.abernathy70@yahoo.com",
   },
   {
     name: "Cortez Herring",
     image: images.admin5,
+    email: "nannie.abernathy70@yahoo.com",
   },
   {
     name: "Jayvion Simon",
     image: images.admin6,
+    email: "nannie.abernathy70@yahoo.com",
   },
   {
     name: "Lucian Obrien",
     image: images.admin7,
+    email: "nannie.abernathy70@yahoo.com",
   },
   {
     name: "Deja Brady",
     image: images.admin8,
+    email: "nannie.abernathy70@yahoo.com",
   },
   {
     name: "Harrison Stein",
     image: images.admin9,
+    email: "nannie.abernathy70@yahoo.com",
   },
   {
     name: "Reece Chung",
     image: images.admin10,
+    email: "nannie.abernathy70@yahoo.com",
   },
   {
     name: "Lainey Davidson",
     image: images.admin11,
+    email: "nannie.abernathy70@yahoo.com",
   },
 ];
 

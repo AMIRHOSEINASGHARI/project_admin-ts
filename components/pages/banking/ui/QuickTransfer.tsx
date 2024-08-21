@@ -21,17 +21,45 @@ import {
 } from "@/components/ui/carousel";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+import { Textarea } from "@/components/ui/textarea";
 
 type SelectedUserType = {
   name: string;
   image: string;
+  email: string;
 };
 
 const QuickTransfer = () => {
-  const [selectedUser, setSelectedUser] = useState<SelectedUserType | null>(
-    null
-  );
+  const [open, setOpen] = useState<boolean>(false);
   const [transferValue, setTransferValue] = useState<number[]>([0]);
+  const [selectedUser, setSelectedUser] = useState<SelectedUserType>(
+    fakeNames[5]
+  );
+
+  const onOpenChange = () => {
+    setOpen(!open);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
+  const onOpen = () => {
+    setOpen(true);
+  };
+
+  const HiddenTags = () => (
+    <VisuallyHidden.Root>
+      <DialogDescription></DialogDescription>
+    </VisuallyHidden.Root>
+  );
 
   return (
     <Card>
@@ -97,13 +125,52 @@ const QuickTransfer = () => {
             <span className="font-medium">Your balance</span>
             <span className="font-medium">$34,212</span>
           </div>
-          <Button
-            className="w-full font-extrabold"
-            variant="secondary"
-            disabled={transferValue[0] === 0}
-          >
-            Transfer now
-          </Button>
+          <Dialog open={open} onOpenChange={onOpenChange}>
+            <Button
+              className="w-full font-extrabold"
+              variant="secondary"
+              disabled={transferValue[0] === 0 || selectedUser === null}
+              onClick={onOpen}
+            >
+              Transfer now
+            </Button>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Transfer to</DialogTitle>
+                <HiddenTags />
+              </DialogHeader>
+              <div className="flex items-center gap-2 flex-wrap">
+                <Image
+                  src={selectedUser?.image}
+                  width={100}
+                  height={100}
+                  alt={selectedUser?.name}
+                  priority
+                  className="rounded-full w-[45px] h-[45px]"
+                />
+                <div className="flex flex-col">
+                  <span className="text-small font-medium">
+                    {selectedUser?.name}
+                  </span>
+                  <span className="text-small text-slate-500">
+                    {selectedUser?.email}
+                  </span>
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <span className="font-extrabold text-x-large">
+                  $ {transferValue[0]}
+                </span>
+              </div>
+              <Textarea placeholder="Write a message..." rows={5} />
+              <div className="flex items-center gap-3 justify-end">
+                <Button variant="ghost" onClick={onClose}>
+                  Cancel
+                </Button>
+                <Button onClick={onClose}>Transfer</Button>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </CardContent>
     </Card>
