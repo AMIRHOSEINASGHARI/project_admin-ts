@@ -6,6 +6,7 @@ import RecentTransitions from "./ui/RecentTransitions";
 import CurrentBalance from "./ui/CurrentBalance";
 import QuickTransfer from "./ui/QuickTransfer";
 import Contacts from "./ui/Contacts";
+import InviteFriends from "./ui/InviteFriends";
 
 const BankingPage = () => {
   return (
@@ -19,6 +20,7 @@ const BankingPage = () => {
         <CurrentBalance />
         <QuickTransfer />
         <Contacts />
+        <InviteFriends />
       </View>
     </View>
   );

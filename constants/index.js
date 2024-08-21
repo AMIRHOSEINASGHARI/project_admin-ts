@@ -40,6 +40,7 @@ export const images = {
   notFound: "/images/404.svg",
   notAllowed: "/images/not-allowed.png",
   error: "/images/sad.png",
+  inviteAndEarn: "/images/invite-and-earn.png",
 };
 
 export const fakeNames = [
