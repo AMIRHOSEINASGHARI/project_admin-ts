@@ -4,6 +4,7 @@ import SignoutButton from "../SignoutButton";
 import MobileNav from "./MobileNav";
 import ShowProfile from "./ShowProfile";
 import AppearanceSettings from "./AppearanceSettings";
+import FullscreenToggle from "../FullscreenToggle";
 // icons
 import { BellRegular, PowerRegular, SearchRegular } from "@/components/svg";
 
@@ -29,7 +30,7 @@ const Navbar = () => {
           <Button variant="icon">
             <BellRegular />
           </Button>
-          {/* <DarkModeToggle /> */}
+          <FullscreenToggle />
           <AppearanceSettings />
           <ShowProfile />
         </div>

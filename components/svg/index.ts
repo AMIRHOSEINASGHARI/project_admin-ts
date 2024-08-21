@@ -26,6 +26,8 @@ export { default as DocumentRegular } from "../../public/icons/DocumentRegular.s
 export { default as EnvelopeRegular } from "../../public/icons/EnvelopeRegular.svg";
 export { default as EyeCrossedRegular } from "../../public/icons/EyeCrossedRegular.svg";
 export { default as EyeRegular } from "../../public/icons/EyeRegular.svg";
+export { default as ExpandInRegular } from "../../public/icons/ExpandInRegular.svg";
+export { default as ExpandOutRegular } from "../../public/icons/ExpandOutRegular.svg";
 export { default as FileEditRegular } from "../../public/icons/FileEditRegular.svg";
 export { default as FilterListRegular } from "../../public/icons/FilterListRegular.svg";
 export { default as HeadphonesRegular } from "../../public/icons/HeadphonesRegular.svg";
