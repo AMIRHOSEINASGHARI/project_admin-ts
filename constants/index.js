@@ -46,57 +46,57 @@ export const fakeNames = [
   {
     name: "Melanie Noble",
     image: images.admin,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "melanie.noble@yahoo.com",
   },
   {
     name: "Chase Day",
     image: images.admin2,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "chase.day@yahoo.com",
   },
   {
     name: "Shawn Manning",
     image: images.admin3,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "shawn.manning@yahoo.com",
   },
   {
     name: "Soren Durham",
     image: images.admin4,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "soren.durham@yahoo.com",
   },
   {
     name: "Cortez Herring",
     image: images.admin5,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "cortez.herring@yahoo.com",
   },
   {
     name: "Jayvion Simon",
     image: images.admin6,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "jayvion.simon@yahoo.com",
   },
   {
     name: "Lucian Obrien",
     image: images.admin7,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "lucian.obrien@yahoo.com",
   },
   {
     name: "Deja Brady",
     image: images.admin8,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "deja.brady@yahoo.com",
   },
   {
     name: "Harrison Stein",
     image: images.admin9,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "harrison.stein@yahoo.com",
   },
   {
     name: "Reece Chung",
     image: images.admin10,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "reece.chung@yahoo.com",
   },
   {
     name: "Lainey Davidson",
     image: images.admin11,
-    email: "nannie.abernathy70@yahoo.com",
+    email: "lainey.davidson@yahoo.com",
   },
 ];
 

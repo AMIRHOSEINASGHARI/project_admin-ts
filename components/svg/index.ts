@@ -37,6 +37,7 @@ export { default as MenuBarsRegular } from "../../public/icons/MenuBarsRegular.s
 export { default as MenuDotsVerticalRegular } from "../../public/icons/MenuDotsVerticalRegular.svg";
 export { default as MobileRegular } from "../../public/icons/MobileRegular.svg";
 export { default as MoneyBagRegular } from "../../public/icons/MoneyBagRegular.svg";
+export { default as MoneyTransferRegular } from "../../public/icons/MoneyTransferRegular.svg";
 export { default as MoonRegular } from "../../public/icons/MoonRegular.svg";
 export { default as OrderHistoryRegular } from "../../public/icons/OrderHistoryRegular.svg";
 export { default as PaperPlaneRegular } from "../../public/icons/PaperPlaneRegular.svg";
