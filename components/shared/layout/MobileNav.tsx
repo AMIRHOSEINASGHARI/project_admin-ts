@@ -40,7 +40,7 @@ const MobileNav = () => {
   const color =
     navColor === "Integrate"
       ? "bg-white/70 dark:bg-dark1/70 border-gray-200 dark:border-dark2"
-      : "bg-dark1/90 dark:bg-dark2/70 border-gray-200 dark:border-dark2";
+      : "bg-dark1/90 dark:bg-dark3/70 border-gray-200 dark:border-dark2";
 
   const onOpenChange = () => {
     setOpen(!open);
@@ -80,16 +80,16 @@ const MobileNav = () => {
                 <span className="text-small">{item.title}</span>
               </Link>
             </li>
-            {item.title === "Ecommerce" && (
+            {item.title === "Course" && (
               <div className="ml-4 mb-2 mt-5">
-                <h1 className="text-small tracking-tight text-gray-400 dark:text-slate-500">
+                <h1 className="text-small tracking-tight text-gray-500 dark:text-slate-500">
                   Management
                 </h1>
               </div>
             )}
             {item.title === "Add Blog" && (
               <div className="ml-4 mb-2 mt-5">
-                <h1 className="text-small tracking-tight text-gray-400 dark:text-slate-500">
+                <h1 className="text-small tracking-tight text-gray-500 dark:text-slate-500">
                   Settings
                 </h1>
               </div>
