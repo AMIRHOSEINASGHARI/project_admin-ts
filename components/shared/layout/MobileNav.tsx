@@ -21,7 +21,11 @@ import {
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import clsx from "clsx";
 // icons
-import { LogoRegular, MenuBarsRegular } from "@/components/svg";
+import {
+  LogoRegular,
+  MenuBarsRegular,
+  SolarHamburgerMenuLineDuotone,
+} from "@/components/svg";
 
 const HiddenTags = () => (
   <VisuallyHidden.Root>
@@ -66,9 +70,9 @@ const MobileNav = () => {
               className={clsx("rounded-xl", {
                 "bg-primary-1 text-white dark:bg-primary-2 dark:text-white font-medium":
                   pathname === item.link,
-                "text-dark3 dark:text-light3 hover:dark:bg-dark2 hover:bg-light2":
+                "text-icon-light dark:text-icon-dark hover:dark:bg-dark2 hover:bg-light3":
                   pathname !== item.link,
-                "text-slate-400 hover:bg-slate-900 dark:hover:bg-slate-700/30":
+                "text-slate-400 hover:bg-slate-600/30 dark:hover:bg-slate-600/30":
                   pathname !== item.link && navColor === "Apparent",
               })}
             >
@@ -76,7 +80,7 @@ const MobileNav = () => {
                 href={item.link}
                 className="flex items-center gap-[15px] px-4 py-3"
               >
-                <div className="text-icon">{item.image}</div>
+                <div className="text-icon-size">{item.image}</div>
                 <span className="text-small">{item.title}</span>
               </Link>
             </li>
@@ -103,8 +107,8 @@ const MobileNav = () => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetTrigger>
-        <div className="p-[12px] rounded-full text-icon hover:bg-light2 hover:dark:bg-slate-800 hover:text-slate-900 dark:text-light3">
-          <MenuBarsRegular />
+        <div className="p-[8px] rounded-full hover:bg-light3 hover:dark:bg-slate-800 hover:text-slate-900 dark:text-icon-dark text-icon-light text-icon-size">
+          <SolarHamburgerMenuLineDuotone />
         </div>
       </SheetTrigger>
       <SheetContent side="left" className={`backdrop-blur-2xl ${color}`}>

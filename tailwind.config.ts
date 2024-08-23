@@ -28,7 +28,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "spin-slow": "spin 5s linear infinite",
+        "spin-slow": "spin 7s linear infinite",
       },
       boxShadow: {
         card: "0px 0px 2px 0px rgba(145,158,171,0.2), 0px 12px 24px -4px rgba(145,158,171,0.12)",
@@ -59,6 +59,14 @@ const config = {
         dark3: "#202831",
         "error-light": "#ef4444", // red-500
         "error-dark": "#dc2626", // red-600
+        icon: {
+          light: "#64748b",
+          dark: "#94a3b8",
+          hover: {
+            light: "#0f172a",
+            dark: "#e2e8f0",
+          },
+        },
       },
       fontSize: {
         "x-small": "10px",
@@ -66,7 +74,7 @@ const config = {
         base: "15px",
         large: "24px",
         "x-large": "30px",
-        icon: "18px",
+        "icon-size": "25px",
       },
     },
   },

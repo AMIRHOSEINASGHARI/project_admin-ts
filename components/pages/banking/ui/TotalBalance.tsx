@@ -16,6 +16,8 @@ import {
   ArrowTrendDownRegular,
   ArrowTrendUpRegular,
   PlusRegular,
+  SolarDoubleAltArrowDownBoldDuotone,
+  SolarDoubleAltArrowUpBoldDuotone,
 } from "@/components/svg";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -48,7 +50,7 @@ const Header = () => {
       </div>
       <div className="flex items-center gap-2 flex-wrap">
         <Button variant="ghost" className="gap-2">
-          <AngleUpRegular className="text-icon" />
+          <AngleUpRegular className="text-icon-size" />
           <span className="text-small font-medium">Send</span>
         </Button>
         <Button variant="ghost" className="gap-2">
@@ -56,7 +58,7 @@ const Header = () => {
           <span className="text-small font-medium">Add card</span>
         </Button>
         <Button variant="ghost" className="gap-2">
-          <AngleDownRegular className="text-icon" />
+          <AngleDownRegular className="text-icon-size" />
           <span className="text-small font-medium">Request</span>
         </Button>
       </div>
@@ -75,7 +77,7 @@ const TabsButtons = () => {
               variant="favorite"
               className="bg-primary-light text-primary-1 dark:bg-primary-darkmode dark:text-primary-light-3 flex items-center gap-2 py-1 rounded-md border-none"
             >
-              <ArrowTrendUpRegular />
+              <SolarDoubleAltArrowUpBoldDuotone className="text-[16px]" />
               +8.2%
             </Badge>
           </div>
@@ -142,7 +144,7 @@ const TabsButtons = () => {
               variant="favorite"
               className="bg-rose-200/80 text-rose-800 dark:bg-rose-800/30 dark:text-rose-400 flex items-center gap-2 py-1 rounded-md border-none"
             >
-              <ArrowTrendDownRegular />
+              <SolarDoubleAltArrowDownBoldDuotone className="text-[16px]" />
               -6.6%
             </Badge>
           </div>

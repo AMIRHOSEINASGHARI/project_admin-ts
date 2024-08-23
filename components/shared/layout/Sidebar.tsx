@@ -46,7 +46,7 @@ const Sidebar = () => {
               className={clsx("rounded-xl", {
                 "bg-primary-1 text-white dark:bg-primary-2 dark:text-white font-medium":
                   pathname === item.link,
-                "text-dark3 dark:text-light3 hover:dark:bg-dark2 hover:bg-light3":
+                "text-icon-light dark:text-icon-dark hover:dark:bg-dark2 hover:bg-light3":
                   pathname !== item.link,
                 "text-slate-400 hover:bg-slate-600/30 dark:hover:bg-slate-600/30":
                   pathname !== item.link && navColor === "Apparent",
@@ -56,7 +56,7 @@ const Sidebar = () => {
                 href={item.link}
                 className="flex items-center gap-[15px] px-4 py-3"
               >
-                <div className="text-icon">{item.image}</div>
+                <div className="text-icon-size">{item.image}</div>
                 <span className="text-small">{item.title}</span>
               </Link>
             </li>

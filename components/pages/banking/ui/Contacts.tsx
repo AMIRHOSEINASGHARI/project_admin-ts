@@ -3,7 +3,10 @@ import Image from "next/image";
 // constants
 import { fakeNames } from "@/constants";
 // icons
-import { MoneyTransferRegular } from "@/components/svg";
+import {
+  MoneyTransferRegular,
+  SolarTransferHorizontalBoldDuotone,
+} from "@/components/svg";
 // cmp
 import CardAttatchmentButton from "@/components/shared/CardAttatchmentButton";
 import CustomTooltip from "@/components/shared/CustomTooltip";
@@ -55,7 +58,7 @@ const Contacts = () => {
                   <CustomTooltip
                     trigger={
                       <Button variant="icon">
-                        <MoneyTransferRegular className="text-sm text-slate-500" />
+                        <SolarTransferHorizontalBoldDuotone className="text-icon-size text-slate-500" />
                       </Button>
                     }
                     content="Quick transfer"

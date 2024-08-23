@@ -7,7 +7,12 @@ import { Card } from "@/components/ui/card";
 import { Bar, BarChart } from "recharts";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 // icons
-import { ArrowTrendDownRegular, ArrowTrendUpRegular } from "@/components/svg";
+import {
+  ArrowTrendDownRegular,
+  ArrowTrendUpRegular,
+  SolarDoubleAltArrowDownBoldDuotone,
+  SolarDoubleAltArrowUpBoldDuotone,
+} from "@/components/svg";
 import View from "@/components/shared/layout/View";
 
 const Reviews = () => {
@@ -37,9 +42,9 @@ const Reviews = () => {
                       className={profit > 0 ? "text-green-500" : "text-red-500"}
                     >
                       {profit > 0 ? (
-                        <ArrowTrendUpRegular />
+                        <SolarDoubleAltArrowUpBoldDuotone className="text-icon-size" />
                       ) : (
-                        <ArrowTrendDownRegular />
+                        <SolarDoubleAltArrowDownBoldDuotone className="text-icon-size" />
                       )}
                     </div>
                     <span

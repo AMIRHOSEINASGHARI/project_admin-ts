@@ -20,7 +20,7 @@ const buttonVariants = cva(
         ghost:
           "text-sm py-2 px-4 rounded-[8px] text-slate-900 hover:bg-light3 bg-light2 dark:hover:bg-slate-800 dark:hover:text-slate-50 dark:text-light3 dark:bg-dark3",
         link: "py-2 px-4 rounded-[8px] text-slate-900 hover:bg-light2 dark:hover:bg-slate-800 dark:hover:text-slate-50",
-        icon: "p-[12px] rounded-full text-icon hover:bg-light2 hover:dark:bg-slate-800 hover:text-slate-900 dark:text-light3",
+        icon: "p-[8px] rounded-full hover:bg-light3 hover:dark:bg-slate-800 hover:text-icon-hover-light dark:hover:text-icon-hover-dark dark:text-icon-dark text-icon-light text-[25px]",
       },
       size: {
         default: "",

@@ -20,6 +20,21 @@ import {
   BankRegular,
   BookAltRegular,
   CourseRegular,
+  SolarHomeAngleBoldDuotone,
+  SolarChart2BoldDuotone,
+  SolarBagBoldDuotone,
+  SolarGarageBoldDuotone,
+  SolarBook2BoldDuotone,
+  SolarCourseUpBoldDuotone,
+  SolarMonitorBoldDuotone,
+  SolarCartLarge4BoldDuotone,
+  SolarHanger2BoldDuotone,
+  SolarAddFolderBoldDuotone,
+  SolarChatRoundDotsBoldDuotone,
+  SolarUsersGroupTwoRoundedBoldDuotone,
+  SolarTextFieldFocusBoldDuotone,
+  SolarChecklistMinimalisticBoldDuotone,
+  SolarUserCircleBoldDuotone,
 } from "@/components/svg";
 
 export const images = {
@@ -104,7 +119,7 @@ export const fakeNames = [
 export const menuLinks = [
   {
     title: "Dashboard",
-    image: <HomeRegular />,
+    image: <SolarHomeAngleBoldDuotone />,
     link: "/dashboard",
   },
   {
@@ -114,72 +129,72 @@ export const menuLinks = [
   },
   {
     title: "Analytics",
-    image: <ChartHistogramRegular />,
+    image: <SolarChart2BoldDuotone />,
     link: "/analytics",
   },
   {
     title: "Ecommerce",
-    image: <ShopRegular />,
+    image: <SolarBagBoldDuotone />,
     link: "/ecommerce",
   },
   {
     title: "Banking",
-    image: <BankRegular />,
+    image: <SolarGarageBoldDuotone />,
     link: "/banking",
   },
   {
     title: "Booking",
-    image: <BookAltRegular />,
+    image: <SolarBook2BoldDuotone />,
     link: "/booking",
   },
   {
     title: "Course",
-    image: <CourseRegular />,
+    image: <SolarMonitorBoldDuotone />,
     link: "/course",
   },
   {
     title: "Orders",
-    image: <OrderHistoryRegular />,
+    image: <SolarCartLarge4BoldDuotone />,
     link: "/orders",
   },
   {
     title: "Products",
-    image: <BoxOpenRegular />,
+    image: <SolarHanger2BoldDuotone />,
     link: "/products",
   },
   {
     title: "Add Product",
-    image: <PlusRegular />,
+    image: <SolarAddFolderBoldDuotone />,
     link: "/add-product",
   },
   {
     title: "Comments",
-    image: <CommentRegular />,
+    image: <SolarChatRoundDotsBoldDuotone />,
     link: "/comments",
   },
   {
     title: "Users",
-    image: <UsersRegular />,
+    image: <SolarUsersGroupTwoRoundedBoldDuotone />,
     link: "/users",
   },
   {
     title: "Blogs",
-    image: <BlogTextRegular />,
+    image: <SolarTextFieldFocusBoldDuotone />,
     link: "/blogs",
   },
   {
     title: "Add Blog",
-    image: <PlusRegular />,
+    image: <SolarAddFolderBoldDuotone />,
     link: "/add-blog",
   },
   {
     title: "Tasks",
-    image: <TodoAltRegular />,
+    image: <SolarChecklistMinimalisticBoldDuotone />,
     link: "/tasks",
   },
   {
     title: "Account",
-    image: <SettingsSlidersRegular />,
+    image: <SolarUserCircleBoldDuotone />,
     link: "/account",
   },
 ];

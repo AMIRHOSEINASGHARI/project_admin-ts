@@ -1,12 +1,14 @@
 // cmp
 import { Button } from "@/components/ui/button";
-import SignoutButton from "../SignoutButton";
 import MobileNav from "./MobileNav";
 import ShowProfile from "./ShowProfile";
 import AppearanceSettings from "./AppearanceSettings";
 import FullscreenToggle from "../FullscreenToggle";
 // icons
-import { BellRegular, PowerRegular, SearchRegular } from "@/components/svg";
+import {
+  SolarBellBingBoldDuotone,
+  SolarMinimalisticMagniferBoldDuotone,
+} from "@/components/svg";
 
 const Navbar = () => {
   return (
@@ -18,7 +20,7 @@ const Navbar = () => {
           </div>
           <div className="md:pl-[40px] lg:pl-[50px]">
             <Button variant="icon" className="gap-3">
-              <SearchRegular />
+              <SolarMinimalisticMagniferBoldDuotone />
               <span className="text-small text-slate-500 max-md:hidden">
                 Search...
               </span>
@@ -26,9 +28,8 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-1">
-          <SignoutButton title={<PowerRegular />} variant="icon" />
           <Button variant="icon">
-            <BellRegular />
+            <SolarBellBingBoldDuotone />
           </Button>
           <FullscreenToggle />
           <AppearanceSettings />

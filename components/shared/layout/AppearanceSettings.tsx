@@ -34,6 +34,12 @@ import {
   SettingsRegular,
   SidebarLeftFill,
   SidebarRegular,
+  SolarMoonBoldDuotone,
+  SolarSettingsBoldDuotone,
+  SolarSun2BoldDuotone,
+  SolarWidget4BoldDuotone,
+  SolarWidget4Duotone,
+  SolarWidget5BoldDuotone,
   SunRegular,
 } from "@/components/svg";
 import clsx from "clsx";
@@ -118,12 +124,12 @@ const AppearanceSettings = () => {
   const navColors: NavColorButton[] = [
     {
       name: "Integrate",
-      icon: <SidebarRegular className="text-icon" />,
+      icon: <SolarWidget4Duotone className="text-icon-size" />,
       isActive: navColor === "Integrate",
     },
     {
       name: "Apparent",
-      icon: <SidebarLeftFill className="text-icon" />,
+      icon: <SolarWidget4BoldDuotone className="text-icon-size" />,
       isActive: navColor === "Apparent",
     },
   ];
@@ -144,9 +150,9 @@ const AppearanceSettings = () => {
         >
           <div className="flex items-center justify-between">
             {darkMode ? (
-              <SunRegular className="text-xl" />
+              <SolarSun2BoldDuotone className="rounded-full dark:text-icon-dark text-icon-light text-icon-size" />
             ) : (
-              <MoonRegular className="text-xl" />
+              <SolarMoonBoldDuotone className="rounded-full dark:text-icon-dark text-icon-light text-icon-size" />
             )}
             <Switch checked={darkMode} />
           </div>
@@ -185,7 +191,7 @@ const AppearanceSettings = () => {
                 } ${item.isActive && item.background}`}
                 onClick={() => changeThemePreset(item.name)}
               >
-                <RectanglesMixedRegular className="text-icon" />
+                <SolarWidget5BoldDuotone className="text-icon-size" />
               </div>
             ))}
           </View>
@@ -197,7 +203,7 @@ const AppearanceSettings = () => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <Button variant="icon" onClick={onOpen} className="animate-spin-slow">
-        <SettingsRegular />
+        <SolarSettingsBoldDuotone />
       </Button>
       <SheetContent>
         <HiddenTags />

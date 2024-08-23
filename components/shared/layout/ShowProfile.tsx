@@ -29,6 +29,11 @@ import {
   PlusRegular,
   SettingsSlidersRegular,
   ShopRegular,
+  SolarAddFolderBoldDuotone,
+  SolarChecklistMinimalisticBoldDuotone,
+  SolarHanger2BoldDuotone,
+  SolarHomeAngleBoldDuotone,
+  SolarUserCircleBoldDuotone,
   TodoAltRegular,
 } from "@/components/svg";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -60,27 +65,27 @@ const ShowProfile = () => {
 
   const links = [
     {
-      icon: <HomeRegular />,
+      icon: <SolarHomeAngleBoldDuotone />,
       name: "Home",
       href: "/dashboard",
     },
     {
-      icon: <SettingsSlidersRegular />,
+      icon: <SolarUserCircleBoldDuotone />,
       name: "Profile",
       href: "/account",
     },
     {
-      icon: <TodoAltRegular />,
+      icon: <SolarChecklistMinimalisticBoldDuotone />,
       name: "Tasks",
       href: "/tasks",
     },
     {
-      icon: <ShopRegular />,
+      icon: <SolarHanger2BoldDuotone />,
       name: "Products",
       href: "/products",
     },
     {
-      icon: <PlusRegular />,
+      icon: <SolarAddFolderBoldDuotone />,
       name: "New Product",
       href: "/add-product",
     },
@@ -117,7 +122,9 @@ const ShowProfile = () => {
                 className="flex items-center gap-5 px-2 py-3 rounded-btn hoverable"
                 onClick={() => onClose()}
               >
-                <div className="text-icon">{link.icon}</div>
+                <div className="text-icon-size text-icon-light dark:text-icon-dark">
+                  {link.icon}
+                </div>
                 <span className="text-small">{link.name}</span>
               </Link>
             </li>

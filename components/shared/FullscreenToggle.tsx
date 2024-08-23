@@ -5,7 +5,12 @@ import { useState } from "react";
 // cmp
 import { Button } from "../ui/button";
 // icons
-import { ExpandInRegular, ExpandOutRegular } from "../svg";
+import {
+  ExpandInRegular,
+  ExpandOutRegular,
+  SolarFullScreenSquareBoldDuotone,
+  SolarQuitFullScreenSquareBoldDuotone,
+} from "../svg";
 
 export default function FullscreenToggle() {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -31,7 +36,11 @@ export default function FullscreenToggle() {
       variant="icon"
       onClick={!isFullscreen ? enterFullscreen : exitFullscreen}
     >
-      {!isFullscreen ? <ExpandOutRegular /> : <ExpandInRegular />}
+      {!isFullscreen ? (
+        <SolarFullScreenSquareBoldDuotone />
+      ) : (
+        <SolarQuitFullScreenSquareBoldDuotone />
+      )}
     </Button>
   );
 }
