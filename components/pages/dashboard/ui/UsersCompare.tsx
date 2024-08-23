@@ -40,18 +40,25 @@ const UsersCompare = () => {
           />
           <ChartTooltip content={<ChartTooltipContent />} />
           <Bar
-            dataKey="desktop"
+            dataKey="asia"
             stackId="a"
-            // className="fill-primary-1"
-            fill="var(--color-desktop)"
-            radius={[0, 0, 8, 8]}
+            fill="var(--color-asia)"
+            radius={0}
+            barSize={25}
           />
           <Bar
-            dataKey="mobile"
+            dataKey="europe"
             stackId="a"
-            // className="fill-primary-2"
-            fill="var(--color-mobile)"
-            radius={[8, 8, 0, 0]}
+            fill="var(--color-europe)"
+            radius={0}
+            barSize={25}
+          />
+          <Bar
+            dataKey="america"
+            stackId="a"
+            fill="var(--color-america)"
+            radius={[4, 4, 0, 0]}
+            barSize={25}
           />
         </BarChart>
       </ChartContainer>

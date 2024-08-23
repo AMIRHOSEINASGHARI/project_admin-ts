@@ -50,9 +50,24 @@ const BalanceStatistics = () => {
             cursor={false}
             content={<ChartTooltipContent indicator="dashed" />}
           />
-          <Bar dataKey="income" fill="var(--color-income)" radius={4} />
-          <Bar dataKey="savings" fill="var(--color-savings)" radius={4} />
-          <Bar dataKey="investment" fill="var(--color-investment)" radius={4} />
+          <Bar
+            dataKey="income"
+            fill="var(--color-income)"
+            radius={[4, 4, 0, 0]}
+            barSize={15}
+          />
+          <Bar
+            dataKey="savings"
+            fill="var(--color-savings)"
+            radius={[4, 4, 0, 0]}
+            barSize={15}
+          />
+          <Bar
+            dataKey="investment"
+            fill="var(--color-investment)"
+            radius={[4, 4, 0, 0]}
+            barSize={15}
+          />
         </BarChart>
       </ChartContainer>
     </Card>

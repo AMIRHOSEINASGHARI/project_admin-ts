@@ -24,13 +24,14 @@
     --input: 240 5.9% 90%;
     --ring: 142 86% 28%;
     --radial-chart-bg: theme("colors.light3");
-    --chart-blue: #3b82f6; /*  blue-500 */
-    --chart-amber: #f59e0b; /* amber-500 */
-    --chart-teal: #14b8a6; /* teal-500 */
-    --chart-rose: #f43f5e; /* rose-500 */
-    --chart-green: #22c55e; /* green-500 */
-    --chart-purple: #a855f7; /* purple-500 */
-    --chart-yellow: rgb(255, 171, 0); /* yellow-500 */
+    --chart-blue: #3b82f6;
+    --chart-amber: #f59e0b;
+    --chart-teal: #14b8a6;
+    --chart-rose: #f43f5e;
+    --chart-green: #22c55e;
+    --chart-purple: #a855f7;
+    --chart-yellow: rgb(255, 171, 0);
+    --chart-sky: rgb(0, 184, 217);
 
     --primary-1: #00a76f;
     --primary-2: #004b50;
@@ -71,13 +72,14 @@
     --primary-5: theme("colors.primary-5");
     --primary-6: theme("colors.primary-6");
     --radial-chart-bg: theme("colors.dark3");
-    --chart-blue: #0284c7; /*  blue-700 */
-    --chart-amber: #f59e0b; /* amber-700 */
-    --chart-teal: #14b8a6; /* teal-700 */
-    --chart-rose: #e11d48; /* rose-700 */
-    --chart-green: #22c55e; /* green-700 */
-    --chart-purple: #a855f7; /* purple-700 */
-    --chart-yellow: rgb(255, 171, 0); /* yellow-700 */
+    --chart-blue: #0284c7;
+    --chart-amber: #f59e0b;
+    --chart-teal: #14b8a6;
+    --chart-rose: #e11d48;
+    --chart-green: #22c55e;
+    --chart-purple: #a855f7;
+    --chart-yellow: rgb(255, 171, 0);
+    --chart-sky: rgb(0, 184, 217);
   }
 }
 

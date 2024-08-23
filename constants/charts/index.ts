@@ -88,28 +88,32 @@ export const dashboardReviews_chartData = [
 ];
 
 export const usersCompare_chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 186, mobile: 80 },
-  { month: "July", desktop: 305, mobile: 120 },
-  { month: "August", desktop: 214, mobile: 140 },
-  { month: "September", desktop: 100, mobile: 150 },
-  { month: "October", desktop: 214, mobile: 140 },
-  { month: "November", desktop: 300, mobile: 120 },
-  { month: "December", desktop: 150, mobile: 70 },
+  { month: "January", asia: 200, europe: 200, america: 200 },
+  { month: "February", asia: 305, europe: 305, america: 305 },
+  { month: "March", asia: 237, europe: 237, america: 237 },
+  { month: "April", asia: 73, europe: 73, america: 73 },
+  { month: "May", asia: 209, europe: 209, america: 209 },
+  { month: "June", asia: 186, europe: 186, america: 186 },
+  { month: "July", asia: 305, europe: 305, america: 305 },
+  { month: "August", asia: 214, europe: 214, america: 214 },
+  { month: "September", asia: 100, europe: 100, america: 100 },
+  { month: "October", asia: 214, europe: 214, america: 214 },
+  { month: "November", asia: 300, europe: 300, america: 300 },
+  { month: "December", asia: 150, europe: 150, america: 150 },
 ];
 
 export const usersCompare_chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--primary-1)",
+  asia: {
+    label: "Asia",
+    color: "var(--primary-3)",
   },
-  mobile: {
-    label: "Mobile",
+  europe: {
+    label: "Europe",
     color: "var(--chart-yellow)",
+  },
+  america: {
+    label: "America",
+    color: "var(--chart-sky)",
   },
 } satisfies ChartConfig;
 
@@ -135,15 +139,15 @@ export const revenuePieChart_chartConfig = {
   },
   tv: {
     label: "tv",
-    color: "var(--primary-4)",
+    color: "var(--primary-3)",
   },
   headphone: {
     label: "headphone",
-    color: "var(--primary-5)",
+    color: "var(--primary-4)",
   },
   other: {
     label: "Other",
-    color: "var(--chart-yellow)",
+    color: "var(--primary-5)",
   },
 } satisfies ChartConfig;
 
@@ -248,37 +252,34 @@ export const currentVisits_chartConfig = {
   },
   firefox: {
     label: "Firefox",
-    color: "var(--primary-4)",
+    color: "var(--primary-3)",
   },
   edge: {
     label: "Edge",
-    color: "var(--primary-5)",
+    color: "var(--primary-4)",
   },
   other: {
     label: "Other",
-    color: "var(--chart-yellow)",
+    color: "var(--primary-5)",
   },
 } satisfies ChartConfig;
 
 export const websiteVisits_chartData = [
   { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
+  { month: "February", desktop: 170, mobile: 200 },
+  { month: "March", desktop: 140, mobile: 120 },
   { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
+  { month: "May", desktop: 150, mobile: 130 },
   { month: "June", desktop: 186, mobile: 80 },
-  { month: "July", desktop: 305, mobile: 120 },
+  { month: "July", desktop: 160, mobile: 120 },
   { month: "August", desktop: 214, mobile: 140 },
   { month: "September", desktop: 100, mobile: 150 },
-  { month: "October", desktop: 214, mobile: 140 },
-  { month: "November", desktop: 300, mobile: 120 },
-  { month: "December", desktop: 150, mobile: 70 },
 ];
 
 export const websiteVisits_chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--primary-1)",
+    color: "var(--primary-3)",
   },
   mobile: {
     label: "Mobile",
@@ -297,11 +298,11 @@ export const conversionRates_chartData = [
 export const conversionRates_chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--primary-1)",
+    color: "var(--primary-3)",
   },
   mobile: {
     label: "Mobile",
-    color: "var(--chart-yellow)",
+    color: "var(--primary-5)",
   },
 } satisfies ChartConfig;
 
@@ -512,7 +513,7 @@ export const balanceStatistics_chartData = [
 export const balanceStatistics_chartConfig = {
   income: {
     label: "Income",
-    color: "var(--primary-1)",
+    color: "var(--primary-3)",
   },
   savings: {
     label: "Savings",

@@ -59,12 +59,14 @@ const ConversionRates = () => {
             <Bar
               dataKey="desktop"
               fill="var(--color-desktop)"
-              radius={[0, 4, 4, 0]}
+              radius={[0, 3, 3, 0]}
+              barSize={10}
             />
             <Bar
               dataKey="mobile"
               fill="var(--color-mobile)"
-              radius={[0, 4, 4, 0]}
+              radius={[0, 3, 3, 0]}
+              barSize={10}
             />
           </BarChart>
         </ChartContainer>
