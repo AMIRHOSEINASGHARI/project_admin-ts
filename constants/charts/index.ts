@@ -135,11 +135,11 @@ export const revenuePieChart_chartConfig = {
   },
   tv: {
     label: "tv",
-    color: "var(--primary-light)",
+    color: "var(--primary-4)",
   },
   headphone: {
     label: "headphone",
-    color: "var(--primary-light-2)",
+    color: "var(--primary-5)",
   },
   other: {
     label: "Other",
@@ -248,11 +248,11 @@ export const currentVisits_chartConfig = {
   },
   firefox: {
     label: "Firefox",
-    color: "var(--primary-light)",
+    color: "var(--primary-4)",
   },
   edge: {
     label: "Edge",
-    color: "var(--primary-light-2)",
+    color: "var(--primary-5)",
   },
   other: {
     label: "Other",
@@ -367,11 +367,11 @@ export const currentSubject_chartConfig = {
   },
   series3: {
     label: "series3",
-    color: "var(--primary-light)",
+    color: "var(--primary-4)",
   },
   series4: {
     label: "series4",
-    color: "var(--primary-light-2)",
+    color: "var(--primary-5)",
   },
   series5: {
     label: "series5",

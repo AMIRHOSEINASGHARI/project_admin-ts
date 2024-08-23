@@ -43,18 +43,20 @@ const Sidebar = () => {
         {menuLinks.map((item) => (
           <Fragment key={item.title}>
             <li
-              className={clsx("rounded-xl", {
-                "bg-primary-1 text-white dark:bg-primary-2 dark:text-white font-medium":
-                  pathname === item.link,
+              className={clsx("rounded-xl ml-2 mb-1", {
+                "hover:bg-primary-4 text-primary-1 dark:bg-primary-6 dark:text-primary-5 font-medium":
+                  pathname === item.link && navColor === "Integrate",
                 "text-icon-light dark:text-icon-dark hover:dark:bg-dark2 hover:bg-light3":
-                  pathname !== item.link,
+                  pathname !== item.link && navColor === "Integrate",
                 "text-slate-400 hover:bg-slate-600/30 dark:hover:bg-slate-600/30":
                   pathname !== item.link && navColor === "Apparent",
+                "text-primary-5 dark:bg-primary-6 bg-primary-6 dark:text-primary-5 font-medium":
+                  pathname === item.link && navColor === "Apparent",
               })}
             >
               <Link
                 href={item.link}
-                className="flex items-center gap-[15px] px-4 py-3"
+                className="flex items-center gap-[15px] p-2"
               >
                 <div className="text-icon-size">{item.image}</div>
                 <span className="text-small">{item.title}</span>

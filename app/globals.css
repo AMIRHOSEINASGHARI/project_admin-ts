@@ -30,20 +30,20 @@
     --chart-rose: #f43f5e; /* rose-500 */
     --chart-green: #22c55e; /* green-500 */
     --chart-purple: #a855f7; /* purple-500 */
-    --chart-yellow: #eab308; /* yellow-500 */
+    --chart-yellow: rgb(255, 171, 0); /* yellow-500 */
 
-    --primary-1: #0d9488;
-    --primary-2: #134e4a;
-    --primary-darkmode: #115e59;
-    --primary-light: #1725541c;
-    --primary-light-2: #14b8a6;
-    --primary-light-3: #2dd4bf;
-    --theme-teal: #14b8a6;
-    --theme-blue: #3b82f6;
-    --theme-violet: #8b5cf6;
-    --theme-sky: #0ea5e9;
-    --theme-yellow: #eab308;
-    --theme-rose: #f43f5e;
+    --primary-1: #00a76f;
+    --primary-2: #004b50;
+    --primary-3: #007867;
+    --primary-4: #c8fad6;
+    --primary-5: #5be49b;
+    --primary-6: #122527;
+    --theme-teal: #00a76f;
+    --theme-blue: #0c68e9;
+    --theme-violet: #8e33ff;
+    --theme-sky: #00b8d9;
+    --theme-yellow: #ffab00;
+    --theme-rose: #ff5630;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -67,9 +67,9 @@
     --ring: 142 86% 28%;
     --primary-1: theme("colors.primary-1");
     --primary-2: theme("colors.primary-2");
-    --primary-light: theme("colors.primary-light");
-    --primary-light-2: theme("colors.primary-light-2");
-    --primary-light-3: theme("colors.primary-light-3");
+    --primary-4: theme("colors.primary-4");
+    --primary-5: theme("colors.primary-5");
+    --primary-6: theme("colors.primary-6");
     --radial-chart-bg: theme("colors.dark3");
     --chart-blue: #0284c7; /*  blue-700 */
     --chart-amber: #f59e0b; /* amber-700 */
@@ -77,7 +77,7 @@
     --chart-rose: #e11d48; /* rose-700 */
     --chart-green: #22c55e; /* green-700 */
     --chart-purple: #a855f7; /* purple-700 */
-    --chart-yellow: #eab308; /* yellow-700 */
+    --chart-yellow: rgb(255, 171, 0); /* yellow-700 */
   }
 }
 
@@ -142,7 +142,7 @@
 }
 
 .logo-color {
-  @apply text-primary-1 dark:text-primary-light;
+  @apply text-primary-1 dark:text-primary-4;
 }
 
 .heading1 {

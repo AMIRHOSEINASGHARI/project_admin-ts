@@ -38,10 +38,10 @@ const config = {
       colors: {
         "primary-1": "var(--primary-1)", // teal-600
         "primary-2": "var(--primary-2)", // teal-900
-        "primary-darkmode": "var(--primary-darkmode)", // teal-800
-        "primary-light": "var(--primary-light)", // teal- low opacity
-        "primary-light-2": "var(--primary-light-2)", // teal-500
-        "primary-light-3": "var(--primary-light-3)", // teal-400
+        "primary-3": "var(--primary-3)", // teal-800
+        "primary-4": "var(--primary-4)", // teal- low opacity
+        "primary-5": "var(--primary-5)", // teal-500
+        "primary-6": "var(--primary-6)", // teal-400
         "theme-teal": "var(--theme-teal)", // teal-500
         "theme-blue": "var(--theme-blue)", // blue-500
         "theme-violet": "var(--theme-violet)", // violet-500

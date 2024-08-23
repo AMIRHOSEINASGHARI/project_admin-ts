@@ -75,15 +75,15 @@ const TabsButtons = () => {
           <div className="w-full flex justify-center max-md:mb-2 md:justify-end">
             <Badge
               variant="favorite"
-              className="bg-primary-light text-primary-1 dark:bg-primary-darkmode dark:text-primary-light-3 flex items-center gap-2 py-1 rounded-md border-none"
+              className="bg-primary-4 text-primary-1 dark:bg-primary-6 dark:text-primary-5 flex items-center gap-2 py-1 rounded-md border-none"
             >
               <SolarDoubleAltArrowUpBoldDuotone className="text-[16px]" />
               +8.2%
             </Badge>
           </div>
           <div className="flex items-center gap-5 pb-5">
-            <div className="max-md:hidden dark:text-primary-light-3 dark:bg-primary-darkmode text-primary-light-3 bg-primary-2 w-fit rounded-full text-xl p-3">
-              <ArrowTrendUpRegular />
+            <div className="max-md:hidden dark:text-primary-6 dark:bg-primary-3 text-primary-6 bg-primary-3 w-fit rounded-full text-xl p-3">
+              <ArrowTrendUpRegular className="text-primary-5" />
             </div>
             <div className="flex flex-col gap-2">
               <span className="text-left text-small">Income</span>
