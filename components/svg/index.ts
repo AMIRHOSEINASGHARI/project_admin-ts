@@ -166,3 +166,4 @@ export { default as SolarOverflowMenuVertical } from "../../public/icons/solar/s
 export { default as SolarGarageBoldDuotone } from "../../public/icons/solar/solar--garage-bold-duotone.svg";
 export { default as SolarMonitorBoldDuotone } from "../../public/icons/solar/solar--monitor-bold-duotone.svg";
 export { default as SolarTextFieldFocusBoldDuotone } from "../../public/icons/solar/solar--text-field-focus-bold-duotone.svg";
+export { default as SolarAnalyticsBoldDuotone } from "../../public/icons/solar/solar--analytics-bold-duotone.svg";

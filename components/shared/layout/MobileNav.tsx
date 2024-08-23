@@ -67,6 +67,7 @@ const MobileNav = () => {
         {menuLinks.map((item) => (
           <Fragment key={item.title}>
             <li
+              onClick={() => setOpen(false)}
               className={clsx("rounded-xl ml-2 mb-1", {
                 "hover:bg-primary-4 text-primary-1 dark:bg-primary-6 dark:text-primary-5 font-medium":
                   pathname === item.link && navColor === "Integrate",

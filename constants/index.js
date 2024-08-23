@@ -35,6 +35,7 @@ import {
   SolarTextFieldFocusBoldDuotone,
   SolarChecklistMinimalisticBoldDuotone,
   SolarUserCircleBoldDuotone,
+  SolarAnalyticsBoldDuotone,
 } from "@/components/svg";
 
 export const images = {
@@ -129,7 +130,7 @@ export const menuLinks = [
   },
   {
     title: "Analytics",
-    image: <SolarChart2BoldDuotone />,
+    image: <SolarAnalyticsBoldDuotone />,
     link: "/analytics",
   },
   {
