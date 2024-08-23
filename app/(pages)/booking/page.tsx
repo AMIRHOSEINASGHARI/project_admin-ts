@@ -1,5 +1,7 @@
+import BookingPage from "@/components/pages/booking/BookingPage";
+
 const Booking = () => {
-  return <div>Booking</div>;
+  return <BookingPage />;
 };
 
 export default Booking;

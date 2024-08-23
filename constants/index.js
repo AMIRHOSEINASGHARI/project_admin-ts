@@ -36,6 +36,8 @@ import {
   SolarChecklistMinimalisticBoldDuotone,
   SolarUserCircleBoldDuotone,
   SolarAnalyticsBoldDuotone,
+  SolarDoubleAltArrowUpBoldDuotone,
+  SolarDoubleAltArrowDownBoldDuotone,
 } from "@/components/svg";
 
 export const images = {
@@ -455,5 +457,32 @@ export const currentBalance_carouselData = [
     cardNumber: "**** **** **** 7755",
     cardHolder: "Reece Chung",
     expirationDate: "11/22",
+  },
+];
+
+export const bookingCards_cardsData = [
+  {
+    title: "Total booking",
+    value: "714k",
+    profit: "+2.6%",
+    profitIcon: (
+      <SolarDoubleAltArrowUpBoldDuotone className="text-icon-size text-green-500" />
+    ),
+  },
+  {
+    title: "Sold",
+    value: "311k",
+    profit: "+0.2%",
+    profitIcon: (
+      <SolarDoubleAltArrowUpBoldDuotone className="text-icon-size text-green-500" />
+    ),
+  },
+  {
+    title: "Canceled",
+    value: "124k",
+    profit: "-0.1%",
+    profitIcon: (
+      <SolarDoubleAltArrowDownBoldDuotone className="text-icon-size text-rose-500" />
+    ),
   },
 ];
