@@ -129,23 +129,20 @@ export const revenuePieChart_chartData = [
 ];
 
 export const revenuePieChart_chartConfig = {
-  revenue: {
-    label: "revenue",
-  },
   phone: {
-    label: "phone",
+    label: "Phone",
     color: "var(--primary-1)",
   },
   laptop: {
-    label: "laptop",
+    label: "Laptop",
     color: "var(--primary-2)",
   },
   tv: {
-    label: "tv",
+    label: "TV",
     color: "var(--primary-3)",
   },
   headphone: {
-    label: "headphone",
+    label: "Headphone",
     color: "var(--primary-4)",
   },
   other: {
@@ -159,10 +156,11 @@ export const revenueRadialChart_charts = [
     id: "conversations",
     title: "Conversations",
     color: "var(--primary-1)",
+    total: 80345,
     chartData: [
       {
         name: "conversations",
-        number: 150,
+        number: 38566,
       },
     ],
     chartConfig: {
@@ -178,10 +176,11 @@ export const revenueRadialChart_charts = [
     id: "applications",
     title: "Applications",
     color: "var(--chart-yellow)",
+    total: 54236,
     chartData: [
       {
         name: "applications",
-        number: 320,
+        number: 15000,
       },
     ],
     chartConfig: {
@@ -197,10 +196,11 @@ export const revenueRadialChart_charts = [
     id: "downloads",
     title: "Downloads",
     color: "var(--chart-purple)",
+    total: 47289,
     chartData: [
       {
         name: "downloads",
-        number: 260,
+        number: 31265,
       },
     ],
     chartConfig: {
@@ -216,10 +216,11 @@ export const revenueRadialChart_charts = [
     id: "files",
     title: "Files",
     color: "var(--chart-blue)",
+    total: 90587,
     chartData: [
       {
         name: "files",
-        number: 90,
+        number: 36548,
       },
     ],
     chartConfig: {

@@ -24,6 +24,8 @@ import {
   revenuePieChart_chartConfig,
   revenuePieChart_chartData,
 } from "@/constants/charts";
+import ChartBadgeColor from "@/components/shared/ChartBadgeColor";
+import clsx from "clsx";
 
 const RevenuePieChart = () => {
   const totalRevenue = React.useMemo(() => {
@@ -34,7 +36,7 @@ const RevenuePieChart = () => {
   }, []);
 
   return (
-    <Card className="flex flex-col xl:w-[33%] w-full">
+    <Card className="xl:col-span-1 max-xl:w-full">
       <CardHeader>
         <CardTitle>Total Revenue</CardTitle>
         <CardDescription>for the last 6 months</CardDescription>
@@ -42,7 +44,7 @@ const RevenuePieChart = () => {
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={revenuePieChart_chartConfig}
-          className="mx-auto aspect-square min-h-[230px] max-h-[400px]"
+          className="mx-auto aspect-square min-h-[200px] w-full h-[400px]"
         >
           <PieChart>
             <ChartTooltip
@@ -53,7 +55,7 @@ const RevenuePieChart = () => {
               data={revenuePieChart_chartData}
               dataKey="revenue"
               nameKey="category"
-              innerRadius={60}
+              innerRadius={70}
               strokeWidth={5}
             >
               <Label
@@ -86,13 +88,25 @@ const RevenuePieChart = () => {
                 }}
               />
             </Pie>
-            <ChartLegend
-              content={<ChartLegendContent nameKey="category" />}
-              className="flex-wrap gap-2 [&>*]:justify-center border-t dark:border-dark3"
-            />
           </PieChart>
         </ChartContainer>
       </CardContent>
+      <div className="flex items-center lg:justify-center flex-wrap gap-3">
+        {Object.keys(revenuePieChart_chartConfig).map((item) => (
+          <div key={item} className="capitalize">
+            <ChartBadgeColor
+              text={item}
+              color={clsx({
+                "bg-primary-1": item === "phone",
+                "bg-primary-2": item === "laptop",
+                "bg-primary-3": item === "tv",
+                "bg-primary-4": item === "headphone",
+                "bg-primary-5": item === "other",
+              })}
+            />
+          </div>
+        ))}
+      </div>
     </Card>
   );
 };

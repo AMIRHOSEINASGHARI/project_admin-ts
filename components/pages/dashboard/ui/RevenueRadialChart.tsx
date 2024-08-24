@@ -18,25 +18,25 @@ const RevenueRadialChart = () => {
   return (
     <View variant="flex-wrap">
       {revenueRadialChart_charts.map((item) => (
-        <Card key={item.id} className="flex flex-1 min-w-[250px]">
-          <CardContent className="flex-1 pb-0">
+        <Card key={item.id} className="flex flex-1 min-w-[250px] relative">
+          <CardContent className="flex items-center gap-5 pb-0">
             <ChartContainer
               config={item.chartConfig}
-              className="mx-auto aspect-square max-h-[200px]"
+              className="aspect-square h-[80px]"
             >
               <RadialBarChart
                 data={item.chartData}
-                startAngle={0}
-                endAngle={item.chartData[0].number}
-                innerRadius={80}
-                outerRadius={110}
+                startAngle={90}
+                endAngle={-(item.chartData[0].number * 360) / item.total + 90}
+                innerRadius={35}
+                outerRadius={55}
               >
                 <PolarGrid
                   gridType="circle"
                   radialLines={false}
                   stroke="none"
                   className="first:fill-[var(--radial-chart-bg)] last:fill-white dark:last:fill-dark2"
-                  polarRadius={[83, 76]}
+                  polarRadius={[37, 33]}
                 />
                 <RadialBar
                   dataKey="number"
@@ -60,16 +60,13 @@ const RevenueRadialChart = () => {
                             <tspan
                               x={viewBox.cx}
                               y={viewBox.cy}
-                              className="fill-dark1 dark:fill-light2 text-4xl font-bold"
+                              className="dark:fill-white text-small font-bold"
                             >
-                              {item.chartData[0].number.toLocaleString()}
-                            </tspan>
-                            <tspan
-                              x={viewBox.cx}
-                              y={(viewBox.cy || 0) + 24}
-                              className="fill-dark1 dark:fill-light2"
-                            >
-                              {item.title}
+                              {(
+                                (item.chartData[0].number * 100) /
+                                item.total
+                              ).toFixed(1)}
+                              %
                             </tspan>
                           </text>
                         );
@@ -79,6 +76,12 @@ const RevenueRadialChart = () => {
                 </PolarRadiusAxis>
               </RadialBarChart>
             </ChartContainer>
+            <div className="flex flex-col">
+              <span className="font-black text-lg">
+                {item.chartData[0].number.toLocaleString()}
+              </span>
+              <span className="text-small text-slate-500">{item.title}</span>
+            </div>
           </CardContent>
         </Card>
       ))}

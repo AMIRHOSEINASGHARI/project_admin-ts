@@ -17,7 +17,7 @@ import View from "@/components/shared/layout/View";
 
 const Reviews = () => {
   return (
-    <View variant="flex-wrap">
+    <View className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
       {dashboardReviews_chartData.map((el, i) => {
         const { title, count, profit, chartData, chartColor } = el;
 
@@ -29,7 +29,7 @@ const Reviews = () => {
         } satisfies ChartConfig;
 
         return (
-          <Card key={i} className="flex flex-1 min-w-[250px]">
+          <Card key={i}>
             <div className="w-full">
               <span className="text-small">{title}</span>
               <div className="flex justify-between w-full mt-5">

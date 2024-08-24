@@ -72,7 +72,7 @@ const QuickTransfer = () => {
           <CardAttatchmentButton />
         </div>
         <Carousel className="w-full py-[50px]">
-          <CarouselContent className="mx-auto flex items-center justify-center">
+          <CarouselContent>
             {fakeNames.map((item) => (
               <CarouselItem
                 key={item.name}

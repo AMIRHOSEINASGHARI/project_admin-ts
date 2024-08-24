@@ -14,9 +14,9 @@ const DashboardPage = () => {
   return (
     <View orientation="vertical">
       <Reviews />
-      <View variant="flex-gap">
-        <UsersCompare />
+      <View className="grid grid-cols-1 xl:grid-cols-3 gap-y-5 xl:gap-x-5">
         <RevenuePieChart />
+        <UsersCompare />
       </View>
       <RevenueRadialChart />
       <View variant="flex-gap">
