@@ -162,11 +162,7 @@ const RadialChartComponent = () => {
                 className="first:fill-[var(--radial-chart-bg)] last:fill-white dark:last:fill-dark2"
                 polarRadius={[37, 33]}
               />
-              <RadialBar
-                dataKey="value"
-                background={{ fill: "var(--radial-chart-bg)" }}
-                cornerRadius={10}
-              />
+              <RadialBar dataKey="value" cornerRadius={10} />
               <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
                 <Label
                   content={({ viewBox }) => {

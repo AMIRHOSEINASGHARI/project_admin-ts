@@ -5,6 +5,7 @@ import TotalIncomes from "./ui/TotalIncomes";
 import Statistics from "./ui/Statistics";
 import ToursAvailable from "./ui/ToursAvailable";
 import CustomerReviews from "./ui/CustomerReviews";
+import NewestBooking from "./ui/NewestBooking";
 
 const BookingPage = () => {
   return (
@@ -20,6 +21,7 @@ const BookingPage = () => {
           <CustomerReviews />
         </View>
       </View>
+      <NewestBooking />
     </View>
   );
 };

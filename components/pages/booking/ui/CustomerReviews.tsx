@@ -60,9 +60,14 @@ const CustomerReviews = () => {
                 </div>
               </div>
               <p className="text-small leading-6 font-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                saepe ad officiis necessitatibus quos esse ipsa quaerat minus
-                unde? Quae vel enim alias commodi rerum.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+                consequuntur quia saepe assumenda sint dolor porro rem ratione
+                nam, officia voluptate fugit architecto facere a, laborum
+                nostrum, explicabo similique voluptatum aliquid sed vitae
+                incidunt? Laudantium, expedita! Similique animi saepe nam ipsa,
+                quae fuga praesentium voluptates optio magni perferendis quas
+                non quos impedit aspernatur sed recusandae fugiat eius quaerat
+                quam accusamus ullam a iusto vero. Ullam!
               </p>
               <div className="flex items-center flex-wrap gap-3">
                 <Badge
