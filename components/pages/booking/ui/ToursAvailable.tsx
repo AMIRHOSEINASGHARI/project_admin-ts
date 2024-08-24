@@ -102,7 +102,7 @@ const ToursAvailable = () => {
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
-      <div className="px-5">
+      <div className="px-5 space-y-2 mt-2">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <ChartBadgeColor text="Sold out" color="bg-primary-1" />
           <span className="dark:text-white text-small">120 tours</span>
