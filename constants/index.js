@@ -510,3 +510,36 @@ export const bookingPage_TotalIncomes_progress_data = [
     color: "bg-gradient-to-r from-indigo-400 to-indigo-500",
   },
 ];
+
+export const bookingPage_TotalIncomes_radialChartComponent_data = [
+  {
+    title: "Sold",
+    total: 52186,
+    chartData: [
+      { status: "status", value: 38566, fill: "var(--color-status)" },
+    ],
+    chartConfig: {
+      value: {
+        label: "Value",
+      },
+      status: {
+        color: "var(--primary-1)",
+      },
+    },
+  },
+  {
+    title: "Pending for payment",
+    total: 40508,
+    chartData: [
+      { status: "status", value: 18472, fill: "var(--color-status)" },
+    ],
+    chartConfig: {
+      value: {
+        label: "Value",
+      },
+      status: {
+        color: "var(--theme-yellow)",
+      },
+    },
+  },
+];

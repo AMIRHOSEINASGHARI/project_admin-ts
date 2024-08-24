@@ -35,8 +35,8 @@ const RevenueRadialChart = () => {
                   gridType="circle"
                   radialLines={false}
                   stroke="none"
-                  className="first:fill-muted last:fill-background"
-                  polarRadius={[86, 74]}
+                  className="first:fill-[var(--radial-chart-bg)] last:fill-white dark:last:fill-dark2"
+                  polarRadius={[83, 76]}
                 />
                 <RadialBar
                   dataKey="number"

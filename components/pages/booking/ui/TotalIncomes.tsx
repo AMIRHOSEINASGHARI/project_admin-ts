@@ -5,21 +5,33 @@ import {
   bookingpage_totalIncomes_chartConfig,
   bookingpage_totalIncomes_chartData,
 } from "@/constants/charts";
-import { bookingPage_TotalIncomes_progress_data } from "@/constants";
+import {
+  bookingPage_TotalIncomes_progress_data,
+  bookingPage_TotalIncomes_radialChartComponent_data,
+} from "@/constants";
 // cmp
 import { ArrowTrendUpRegular } from "@/components/svg";
 import { Card } from "@/components/ui/card";
-import { Line, LineChart } from "recharts";
+import {
+  Line,
+  LineChart,
+  Label,
+  PolarGrid,
+  PolarRadiusAxis,
+  RadialBar,
+  RadialBarChart,
+} from "recharts";
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Progress } from "@/components/ui/progress";
+import clsx from "clsx";
 
 const TotalIncomes = () => {
   return (
-    <Card className="bg-light2 dark:bg-dark3 p-3">
+    <Card className="bg-light2 dark:bg-dark3 p-3 space-y-3">
       <div className="flex flex-col xl:flex-row rounded-xl w-full bg-white dark:bg-dark2 p-3 gap-3">
         <div className="w-full p-5 bg-primary-2 rounded-xl flex flex-col gap-10">
           <div className="flex w-full items-start justify-between">
@@ -39,10 +51,7 @@ const TotalIncomes = () => {
         </div>
         <ProgressComponent />
       </div>
-      <div className="flex flex-col xl:flex-row rounded-xl w-full bg-white dark:bg-dark2 p-3">
-        <div className="w-full">left</div>
-        <div className="w-full">right</div>
-      </div>
+      <RadialChartComponent />
     </Card>
   );
 };
@@ -103,10 +112,10 @@ const ProgressComponent = () => {
       {bookingPage_TotalIncomes_progress_data.map((item) => (
         <div key={item.title} className="w-full space-y-2">
           <div className="w-full flex justify-between gap-2 flex-wrap">
-            <span className="font-bold text-white text-small uppercase">
+            <span className="font-bold dark:text-white text-small uppercase">
               {item.title}
             </span>
-            <span className="font-bold text-white text-small uppercase">
+            <span className="font-bold dark:text-white text-small uppercase">
               {item.value}
             </span>
           </div>
@@ -114,6 +123,85 @@ const ProgressComponent = () => {
             value={(item.precent * item.max) / 100}
             className={item.color}
           />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const RadialChartComponent = () => {
+  return (
+    <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center rounded-xl w-full bg-white dark:bg-dark2">
+      {bookingPage_TotalIncomes_radialChartComponent_data.map((item) => (
+        <div
+          className={clsx(
+            "flex items-center xl:justify-center w-full gap-5 max-xl:px-10 xl:px-3 py-10",
+            {
+              "xl:border-r-2 max-xl:border-b-2 border-dotted dark:border-dark3 border-light3":
+                item.title === "Sold",
+            }
+          )}
+        >
+          <ChartContainer
+            key={item.title}
+            config={item.chartConfig}
+            className="aspect-square h-[80px]"
+          >
+            <RadialBarChart
+              data={item.chartData}
+              startAngle={0}
+              endAngle={(item.chartData[0].value * 360) / item.total}
+              innerRadius={35}
+              outerRadius={55}
+            >
+              <PolarGrid
+                gridType="circle"
+                radialLines={false}
+                stroke="none"
+                className="first:fill-[var(--radial-chart-bg)] last:fill-white dark:last:fill-dark2"
+                polarRadius={[38, 33]}
+              />
+              <RadialBar
+                dataKey="value"
+                background={{ fill: "var(--radial-chart-bg)" }}
+                cornerRadius={10}
+              />
+              <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
+                <Label
+                  content={({ viewBox }) => {
+                    if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                      return (
+                        <text
+                          x={viewBox.cx}
+                          y={viewBox.cy}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                        >
+                          <tspan
+                            x={viewBox.cx}
+                            y={viewBox.cy}
+                            className="dark:fill-white text-small font-bold"
+                          >
+                            {(
+                              (item.chartData[0].value * 100) /
+                              item.total
+                            ).toFixed(1)}
+                            %
+                          </tspan>
+                        </text>
+                      );
+                    }
+                  }}
+                />
+              </PolarRadiusAxis>
+            </RadialBarChart>
+          </ChartContainer>
+          <div className="flex flex-col">
+            <span className="font-black text-lg">
+              {item.chartData[0].value.toLocaleString()}
+            </span>
+            <span className="text-small text-slate-500">{item.title}</span>
+          </div>
         </div>
       ))}
     </div>
