@@ -91,7 +91,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
       root.style.setProperty("--primary-6", "#122527"); // teal-400
     } else if (preset === "blue") {
       root.style.setProperty("--primary-1", "#0c68e9"); // blue-600
-      root.style.setProperty("--primary-2", "#1c252e"); // blue-900
+      root.style.setProperty("--primary-2", "#021d6f"); // blue-900
       root.style.setProperty("--primary-3", "#063ba7"); // blue-800
       root.style.setProperty("--primary-4", "#cde9fd"); // blue- low opacity
       root.style.setProperty("--primary-5", "#6bb1f8"); // blue-500
