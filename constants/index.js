@@ -486,3 +486,27 @@ export const bookingCards_cardsData = [
     ),
   },
 ];
+
+export const bookingPage_TotalIncomes_progress_data = [
+  {
+    title: "Pending",
+    value: "9.91k",
+    precent: 80,
+    max: 100,
+    color: "bg-gradient-to-r from-primary-5 to-primary-1",
+  },
+  {
+    title: "Canceled",
+    value: "1.95k",
+    precent: 70,
+    max: 100,
+    color: "bg-gradient-to-r from-orange-400 to-orange-500",
+  },
+  {
+    title: "Sold",
+    value: "9.12k",
+    precent: 90,
+    max: 100,
+    color: "bg-gradient-to-r from-indigo-400 to-indigo-500",
+  },
+];

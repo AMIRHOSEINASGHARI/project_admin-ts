@@ -524,3 +524,22 @@ export const balanceStatistics_chartConfig = {
     color: "var(--theme-sky)",
   },
 } satisfies ChartConfig;
+
+export const bookingpage_totalIncomes_chartData = [
+  { month: "January", income: 10 },
+  { month: "February", income: 41 },
+  { month: "March", income: 80 },
+  { month: "April", income: 100 },
+  { month: "May", income: 60 },
+  { month: "June", income: 120 },
+  { month: "July", income: 69 },
+  { month: "August", income: 91 },
+  { month: "September", income: 160 },
+];
+
+export const bookingpage_totalIncomes_chartConfig = {
+  income: {
+    label: "Income",
+    color: "var(--primary-5)",
+  },
+} satisfies ChartConfig;

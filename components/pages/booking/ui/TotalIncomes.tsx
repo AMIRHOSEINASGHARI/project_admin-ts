@@ -1,34 +1,21 @@
 "use client";
 
+// constants
+import {
+  bookingpage_totalIncomes_chartConfig,
+  bookingpage_totalIncomes_chartData,
+} from "@/constants/charts";
+import { bookingPage_TotalIncomes_progress_data } from "@/constants";
 // cmp
 import { ArrowTrendUpRegular } from "@/components/svg";
 import { Card } from "@/components/ui/card";
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { Line, LineChart } from "recharts";
 import {
-  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-const chartData = [
-  { month: "January", income: 10 },
-  { month: "February", income: 41 },
-  { month: "March", income: 80 },
-  { month: "April", income: 100 },
-  { month: "May", income: 60 },
-  { month: "June", income: 120 },
-  { month: "July", income: 69 },
-  { month: "August", income: 91 },
-  { month: "September", income: 160 },
-];
-
-const chartConfig = {
-  income: {
-    label: "Income",
-    color: "var(--primary-5)",
-  },
-} satisfies ChartConfig;
+import { Progress } from "@/components/ui/progress";
 
 const TotalIncomes = () => {
   return (
@@ -50,7 +37,7 @@ const TotalIncomes = () => {
           </div>
           <ChartComponent />
         </div>
-        <div className="w-full">right</div>
+        <ProgressComponent />
       </div>
       <div className="flex flex-col xl:flex-row rounded-xl w-full bg-white dark:bg-dark2 p-3">
         <div className="w-full">left</div>
@@ -65,8 +52,11 @@ export default TotalIncomes;
 const ChartComponent = () => {
   return (
     <div>
-      <ChartContainer config={chartConfig} className="h-[100px] w-full">
-        <LineChart accessibilityLayer data={chartData}>
+      <ChartContainer
+        config={bookingpage_totalIncomes_chartConfig}
+        className="h-[100px] w-full"
+      >
+        <LineChart accessibilityLayer data={bookingpage_totalIncomes_chartData}>
           <ChartTooltip
             content={
               <ChartTooltipContent
@@ -102,6 +92,30 @@ const ChartComponent = () => {
           />
         </LineChart>
       </ChartContainer>
+    </div>
+  );
+};
+
+const ProgressComponent = () => {
+  return (
+    <div className="w-full py-5 pr-5 pl-2 flex flex-col max-xl:gap-5 xl:justify-between">
+      <span className="bold-value-2">Booked</span>
+      {bookingPage_TotalIncomes_progress_data.map((item) => (
+        <div key={item.title} className="w-full space-y-2">
+          <div className="w-full flex justify-between gap-2 flex-wrap">
+            <span className="font-bold text-white text-small uppercase">
+              {item.title}
+            </span>
+            <span className="font-bold text-white text-small uppercase">
+              {item.value}
+            </span>
+          </div>
+          <Progress
+            value={(item.precent * item.max) / 100}
+            className={item.color}
+          />
+        </div>
+      ))}
     </div>
   );
 };
