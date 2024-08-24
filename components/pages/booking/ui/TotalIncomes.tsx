@@ -121,7 +121,14 @@ const ProgressComponent = () => {
           </div>
           <Progress
             value={(item.precent * item.max) / 100}
-            className={item.color}
+            className={clsx({
+              "bg-gradient-to-r from-primary-5 to-primary-1":
+                item.title === "Pending",
+              "bg-gradient-to-r from-orange-400 to-orange-500":
+                item.title === "Canceled",
+              "bg-gradient-to-r from-blue-400 to-blue-500":
+                item.title === "Sold",
+            })}
           />
         </div>
       ))}

@@ -37,11 +37,11 @@ const Statistics = () => {
       <div className="flex justify-between flex-wrap gap-1 max-md:mb-5">
         <div className="flex items-center flex-wrap gap-5 my-5">
           <div className="flex flex-col gap-2">
-            <ChartBadgeColor text="Sold" color="primary-3" />
+            <ChartBadgeColor text="Sold" color="bg-primary-3" />
             <span className="font-semibold">6.79k</span>
           </div>
           <div className="flex flex-col gap-2">
-            <ChartBadgeColor text="Canceled" color="theme-yellow" />
+            <ChartBadgeColor text="Canceled" color="bg-theme-yellow" />
             <span className="font-semibold">1.23k</span>
           </div>
         </div>
