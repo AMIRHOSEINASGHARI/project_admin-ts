@@ -150,8 +150,8 @@ const RadialChartComponent = () => {
           >
             <RadialBarChart
               data={item.chartData}
-              startAngle={0}
-              endAngle={(item.chartData[0].value * 360) / item.total}
+              startAngle={90}
+              endAngle={-(item.chartData[0].value * 360) / item.total + 90}
               innerRadius={35}
               outerRadius={55}
             >
