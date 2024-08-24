@@ -134,6 +134,7 @@ const RadialChartComponent = () => {
     <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center rounded-xl w-full bg-white dark:bg-dark2">
       {bookingPage_TotalIncomes_radialChartComponent_data.map((item) => (
         <div
+          key={item.title}
           className={clsx(
             "flex items-center xl:justify-center w-full gap-5 max-xl:px-10 xl:px-3 py-10",
             {
@@ -159,7 +160,7 @@ const RadialChartComponent = () => {
                 radialLines={false}
                 stroke="none"
                 className="first:fill-[var(--radial-chart-bg)] last:fill-white dark:last:fill-dark2"
-                polarRadius={[38, 33]}
+                polarRadius={[37, 33]}
               />
               <RadialBar
                 dataKey="value"

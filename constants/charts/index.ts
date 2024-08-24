@@ -1,3 +1,6 @@
+// types
+import { ChartShowStatusType } from "@/types/shared";
+// cmp
 import { ChartConfig } from "@/components/ui/chart";
 
 export const dashboardReviews_chartData = [
@@ -541,5 +544,52 @@ export const bookingpage_totalIncomes_chartConfig = {
   income: {
     label: "Income",
     color: "var(--primary-5)",
+  },
+} satisfies ChartConfig;
+
+export const bookingpage_statistics_chartData = (
+  status: ChartShowStatusType
+) => {
+  switch (status) {
+    case "Weekly":
+      return [
+        { week: "Week 1", sold: 21, canceled: 20 },
+        { week: "Week 2", sold: 41, canceled: 56 },
+        { week: "Week 3", sold: 35, canceled: 77 },
+        { week: "Week 4", sold: 151, canceled: 88 },
+        { week: "Week 5", sold: 49, canceled: 99 },
+      ];
+    case "Monthly":
+      return [
+        { month: "January", sold: 83, canceled: 46 },
+        { month: "February", sold: 112, canceled: 56 },
+        { month: "March", sold: 119, canceled: 43 },
+        { month: "April", sold: 88, canceled: 58 },
+        { month: "May", sold: 103, canceled: 40 },
+        { month: "June", sold: 112, canceled: 59 },
+        { month: "July", sold: 114, canceled: 54 },
+        { month: "August", sold: 108, canceled: 42 },
+        { month: "September", sold: 93, canceled: 51 },
+      ];
+    case "Yearly":
+      return [
+        { year: "2019", sold: 76, canceled: 46 },
+        { year: "2020", sold: 42, canceled: 44 },
+        { year: "2021", sold: 29, canceled: 24 },
+        { year: "2022", sold: 41, canceled: 43 },
+        { year: "2023", sold: 27, canceled: 44 },
+        { year: "2024", sold: 96, canceled: 43 },
+      ];
+  }
+};
+
+export const bookingpage_statistics_chartConfig = {
+  sold: {
+    label: "Sold",
+    color: "var(--primary-3)",
+  },
+  canceled: {
+    label: "Canceled",
+    color: "var(--theme-yellow)",
   },
 } satisfies ChartConfig;

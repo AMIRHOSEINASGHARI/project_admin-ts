@@ -4,6 +4,7 @@
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -27,49 +28,51 @@ const BalanceStatistics = () => {
         <CardDescription>Statistics on balance over time</CardDescription>
       </CardHeader>
       <ChartDescriptions />
-      <ChartContainer
-        config={balanceStatistics_chartConfig}
-        className="max-h-[270px] w-full"
-      >
-        <BarChart accessibilityLayer data={balanceStatistics_chartData}>
-          <CartesianGrid vertical={false} className="chart-cartesian-grid" />
-          <YAxis
-            type="number"
-            tickLine={false}
-            tickMargin={30}
-            axisLine={false}
-          />
-          <XAxis
-            dataKey="year"
-            tickLine={false}
-            tickMargin={10}
-            axisLine={false}
-            tickFormatter={(value) => value.slice(0, 4)}
-          />
-          <ChartTooltip
-            cursor={false}
-            content={<ChartTooltipContent indicator="dashed" />}
-          />
-          <Bar
-            dataKey="income"
-            fill="var(--color-income)"
-            radius={[4, 4, 0, 0]}
-            barSize={15}
-          />
-          <Bar
-            dataKey="savings"
-            fill="var(--color-savings)"
-            radius={[4, 4, 0, 0]}
-            barSize={15}
-          />
-          <Bar
-            dataKey="investment"
-            fill="var(--color-investment)"
-            radius={[4, 4, 0, 0]}
-            barSize={15}
-          />
-        </BarChart>
-      </ChartContainer>
+      <CardContent>
+        <ChartContainer
+          config={balanceStatistics_chartConfig}
+          className="max-h-[270px] w-full"
+        >
+          <BarChart accessibilityLayer data={balanceStatistics_chartData}>
+            <CartesianGrid vertical={false} className="chart-cartesian-grid" />
+            <YAxis
+              type="number"
+              tickLine={false}
+              tickMargin={30}
+              axisLine={false}
+            />
+            <XAxis
+              dataKey="year"
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+              tickFormatter={(value) => value.slice(0, 4)}
+            />
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent indicator="dashed" />}
+            />
+            <Bar
+              dataKey="income"
+              fill="var(--color-income)"
+              radius={[4, 4, 0, 0]}
+              barSize={15}
+            />
+            <Bar
+              dataKey="savings"
+              fill="var(--color-savings)"
+              radius={[4, 4, 0, 0]}
+              barSize={15}
+            />
+            <Bar
+              dataKey="investment"
+              fill="var(--color-investment)"
+              radius={[4, 4, 0, 0]}
+              barSize={15}
+            />
+          </BarChart>
+        </ChartContainer>
+      </CardContent>
     </Card>
   );
 };

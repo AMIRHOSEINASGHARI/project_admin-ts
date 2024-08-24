@@ -25,3 +25,5 @@ export type RecentTransitionsTableData = {
   amount: number;
   status: TransitionStatusType;
 };
+
+export type ChartShowStatusType = "Weekly" | "Monthly" | "Yearly";

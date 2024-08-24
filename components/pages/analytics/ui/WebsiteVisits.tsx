@@ -2,7 +2,6 @@
 
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import {
-  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -17,6 +16,7 @@ import {
   websiteVisits_chartConfig,
   websiteVisits_chartData,
 } from "@/constants/charts";
+import ChartBadgeColor from "@/components/shared/ChartBadgeColor";
 
 const WebsiteVisits = () => {
   return (
@@ -26,14 +26,8 @@ const WebsiteVisits = () => {
         <CardDescription>(+43%) than last year</CardDescription>
       </CardHeader>
       <div className="flex items-center justify-end gap-5 my-5">
-        <div className="flex items-center gap-2">
-          <div className="bg-primary-3 rounded-full w-3 h-3" />
-          <span className="text-small font-medium">Desktop</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="bg-theme-yellow rounded-full w-3 h-3" />
-          <span className="text-small font-medium">Mobile</span>
-        </div>
+        <ChartBadgeColor text="Desktop" color="primary-3" />
+        <ChartBadgeColor text="Mobile" color="theme-yellow" />
       </div>
       <ChartContainer
         config={websiteVisits_chartConfig}
