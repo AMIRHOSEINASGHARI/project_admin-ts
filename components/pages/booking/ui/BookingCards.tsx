@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 
 const BookingCards = () => {
   return (
-    <View variant="flex-wrap">
+    <View className="grid grid-cols-1 xl:grid-cols-3 gap-5">
       {bookingCards_cardsData.map((card) => (
         <Card
           key={card.title}

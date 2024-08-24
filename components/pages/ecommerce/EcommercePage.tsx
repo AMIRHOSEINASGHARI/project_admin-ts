@@ -11,6 +11,8 @@ import BestSalesman from "./ui/BestSalesman";
 import LatestProducts from "./ui/LatestProducts";
 import LoaderBar from "@/components/shared/LoaderBar";
 
+// TODO: making cards grids
+
 const EcommercePage = () => {
   return (
     <View orientation="vertical">
