@@ -1,7 +1,7 @@
 // next
 import Image from "next/image";
 // constants
-import { fakeNames } from "@/constants";
+import { fakeUsers } from "@/mock/users";
 // cmp
 import {
   SolarAltArrowLeftLineDuotone,
@@ -28,7 +28,7 @@ const NewestBooking = () => {
     <Card>
       <CardHeader className="absolute">
         <CardTitle>Newest booking</CardTitle>
-        <CardDescription>8 bookings</CardDescription>
+        <CardDescription>24 bookings</CardDescription>
       </CardHeader>
       <Carousel className="pt-[60px]">
         <div className="absolute top-0 right-0">
@@ -40,7 +40,7 @@ const NewestBooking = () => {
           </CarouselNext>
         </div>
         <CarouselContent>
-          {fakeNames.map((item, index) => (
+          {fakeUsers.map((item, index) => (
             <CarouselItem key={item.name} className="md:basis-1/2 xl:basis-1/4">
               <div className="space-y-4 bg-light2 dark:bg-dark3 rounded-xl p-3">
                 <div className="flex items-center gap-3">
@@ -70,7 +70,7 @@ const NewestBooking = () => {
                   </div>
                 </div>
                 <Image
-                  src={`/images/pic/travel-${index + 1}.png`}
+                  src={`/images/travels/travel-${index + 1}.png`}
                   width={300}
                   height={300}
                   alt="pic"

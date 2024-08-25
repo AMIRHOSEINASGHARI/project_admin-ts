@@ -1,12 +1,9 @@
 // next
 import Image from "next/image";
 // constants
-import { fakeNames } from "@/constants";
+import { fakeUsers } from "@/mock/users";
 // icons
-import {
-  MoneyTransferRegular,
-  SolarTransferHorizontalBoldDuotone,
-} from "@/components/svg";
+import { SolarTransferHorizontalBoldDuotone } from "@/components/svg";
 // cmp
 import CardAttatchmentButton from "@/components/shared/CardAttatchmentButton";
 import CustomTooltip from "@/components/shared/CustomTooltip";
@@ -19,6 +16,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { Slice } from "lucide-react";
 
 const Contacts = () => {
   return (
@@ -33,7 +31,7 @@ const Contacts = () => {
       <CardContent>
         <Table>
           <TableBody>
-            {fakeNames.slice(0, 5)?.map((item) => (
+            {fakeUsers?.splice(0, 5).map((item) => (
               <TableRow
                 key={item.name}
                 className="p-0 border-none hover:bg-transparent dark:hover:bg-transparent"

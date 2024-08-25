@@ -1,7 +1,7 @@
 // next
 import Image from "next/image";
 // constants
-import { fakeNames } from "@/constants";
+import { fakeUsers } from "@/mock/users";
 // cmp
 import {
   SolarAltArrowLeftLineDuotone,
@@ -41,7 +41,7 @@ const CustomerReviews = () => {
           </CarouselNext>
         </div>
         <CarouselContent>
-          {fakeNames.map((item) => (
+          {fakeUsers.splice(0, 11).map((item) => (
             <CarouselItem key={item.name} className="space-y-3">
               <div className="flex items-center gap-3">
                 <Image

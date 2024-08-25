@@ -5,7 +5,7 @@ import { useState } from "react";
 // next
 import Image from "next/image";
 // constants
-import { fakeNames } from "@/constants";
+import { fakeUsers } from "@/mock/users";
 // icons
 import { AngleLeftRegular, AngleRightRegular } from "@/components/svg";
 // cmp
@@ -42,7 +42,7 @@ const QuickTransfer = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [transferValue, setTransferValue] = useState<number[]>([0]);
   const [selectedUser, setSelectedUser] = useState<SelectedUserType>(
-    fakeNames[5]
+    fakeUsers[5]
   );
 
   const onOpenChange = () => {
@@ -73,7 +73,7 @@ const QuickTransfer = () => {
         </div>
         <Carousel className="w-full py-[50px]">
           <CarouselContent>
-            {fakeNames.map((item) => (
+            {fakeUsers.map((item) => (
               <CarouselItem
                 key={item.name}
                 className="basis-[30%] sm:basis-[15%] md:basis-[20%] lg:basis-[15%] xl:basis-1/5"
