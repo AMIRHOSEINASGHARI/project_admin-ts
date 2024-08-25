@@ -637,3 +637,24 @@ export const coursePage_hoursSpent_chartConfig = {
     color: "var(--no-color)",
   },
 } satisfies ChartConfig;
+
+export const coursePage_courseProgress_chartData = [
+  { category: "completed", progress: 20, fill: "var(--color-completed)" },
+  { category: "inProgress", progress: 25, fill: "var(--color-inProgress)" },
+  { category: "toStart", progress: 45, fill: "var(--color-toStart)" },
+];
+
+export const coursePage_courseProgress_chartConfig = {
+  completed: {
+    label: "Completed",
+    color: "var(--theme-yellow)",
+  },
+  inProgress: {
+    label: "In progress",
+    color: "var(--theme-teal)",
+  },
+  toStart: {
+    label: "To start",
+    color: "var(--ghost)",
+  },
+} satisfies ChartConfig;

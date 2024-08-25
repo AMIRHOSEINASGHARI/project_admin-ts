@@ -60,7 +60,7 @@ const ToursAvailable = () => {
               gridType="circle"
               radialLines={false}
               stroke="none"
-              className="first:fill-[var(--radial-chart-bg)] last:fill-white dark:last:fill-dark2"
+              className="first:fill-[var(--ghost)] last:fill-white dark:last:fill-dark2"
               polarRadius={[105, 95]}
             />
             <RadialBar
@@ -108,10 +108,7 @@ const ToursAvailable = () => {
           <span className="dark:text-white text-small">120 tours</span>
         </div>
         <div className="flex items-center justify-between flex-wrap gap-2">
-          <ChartBadgeColor
-            text="Available"
-            color="bg-[var(--radial-chart-bg)]"
-          />
+          <ChartBadgeColor text="Available" color="bg-[var(--ghost)]" />
           <span className="dark:text-white text-small">66 tours</span>
         </div>
       </div>

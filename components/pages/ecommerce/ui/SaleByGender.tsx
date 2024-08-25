@@ -46,7 +46,7 @@ const SaleByGender = () => {
             />
             <RadialBar
               dataKey="value"
-              background={{ fill: "var(--radial-chart-bg)" }}
+              background={{ fill: "var(--ghost)" }}
               cornerRadius={50}
             />
             <ChartTooltip

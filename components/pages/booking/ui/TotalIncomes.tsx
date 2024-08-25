@@ -166,7 +166,7 @@ const RadialChartComponent = () => {
                 gridType="circle"
                 radialLines={false}
                 stroke="none"
-                className="first:fill-[var(--radial-chart-bg)] last:fill-white dark:last:fill-dark2"
+                className="first:fill-[var(--ghost)] last:fill-white dark:last:fill-dark2"
                 polarRadius={[37, 33]}
               />
               <RadialBar dataKey="value" cornerRadius={10} />

@@ -51,57 +51,57 @@ export const images = {
 export const fakeNames = [
   {
     name: "Melanie Noble",
-    image: images.admin,
+    image: "/images/avatars_1.jpg",
     email: "melanie.noble@yahoo.com",
   },
   {
     name: "Chase Day",
-    image: images.admin2,
+    image: "/images/avatars_2.jpg",
     email: "chase.day@yahoo.com",
   },
   {
     name: "Shawn Manning",
-    image: images.admin3,
+    image: "/images/avatars_3.jpg",
     email: "shawn.manning@yahoo.com",
   },
   {
     name: "Soren Durham",
-    image: images.admin4,
+    image: "/images/avatars_4.jpg",
     email: "soren.durham@yahoo.com",
   },
   {
     name: "Cortez Herring",
-    image: images.admin5,
+    image: "/images/avatars_5.jpg",
     email: "cortez.herring@yahoo.com",
   },
   {
     name: "Jayvion Simon",
-    image: images.admin6,
+    image: "/images/avatars_6.jpg",
     email: "jayvion.simon@yahoo.com",
   },
   {
     name: "Lucian Obrien",
-    image: images.admin7,
+    image: "/images/avatars_7.jpg",
     email: "lucian.obrien@yahoo.com",
   },
   {
     name: "Deja Brady",
-    image: images.admin8,
+    image: "/images/avatars_8.jpg",
     email: "deja.brady@yahoo.com",
   },
   {
     name: "Harrison Stein",
-    image: images.admin9,
+    image: "/images/avatars_9.jpg",
     email: "harrison.stein@yahoo.com",
   },
   {
     name: "Reece Chung",
-    image: images.admin10,
+    image: "/images/avatars_10.jpg",
     email: "reece.chung@yahoo.com",
   },
   {
     name: "Lainey Davidson",
-    image: images.admin11,
+    image: "/images/avatars_11.jpg",
     email: "lainey.davidson@yahoo.com",
   },
 ];
