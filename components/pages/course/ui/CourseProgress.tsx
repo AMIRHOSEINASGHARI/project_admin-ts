@@ -27,7 +27,7 @@ const CourseProgress = () => {
   }, []);
 
   return (
-    <Card className="w-full">
+    <Card className="w-full xl:w-1/2">
       <CardHeader>
         <CardTitle>Course progress</CardTitle>
       </CardHeader>

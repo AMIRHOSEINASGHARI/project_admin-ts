@@ -487,3 +487,30 @@ export const coursePage_courseCards_data = [
     bgColor: "bg-gradient-to-b from-purple-500/20 to-purple-500/10",
   },
 ];
+
+export const coursePage_continueCourse_data = [
+  {
+    id: 1,
+    title: "Introduction to Python Programming",
+    lessons: 7,
+    max: 12,
+  },
+  {
+    id: 2,
+    title: "Introduction to Python Programming",
+    lessons: 8,
+    max: 12,
+  },
+  {
+    id: 3,
+    title: "Introduction to Python Programming",
+    lessons: 9,
+    max: 12,
+  },
+  {
+    id: 4,
+    title: "Introduction to Python Programming",
+    lessons: 10,
+    max: 12,
+  },
+];
