@@ -36,29 +36,26 @@ const config = {
         dialog: "-40px 40px 80px rgba(0,0,0,0.24)",
       },
       colors: {
-        "primary-1": "var(--primary-1)", // teal-600
-        "primary-2": "var(--primary-2)", // teal-900
-        "primary-3": "var(--primary-3)", // teal-800
-        "primary-4": "var(--primary-4)", // teal- low opacity
-        "primary-5": "var(--primary-5)", // teal-500
-        "primary-6": "var(--primary-6)", // teal-400
-        "theme-teal": "var(--theme-teal)", // teal-500
-        "theme-blue": "var(--theme-blue)", // blue-500
-        "theme-violet": "var(--theme-violet)", // violet-500
-        "theme-sky": "var(--theme-sky)", // sky-500
-        "theme-yellow": "var(--theme-yellow)", // yellow-500
-        "theme-rose": "var(--theme-rose)", // rose-500
+        "primary-1": "var(--primary-1)",
+        "primary-2": "var(--primary-2)",
+        "primary-3": "var(--primary-3)",
+        "primary-4": "var(--primary-4)",
+        "primary-5": "var(--primary-5)",
+        "primary-6": "var(--primary-6)",
+        "theme-teal": "var(--theme-teal)",
+        "theme-blue": "var(--theme-blue)",
+        "theme-violet": "var(--theme-violet)",
+        "theme-sky": "var(--theme-sky)",
+        "theme-yellow": "var(--theme-yellow)",
+        "theme-rose": "var(--theme-rose)",
         light1: "#f8fafc",
         light2: "#f1f5f9",
         light3: "#e2e8f0",
-        // dark1: "#090a0b",
-        // dark2: "#121517",
-        // dark3: "#202427",
         dark1: "#141a21",
         dark2: "#182027",
         dark3: "#202831",
-        "error-light": "#ef4444", // red-500
-        "error-dark": "#dc2626", // red-600
+        "error-light": "#ef4444",
+        "error-dark": "#dc2626",
         icon: {
           light: "#64748b",
           dark: "#94a3b8",

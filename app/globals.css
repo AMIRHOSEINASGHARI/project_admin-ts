@@ -66,11 +66,12 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 142 86% 28%;
-    --primary-1: theme("colors.primary-1");
-    --primary-2: theme("colors.primary-2");
-    --primary-4: theme("colors.primary-4");
-    --primary-5: theme("colors.primary-5");
-    --primary-6: theme("colors.primary-6");
+    --primary-1: #00a76f;
+    --primary-2: #004b50;
+    --primary-3: #007867;
+    --primary-4: #c8fad6;
+    --primary-5: #5be49b;
+    --primary-6: #122527;
     --radial-chart-bg: theme("colors.dark3");
     --chart-blue: #0284c7;
     --chart-amber: #f59e0b;

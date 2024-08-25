@@ -167,3 +167,10 @@ export { default as SolarGarageBoldDuotone } from "../../public/icons/solar/sola
 export { default as SolarMonitorBoldDuotone } from "../../public/icons/solar/solar--monitor-bold-duotone.svg";
 export { default as SolarTextFieldFocusBoldDuotone } from "../../public/icons/solar/solar--text-field-focus-bold-duotone.svg";
 export { default as SolarAnalyticsBoldDuotone } from "../../public/icons/solar/solar--analytics-bold-duotone.svg";
+export { default as SolarDocumentsBoldDuotone } from "../../public/icons/solar/solar--documents-bold-duotone.svg";
+export { default as SolarFolderCheckBoldDuotone } from "../../public/icons/solar/solar--folder-check-bold-duotone.svg";
+export { default as SolarGalleryWideBoldDuotone } from "../../public/icons/solar/solar--gallery-wide-bold-duotone.svg";
+export { default as SolarHeartPulse2BoldDuotone } from "../../public/icons/solar/solar--heart-pulse-2-bold-duotone.svg";
+export { default as SolarMedalRibbonStarBoldDuotone } from "../../public/icons/solar/solar--medal-ribbon-star-bold-duotone.svg";
+export { default as SolarVideocameraRecordBoldDuotone } from "../../public/icons/solar/solar--videocamera-record-bold-duotone.svg";
+export { default as SolarImage8Duotone } from "../../public/icons/solar/svg-image-8.svg";

@@ -63,7 +63,7 @@ const Reviews = () => {
                     <Bar
                       dataKey="performance"
                       fill="var(--color-performance)"
-                      radius={4}
+                      radius={[2, 2, 0, 0]}
                     />
                   </BarChart>
                 </ChartContainer>

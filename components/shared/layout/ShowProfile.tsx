@@ -1,12 +1,12 @@
 "use client";
 
 // react
-import { Fragment, useState } from "react";
+import { useState } from "react";
 // next
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Image from "next/image";
 // constants
-import { images, menuLinks } from "@/constants";
+import { images } from "@/constants";
 // hooks
 import useSession from "@/hooks/session";
 // cmp
@@ -19,28 +19,20 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
-import clsx from "clsx";
+import SignoutButton from "../SignoutButton";
 // icons
 import {
-  HomeRegular,
-  LogoRegular,
-  MenuBarsRegular,
-  PlusRegular,
-  SettingsSlidersRegular,
-  ShopRegular,
   SolarAddFolderBoldDuotone,
   SolarChecklistMinimalisticBoldDuotone,
   SolarHanger2BoldDuotone,
   SolarHomeAngleBoldDuotone,
   SolarUserCircleBoldDuotone,
-  TodoAltRegular,
 } from "@/components/svg";
-import { Skeleton } from "@/components/ui/skeleton";
-import SignoutButton from "../SignoutButton";
-import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import Loader from "../Loader";
 
 const HiddenTags = () => (
   <VisuallyHidden.Root>
@@ -94,22 +86,30 @@ const ShowProfile = () => {
   const sheetContent = (
     <div>
       <div className="pb-[80px]">
-        <div className="flex flex-col items-center justify-center">
-          <Image
-            src={data?.session?.avatar || images.admin}
-            width={200}
-            height={200}
-            alt="user"
-            className="w-[100px] h-[100px] mb-2 rounded-full"
-          />
-          <span className="font-medium text-base dark:text-light1">
-            {data?.session?.username}
-          </span>
-          <span className="text-darkGray mb-2 text-small dark:text-light3">
-            {data?.session?.name}
-          </span>
-          <Badge>{data?.session?.roll}</Badge>
-        </div>
+        {isLoading && (
+          <div className="w-full flex justify-center my-5">
+            <Loader />
+          </div>
+        )}
+        {isError && <span>Error!</span>}
+        {data && !isError && !isLoading && (
+          <div className="flex flex-col items-center justify-center">
+            <Image
+              src={data?.session?.avatar || images.admin}
+              width={200}
+              height={200}
+              alt="user"
+              className="w-[100px] h-[100px] mb-2 rounded-full"
+            />
+            <span className="font-medium text-base dark:text-light1">
+              {data?.session?.username}
+            </span>
+            <span className="text-darkGray mb-2 text-small dark:text-light3">
+              {data?.session?.name}
+            </span>
+            <Badge>{data?.session?.roll}</Badge>
+          </div>
+        )}
         <Separator className="my-5" />
         <ul className="space-y-2">
           {links.map((link) => (
