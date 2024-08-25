@@ -32,6 +32,7 @@
     --chart-purple: #a855f7;
     --chart-yellow: rgb(255, 171, 0);
     --chart-sky: rgb(0, 184, 217);
+    --no-color: #000000;
 
     --primary-1: #00a76f;
     --primary-2: #004b50;
@@ -81,6 +82,7 @@
     --chart-purple: #a855f7;
     --chart-yellow: rgb(255, 171, 0);
     --chart-sky: rgb(0, 184, 217);
+    --no-color: #ffffff;
   }
 }
 
@@ -165,5 +167,5 @@
 }
 
 .chart-cartesian-grid {
-  @apply stroke-light3 dark:stroke-dark3;
+  @apply stroke-slate-100 dark:stroke-dark3;
 }

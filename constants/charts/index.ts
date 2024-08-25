@@ -594,3 +594,46 @@ export const bookingpage_statistics_chartConfig = {
     color: "var(--theme-yellow)",
   },
 } satisfies ChartConfig;
+
+export const coursePage_hoursSpent_chartData = (
+  status: ChartShowStatusType
+) => {
+  switch (status) {
+    case "Weekly":
+      return [
+        { week: "Week 1", hours: 10 },
+        { week: "Week 2", hours: 41 },
+        { week: "Week 3", hours: 35 },
+        { week: "Week 4", hours: 151 },
+        { week: "Week 5", hours: 49 },
+      ];
+    case "Monthly":
+      return [
+        { month: "January", hours: 83 },
+        { month: "February", hours: 112 },
+        { month: "March", hours: 119 },
+        { month: "April", hours: 88 },
+        { month: "May", hours: 103 },
+        { month: "June", hours: 112 },
+        { month: "July", hours: 114 },
+        { month: "August", hours: 108 },
+        { month: "September", hours: 93 },
+      ];
+    case "Yearly":
+      return [
+        { year: "2019", hours: 24 },
+        { year: "2020", hours: 72 },
+        { year: "2021", hours: 64 },
+        { year: "2022", hours: 96 },
+        { year: "2023", hours: 76 },
+        { year: "2024", hours: 41 },
+      ];
+  }
+};
+
+export const coursePage_hoursSpent_chartConfig = {
+  hours: {
+    label: "Hours",
+    color: "var(--no-color)",
+  },
+} satisfies ChartConfig;

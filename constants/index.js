@@ -535,22 +535,21 @@ export const coursePage_courseCards_data = [
   {
     value: 6,
     title: "Courses in progress",
-    icon: <SolarDocumentsBoldDuotone />,
-    color: "text-yellow-500",
+    icon: <SolarDocumentsBoldDuotone className="text-yellow-500 text-4xl" />,
     bgColor: "bg-gradient-to-b from-yellow-500/20 to-yellow-500/10",
   },
   {
     value: 3,
     title: "Courses completed",
-    icon: <SolarFolderCheckBoldDuotone />,
-    color: "text-green-500",
+    icon: <SolarFolderCheckBoldDuotone className="text-green-500 text-4xl" />,
     bgColor: "bg-gradient-to-b from-green-500/20 to-green-500/10",
   },
   {
     value: 2,
     title: "Certificates",
-    icon: <SolarMedalRibbonStarBoldDuotone />,
-    color: "text-purple-500",
+    icon: (
+      <SolarMedalRibbonStarBoldDuotone className="text-purple-500 text-4xl" />
+    ),
     bgColor: "bg-gradient-to-b from-purple-500/20 to-purple-500/10",
   },
 ];
