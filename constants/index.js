@@ -514,3 +514,76 @@ export const coursePage_continueCourse_data = [
     max: 12,
   },
 ];
+
+export const coursePage_featuredCourse_data = [
+  {
+    id: 1,
+    time: "1h 40m",
+    users: 497,
+    title: "Introduction to Python Programming",
+    price: 83.74,
+  },
+  {
+    id: 2,
+    time: "1h 40m",
+    users: 763,
+    title: "Digital marketing fundamentals",
+    price: 93.45,
+  },
+  {
+    id: 3,
+    time: "1h 40m",
+    users: 684,
+    title: "Data Science with R",
+    price: 65.69,
+  },
+  {
+    id: 4,
+    time: "1h 40m",
+    users: 451,
+    title: "Graphic Design Essentials",
+    price: 26.57,
+  },
+  {
+    id: 5,
+    time: "1h 40m",
+    users: 363,
+    title: "Financial Planning for Beginners",
+    price: 68.57,
+  },
+  {
+    id: 6,
+    time: "1h 40m",
+    users: 497,
+    title: "Human Resource Management Basics",
+    price: 14.25,
+  },
+  {
+    id: 7,
+    time: "1h 40m",
+    users: 478,
+    title: "Introduction to Python Programming",
+    price: 58.67,
+  },
+  {
+    id: 8,
+    time: "1h 40m",
+    users: 258,
+    title: "Digital marketing fundamentals",
+    price: 49.67,
+  },
+  {
+    id: 9,
+    time: "1h 40m",
+    users: 17,
+    title: "Data Science with R",
+    price: 17.39,
+  },
+  {
+    id: 10,
+    time: "1h 40m",
+    users: 347,
+    title: "Graphic Design Essentials",
+    price: 82.74,
+  },
+];
