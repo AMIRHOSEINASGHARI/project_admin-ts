@@ -658,3 +658,37 @@ export const coursePage_courseProgress_chartConfig = {
     color: "var(--ghost)",
   },
 } satisfies ChartConfig;
+
+export const userStrength_chartData = [
+  {
+    subject: "English",
+    series1: 80,
+  },
+  {
+    subject: "History",
+    series1: 40,
+  },
+  {
+    subject: "Physics",
+    series1: 20,
+  },
+  {
+    subject: "Geography",
+    series1: 30,
+  },
+  {
+    subject: "Chinese",
+    series1: 100,
+  },
+  {
+    subject: "Math",
+    series1: 10,
+  },
+];
+
+export const userStrength_chartConfig = {
+  series1: {
+    label: "series1",
+    color: "var(--primary-1)",
+  },
+} satisfies ChartConfig;

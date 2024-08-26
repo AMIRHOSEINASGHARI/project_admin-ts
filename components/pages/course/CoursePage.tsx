@@ -22,7 +22,7 @@ const CoursePage = () => {
         </View>
         <FeaturedCourse />
       </View>
-      <Card className="w-full xl:w-[30%]">
+      <Card className="w-full xl:w-[30%] space-y-[100px]">
         <UserProfile />
         <UserStrength />
         <UserReminders />

@@ -25,7 +25,7 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`w-[300px] max-md:hidden fixed z-30 left-0 h-screen border-r overflow-y-auto sidebarScroll ${color}`}
+      className={`w-[300px] max-md:hidden fixed z-40 left-0 h-screen border-r overflow-y-auto sidebarScroll ${color}`}
     >
       <div
         className={`flex items-center justify-between fixed text-primary-1 border-r p-4 top-0 w-[300px] z-20 ${color}`}
