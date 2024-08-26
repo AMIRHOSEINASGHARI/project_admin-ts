@@ -33,6 +33,7 @@
     --chart-yellow: rgb(255, 171, 0);
     --chart-sky: rgb(0, 184, 217);
     --no-color: #000000;
+    --text-disabled: #919eab;
 
     --primary-1: #00a76f;
     --primary-2: #004b50;
@@ -83,6 +84,7 @@
     --chart-yellow: rgb(255, 171, 0);
     --chart-sky: rgb(0, 184, 217);
     --no-color: #ffffff;
+    --text-disabled: #919eab;
   }
 }
 

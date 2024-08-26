@@ -27,7 +27,7 @@ const CustomBreadcrumb = ({ data, breadcrumbPage }: CustomBreadcrumbProps) => {
             <BreadcrumbItem>
               <BreadcrumbLink href={item.href}>{item.title}</BreadcrumbLink>
             </BreadcrumbItem>
-            {data.length <= index - 1 && <BreadcrumbSeparator />}
+            {data.length - 1 > index && <BreadcrumbSeparator />}
           </Fragment>
         ))}
         {breadcrumbPage && (
