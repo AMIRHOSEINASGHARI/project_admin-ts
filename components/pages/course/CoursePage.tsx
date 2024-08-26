@@ -1,11 +1,11 @@
 // cmp
+import { Card } from "@/components/ui/card";
 import View from "@/components/shared/layout/View";
 import CourseCards from "./ui/CourseCards";
 import HoursSpent from "./ui/HoursSpent";
 import CourseProgress from "./ui/CourseProgress";
 import ContinueCourse from "./ui/ContinueCourse";
 import FeaturedCourse from "./ui/FeaturedCourse";
-import UserSection from "./ui/UserSection";
 import UserProfile from "./ui/UserProfile";
 import UserStrength from "./ui/UserStrength";
 import UserReminders from "./ui/UserReminders";
@@ -22,11 +22,11 @@ const CoursePage = () => {
         </View>
         <FeaturedCourse />
       </View>
-      <UserSection className="h-full">
+      <Card className="w-full xl:w-[30%]">
         <UserProfile />
         <UserStrength />
         <UserReminders />
-      </UserSection>
+      </Card>
     </View>
   );
 };

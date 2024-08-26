@@ -14,11 +14,17 @@ export const verifyPassword = async (
   return isValid;
 };
 
-export const shorterText = (text: string, maxCharacter: number): string => {
+export const shorterText = (
+  text: string,
+  maxCharacter: number,
+  dot?: boolean
+): string => {
   const t = String(text);
 
   if (t.length > maxCharacter) {
-    return `${t.substring(0, maxCharacter)}...`;
+    return dot
+      ? `${t.substring(0, maxCharacter)}...`
+      : `${t.substring(0, maxCharacter)}`;
   } else {
     return text;
   }
