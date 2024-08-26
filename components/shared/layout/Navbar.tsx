@@ -18,8 +18,8 @@ const Navbar = () => {
           <div className="md:hidden flex items-center justify-center">
             <MobileNav />
           </div>
-          <div className="md:pl-[40px] lg:pl-[50px]">
-            <Button variant="icon" className="gap-3">
+          <div className="md:pl-[30px] lg:pl-[40px]">
+            <Button variant="icon" className="gap-3 md:hover:bg-transparent">
               <SolarMinimalisticMagniferBoldDuotone />
               <span className="text-small text-slate-500 max-md:hidden">
                 Search...
