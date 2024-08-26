@@ -32,7 +32,7 @@ const ContinueCourse = () => {
                 <div className="flex items-center justify-between gap-3">
                   <Progress
                     value={(item.lessons * 100) / item.max}
-                    className="bg-theme-yellow"
+                    className="bg-theme-yellow dark:bg-theme-yellow"
                   />
                   <span className="text-xs font-medium text-slate-600 dark:text-slate-400">
                     {((item.lessons / item.max) * 100).toFixed(1)}%
