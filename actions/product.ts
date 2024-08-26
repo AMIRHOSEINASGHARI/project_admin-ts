@@ -28,7 +28,7 @@ export const getLatestProducts = async () => {
   } catch (error: any) {
     console.log(error);
     return {
-      tasks: null,
+      products: null,
       message: error.message,
       code: ResponseCodes.SERVER_ERROR,
     };
