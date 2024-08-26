@@ -10,23 +10,27 @@ import CopyID from "./CopyID";
 const UserProfile = () => {
   const session = getServerSession();
 
-  return (
-    <div className="flex flex-col justify-center items-center w-full gap-4">
-      <div className="w-[90px] h-[90px] relative flex items-center justify-center">
-        <Avatar className="w-[97%] h-[97%] absolute z-20 border-4 border-white dark:border-dark2">
-          <AvatarImage src={session?.avatar || images.admin} />
-          <AvatarFallback>
-            <Skeleton className="rounded-full" />
-          </AvatarFallback>
-        </Avatar>
-        <div className="absolute inset-0 w-full h-full z-10 bg-gradient-to-t from-primary-1 to-white dark:to-dark2 rounded-full animate-spin-slow" />
+  if (!session) return null;
+
+  if (session) {
+    return (
+      <div className="flex flex-col justify-center items-center w-full gap-4">
+        <div className="w-[90px] h-[90px] relative flex items-center justify-center">
+          <Avatar className="w-[97%] h-[97%] absolute z-20 border-4 border-white dark:border-dark2">
+            <AvatarImage src={session?.avatar || images.admin} />
+            <AvatarFallback>
+              <Skeleton className="rounded-full" />
+            </AvatarFallback>
+          </Avatar>
+          <div className="absolute inset-0 w-full h-full z-10 bg-gradient-to-t from-primary-1 to-white dark:to-dark2 rounded-full animate-spin-slow" />
+        </div>
+        <span className="font-semibold text-sm">
+          {session?.name || session?.username}
+        </span>
+        <CopyID userId={JSON.parse(JSON.stringify(session?.userId))} />
       </div>
-      <span className="font-semibold text-sm">
-        {session?.name || session?.username}
-      </span>
-      <CopyID userId={JSON.parse(JSON.stringify(session?.userId))} />
-    </div>
-  );
+    );
+  }
 };
 
 export default UserProfile;
