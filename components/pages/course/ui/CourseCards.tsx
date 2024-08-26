@@ -41,7 +41,7 @@ const CourseCards = () => {
     <div>
       <div className="xl:my-10 max-xl:mb-10">
         <h1 className="bold-value">Hi, {session?.name}👋</h1>
-        <p className="text-slate-500">Let's learn something new today!</p>
+        <p className="text-slate-500">Let&apos;s learn something new today!</p>
       </div>
       <View variant="flex-wrap">
         {coursePage_courseCards_data.map((item) => (
