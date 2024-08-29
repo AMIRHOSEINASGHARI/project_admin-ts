@@ -6,6 +6,8 @@ import { OrderType } from "./order";
 import { LikeType } from "./like";
 import { CommentType } from "./comment";
 
+export type CheckoutStatus = "pending" | "completed";
+
 export type CartItemType = {
   productId: ProductType;
   quantity?: number;
@@ -15,7 +17,7 @@ export type CartType = {
   items?: CartItemType[];
   selectedItems?: ProductType[];
   totalProductsCount?: number;
-  checkoutStatus?: "pending" | "completed";
+  checkoutStatus?: CheckoutStatus;
 };
 
 export type UserType = Document & {

@@ -20,7 +20,7 @@ type CustomBreadcrumbProps = {
 
 const CustomBreadcrumb = ({ data, breadcrumbPage }: CustomBreadcrumbProps) => {
   return (
-    <Breadcrumb>
+    <Breadcrumb className="mb-10">
       <BreadcrumbList>
         {data.map((item, index) => (
           <Fragment key={item.title}>

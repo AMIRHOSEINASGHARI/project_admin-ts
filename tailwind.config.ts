@@ -35,6 +35,12 @@ const config = {
         dark: "0px 0px 2px 0px rgba(0,0,0,0.2), 0px 12px 24px -4px rgba(0,0,0,0.12)",
         dialog: "-40px 40px 80px rgba(0,0,0,0.24)",
       },
+      borderRadius: {
+        card: "16px",
+      },
+      padding: {
+        card: "24px",
+      },
       colors: {
         "primary-1": "var(--primary-1)",
         "primary-2": "var(--primary-2)",
