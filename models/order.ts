@@ -2,7 +2,11 @@
 import { Schema, model, models } from "mongoose";
 
 const orderSchema = new Schema({
-  status: { type: String, default: "Pending" },
+  status: {
+    type: String,
+    default: "Pending",
+    enum: ["Pending", "Completed", "Canceled", "Refunded"],
+  },
   deliveryAddress: { type: String, required: true },
   userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   phoneNumber: { type: Number, required: true },

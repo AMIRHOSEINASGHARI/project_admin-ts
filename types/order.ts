@@ -5,7 +5,7 @@ import { ProductType } from "./product";
 import { UserType } from "./user";
 
 export type PaymentMethodType = "Paypal" | "Cash On Delivery" | "Credit Card";
-export type OrderStatus = "Pending" | "Completed";
+export type OrderStatus = "Pending" | "Completed" | "Canceled" | "Refunded";
 
 export type OrderItemType = {
   productId: ProductType;
