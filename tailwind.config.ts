@@ -78,6 +78,7 @@ const config = {
         large: "24px",
         "x-large": "30px",
         "icon-size": "25px",
+        "table-icon": "20px",
       },
     },
   },

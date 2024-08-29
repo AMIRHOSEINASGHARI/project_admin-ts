@@ -85,9 +85,9 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
             className="w-[40px] h-[40px] rounded-full"
           />
           <div className="flex flex-col">
-            <span className="text-small">{order?.userId?.username}</span>
+            <span>{order?.userId?.username}</span>
             {order?.userId?.displayName && (
-              <span className="text-small text-slate-500 font-light">
+              <span className="table_sub_text">
                 {order?.userId?.displayName}
               </span>
             )}
@@ -96,10 +96,8 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
       ),
       date: (
         <div className="flex flex-col">
-          <span className="text-small">
-            {moment(order?.createdAt).format("ll")}
-          </span>
-          <span className="text-x-small text-slate-500 font-light">
+          <span>{moment(order?.createdAt).format("ll")}</span>
+          <span className="table_sub_text">
             {moment(order?.createdAt).format("LT")}
           </span>
         </div>
@@ -115,7 +113,7 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
         <div className="flex items-center gap-1">
           <Button
             variant="icon"
-            className="text-[20px]"
+            className="text-table-icon"
             onClick={() => showHandler(order)}
           >
             {rowMoreDetails.show && order?._id === rowMoreDetails?.id ? (
@@ -124,7 +122,7 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
               <SolarAltArrowDownLineDuotone />
             )}
           </Button>
-          <Button variant="icon" className="text-[20px]">
+          <Button variant="icon" className="text-table-icon">
             <SolarOverflowMenuVertical />
           </Button>
         </div>

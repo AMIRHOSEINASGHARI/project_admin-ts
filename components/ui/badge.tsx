@@ -15,14 +15,12 @@ const badgeVariants = cva(
         destructive:
           "bg-red-500 text-slate-50 dark:bg-red-700 dark:text-slate-50",
         outline: "text-slate-950 dark:text-slate-50",
-        green:
-          "bg-green-100 text-green-700 dark:bg-green-800/30 dark:text-green-300",
-        blue: "bg-blue-100 text-blue-700 dark:bg-blue-800/30 dark:text-blue-300",
-        orange:
-          "bg-orange-100 text-orange-700 dark:bg-orange-800/30 dark:text-orange-300",
-        slate:
-          "bg-slate-100 text-slate-700 dark:bg-slate-800/30 dark:text-slate-300",
-        gray: "bg-gray-100 text-gray-700 dark:bg-gray-800/30 dark:text-gray-300",
+        green: "badge-green",
+        blue: "badge-blue",
+        orange: "badge-orange",
+        slate: "badge-slate",
+        gray: "badge-gray",
+        rose: "badge-rose",
         favorite: "",
       },
     },

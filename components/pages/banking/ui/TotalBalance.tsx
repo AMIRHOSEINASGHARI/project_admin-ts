@@ -204,6 +204,8 @@ const TabsButtons = () => {
     },
   ];
 
+  //   todo: fix style bug in tabs
+
   return (
     <Tabs defaultValue="Income" className="w-full space-y-4">
       <TabsList className="w-full">

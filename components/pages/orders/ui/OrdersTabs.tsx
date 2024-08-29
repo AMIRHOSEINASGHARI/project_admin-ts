@@ -36,9 +36,7 @@ const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
       number: pending || 0,
       value: "Pending",
       colors:
-        activeTab === "Pending"
-          ? "bg-orange-500 text-white"
-          : "bg-orange-100 text-orange-700 dark:text-orange-300 dark:bg-orange-700/30",
+        activeTab === "Pending" ? "bg-orange-500 text-white" : "badge-orange",
       isActive: activeTab === "Pending",
     },
     {
@@ -46,9 +44,7 @@ const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
       number: completed || 0,
       value: "Completed",
       colors:
-        activeTab === "Completed"
-          ? "bg-green-500 text-white"
-          : "bg-green-100 text-green-700 dark:text-green-300 dark:bg-green-700/30",
+        activeTab === "Completed" ? "bg-green-500 text-white" : "badge-green",
       isActive: activeTab === "Completed",
     },
     {
@@ -56,9 +52,7 @@ const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
       number: canceled || 0,
       value: "Canceled",
       colors:
-        activeTab === "Canceled"
-          ? "bg-rose-500 text-white"
-          : "bg-rose-100 text-rose-700 dark:text-rose-300 dark:bg-rose-700/30",
+        activeTab === "Canceled" ? "bg-rose-500 text-white" : "badge-rose",
       isActive: activeTab === "Canceled",
     },
     {
@@ -66,9 +60,7 @@ const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
       number: refunded || 0,
       value: "Refunded",
       colors:
-        activeTab === "Refunded"
-          ? "bg-gray-600 text-white"
-          : "bg-gray-100 text-gray-700 dark:text-gray-300 dark:bg-gray-700/30",
+        activeTab === "Refunded" ? "bg-gray-600 text-white" : "badge-gray",
       isActive: activeTab === "Refunded",
     },
   ];
