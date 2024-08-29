@@ -13,6 +13,7 @@ import { OrdersTableRowType } from "@/types/tables";
 // utils
 import { shorterText } from "@/utils/functions";
 // cmp
+import OrdersTabs from "./OrdersTabs";
 import {
   Table,
   TableBody,
@@ -24,6 +25,7 @@ import {
 import moment from "moment";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+// icons
 import {
   SolarAltArrowDownLineDuotone,
   SolarAltArrowUpLineDuotone,
@@ -128,6 +130,7 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
 
   return (
     <div className="tableContainer">
+      <OrdersTabs orders={orders} />
       <Table>
         <TableHeader>
           <TableRow>
@@ -141,18 +144,18 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
             <Fragment key={item.key}>
               <TableRow>
                 <TableCell className="w-[100px]">{item.order}</TableCell>
-                <TableCell className="min-w-[230px]">{item.user}</TableCell>
+                <TableCell className="min-w-[260px]">{item.user}</TableCell>
                 <TableCell className="min-w-[150px]">{item.date}</TableCell>
                 <TableCell className="min-w-[100px]">{item.items}</TableCell>
                 <TableCell className="min-w-[100px]">
                   ${item.price?.toLocaleString()}
                 </TableCell>
-                <TableCell className="min-w-[100px]">{item.status}</TableCell>
+                <TableCell className="w-[60px]">{item.status}</TableCell>
                 <TableCell className="w-[50px]">{item.actions}</TableCell>
               </TableRow>
               {rowMoreDetails?.show && rowMoreDetails?.id === item?.key && (
                 <TableRow className="bg-light2 dark:bg-dark3">
-                  <TableCell colSpan={tableRows?.length} className="">
+                  <TableCell colSpan={tableRows?.length}>
                     <div className="rounded-xl overflow-hidden flex flex-col gap-0.5">
                       {rowMoreDetails?.data?.map((item) => (
                         <div
