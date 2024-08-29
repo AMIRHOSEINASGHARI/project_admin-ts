@@ -26,8 +26,8 @@ const WebsiteVisits = () => {
         <CardDescription>(+43%) than last year</CardDescription>
       </CardHeader>
       <div className="flex items-center justify-end gap-5 my-5">
-        <ChartBadgeColor text="Desktop" color="primary-3" />
-        <ChartBadgeColor text="Mobile" color="theme-yellow" />
+        <ChartBadgeColor text="Desktop" color="bg-primary-3" />
+        <ChartBadgeColor text="Mobile" color="bg-theme-yellow" />
       </div>
       <ChartContainer
         config={websiteVisits_chartConfig}

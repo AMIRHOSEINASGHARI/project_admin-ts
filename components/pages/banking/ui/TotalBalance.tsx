@@ -208,9 +208,13 @@ const TabsButtons = () => {
 
   return (
     <Tabs defaultValue="Income" className="w-full space-y-4">
-      <TabsList className="w-full">
+      <TabsList className="w-full p-2">
         {tab_data.map((tab) => (
-          <TabsTrigger key={tab.id} value={tab.value} className="w-full">
+          <TabsTrigger
+            key={tab.id}
+            value={tab.value}
+            className="w-full data-[state=active]:shadow"
+          >
             {tab.trigger}
           </TabsTrigger>
         ))}

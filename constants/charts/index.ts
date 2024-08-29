@@ -692,3 +692,34 @@ export const userStrength_chartConfig = {
     color: "var(--primary-1)",
   },
 } satisfies ChartConfig;
+
+export const coursePage_userReminders_data = [
+  {
+    id: "1",
+    title: "Introduction to Python Programming",
+    date: "26 Aug 2024 12:00 am",
+    value: 58.3,
+    color: "bg-theme-sky dark:bg-theme-sky",
+  },
+  {
+    id: "2",
+    title: "Digital Marketing Fundamentals",
+    date: "26 Aug 2024 12:00 am",
+    value: 66.7,
+    color: "bg-theme-rose dark:bg-theme-rose",
+  },
+  {
+    id: "3",
+    title: "Data Science with R",
+    date: "26 Aug 2024 12:00 am",
+    value: 75,
+    color: "bg-theme-violet dark:bg-theme-violet",
+  },
+  {
+    id: "4",
+    title: "Graphic Design Essentials",
+    date: "26 Aug 2024 12:00 am",
+    value: 83.3,
+    color: "bg-theme-rose dark:bg-theme-blue",
+  },
+];

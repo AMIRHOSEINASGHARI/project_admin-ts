@@ -615,6 +615,6 @@ export const coursePage_userReminders_data = [
     title: "Graphic Design Essentials",
     date: "26 Aug 2024 12:00 am",
     value: 83.3,
-    color: "bg-theme-teal dark:bg-theme-teal",
+    color: "bg-theme-rose dark:bg-theme-rose",
   },
 ];

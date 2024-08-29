@@ -1,9 +1,9 @@
 // constants
-import { coursePage_userReminders_data } from "@/constants";
 // cmp
 import { SolarCalendarBoldDuotone } from "@/components/svg";
 import { CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { coursePage_userReminders_data } from "@/constants/charts";
 
 const UserReminders = () => {
   return (

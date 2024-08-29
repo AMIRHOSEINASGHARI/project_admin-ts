@@ -11,7 +11,6 @@ import {
 } from "@/constants";
 // cmp
 import { ArrowTrendUpRegular } from "@/components/svg";
-import { Card } from "@/components/ui/card";
 import {
   Line,
   LineChart,
@@ -31,7 +30,7 @@ import clsx from "clsx";
 
 const TotalIncomes = () => {
   return (
-    <Card className="bg-light2 dark:bg-dark3 p-3 space-y-3">
+    <div className="bg-light2 dark:bg-dark3 rounded-card p-3 space-y-3">
       <div className="flex flex-col xl:flex-row rounded-xl w-full bg-white dark:bg-dark2 p-3 gap-3">
         <div className="w-full p-5 bg-primary-2 rounded-xl flex flex-col gap-10">
           <div className="flex w-full items-start justify-between">
@@ -52,7 +51,7 @@ const TotalIncomes = () => {
         <ProgressComponent />
       </div>
       <RadialChartComponent />
-    </Card>
+    </div>
   );
 };
 

@@ -27,7 +27,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "providers/ThemeProvider.jsx",
-    "constants/index.js"
+    "constants/index.tsx"
   ],
   "exclude": ["node_modules"]
 }
