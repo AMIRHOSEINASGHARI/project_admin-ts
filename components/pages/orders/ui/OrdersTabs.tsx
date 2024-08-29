@@ -79,7 +79,7 @@ const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
       className="w-full"
       onValueChange={(value) => setActiveTab(value)}
     >
-      <div className="px-4 border-b dark:border-dark3">
+      <div className="px-4 border-b-[3px] border-slate-100 dark:border-dark3">
         <TabsList className="gap-8 rounded-none bg-transparent dark:bg-transparent">
           {tabData.map((tab) => (
             <TabsTrigger

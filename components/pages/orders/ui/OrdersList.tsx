@@ -25,6 +25,10 @@ import {
 import moment from "moment";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import CalendarSearch from "./CalendarSearch";
+import TextSearch from "./TextSearch";
+import View from "@/components/shared/layout/View";
+import OtherActions from "./OtherActions";
 // icons
 import {
   SolarAltArrowDownLineDuotone,
@@ -129,8 +133,15 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
   );
 
   return (
-    <div className="tableContainer">
+    <div className="tableContainer space-y-4">
       <OrdersTabs orders={orders} />
+      <View variant="flex-gap" className="px-4 w-full">
+        <CalendarSearch />
+        <div className="flex items-center justify-between gap-5 w-full xl:w-[60%]">
+          <TextSearch />
+          <OtherActions />
+        </div>
+      </View>
       <Table>
         <TableHeader>
           <TableRow>
