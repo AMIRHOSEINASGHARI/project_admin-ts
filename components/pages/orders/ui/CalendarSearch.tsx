@@ -42,7 +42,7 @@ const CalendarSearch = () => {
             <SolarCalendarBoldDuotone className="text-icon-size text-icon-light dark:text-icon-dark" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto p-0">
+        <PopoverContent className="w-auto p-3" side="bottom">
           <Calendar
             mode="single"
             selected={startDate}

@@ -20,15 +20,15 @@ const Sidebar = () => {
 
   const color =
     navColor === "Integrate"
-      ? "bg-white dark:bg-dark1 border-gray-200 dark:border-dark2"
-      : "bg-dark1 dark:bg-dark2 border-gray-200 dark:border-dark2";
+      ? "bg-white dark:bg-dark1"
+      : "bg-dark1 dark:bg-dark2";
 
   return (
     <aside
-      className={`w-[300px] max-md:hidden fixed z-40 left-0 h-screen border-r overflow-y-auto sidebarScroll ${color}`}
+      className={`w-[300px] max-md:hidden fixed z-40 left-0 h-screen border-r border-color overflow-y-auto sidebarScroll ${color}`}
     >
       <div
-        className={`flex items-center justify-between fixed text-primary-1 border-r p-4 top-0 w-[300px] z-20 ${color}`}
+        className={`flex items-center justify-between fixed text-primary-1 border-r border-color p-4 top-0 w-[300px] z-20 ${color}`}
       >
         <Link href="/dashboard" className="flex items-center gap-[10px]">
           <LogoRegular className="ml-[8px] text-[40px]" />

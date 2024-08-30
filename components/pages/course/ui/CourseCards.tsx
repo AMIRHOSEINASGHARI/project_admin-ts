@@ -47,7 +47,7 @@ const CourseCards = () => {
         {coursePage_courseCards_data.map((item) => (
           <Card
             key={item.title}
-            className="relative overflow-hidden flex flex-col flex-1 min-w-[250px]"
+            className="relative overflow-hidden flex flex-col flex-1 min-w-[200px]"
           >
             <div
               className={`${item.bgColor} absolute top-0 right-0 transform translate-x-[60px] translate-y-[-20px] rotate-[40deg] w-[140px] h-full rounded-3xl`}
