@@ -35,6 +35,7 @@ import {
   SolarAltArrowUpLineDuotone,
   SolarOverflowMenuVertical,
 } from "@/components/svg";
+import TableAction from "./TableAction";
 
 const OrdersList = ({ orders }: { orders: OrderType[] }) => {
   const [rowMoreDetails, setRowMoreDetails] = useState<{
@@ -122,9 +123,7 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
               <SolarAltArrowDownLineDuotone />
             )}
           </Button>
-          <Button variant="icon" className="text-table-icon">
-            <SolarOverflowMenuVertical />
-          </Button>
+          <TableAction />
         </div>
       ),
     })

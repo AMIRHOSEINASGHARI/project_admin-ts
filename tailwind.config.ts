@@ -31,15 +31,22 @@ const config = {
         "spin-slow": "spin 7s linear infinite",
       },
       boxShadow: {
-        card: "0px 0px 2px 0px rgba(145,158,171,0.2), 0px 12px 24px -4px rgba(145,158,171,0.12)",
+        card: "0px 0px 2px 0px rgba(145,158,171,0.24), 0px 12px 24px -4px rgba(145,158,171,0.12)",
         dark: "0px 0px 2px 0px rgba(0,0,0,0.2), 0px 12px 24px -4px rgba(0,0,0,0.12)",
         dialog: "-40px 40px 80px rgba(0,0,0,0.24)",
+        dropdown:
+          "0px 0px 2px 0px rgba(145,158,171,0.24), -20px 20px 40px -4px rgba(145,158,171,0.24)",
       },
       borderRadius: {
         card: "16px",
+        dropdownBox: "10px",
+        dropdownItem: "10px",
       },
       padding: {
         card: "24px",
+      },
+      gap: {
+        dropdownItem: "16px",
       },
       colors: {
         "primary-1": "var(--primary-1)",
@@ -60,8 +67,8 @@ const config = {
         dark1: "#141a21",
         dark2: "#182027",
         dark3: "#202831",
-        "error-light": "#ef4444",
-        "error-dark": "#dc2626",
+        "error-light": "#e11d48",
+        "error-dark": "#f43f5e",
         icon: {
           light: "#64748b",
           dark: "#94a3b8",
