@@ -22,7 +22,9 @@ const TableAction = () => {
       <DropdownMenuContent side="left">
         <DropdownMenuItem
           className="text-error-light dark:text-error-dark cursor-pointer"
-          icon={<SolarTrashBinTrashBoldDuotone />}
+          icon={
+            <SolarTrashBinTrashBoldDuotone className="text-error-light dark:text-error-dark" />
+          }
         >
           Delete
         </DropdownMenuItem>

@@ -33,7 +33,13 @@ import toast from "react-hot-toast";
 import Loader from "@/components/shared/Loader";
 import clsx from "clsx";
 // icons
-import { EyeCrossedRegular, EyeRegular, LogoRegular } from "@/components/svg";
+import {
+  EyeCrossedRegular,
+  EyeRegular,
+  LogoRegular,
+  SolarEyeBoldDuotone,
+  SolarEyeClosedBoldDuotone,
+} from "@/components/svg";
 
 // form schema
 const formSchema = z.object({
@@ -139,12 +145,12 @@ const AuthForm = () => {
                           )
                         }
                         variant="icon"
-                        className="btn_icon absolute top-1 right-1 bottom-1"
+                        className="rounded-lg absolute top-1 right-1 bottom-1"
                       >
                         {passwordType === "text" ? (
-                          <EyeRegular />
+                          <SolarEyeBoldDuotone />
                         ) : (
-                          <EyeCrossedRegular />
+                          <SolarEyeClosedBoldDuotone />
                         )}
                       </Button>
                     </div>

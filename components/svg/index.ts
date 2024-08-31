@@ -175,3 +175,6 @@ export { default as SolarMedalRibbonStarBoldDuotone } from "../../public/icons/s
 export { default as SolarVideocameraRecordBoldDuotone } from "../../public/icons/solar/solar--videocamera-record-bold-duotone.svg";
 export { default as SolarImage8Duotone } from "../../public/icons/solar/svg-image-8.svg";
 export { default as SolarClockCircleBoldDuotone } from "../../public/icons/solar/solar--clock-circle-bold-duotone.svg";
+export { default as SolareExportBoldDuotone } from "../../public/icons/solar/solar--export-bold-duotone.svg";
+export { default as SolarImportBoldDuotone } from "../../public/icons/solar/solar--import-bold-duotone.svg";
+export { default as SolarPrinterMinimalisticBoldDuotone } from "../../public/icons/solar/solar--printer-minimalistic-bold-duotone.svg";

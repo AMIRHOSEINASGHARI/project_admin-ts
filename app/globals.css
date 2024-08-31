@@ -145,7 +145,7 @@
 }
 
 .btn_icon {
-  @apply h-auto w-auto rounded-xl bg-transparent p-2 text-[21px];
+  @apply p-[8px] rounded-full hover:bg-light3 hover:dark:bg-slate-800 hover:text-icon-hover-light dark:hover:text-icon-hover-dark dark:text-icon-dark text-icon-light text-[25px];
 }
 
 .logo-color {

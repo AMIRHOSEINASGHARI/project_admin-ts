@@ -91,7 +91,11 @@ const DropdownMenuItem = React.forwardRef<
     )}
     {...props}
   >
-    {icon && <div className="text-icon-size">{icon}</div>}
+    {icon && (
+      <div className="text-icon-size text-icon-light dark:text-icon-dark">
+        {icon}
+      </div>
+    )}
     {children}
   </DropdownMenuPrimitive.Item>
 ));
