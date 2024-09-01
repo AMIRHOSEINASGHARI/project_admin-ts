@@ -36,3 +36,29 @@ export const getOrders = async () => {
     throw new Error(error);
   }
 };
+
+export const getOrder = async (id: string) => {
+  try {
+    await connectDB();
+
+    const order = await OrderModel.findById(id)
+      .populate({
+        path: "userId",
+        model: UserModel,
+      })
+      .populate({
+        path: "items.productId",
+        model: ProductModel,
+      })
+      .lean<OrderType>();
+
+    return {
+      order,
+      message: ResponseMessages.SUCCESSFULLY_FETCHED,
+      code: ResponseCodes.SUCCESSFULLY_FETCHED,
+    };
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};

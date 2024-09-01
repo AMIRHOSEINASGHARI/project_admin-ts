@@ -85,11 +85,9 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
             className="w-[40px] h-[40px] rounded-full"
           />
           <div className="flex flex-col">
-            <span>{order?.userId?.username}</span>
-            {order?.userId?.displayName && (
-              <span className="table_sub_text">
-                {order?.userId?.displayName}
-              </span>
+            <span>{order?.userId?.displayName}</span>
+            {order?.userId?.username && (
+              <span className="table_sub_text">{order?.userId?.username}</span>
             )}
           </div>
         </div>
