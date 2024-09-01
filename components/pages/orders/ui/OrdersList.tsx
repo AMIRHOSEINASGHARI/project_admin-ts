@@ -33,7 +33,6 @@ import OtherActions from "./OtherActions";
 import {
   SolarAltArrowDownLineDuotone,
   SolarAltArrowUpLineDuotone,
-  SolarOverflowMenuVertical,
 } from "@/components/svg";
 import TableAction from "./TableAction";
 

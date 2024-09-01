@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { format } from "date-fns";
-import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -12,16 +11,12 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import View from "@/components/shared/layout/View";
+// icons
 import { SolarCalendarBoldDuotone } from "@/components/svg";
 
 const CalendarSearch = () => {
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
-
-  console.log({
-    startDate,
-    endDate,
-  });
 
   return (
     <View variant="flex-gap" className="w-full xl:w-[40%]">
@@ -30,19 +25,21 @@ const CalendarSearch = () => {
           <Button
             variant="ghost"
             className={cn(
-              "w-full bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent flex items-center justify-between font-light py-[16px] px-[14px] rounded-md border border-slate-200 dark:border-slate-700",
+              "w-full bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent flex items-center justify-between py-[16px] px-[14px] rounded-md border border-slate-200 dark:border-slate-700",
               !startDate && "text-muted-foreground"
             )}
           >
             {startDate ? (
-              format(startDate, "PPP")
+              format(startDate, "MM/dd/yyyy")
             ) : (
-              <span className="text-slate-500 text-small">Start date</span>
+              <span className="text-slate-500 text-small font-light">
+                Start date
+              </span>
             )}
             <SolarCalendarBoldDuotone className="text-icon-size text-icon-light dark:text-icon-dark" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto p-3" side="bottom">
+        <PopoverContent className="w-auto" side="bottom">
           <Calendar
             mode="single"
             selected={startDate}
@@ -56,14 +53,16 @@ const CalendarSearch = () => {
           <Button
             variant="ghost"
             className={cn(
-              "w-full bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent flex items-center justify-between font-light py-[16px] px-[14px] rounded-md border border-slate-200 dark:border-slate-700",
+              "w-full bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent flex items-center justify-between py-[16px] px-[14px] rounded-md border border-slate-200 dark:border-slate-700",
               !endDate && "text-muted-foreground"
             )}
           >
             {endDate ? (
-              format(endDate, "PPP")
+              format(endDate, "MM/dd/yyyy")
             ) : (
-              <span className="text-slate-500 text-small">End date</span>
+              <span className="text-slate-500 text-small font-light">
+                End date
+              </span>
             )}
             <SolarCalendarBoldDuotone className="text-icon-size text-icon-light dark:text-icon-dark" />
           </Button>

@@ -1,15 +1,9 @@
-// react
-import { useState } from "react";
-// next
-import Link from "next/link";
 // cmp
 import {
   SolareExportBoldDuotone,
-  SolarEyeBoldDuotone,
   SolarImportBoldDuotone,
   SolarOverflowMenuVertical,
   SolarPrinterMinimalisticBoldDuotone,
-  SolarTrashBinTrashBoldDuotone,
 } from "@/components/svg";
 import {
   DropdownMenu,
