@@ -46,6 +46,9 @@ const config = {
       padding: {
         card: "24px",
       },
+      margin: {
+        "page-heading": "20px",
+      },
       gap: {
         dropdownItem: "16px",
       },
@@ -70,6 +73,10 @@ const config = {
         dark3: "#202831",
         "error-light": "#e11d48",
         "error-dark": "#f43f5e",
+        border: {
+          light: "#cbd5e1",
+          dark: "#334155",
+        },
         icon: {
           light: "#64748b",
           dark: "#94a3b8",

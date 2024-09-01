@@ -10,16 +10,16 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "text-sm py-2 px-4 rounded-[8px] bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
+          "text-sm py-2 px-3 rounded-[8px] bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
         destructive:
-          "text-sm py-2 px-4 rounded-[8px] bg-orange-500 text-slate-50 hover:bg-orange-500/90 dark:bg-orange-900/50 dark:text-orange-500 font-bold dark:hover:bg-orange-900/90",
+          "text-sm py-2 px-3 rounded-[8px] bg-orange-500 text-slate-50 hover:bg-orange-500/90 dark:bg-orange-900/50 dark:text-orange-500 font-bold dark:hover:bg-orange-900/90",
         outline:
-          "text-sm py-2 px-4 rounded-[8px] border border-slate-200 bg-white hover:bg-light2 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+          "text-sm py-2 px-3 rounded-[8px] border border-border-light bg-white hover:bg-light2 hover:text-slate-900 dark:border-border-dark dark:bg-transparent dark:hover:bg-slate-800 dark:hover:text-slate-50",
         secondary:
           "text-sm p-4 rounded-[8px] bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
         ghost:
-          "text-sm py-2 px-4 rounded-[8px] text-slate-900 hover:bg-light3 bg-light2 dark:hover:bg-slate-800 dark:hover:text-slate-50 dark:text-light3 dark:bg-dark3",
-        link: "py-2 px-4 rounded-[8px] text-slate-900 hover:bg-light2 dark:hover:bg-slate-800 dark:hover:text-slate-50",
+          "text-sm py-2 px-3 rounded-[8px] text-slate-900 hover:bg-light3 bg-light2 dark:hover:bg-slate-800 dark:hover:text-slate-50 dark:text-light3 dark:bg-dark3",
+        link: "py-2 px-3 rounded-[8px] text-slate-900 hover:bg-light2 dark:hover:bg-slate-800 dark:hover:text-slate-50",
         icon: "p-[8px] rounded-full hover:bg-light3 hover:dark:bg-slate-800 hover:text-icon-hover-light dark:hover:text-icon-hover-dark dark:text-icon-dark text-icon-light text-[25px]",
       },
       size: {

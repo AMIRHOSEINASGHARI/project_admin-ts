@@ -197,7 +197,7 @@
 }
 
 .badge-gray {
-  @apply bg-gray-100 text-gray-700 dark:bg-gray-800/30 dark:text-gray-300;
+  @apply bg-gray-200 text-gray-700 dark:bg-gray-600/30 dark:text-gray-300;
 }
 
 .badge-rose {

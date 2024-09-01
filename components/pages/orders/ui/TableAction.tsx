@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const TableAction = () => {
+const TableAction = ({ id }: { id: string }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -30,7 +30,7 @@ const TableAction = () => {
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Link
-            href={`/orders`}
+            href={`/orders/${id}`}
             className="w-full flex items-center gap-dropdownItem"
           >
             <SolarEyeBoldDuotone className="text-icon-size text-icon-light dark:text-icon-dark" />

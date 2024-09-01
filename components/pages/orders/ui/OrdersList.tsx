@@ -103,7 +103,17 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
       items: order?.summary?.totalProducts,
       price: order.summary?.totalPayable,
       status: (
-        <Badge variant={order?.status === "Completed" ? "green" : "orange"}>
+        <Badge
+          variant={
+            order?.status === "Pending"
+              ? "orange"
+              : order?.status === "Completed"
+              ? "green"
+              : order?.status === "Canceled"
+              ? "rose"
+              : "gray"
+          }
+        >
           {order?.status}
         </Badge>
       ),
@@ -120,7 +130,7 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
               <SolarAltArrowDownLineDuotone />
             )}
           </Button>
-          <TableAction />
+          <TableAction id={order?._id} />
         </div>
       ),
     })
