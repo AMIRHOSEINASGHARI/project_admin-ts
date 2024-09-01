@@ -27,7 +27,7 @@ const HeadingActions = ({ id, status }: HeadingActionsProps) => {
   const [showStatus, setShowStatus] = useState<OrderStatus>(status);
 
   return (
-    <div className="flex w-full items-center justify-end flex-wrap gap-3">
+    <div className="flex w-full items-center justify-end flex-wrap gap-3 mb-page-heading">
       <Select
         value={showStatus}
         onValueChange={(value: OrderStatus) => setShowStatus(value)}
