@@ -32,7 +32,14 @@ const OrderDetailsPage = async ({ id }: { id: string }) => {
           <OrderHistory />
         </View>
         <div className="w-full xl:w-[35%]">
-          <OtherInformation />
+          <OtherInformation
+            userAvatar={data?.order?.userId?.avatar}
+            username={data?.order?.userId?.username}
+            displayName={data?.order?.userId?.displayName}
+            deliveryAddress={data?.order?.deliveryAddress}
+            paymentMethod={data?.order?.paymentMethod}
+            phoneNumber={data?.order?.phoneNumber}
+          />
         </div>
       </View>
     </>

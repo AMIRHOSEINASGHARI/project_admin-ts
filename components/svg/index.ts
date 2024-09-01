@@ -72,6 +72,9 @@ export { default as Twitter } from "../../public/icons/Twitter.svg";
 export { default as Youtube } from "../../public/icons/Youtube.svg";
 export { default as Instagram } from "../../public/icons/Instagram.svg";
 export { default as ShapeSquare } from "../../public/icons/ShapeSquare.svg";
+export { default as Paypal } from "../../public/icons/ic--baseline-paypal.svg";
+export { default as CreditCard } from "../../public/icons/majesticons--creditcard.svg";
+export { default as Wallet } from "../../public/icons/fluent--wallet-credit-card-24-filled.svg";
 // Icons-Fill
 export { default as BagsFill } from "../../public/icons/BagsFill.svg";
 export { default as CartFill } from "../../public/icons/CartFill.svg";
