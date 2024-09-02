@@ -6,7 +6,7 @@ import { Progress } from "@/components/ui/progress";
 
 const SalesOverview = () => {
   return (
-    <Card className="w-full">
+    <Card className="w-full h-fit">
       <CardHeader className="pb-0">
         <CardTitle>Sales overview</CardTitle>
       </CardHeader>

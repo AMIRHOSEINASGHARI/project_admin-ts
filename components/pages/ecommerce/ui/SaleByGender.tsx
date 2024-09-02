@@ -1,7 +1,7 @@
 "use client";
 
 // cmp
-import { PolarAngleAxis, RadialBar, RadialBarChart } from "recharts";
+import { PolarAngleAxis, PolarGrid, RadialBar, RadialBarChart } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   ChartContainer,
@@ -13,6 +13,8 @@ import {
   saleByGender_chartConfig,
   saleByGender_chartData,
 } from "@/constants/charts";
+import ChartBadgeColor from "@/components/shared/ChartBadgeColor";
+import { Separator } from "@/components/ui/separator";
 
 const SaleByGender = () => {
   return (
@@ -33,16 +35,24 @@ const SaleByGender = () => {
               bottom: -10,
             }}
             data={saleByGender_chartData}
-            innerRadius="40%"
             barSize={17}
             startAngle={90}
             endAngle={-270}
+            innerRadius={80}
+            outerRadius={150}
           >
             <PolarAngleAxis
               type="number"
               domain={[0, 100]}
               dataKey="value"
               tick={false}
+            />
+            <PolarGrid
+              gridType="circle"
+              radialLines={false}
+              stroke="none"
+              className="first:fill-[var(--ghost)] last:fill-white dark:last:fill-dark2"
+              polarRadius={[100, 95]}
             />
             <RadialBar
               dataKey="value"
@@ -56,6 +66,12 @@ const SaleByGender = () => {
           </RadialBarChart>
         </ChartContainer>
       </CardContent>
+      <Separator className="my-5" />
+      <div className="flex items-center justify-center gap-3 flex-wrap">
+        <ChartBadgeColor text="Mens" color="bg-primary-1" />
+        <ChartBadgeColor text="Womens" color="bg-[var(--chart-amber)]" />
+        <ChartBadgeColor text="Kids" color="bg-[var(--chart-blue)]" />
+      </div>
     </Card>
   );
 };

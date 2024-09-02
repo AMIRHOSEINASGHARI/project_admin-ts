@@ -37,7 +37,7 @@ const FeaturedCourse = () => {
         </div>
         <CarouselContent>
           {coursePage_featuredCourse_data.map((item, index) => (
-            <CarouselItem key={item.id} className="sm:basis-1/2 xl:basis-1/4">
+            <CarouselItem key={item.id} className="sm:basis-1/2 xl:basis-1/5">
               <div className="flex flex-col justify-between gap-4 h-full">
                 <div className="space-y-4">
                   <Image

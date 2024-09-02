@@ -48,11 +48,11 @@ const data = [
 
 const News = () => {
   return (
-    <Card>
-      <CardHeader>
+    <div className="tableContainer">
+      <CardHeader className="px-card pt-card">
         <CardTitle>News</CardTitle>
       </CardHeader>
-      <Table>
+      <Table className="border-b border-dashed dark:border-dark3">
         <TableBody>
           {data.map((item) => (
             <TableRow
@@ -82,10 +82,10 @@ const News = () => {
           ))}
         </TableBody>
       </Table>
-      <div className="flex justify-end w-full">
+      <div className="w-full flex justify-end p-2">
         <CardAttatchmentButton />
       </div>
-    </Card>
+    </div>
   );
 };
 

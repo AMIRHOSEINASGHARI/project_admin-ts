@@ -44,14 +44,14 @@ const BestSalesman = () => {
   }));
 
   return (
-    <Card className="w-full h-fit">
-      <CardHeader>
+    <div className="tableContainer w-full h-fit">
+      <CardHeader className="px-card pt-card">
         <CardTitle>Best salesman</CardTitle>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
-            <TableRow>
+            <TableRow className="border-none">
               {tableHeads.map((head) => (
                 <TableHead key={head}>{head}</TableHead>
               ))}
@@ -71,7 +71,7 @@ const BestSalesman = () => {
           </TableBody>
         </Table>
       </CardContent>
-    </Card>
+    </div>
   );
 };
 

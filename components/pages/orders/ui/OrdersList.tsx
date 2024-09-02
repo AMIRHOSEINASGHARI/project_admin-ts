@@ -148,7 +148,7 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
       </View>
       <Table>
         <TableHeader>
-          <TableRow>
+          <TableRow className="border-none">
             {tableHeads.map((head) => (
               <TableHead key={head}>{head}</TableHead>
             ))}

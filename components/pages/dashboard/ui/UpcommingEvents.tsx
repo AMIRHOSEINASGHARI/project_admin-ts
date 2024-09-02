@@ -16,6 +16,7 @@ import {
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import moment from "moment";
 import { AlertCircle } from "lucide-react";
+import clsx from "clsx";
 
 type TableRowType = {
   key: string;
@@ -68,22 +69,30 @@ const UpcommingEvents = async () => {
   );
 
   return (
-    <Card className="w-full h-fit">
-      <CardHeader>
+    <div className="w-full tableContainer h-fit">
+      <CardHeader className="px-card pt-card">
         <CardTitle>Upcomming Events</CardTitle>
       </CardHeader>
       <CardContent>
-        <Table>
+        <Table className="border-b dark:border-dark3">
           <TableHeader>
-            <TableRow>
+            <TableRow className="border-none">
               {tableHeads.map((head) => (
                 <TableHead key={head}>{head}</TableHead>
               ))}
             </TableRow>
           </TableHeader>
           <TableBody>
-            {tableRows?.map((item) => (
-              <TableRow key={item.key}>
+            {tableRows?.map((item, index) => (
+              <TableRow
+                key={item.key}
+                className={clsx(
+                  "hover:bg-transparent dark:hover:bg-transparent",
+                  {
+                    "border-none": tableRows?.length - 1 === index,
+                  }
+                )}
+              >
                 <TableCell className="min-w-[100px]">{item.date}</TableCell>
                 <TableCell className="min-w-[200px]">{item.title}</TableCell>
                 <TableCell>{item.status}</TableCell>
@@ -92,7 +101,7 @@ const UpcommingEvents = async () => {
           </TableBody>
         </Table>
       </CardContent>
-    </Card>
+    </div>
   );
 };
 

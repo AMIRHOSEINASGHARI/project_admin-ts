@@ -12,21 +12,23 @@ import UserReminders from "./ui/UserReminders";
 
 const CoursePage = () => {
   return (
-    <View variant="flex-gap">
-      <View orientation="vertical" className="w-full xl:w-[70%]">
-        <CourseCards />
-        <HoursSpent />
-        <View variant="flex-gap">
-          <CourseProgress />
-          <ContinueCourse />
+    <View orientation="vertical">
+      <View variant="flex-gap">
+        <View orientation="vertical" className="w-full xl:w-[70%]">
+          <CourseCards />
+          <HoursSpent />
+          <View variant="flex-gap">
+            <CourseProgress />
+            <ContinueCourse />
+          </View>
         </View>
-        <FeaturedCourse />
+        <Card className="w-full h-fit xl:w-[30%] space-y-[100px]">
+          <UserProfile />
+          <UserStrength />
+          <UserReminders />
+        </Card>
       </View>
-      <Card className="w-full xl:w-[30%] space-y-[100px]">
-        <UserProfile />
-        <UserStrength />
-        <UserReminders />
-      </Card>
+      <FeaturedCourse />
     </View>
   );
 };

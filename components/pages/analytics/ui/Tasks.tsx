@@ -30,8 +30,8 @@ const data = [
 
 const Tasks = () => {
   return (
-    <Card className="w-full">
-      <CardHeader>
+    <div className="tableContainer w-full h-fit">
+      <CardHeader className="px-card pt-card">
         <CardTitle>Tasks</CardTitle>
       </CardHeader>
       <Table>
@@ -41,7 +41,7 @@ const Tasks = () => {
               key={item.id}
               className="hover:bg-transparent dark:hover:bg-transparent"
             >
-              <TableCell className="min-w-[300px]">
+              <TableCell className="min-w-[300px] py-5 px-7">
                 <p className="font-medium">{item.text}</p>
               </TableCell>
               <TableCell className="text-right p-0 px-2">
@@ -53,7 +53,7 @@ const Tasks = () => {
           ))}
         </TableBody>
       </Table>
-    </Card>
+    </div>
   );
 };
 

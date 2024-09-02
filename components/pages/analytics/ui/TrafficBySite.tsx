@@ -31,7 +31,7 @@ const data = [
 
 const TrafficBySite = () => {
   return (
-    <Card className="xl:w-[30%]">
+    <Card className="xl:w-[30%] h-fit">
       <CardHeader>
         <CardTitle>Traffic by site</CardTitle>
       </CardHeader>

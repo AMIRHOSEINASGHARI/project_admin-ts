@@ -21,7 +21,6 @@ import {
 } from "@/components/ui/table";
 import clsx from "clsx";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import CardAttatchmentButton from "@/components/shared/CardAttatchmentButton";
 
 const RecentTransitions = () => {
@@ -124,14 +123,14 @@ const RecentTransitions = () => {
   }));
 
   return (
-    <Card className="w-full h-fit">
-      <CardHeader>
+    <div className="w-full tableContainer h-fit">
+      <CardHeader className="px-card pt-card">
         <CardTitle>Recent transitions</CardTitle>
       </CardHeader>
       <CardContent>
-        <Table>
+        <Table className="border-b border-dashed dark:border-dark3">
           <TableHeader>
-            <TableRow>
+            <TableRow className="border-none">
               {tableHeads.map((head) => (
                 <TableHead key={head}>{head}</TableHead>
               ))}
@@ -139,7 +138,10 @@ const RecentTransitions = () => {
           </TableHeader>
           <TableBody>
             {tableRows?.map((item) => (
-              <TableRow key={item.key}>
+              <TableRow
+                key={item.key}
+                className="hover:bg-transparent dark:hover:bg-transparent"
+              >
                 <TableCell className="min-w-[250px]">
                   {item.description}
                 </TableCell>
@@ -151,10 +153,10 @@ const RecentTransitions = () => {
           </TableBody>
         </Table>
       </CardContent>
-      <div className="flex justify-end w-full">
+      <div className="w-full flex justify-end p-2">
         <CardAttatchmentButton />
       </div>
-    </Card>
+    </div>
   );
 };
 
