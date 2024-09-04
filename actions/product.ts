@@ -53,11 +53,11 @@ export const getProducts = async (searchParams: {
 
     let query = {};
     let filters: {
-      stock: { $gt: 0 } | 0;
-      discount: { $gt: 0 } | number;
-      category: string;
-      published: boolean;
-    } = { stock: 0, discount: 0, category: "", published: true };
+      stock?: { $gt: 0 } | 0;
+      discount?: { $gt: 0 } | number;
+      category?: string;
+      published?: boolean;
+    } = {};
 
     // search query filter
     if (search) {
@@ -85,7 +85,7 @@ export const getProducts = async (searchParams: {
     }
 
     const pageNumber = page || 1;
-    const perPage = 5;
+    const perPage = 16;
     const totalProductsWithoutFilter = await ProductModel.countDocuments();
     const totalProducts = await ProductModel.countDocuments({
       ...query,

@@ -7,22 +7,36 @@ import { cn } from "@/lib/utils";
 
 const Progress = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
->(({ className, value, ...props }, ref) => (
-  <ProgressPrimitive.Root
-    ref={ref}
-    className="relative h-[8px] w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800"
-    {...props}
-  >
-    <ProgressPrimitive.Indicator
+  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root> & {
+    rootClassName?: string;
+  }
+>(({ className, value, rootClassName, max, ...props }, ref) => {
+  return (
+    <ProgressPrimitive.Root
+      ref={ref}
       className={cn(
-        "h-full w-full rounded-full flex-1 bg-slate-900 transition-all dark:bg-slate-50",
-        className
+        "relative h-[8px] w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800",
+        rootClassName
       )}
-      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
-    />
-  </ProgressPrimitive.Root>
-));
+      {...props}
+    >
+      <ProgressPrimitive.Indicator
+        className={cn(
+          "h-full w-full rounded-full flex-1 bg-slate-900 transition-all dark:bg-slate-50",
+          className
+        )}
+        style={{
+          transform: `translateX(-${
+            (((max !== undefined ? max : 100) -
+              (value !== null && value !== undefined ? value : 0)) /
+              (max !== undefined ? max : 100)) *
+            100
+          }%)`,
+        }}
+      />
+    </ProgressPrimitive.Root>
+  );
+});
 Progress.displayName = ProgressPrimitive.Root.displayName;
 
 export { Progress };

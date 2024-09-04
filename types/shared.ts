@@ -27,3 +27,7 @@ export type RecentTransitionsTableData = {
 };
 
 export type ChartShowStatusType = "Weekly" | "Monthly" | "Yearly";
+
+export type PageSearchParams = {
+  [key: string]: string | string[] | undefined;
+};
