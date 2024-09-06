@@ -137,7 +137,7 @@ const Sidebar = () => {
 
 export default Sidebar;
 
-const MenuLink = ({
+export const MenuLink = ({
   title,
   pathname,
   navColor,

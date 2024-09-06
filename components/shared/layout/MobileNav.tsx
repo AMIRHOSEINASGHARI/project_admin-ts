@@ -1,7 +1,7 @@
 "use client";
 
 // react
-import { Fragment, useState } from "react";
+import { useState } from "react";
 // next
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,6 +10,7 @@ import { useNavColor } from "@/providers/ThemeProvider";
 // constants
 import { menuLinks } from "@/constants";
 // cmp
+import { MenuLink } from "./Sidebar";
 import {
   Sheet,
   SheetContent,
@@ -18,14 +19,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
-import clsx from "clsx";
-// icons
 import {
-  LogoRegular,
-  MenuBarsRegular,
-  SolarHamburgerMenuLineDuotone,
-} from "@/components/svg";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+// icons
+import { LogoRegular, SolarHamburgerMenuLineDuotone } from "@/components/svg";
 
 const HiddenTags = () => (
   <VisuallyHidden.Root>
@@ -52,58 +54,103 @@ const MobileNav = () => {
 
   const sheetContent = (
     <div>
-      <Link
-        href="/dashboard"
-        className="flex items-center gap-[10px] text-primary-1"
+      <div
+        className={`flex items-center justify-between fixed text-primary-1 border-r border-color p-4 top-0 z-20 ${color}`}
       >
-        <LogoRegular className="ml-[8px] text-[40px]" />
-      </Link>
-      <ul>
-        <div className="ml-4 mb-2 mt-5">
-          <h1 className="text-small tracking-tight text-gray-400 dark:text-slate-500">
+        <Link href="/dashboard" className="flex items-center gap-[10px]">
+          <LogoRegular className="ml-[20px] text-[40px]" />
+        </Link>
+      </div>
+      <Accordion
+        type="single"
+        defaultValue="Overview"
+        collapsible
+        className="pt-[60px] px-4"
+      >
+        <AccordionItem value="Overview" className="border-none">
+          <AccordionTrigger
+            className="text-[12px] group-hover:translate-x-[5px] group-hover:text-black dark:group-hover:text-white Transition font-medium uppercase tracking-tight text-gray-400 dark:text-slate-500"
+            rootClassName="relative justify-start p-[8px] pt-[16px] pl-[20px] group"
+            arrowClassName="absolute left-1 hidden group-hover:flex group-hover:animate-fade group-hover:animate-duration-500 dark:text-white"
+          >
             Overview
-          </h1>
-        </div>
-        {menuLinks.map((item) => (
-          <Fragment key={item.title}>
-            <li
-              onClick={() => setOpen(false)}
-              className={clsx("rounded-xl ml-2 mb-1", {
-                "hover:bg-primary-4 text-primary-1 dark:bg-primary-6 dark:text-primary-5 font-medium":
-                  pathname === item.link && navColor === "Integrate",
-                "text-icon-light dark:text-icon-dark hover:dark:bg-dark2 hover:bg-light3":
-                  pathname !== item.link && navColor === "Integrate",
-                "text-slate-400 hover:bg-slate-600/30 dark:hover:bg-slate-600/30":
-                  pathname !== item.link && navColor === "Apparent",
-                "text-primary-5 dark:bg-primary-6 bg-primary-6 dark:text-primary-5 font-medium":
-                  pathname === item.link && navColor === "Apparent",
-              })}
-            >
-              <Link
-                href={item.link}
-                className="flex items-center gap-[15px] px-4 py-3"
-              >
-                <div className="text-icon-size">{item.image}</div>
-                <span className="text-small">{item.title}</span>
-              </Link>
-            </li>
-            {item.title === "Course" && (
-              <div className="ml-4 mb-2 mt-5">
-                <h1 className="text-small tracking-tight text-gray-500 dark:text-slate-500">
-                  Management
-                </h1>
-              </div>
-            )}
-            {item.title === "Add Blog" && (
-              <div className="ml-4 mb-2 mt-5">
-                <h1 className="text-small tracking-tight text-gray-500 dark:text-slate-500">
-                  Settings
-                </h1>
-              </div>
-            )}
-          </Fragment>
-        ))}
-      </ul>
+          </AccordionTrigger>
+          <AccordionContent>
+            <ul onClick={() => setOpen(false)}>
+              {menuLinks.slice(0, 7).map((item) => (
+                <MenuLink
+                  key={item.title}
+                  title={item.title}
+                  image={item.image}
+                  link={item.link}
+                  navColor={navColor}
+                  pathname={pathname}
+                />
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+      <Accordion
+        type="single"
+        defaultValue="Management"
+        collapsible
+        className="px-4"
+      >
+        <AccordionItem value="Management" className="border-none">
+          <AccordionTrigger
+            className="text-[12px] group-hover:translate-x-[5px] group-hover:text-black dark:group-hover:text-white Transition font-medium uppercase tracking-tight text-gray-400 dark:text-slate-500"
+            rootClassName="relative justify-start p-[8px] pt-[16px] pl-[20px] group"
+            arrowClassName="absolute left-1 hidden group-hover:flex group-hover:animate-fade group-hover:animate-duration-500 dark:text-white"
+          >
+            Management
+          </AccordionTrigger>
+          <AccordionContent>
+            <ul onClick={() => setOpen(false)}>
+              {menuLinks.slice(7, 14).map((item) => (
+                <MenuLink
+                  key={item.title}
+                  title={item.title}
+                  image={item.image}
+                  link={item.link}
+                  navColor={navColor}
+                  pathname={pathname}
+                />
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+      <Accordion
+        type="single"
+        defaultValue="Settings"
+        collapsible
+        className="px-4"
+      >
+        <AccordionItem value="Settings" className="border-none">
+          <AccordionTrigger
+            className="text-[12px] group-hover:translate-x-[5px] group-hover:text-black dark:group-hover:text-white Transition font-medium uppercase tracking-tight text-gray-400 dark:text-slate-500"
+            rootClassName="relative justify-start p-[8px] pt-[16px] pl-[20px] group"
+            arrowClassName="absolute left-1 hidden group-hover:flex group-hover:animate-fade group-hover:animate-duration-500 dark:text-white"
+          >
+            Settings
+          </AccordionTrigger>
+          <AccordionContent>
+            <ul onClick={() => setOpen(false)}>
+              {menuLinks.slice(14, 16).map((item) => (
+                <MenuLink
+                  key={item.title}
+                  title={item.title}
+                  image={item.image}
+                  link={item.link}
+                  navColor={navColor}
+                  pathname={pathname}
+                />
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 
@@ -114,7 +161,10 @@ const MobileNav = () => {
           <SolarHamburgerMenuLineDuotone />
         </div>
       </SheetTrigger>
-      <SheetContent side="left" className={`backdrop-blur-2xl ${color}`}>
+      <SheetContent
+        side="left"
+        className={`backdrop-blur-2xl bg-black p-0 ${color}`}
+      >
         <HiddenTags />
         {sheetContent}
       </SheetContent>
