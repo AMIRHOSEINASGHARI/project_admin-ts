@@ -3,8 +3,6 @@
 // next
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-// types
-import { MenuLinksProps } from "@/types/shared";
 // providers
 import { useNavColor } from "@/providers/ThemeProvider";
 // constants
@@ -20,6 +18,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import SidebarMenuLink from "./SidebarMenuLink";
 // icons
 import { LogoRegular } from "@/components/svg";
 
@@ -61,7 +60,7 @@ const Sidebar = () => {
             <AccordionContent>
               <ul>
                 {accordion.list.map((item) => (
-                  <MenuLink
+                  <SidebarMenuLink
                     key={item.title}
                     title={item.title}
                     image={item.image}
@@ -80,31 +79,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-export const MenuLink = ({
-  title,
-  pathname,
-  navColor,
-  link,
-  image,
-}: MenuLinksProps) => {
-  const styles = clsx("rounded-lg ml-2 mb-1 Transition", {
-    "hover:bg-primary-6 bg-primary-3 bg-opacity-10 text-primary-4 dark:bg-primary-6 dark:text-primary-5 font-medium":
-      pathname === link && navColor === "Integrate",
-    "text-icon-light dark:text-icon-dark hover:dark:bg-dark2 hover:bg-light3":
-      pathname !== link && navColor === "Integrate",
-    "text-slate-400 hover:bg-slate-600/30 dark:hover:bg-slate-600/30":
-      pathname !== link && navColor === "Apparent",
-    "text-primary-5 dark:bg-primary-6 bg-primary-6 dark:text-primary-5 font-medium":
-      pathname === link && navColor === "Apparent",
-  });
-
-  return (
-    <li className={styles}>
-      <Link href={link} className="flex items-center gap-[15px] p-[10px]">
-        <div className="text-icon-size">{image}</div>
-        <span className="text-sm">{title}</span>
-      </Link>
-    </li>
-  );
-};

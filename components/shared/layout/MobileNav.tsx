@@ -13,7 +13,6 @@ import {
   sidebar_accordionTriggerStyles,
 } from "@/constants";
 // cmp
-import { MenuLink } from "./Sidebar";
 import {
   Sheet,
   SheetContent,
@@ -28,6 +27,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import SidebarMenuLink from "./SidebarMenuLink";
 import clsx from "clsx";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 // icons
@@ -82,7 +82,7 @@ const MobileNav = () => {
             <AccordionContent>
               <ul>
                 {accordion.list.map((item) => (
-                  <MenuLink
+                  <SidebarMenuLink
                     key={item.title}
                     title={item.title}
                     image={item.image}
