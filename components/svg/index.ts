@@ -181,3 +181,11 @@ export { default as SolarClockCircleBoldDuotone } from "../../public/icons/solar
 export { default as SolareExportBoldDuotone } from "../../public/icons/solar/solar--export-bold-duotone.svg";
 export { default as SolarImportBoldDuotone } from "../../public/icons/solar/solar--import-bold-duotone.svg";
 export { default as SolarPrinterMinimalisticBoldDuotone } from "../../public/icons/solar/solar--printer-minimalistic-bold-duotone.svg";
+export { default as SolarWatchSquareBoldDuotone } from "../../public/icons/solar/solar--watch-square-bold-duotone.svg";
+export { default as SolarTvBoldDuotone } from "../../public/icons/solar/solar--tv-bold-duotone.svg";
+export { default as SolarTabletBoldDuotone } from "../../public/icons/solar/solar--tablet-bold-duotone.svg";
+export { default as SolarSpeakerNinimalisticBoldDuotone } from "../../public/icons/solar/solar--speaker-minimalistic-bold-duotone.svg";
+export { default as SolarSmartphoneBoldDuotone } from "../../public/icons/solar/solar--smartphone-bold-duotone.svg";
+export { default as SolarLaptopBoldDuotone } from "../../public/icons/solar/solar--laptop-bold-duotone.svg";
+export { default as SolarHeadphonesSquareSoundBoldDuotone } from "../../public/icons/solar/solar--headphones-square-sound-bold-duotone.svg";
+export { default as SolarGamepadBoldDuotone } from "../../public/icons/solar/solar--gamepad-bold-duotone.svg";

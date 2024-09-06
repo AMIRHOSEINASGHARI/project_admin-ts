@@ -25,6 +25,16 @@ import {
   SolarDocumentsBoldDuotone,
   SolarFolderCheckBoldDuotone,
   SolarMedalRibbonStarBoldDuotone,
+  SolarVideocameraRecordBoldDuotone,
+  SolarGamepadBoldDuotone,
+  SolarHeadphonesSquareSoundBoldDuotone,
+  SolarLaptopBoldDuotone,
+  SolarSmartphoneBoldDuotone,
+  SolarPrinterMinimalisticBoldDuotone,
+  SolarSpeakerNinimalisticBoldDuotone,
+  SolarTabletBoldDuotone,
+  SolarTvBoldDuotone,
+  SolarWatchSquareBoldDuotone,
 } from "@/components/svg";
 
 export const images = {
@@ -120,6 +130,59 @@ export const menuLinks = [
     title: "Account",
     image: <SolarUserCircleBoldDuotone />,
     link: "/account",
+  },
+];
+
+export const productCategory = [
+  {
+    icon: <SolarVideocameraRecordBoldDuotone />,
+    title: "Camera",
+    value: "camera",
+  },
+  {
+    icon: <SolarGamepadBoldDuotone />,
+    title: "Gaming",
+    value: "gaming",
+  },
+  {
+    icon: <SolarHeadphonesSquareSoundBoldDuotone />,
+    title: "Headphone",
+    value: "headphone",
+  },
+  {
+    icon: <SolarLaptopBoldDuotone />,
+    title: "Laptop",
+    value: "laptop",
+  },
+  {
+    icon: <SolarSmartphoneBoldDuotone />,
+    title: "Phone",
+    value: "phone",
+  },
+  {
+    icon: <SolarPrinterMinimalisticBoldDuotone />,
+    title: "Printer",
+    value: "printer",
+  },
+  {
+    icon: <SolarSpeakerNinimalisticBoldDuotone />,
+    title: "Speaker",
+    value: "speaker",
+  },
+  {
+    icon: <SolarTabletBoldDuotone />,
+    title: "Tablet",
+    value: "tablet",
+  },
+  {
+    icon: <SolarTvBoldDuotone />,
+    title: "TV",
+    value: "tv",
+  },
+  {
+    icon: <SolarWatchSquareBoldDuotone />,
+    title: "Watch",
+    value: "watch",
   },
 ];
 

@@ -85,7 +85,7 @@ export const getProducts = async (searchParams: {
     }
 
     const pageNumber = page || 1;
-    const perPage = 16;
+    const perPage = 5;
     const totalProductsWithoutFilter = await ProductModel.countDocuments();
     const totalProducts = await ProductModel.countDocuments({
       ...query,

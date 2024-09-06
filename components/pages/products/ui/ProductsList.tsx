@@ -15,6 +15,7 @@ import ProductTableActions from "./ProductTableActions";
 import moment from "moment";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
+import FilteringProducts from "./FilteringProducts";
 
 const ProductsList = ({ products }: { products: ProductType[] }) => {
   const tableHeads = [
@@ -98,6 +99,7 @@ const ProductsList = ({ products }: { products: ProductType[] }) => {
 
   return (
     <div className="tableContainer">
+      <FilteringProducts />
       <Table>
         <TableHeader>
           <TableRow>
