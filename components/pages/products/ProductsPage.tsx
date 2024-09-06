@@ -21,6 +21,8 @@ const ProductsPage = async ({
 }) => {
   const data = await getProducts(searchParams);
 
+  // TODO: Exporting products functionality
+
   return (
     <>
       <PageHeading text="List" />
