@@ -2,16 +2,17 @@
 import Link from "next/link";
 // cmp
 import {
-  SolarEyeBoldDuotone,
-  SolarOverflowMenuVertical,
-  SolarTrashBinTrashBoldDuotone,
-} from "@/components/svg";
-import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+// icons
+import {
+  SolarEyeBoldDuotone,
+  SolarOverflowMenuVertical,
+  SolarTrashBinTrashBoldDuotone,
+} from "@/components/svg";
 
 const TableAction = ({ id }: { id: string }) => {
   return (

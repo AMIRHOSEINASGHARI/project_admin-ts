@@ -11,10 +11,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import ProductTableActions from "./ProductTableActions";
-import moment from "moment";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
+import moment from "moment";
+import ProductTableActions from "./ProductTableActions";
 import FilteringProducts from "./FilteringProducts";
 import PaginationProducts from "./PaginationProducts";
 
@@ -94,7 +94,7 @@ const ProductsList = ({ products }: { products: ProductType[] }) => {
       ),
       discount: product?.discount ? `%${product?.discount}` : "_",
       orders: product?.orders?.length?.toLocaleString(),
-      actions: <ProductTableActions />,
+      actions: <ProductTableActions id={product?._id} />,
     };
   });
 

@@ -1,13 +1,55 @@
+// next
+import Link from "next/link";
 // cmp
-import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 // icons
-import { SolarOverflowMenuVertical } from "@/components/svg";
+import {
+  SolarEyeBoldDuotone,
+  SolarOverflowMenuVertical,
+  SolarPenBoldDuotone,
+  SolarTrashBinTrashBoldDuotone,
+} from "@/components/svg";
 
-const ProductTableActions = () => {
+const ProductTableActions = ({ id }: { id: string }) => {
   return (
-    <Button variant="icon">
-      <SolarOverflowMenuVertical />
-    </Button>
+    <DropdownMenu>
+      <DropdownMenuTrigger>
+        <SolarOverflowMenuVertical className="text-table-icon" />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent side="left">
+        <DropdownMenuItem>
+          <Link
+            href={`/products/${id}`}
+            className="w-full flex items-center gap-dropdownItem"
+          >
+            <SolarEyeBoldDuotone className="text-icon-size text-icon-light dark:text-icon-dark" />
+            View
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            href={`/products/${id}/edit`}
+            className="w-full flex items-center gap-dropdownItem"
+          >
+            <SolarPenBoldDuotone className="text-icon-size text-icon-light dark:text-icon-dark" />
+            Edit
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="text-error-light dark:text-error-dark cursor-pointer"
+          icon={
+            <SolarTrashBinTrashBoldDuotone className="text-error-light dark:text-error-dark" />
+          }
+        >
+          Delete
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 
