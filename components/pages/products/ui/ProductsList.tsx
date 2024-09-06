@@ -16,6 +16,7 @@ import moment from "moment";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import FilteringProducts from "./FilteringProducts";
+import PaginationProducts from "./PaginationProducts";
 
 const ProductsList = ({ products }: { products: ProductType[] }) => {
   const tableHeads = [
@@ -100,9 +101,9 @@ const ProductsList = ({ products }: { products: ProductType[] }) => {
   return (
     <div className="tableContainer">
       <FilteringProducts />
-      <Table>
+      <Table className="border-b border-dashed border-border-light dark:border-border-dark">
         <TableHeader>
-          <TableRow>
+          <TableRow className="border-none">
             {tableHeads.map((item) => (
               <TableHead key={item}>{item}</TableHead>
             ))}
@@ -133,6 +134,7 @@ const ProductsList = ({ products }: { products: ProductType[] }) => {
           ))}
         </TableBody>
       </Table>
+      <PaginationProducts />
     </div>
   );
 };
