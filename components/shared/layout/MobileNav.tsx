@@ -55,7 +55,7 @@ const MobileNav = () => {
   const sheetContent = (
     <div>
       <div
-        className={`flex items-center justify-between fixed text-primary-1 border-r border-color p-4 top-0 z-20 ${color}`}
+        className={`flex items-center justify-between fixed text-primary-1 p-4 top-0 z-20 ${color}`}
       >
         <Link href="/dashboard" className="flex items-center gap-[10px]">
           <LogoRegular className="ml-[20px] text-[40px]" />
