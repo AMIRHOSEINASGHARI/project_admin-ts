@@ -43,8 +43,8 @@ const Sidebar = () => {
         {menuLinks.map((item) => (
           <Fragment key={item.title}>
             <li
-              className={clsx("rounded-xl ml-2 mb-1", {
-                "hover:bg-primary-4 text-primary-1 dark:bg-primary-6 dark:text-primary-5 font-medium":
+              className={clsx("rounded-lg ml-2 mb-1 Transition", {
+                "hover:bg-primary-6 bg-primary-3 bg-opacity-10 text-primary-4 dark:bg-primary-6 dark:text-primary-5 font-medium":
                   pathname === item.link && navColor === "Integrate",
                 "text-icon-light dark:text-icon-dark hover:dark:bg-dark2 hover:bg-light3":
                   pathname !== item.link && navColor === "Integrate",
@@ -56,10 +56,10 @@ const Sidebar = () => {
             >
               <Link
                 href={item.link}
-                className="flex items-center gap-[15px] p-2"
+                className="flex items-center gap-[15px] p-[10px]"
               >
                 <div className="text-icon-size">{item.image}</div>
-                <span className="text-small">{item.title}</span>
+                <span className="text-sm">{item.title}</span>
               </Link>
             </li>
             {item.title === "Course" && (

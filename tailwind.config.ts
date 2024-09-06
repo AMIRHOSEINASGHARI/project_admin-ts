@@ -92,7 +92,7 @@ const config = {
         base: "15px",
         large: "24px",
         "x-large": "30px",
-        "icon-size": "23px",
+        "icon-size": "24px",
         "table-icon": "22px",
       },
     },
