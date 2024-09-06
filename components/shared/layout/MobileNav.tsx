@@ -8,7 +8,10 @@ import { usePathname } from "next/navigation";
 // providers
 import { useNavColor } from "@/providers/ThemeProvider";
 // constants
-import { menuLinks } from "@/constants";
+import {
+  sidebar_Accordions,
+  sidebar_accordionTriggerStyles,
+} from "@/constants";
 // cmp
 import { MenuLink } from "./Sidebar";
 import {
@@ -25,6 +28,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import clsx from "clsx";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 // icons
 import { LogoRegular, SolarHamburgerMenuLineDuotone } from "@/components/svg";
@@ -61,96 +65,37 @@ const MobileNav = () => {
           <LogoRegular className="ml-[20px] text-[40px]" />
         </Link>
       </div>
-      <Accordion
-        type="single"
-        defaultValue="Overview"
-        collapsible
-        className="pt-[60px] px-4"
-      >
-        <AccordionItem value="Overview" className="border-none">
-          <AccordionTrigger
-            className="text-[12px] group-hover:translate-x-[5px] group-hover:text-black dark:group-hover:text-white Transition font-medium uppercase tracking-tight text-gray-400 dark:text-slate-500"
-            rootClassName="relative justify-start p-[8px] pt-[16px] pl-[20px] group"
-            arrowClassName="absolute left-1 hidden group-hover:flex group-hover:animate-fade group-hover:animate-duration-500 dark:text-white"
-          >
-            Overview
-          </AccordionTrigger>
-          <AccordionContent>
-            <ul onClick={() => setOpen(false)}>
-              {menuLinks.slice(0, 7).map((item) => (
-                <MenuLink
-                  key={item.title}
-                  title={item.title}
-                  image={item.image}
-                  link={item.link}
-                  navColor={navColor}
-                  pathname={pathname}
-                />
-              ))}
-            </ul>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-      <Accordion
-        type="single"
-        defaultValue="Management"
-        collapsible
-        className="px-4"
-      >
-        <AccordionItem value="Management" className="border-none">
-          <AccordionTrigger
-            className="text-[12px] group-hover:translate-x-[5px] group-hover:text-black dark:group-hover:text-white Transition font-medium uppercase tracking-tight text-gray-400 dark:text-slate-500"
-            rootClassName="relative justify-start p-[8px] pt-[16px] pl-[20px] group"
-            arrowClassName="absolute left-1 hidden group-hover:flex group-hover:animate-fade group-hover:animate-duration-500 dark:text-white"
-          >
-            Management
-          </AccordionTrigger>
-          <AccordionContent>
-            <ul onClick={() => setOpen(false)}>
-              {menuLinks.slice(7, 14).map((item) => (
-                <MenuLink
-                  key={item.title}
-                  title={item.title}
-                  image={item.image}
-                  link={item.link}
-                  navColor={navColor}
-                  pathname={pathname}
-                />
-              ))}
-            </ul>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-      <Accordion
-        type="single"
-        defaultValue="Settings"
-        collapsible
-        className="px-4"
-      >
-        <AccordionItem value="Settings" className="border-none">
-          <AccordionTrigger
-            className="text-[12px] group-hover:translate-x-[5px] group-hover:text-black dark:group-hover:text-white Transition font-medium uppercase tracking-tight text-gray-400 dark:text-slate-500"
-            rootClassName="relative justify-start p-[8px] pt-[16px] pl-[20px] group"
-            arrowClassName="absolute left-1 hidden group-hover:flex group-hover:animate-fade group-hover:animate-duration-500 dark:text-white"
-          >
-            Settings
-          </AccordionTrigger>
-          <AccordionContent>
-            <ul onClick={() => setOpen(false)}>
-              {menuLinks.slice(14, 16).map((item) => (
-                <MenuLink
-                  key={item.title}
-                  title={item.title}
-                  image={item.image}
-                  link={item.link}
-                  navColor={navColor}
-                  pathname={pathname}
-                />
-              ))}
-            </ul>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+      {sidebar_Accordions.map((accordion) => (
+        <Accordion
+          key={accordion.value}
+          type="single"
+          defaultValue={accordion.value}
+          collapsible
+          className={clsx("px-4", {
+            "pt-[60px]": accordion.value === "Overview",
+          })}
+        >
+          <AccordionItem value={accordion.value} className="border-none">
+            <AccordionTrigger {...sidebar_accordionTriggerStyles(navColor)}>
+              {accordion.value}
+            </AccordionTrigger>
+            <AccordionContent>
+              <ul>
+                {accordion.list.map((item) => (
+                  <MenuLink
+                    key={item.title}
+                    title={item.title}
+                    image={item.image}
+                    link={item.link}
+                    navColor={navColor}
+                    pathname={pathname}
+                  />
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      ))}
     </div>
   );
 
