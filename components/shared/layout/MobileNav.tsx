@@ -49,8 +49,8 @@ const MobileNav = () => {
 
   const color =
     navColor === "Integrate"
-      ? "bg-white/70 dark:bg-dark1/70 border-gray-200 dark:border-dark2"
-      : "bg-dark1/90 dark:bg-dark3/70 border-gray-200 dark:border-dark2";
+      ? "bg-white/60 dark:bg-dark1/70 border-gray-200 dark:border-dark2"
+      : "bg-dark1/90 dark:bg-dark2/40 border-gray-200 dark:border-dark2";
 
   const onOpenChange = () => {
     setOpen(!open);
@@ -59,7 +59,7 @@ const MobileNav = () => {
   const sheetContent = (
     <div>
       <div
-        className={`flex items-center justify-between fixed text-primary-1 p-4 top-0 z-20 ${color}`}
+        className={`flex items-center justify-between fixed text-primary-1 p-4 top-0 z-20 w-full`}
       >
         <Link href="/dashboard" className="flex items-center gap-[10px]">
           <LogoRegular className="ml-[20px] text-[40px]" />
@@ -72,7 +72,7 @@ const MobileNav = () => {
           defaultValue={accordion.value}
           collapsible
           className={clsx("px-4", {
-            "pt-[60px]": accordion.value === "Overview",
+            "pt-[70px]": accordion.value === "Overview",
           })}
         >
           <AccordionItem value={accordion.value} className="border-none">

@@ -50,7 +50,7 @@ const Sidebar = () => {
           defaultValue={accordion.value}
           collapsible
           className={clsx("px-4", {
-            "pt-[60px]": accordion.value === "Overview",
+            "pt-[70px]": accordion.value === "Overview",
           })}
         >
           <AccordionItem value={accordion.value} className="border-none">
