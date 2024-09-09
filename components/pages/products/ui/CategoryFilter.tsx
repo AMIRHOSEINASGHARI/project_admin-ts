@@ -1,5 +1,8 @@
 "use client";
 
+// constants
+import { productCategory } from "@/constants";
+// cmp
 import {
   Select,
   SelectContent,
@@ -7,7 +10,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { productCategory } from "@/constants";
 
 const CategoryFilter = () => {
   return (
