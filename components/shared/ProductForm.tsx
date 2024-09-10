@@ -49,6 +49,7 @@ type ProductFormProps = {
 
 const ProductForm = ({ page, product }: ProductFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
+  const [images, setImages] = useState<string[]>([]);
 
   const formDefaultValues = {
     title: product?.title || "",
@@ -137,6 +138,8 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                           onFieldChange={field.onChange}
                           files={files}
                           setFiles={setFiles}
+                          images={images}
+                          setImages={setImages}
                         />
                       </FormControl>
                       <FormMessage />

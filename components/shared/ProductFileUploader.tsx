@@ -24,12 +24,15 @@ type ProductFileUploaderProps = {
   onFieldChange: (value: File[]) => void;
   files: File[];
   setFiles: Dispatch<SetStateAction<File[]>>;
+  images?: string[];
+  setImages: Dispatch<SetStateAction<string[]>>;
 };
 
 const ProductFileUploader = ({
   onFieldChange,
   files,
   setFiles,
+  setImages,
 }: ProductFileUploaderProps) => {
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
 
@@ -46,6 +49,7 @@ const ProductFileUploader = ({
       },
       onClientUploadComplete: (data) => {
         toast.success("Uploaded successfully!");
+        setImages(() => data?.map((item) => item.url));
         setUploadProgress(null);
       },
       onUploadError: (error) => {
