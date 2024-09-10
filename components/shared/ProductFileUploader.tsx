@@ -12,6 +12,8 @@ import { useUploadThing } from "@/utils/uploadthing";
 // cmp
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { Progress } from "../ui/progress";
+import { Badge } from "../ui/badge";
 import CustomTooltip from "./CustomTooltip";
 import clsx from "clsx";
 import toast from "react-hot-toast";
@@ -120,39 +122,51 @@ const ProductFileUploader = ({
               </div>
             ))}
           </div>
-          <div className="flex items-center justify-end gap-3">
-            <span className="text-small">{files?.length} files</span>
-            <Button
-              type="button"
-              variant="outline"
-              className="py-1 px-2"
-              onClick={() => {
-                setFiles(() => []);
-                onFieldChange([]);
-              }}
-            >
-              Remove all
-            </Button>
-            <Button
-              type="button"
-              variant="default"
-              className={clsx("gap-2 py-1 px-2 min-w-[70px]", {
-                "text-slate-400 bg-slate-200 hover:bg-slate-200 cursor-not-allowed":
-                  isUploading,
-              })}
-              onClick={() => startUpload(files)}
-              disabled={isUploading || files?.length < 2 || files?.length > 10}
-            >
-              {isUploading ? (
-                "Uploading..."
-              ) : (
-                <>
-                  <SolarCloudUploadBoldDuotone className="text-icon-size text-white dark:text-black" />
-                  Upload
-                </>
-              )}
-            </Button>
-          </div>
+          {isUploading ? (
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <Badge variant="gray">{uploadProgress || 0}% completed</Badge>
+                <span className="text-small">
+                  Uploading {files?.length} files...
+                </span>
+              </div>
+              <Progress
+                value={uploadProgress}
+                max={100}
+                className="bg-primary-1 dark:bg-primary-1"
+              />
+            </div>
+          ) : (
+            <div className="flex items-center justify-end gap-3">
+              <span className="text-small">{files?.length} files</span>
+              <Button
+                type="button"
+                variant="outline"
+                className="py-1 px-2"
+                onClick={() => {
+                  setFiles(() => []);
+                  onFieldChange([]);
+                }}
+              >
+                Remove all
+              </Button>
+              <Button
+                type="button"
+                variant="default"
+                className={clsx("gap-2 py-1 px-2 min-w-[70px]", {
+                  "text-slate-400 bg-slate-200 hover:bg-slate-200 cursor-not-allowed":
+                    isUploading,
+                })}
+                onClick={() => startUpload(files)}
+                disabled={
+                  isUploading || files?.length < 2 || files?.length > 10
+                }
+              >
+                <SolarCloudUploadBoldDuotone className="text-icon-size text-white dark:text-black" />
+                Upload
+              </Button>
+            </div>
+          )}
         </>
       )}
     </div>
