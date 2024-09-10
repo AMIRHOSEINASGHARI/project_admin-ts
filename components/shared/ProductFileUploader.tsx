@@ -20,7 +20,6 @@ import { CrossRegular, SolarCloudUploadBoldDuotone } from "../svg";
 
 type ProductFileUploaderProps = {
   onFieldChange: (value: File[]) => void;
-  images: File[];
   files: File[];
   setFiles: Dispatch<SetStateAction<File[]>>;
 };
@@ -68,7 +67,8 @@ const ProductFileUploader = ({
 
   const removeFile = (fileName: string) => {
     const newFiles = files.filter((file) => file.name !== fileName);
-    setFiles(newFiles);
+    setFiles(() => newFiles);
+    onFieldChange(newFiles);
   };
 
   return (
@@ -120,12 +120,16 @@ const ProductFileUploader = ({
               </div>
             ))}
           </div>
-          <div className="flex justify-end gap-3">
+          <div className="flex items-center justify-end gap-3">
+            <span className="text-small">{files?.length} files</span>
             <Button
               type="button"
               variant="outline"
               className="py-1 px-2"
-              onClick={() => setFiles([])}
+              onClick={() => {
+                setFiles(() => []);
+                onFieldChange([]);
+              }}
             >
               Remove all
             </Button>

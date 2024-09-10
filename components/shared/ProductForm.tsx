@@ -135,7 +135,6 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                       <FormControl>
                         <ProductFileUploader
                           onFieldChange={field.onChange}
-                          images={field.value}
                           files={files}
                           setFiles={setFiles}
                         />
