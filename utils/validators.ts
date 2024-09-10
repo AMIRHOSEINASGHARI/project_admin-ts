@@ -12,7 +12,10 @@ export const productFormSchema = z.object({
   content: z
     .string()
     .min(100, "Content must be between 100 and 150 characters!"),
-  images: z.array(z.string()).min(1, "Image is required!"),
+  images: z
+    .array(z.instanceof(File))
+    .min(2, "At least two images is required")
+    .max(10, "Maximum size of images is 10!"),
   price: z.number().min(1, "Price should not be $0.00!"),
   stock: z.number().min(0, "Stock is required!"),
   discount: z.number(),

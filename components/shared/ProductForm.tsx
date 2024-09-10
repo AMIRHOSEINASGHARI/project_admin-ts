@@ -54,7 +54,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
     title: product?.title || "",
     subDescription: "", // TODO: change the product model: add subDescription field
     content: product?.description || "", // TODO: change the product model: change description field to content
-    images: [""],
+    images: [],
     price: product?.price || 0,
     stock: product?.stock || 0,
     discount: product?.discount || 0,
@@ -135,7 +135,8 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                       <FormControl>
                         <ProductFileUploader
                           onFieldChange={field.onChange}
-                          imageUrl={field.value}
+                          images={field.value}
+                          files={files}
                           setFiles={setFiles}
                         />
                       </FormControl>

@@ -1,8 +1,7 @@
 import type { Config } from "tailwindcss";
 const { fontFamily } = require("tailwindcss/defaultTheme");
-import { withUt } from "uploadthing/tw";
 
-const config = withUt({
+const config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -13,9 +12,9 @@ const config = withUt({
   prefix: "",
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-      },
+      // fontFamily: {
+      //   sans: ["var(--font-sans)", ...fontFamily.sans],
+      // },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -99,6 +98,6 @@ const config = withUt({
     },
   },
   plugins: [require("tailwindcss-animate"), require("tailwindcss-animated")],
-} satisfies Config);
+} satisfies Config;
 
 export default config;

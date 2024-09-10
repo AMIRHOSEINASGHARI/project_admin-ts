@@ -27,9 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased dark:bg-dark1"
-        )}
+        className={cn("min-h-screen bg-background antialiased dark:bg-dark1")}
       >
         <ReactQueryClientProvider>
           <ThemeProvider>
