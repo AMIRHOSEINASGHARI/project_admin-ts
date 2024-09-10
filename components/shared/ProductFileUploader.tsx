@@ -21,7 +21,7 @@ import toast from "react-hot-toast";
 import { CrossRegular, SolarCloudUploadBoldDuotone } from "../svg";
 
 type ProductFileUploaderProps = {
-  onFieldChange: (value: File[]) => void;
+  onFieldChange: (value: File[] | string[]) => void;
   files: File[];
   setFiles: Dispatch<SetStateAction<File[]>>;
   images?: string[];
@@ -49,7 +49,10 @@ const ProductFileUploader = ({
       },
       onClientUploadComplete: (data) => {
         toast.success("Uploaded successfully!");
-        setImages(() => data?.map((item) => item.url));
+
+        const imageUrls = data.map((file) => file.url);
+        setImages(imageUrls);
+        onFieldChange(imageUrls);
         setUploadProgress(null);
       },
       onUploadError: (error) => {

@@ -54,13 +54,14 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
   const formDefaultValues = {
     title: product?.title || "",
     subDescription: "", // TODO: change the product model: add subDescription field
-    content: product?.description || "", // TODO: change the product model: change description field to content
+    // content: product?.description || "", // TODO: change the product model: change description field to content
     images: [],
-    price: product?.price || 0,
-    stock: product?.stock || 0,
-    discount: product?.discount || 0,
+    price: product?.price || "",
+    stock: product?.stock || "",
+    discount: product?.discount,
     category: product?.category || "",
     brand: product?.brand || "",
+    publish: product?.published || true,
   };
 
   // Define form.
@@ -100,9 +101,16 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder="Product title" />
+                        <Input
+                          {...field}
+                          placeholder="Product title"
+                          maxLength={30}
+                        />
                       </FormControl>
                       <FormMessage />
+                      <span className="text-small text-[var(--text-disabled)] ml-[14px]">
+                        {field?.value?.length} of 30
+                      </span>
                     </FormItem>
                   )}
                 />
@@ -112,9 +120,17 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Textarea placeholder="Sub description" rows={5} />
+                        <Textarea
+                          {...field}
+                          placeholder="Sub description"
+                          rows={5}
+                          maxLength={150}
+                        />
                       </FormControl>
                       <FormMessage />
+                      <span className="text-small text-[var(--text-disabled)] ml-[14px]">
+                        {field?.value?.length} of 150
+                      </span>
                     </FormItem>
                   )}
                 />
@@ -162,29 +178,104 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
             </CardHeader>
             <div className="px-card pb-card space-y-10">
               <CardContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-5">
-                <Input type="number" placeholder="Price" />
-                <Input type="number" placeholder="Stock" />
-                <Input type="number" placeholder="Discount" />
-                <Select>
-                  <SelectTrigger className="py-[15px] px-[14px] flex flex-1 rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
-                    <SelectValue placeholder="Category" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {productCategory.map((item) => (
-                      <SelectItem key={item.value} value={item.value}>
-                        <div className="flex items-center gap-2">
-                          <div className="text-xl text-icon-light dark:text-icon-dark">
-                            {item.icon}
-                          </div>
-                          <span>{item.title}</span>
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <Input
-                  placeholder="Brand name"
-                  className="col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2"
+                <FormField
+                  control={form.control}
+                  name="price"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input
+                          type="number"
+                          placeholder="Price"
+                          className="h-fit"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="stock"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input
+                          type="number"
+                          placeholder="Stock"
+                          className="h-fit"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="discount"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input
+                          type="number"
+                          max={100}
+                          placeholder="Discount"
+                          className="h-fit"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="category"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Select
+                          onValueChange={field.onChange}
+                          value={field.value}
+                        >
+                          <SelectTrigger className="py-[15px] px-[14px] flex flex-1 rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
+                            <SelectValue placeholder="Category" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {productCategory.map((item) => (
+                              <SelectItem key={item.value} value={item.value}>
+                                <div className="flex items-center gap-2">
+                                  <div className="text-xl text-icon-light dark:text-icon-dark">
+                                    {item.icon}
+                                  </div>
+                                  <span>{item.title}</span>
+                                </div>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="brand"
+                  render={({ field }) => (
+                    <FormItem className="col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2">
+                      <FormControl>
+                        <Input
+                          {...field}
+                          placeholder="Brand name"
+                          className="h-fit"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
                 {/* // TODO: keyword selection component */}
                 <p className="text-red-500 bg-red-200">KEYWORDS comes here</p>
@@ -192,16 +283,29 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
             </div>
           </Card>
           <div className="flex justify-between items-center flex-wrap gap-3">
-            <div className="flex items-center gap-3">
-              <Switch
-                id="publish"
-                className="data-[state=checked]:bg-primary-1 dark:data-[state=checked]:bg-primary-1 dark:data-[state=unchecked]:bg-slate-700"
-                thumbClassName="dark:data-[state=checked]:bg-white dark:bg-white"
-              />
-              <Label htmlFor="publish" className="cursor-pointer">
-                Publish
-              </Label>
-            </div>
+            <FormField
+              control={form.control}
+              name="publish"
+              render={({ field }) => (
+                <FormItem className="col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2">
+                  <FormControl>
+                    <div className="flex items-center gap-3">
+                      <Switch
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        id="publish"
+                        className="data-[state=checked]:bg-primary-1 dark:data-[state=checked]:bg-primary-1 dark:data-[state=unchecked]:bg-slate-700"
+                        thumbClassName="dark:data-[state=checked]:bg-white dark:bg-white"
+                      />
+                      <Label htmlFor="publish" className="cursor-pointer">
+                        Publish
+                      </Label>
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <Button type="submit" variant="secondary" className="font-bold">
               {page === "add" ? "Create product" : "Edit Product"}
             </Button>
