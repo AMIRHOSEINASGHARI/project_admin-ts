@@ -41,6 +41,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "../ui/button";
 import View from "./layout/View";
 import ProductFileUploader from "./ProductFileUploader";
+import toast from "react-hot-toast";
 
 type ProductFormProps = {
   page: "add" | "edit";
@@ -72,6 +73,11 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
 
   // Define submit handler.
   const onSubmit = (values: z.infer<typeof productFormSchema>) => {
+    if (!!values.images.find((item) => typeof item !== "string")) {
+      toast.error("Upload your files first!");
+      return;
+    }
+
     console.log(values);
   };
 
