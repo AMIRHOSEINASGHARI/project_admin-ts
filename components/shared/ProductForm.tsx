@@ -42,6 +42,7 @@ import { Button } from "../ui/button";
 import View from "./layout/View";
 import ProductFileUploader from "./ProductFileUploader";
 import toast from "react-hot-toast";
+import clsx from "clsx";
 
 type ProductFormProps = {
   page: "add" | "edit";
@@ -114,7 +115,13 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                         />
                       </FormControl>
                       <FormMessage />
-                      <span className="text-small text-[var(--text-disabled)] ml-[14px]">
+                      <span
+                        className={clsx("text-small ml-[14px]", {
+                          "text-[var(--text-disabled)]":
+                            field?.value?.length < 20,
+                          "text-green-500": field?.value?.length >= 20,
+                        })}
+                      >
                         {field?.value?.length} of 30
                       </span>
                     </FormItem>
@@ -134,7 +141,13 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                         />
                       </FormControl>
                       <FormMessage />
-                      <span className="text-small text-[var(--text-disabled)] ml-[14px]">
+                      <span
+                        className={clsx("text-small ml-[14px]", {
+                          "text-[var(--text-disabled)]":
+                            field?.value?.length < 100,
+                          "text-green-500": field?.value?.length >= 100,
+                        })}
+                      >
                         {field?.value?.length} of 150
                       </span>
                     </FormItem>
