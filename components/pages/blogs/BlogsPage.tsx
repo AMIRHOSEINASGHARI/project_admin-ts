@@ -17,18 +17,23 @@ const BlogsPage = async () => {
 
   return (
     <>
-      <PageHeading text="List" />
-      <CustomBreadcrumb
-        data={blogs_page_breadcrumb_data}
-        breadcrumbPage="List"
-      />
-      <div className="flex justify-end mb-10">
-        <Button asChild>
-          <Link href="/add-blog" className="gap-2">
-            <PlusRegular />
-            New blog
-          </Link>
-        </Button>
+      <div className="flex justify-between gap-2 mb-10">
+        <div>
+          <PageHeading text="List" />
+          <CustomBreadcrumb
+            data={blogs_page_breadcrumb_data}
+            breadcrumbPage="List"
+            spaceBottom={0}
+          />
+        </div>
+        <div className="flex justify-end mb-10">
+          <Button asChild className="h-fit">
+            <Link href="/add-blog" className="gap-2">
+              <PlusRegular />
+              New blog
+            </Link>
+          </Button>
+        </div>
       </div>
       <BlogsList blogs={data?.blogs} />
     </>

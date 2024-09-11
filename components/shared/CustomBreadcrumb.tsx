@@ -16,11 +16,20 @@ type CustomBreadcrumbProps = {
     href: string;
   }[];
   breadcrumbPage?: string;
+  spaceBottom?: number;
 };
 
-const CustomBreadcrumb = ({ data, breadcrumbPage }: CustomBreadcrumbProps) => {
+const CustomBreadcrumb = ({
+  data,
+  breadcrumbPage,
+  spaceBottom = 40,
+}: CustomBreadcrumbProps) => {
   return (
-    <Breadcrumb className="mb-10">
+    <Breadcrumb
+      style={{
+        marginBottom: spaceBottom || 0,
+      }}
+    >
       <BreadcrumbList>
         {data.map((item, index) => (
           <Fragment key={item.title}>
