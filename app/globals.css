@@ -184,6 +184,18 @@
   @apply font-light text-xs text-slate-500;
 }
 
+.text_disabled {
+  @apply text-slate-500 text-[12px];
+}
+
+.card_title {
+  @apply text-[14px] font-medium;
+}
+
+.card_description {
+  @apply text-[14px] text-slate-500;
+}
+
 .badge-green {
   @apply bg-green-100 text-green-700 dark:bg-green-800/30 dark:text-green-300;
 }
