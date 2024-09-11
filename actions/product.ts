@@ -2,7 +2,6 @@
 
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
-import AdminModel from "@/models/admin";
 // models
 import ProductModel from "@/models/product";
 // types
@@ -116,8 +115,8 @@ export const getProducts = async (searchParams: {
       totalPages,
       totalProducts,
       totalProductsWithoutFilter,
-      status: "success",
-      code: 200,
+      message: ResponseMessages.SUCCESSFULLY_FETCHED,
+      code: ResponseCodes.SUCCESSFULLY_FETCHED,
     };
   } catch (error: any) {
     console.log(error);
