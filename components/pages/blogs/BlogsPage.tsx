@@ -15,9 +15,6 @@ import { PlusRegular } from "@/components/svg";
 const BlogsPage = async () => {
   const data = await getBlogs();
 
-  // TODO: better ui for this:
-  if (data?.blogs?.length === 0) return "no blogs";
-
   return (
     <>
       <PageHeading text="List" />
