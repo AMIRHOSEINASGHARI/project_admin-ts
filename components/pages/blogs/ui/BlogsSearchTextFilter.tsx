@@ -5,9 +5,9 @@ import { Input } from "@/components/ui/input";
 // icons
 import { SolarMinimalisticMagniferBoldDuotone } from "@/components/svg";
 
-const SearchTextFilter = () => {
+const BlogsSearchTextFilter = () => {
   return (
-    <div className="relative flex flex-1">
+    <div className="relative flex w-full lg:w-[300px]">
       <Input placeholder="Search..." className="w-full h-full pl-[45px]" />
       <div className="absolute top-[13px] left-[15px] text-icon-size text-icon-light dark:text-icon-dark">
         <SolarMinimalisticMagniferBoldDuotone />
@@ -16,4 +16,4 @@ const SearchTextFilter = () => {
   );
 };
 
-export default SearchTextFilter;
+export default BlogsSearchTextFilter;
