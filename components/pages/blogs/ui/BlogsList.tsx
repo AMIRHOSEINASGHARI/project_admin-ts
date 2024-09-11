@@ -7,7 +7,7 @@ import BlogCard from "./BlogCard";
 const BlogsList = ({ blogs }: { blogs: BlogType[] }) => {
   return (
     <div>
-      <FilteringBlogs />
+      <FilteringBlogs blogs={blogs} />
       {blogs?.length === 0 ? (
         "no blogs" // TODO: better ui for 0 blogs
       ) : (
