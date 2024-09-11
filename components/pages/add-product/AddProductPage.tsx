@@ -1,7 +1,9 @@
+// constants
+import { addProduct_page_breadcrumb_data } from "@/constants/breadcrumbs";
+// cmp
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
 import ProductForm from "@/components/shared/ProductForm";
-import { addProduct_page_breadcrumb_data } from "@/constants/breadcrumbs";
 
 const AddProductPage = () => {
   return (

@@ -43,6 +43,7 @@ import View from "./layout/View";
 import ProductFileUploader from "./ProductFileUploader";
 import toast from "react-hot-toast";
 import clsx from "clsx";
+import Editor from "../editor/Editor";
 
 type ProductFormProps = {
   page: "add" | "edit";
@@ -156,10 +157,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
               </CardContent>
               <CardContent className="space-y-5">
                 <h1 className="bold-value-3">Content</h1>
-                <p className="text-red-500 bg-red-200">
-                  RICH TEXT EDITOR comes here
-                </p>
-                {/* // TODO: rich text editor component */}
+                <Editor />
               </CardContent>
               <CardContent className="space-y-5">
                 <h1 className="bold-value-3">Images</h1>
