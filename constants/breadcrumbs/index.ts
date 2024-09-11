@@ -30,3 +30,14 @@ export const addProduct_page_breadcrumb_data = [
     href: "/products",
   },
 ];
+
+export const blogs_page_breadcrumb_data = [
+  {
+    title: "Dashboard",
+    href: "/dashboard",
+  },
+  {
+    title: "Blogs",
+    href: "/blogs",
+  },
+];
