@@ -189,3 +189,14 @@ export { default as SolarSmartphoneBoldDuotone } from "../../public/icons/solar/
 export { default as SolarLaptopBoldDuotone } from "../../public/icons/solar/solar--laptop-bold-duotone.svg";
 export { default as SolarHeadphonesSquareSoundBoldDuotone } from "../../public/icons/solar/solar--headphones-square-sound-bold-duotone.svg";
 export { default as SolarGamepadBoldDuotone } from "../../public/icons/solar/solar--gamepad-bold-duotone.svg";
+// editor component icons
+export { default as MingcuteAlignCenterLine } from "../../public/icons/editor/mingcute--align-center-line.svg";
+export { default as MingcuteAlignJustifyLine } from "../../public/icons/editor/mingcute--align-justify-line.svg";
+export { default as MingcuteAlignLeftLine } from "../../public/icons/editor/mingcute--align-left-line.svg";
+export { default as MingcuteAlignRightLine } from "../../public/icons/editor/mingcute--align-right-line.svg";
+export { default as MingcuteListCheckLine } from "../../public/icons/editor/mingcute--list-check-line.svg";
+export { default as MingcuteListOrderedLine } from "../../public/icons/editor/mingcute--list-ordered-line.svg";
+export { default as OcticonBold24 } from "../../public/icons/editor/octicon--bold-24.svg";
+export { default as TablerItalic } from "../../public/icons/editor/tabler--italic.svg";
+export { default as TablerStrikethrough } from "../../public/icons/editor/tabler--strikethrough.svg";
+export { default as TablerUnderline } from "../../public/icons/editor/tabler--underline.svg";

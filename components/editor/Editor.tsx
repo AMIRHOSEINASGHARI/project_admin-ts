@@ -11,6 +11,7 @@ import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { HeadingNode } from "@lexical/rich-text";
 // plugins
 import OnChangePlugin from "./plugins/OnChangePlugin";
+import ToolBarPlugin from "./plugins/ToolBarPlugin";
 // theme
 import { editorTheme } from ".";
 import "./styles/editor-styles.css";
@@ -40,16 +41,17 @@ const Editor = () => {
 
   return (
     <LexicalComposer initialConfig={initialConfig}>
-      <div className="rounded-card relative border border-dashed border-border-light dark:border-border-dark overflow-hidden">
-        <RichTextPlugin
-          contentEditable={
-            <ContentEditable className="bg-light1 min-h-[200px] dark:bg-dark3 p-4 focus:outline-none" />
-          }
-          placeholder={<Placeholder />}
-          ErrorBoundary={LexicalErrorBoundary}
-        />
-        <HistoryPlugin />
-        <OnChangePlugin onChange={onChange} />
+      <div className="rounded-card border border-dashed border-border-light dark:border-border-dark overflow-hidden">
+        <ToolBarPlugin />
+        <div className="relative bg-light1 min-h-[200px] dark:bg-dark3 p-4">
+          <RichTextPlugin
+            contentEditable={<ContentEditable className="focus:outline-none" />}
+            placeholder={<Placeholder />}
+            ErrorBoundary={LexicalErrorBoundary}
+          />
+          <HistoryPlugin />
+          <OnChangePlugin onChange={onChange} />
+        </div>
       </div>
     </LexicalComposer>
   );
