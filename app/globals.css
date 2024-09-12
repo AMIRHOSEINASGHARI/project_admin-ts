@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "../components//editor/styles/editor-styles.css";
+@import "../components/editor/styles/editor-styles.css";
 
 @layer base {
   :root {
