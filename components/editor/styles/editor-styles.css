@@ -13,8 +13,63 @@
 .editor-paragraph {
   margin: 0 0 15px 0;
   position: relative;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .editor-textBold {
   font-weight: 900;
+}
+
+/* Heading */
+.editor-heading-h1 {
+  font-size: 58px;
+  font-weight: 900;
+  line-height: 50px;
+}
+.editor-heading-h2 {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 50px;
+}
+.editor-heading-h3 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 50px;
+}
+.editor-heading-h4 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 50px;
+}
+.editor-heading-h5 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 50px;
+}
+.editor-heading-h6 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+/* Text */
+.editor-textStrikethrough {
+  text-decoration: line-through;
+}
+.editor-textUnderline {
+  text-decoration: underline;
+}
+.editor-textItalic {
+  font-style: italic;
+}
+
+/* List */
+.editor-list-ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+.editor-list-ol {
+  list-style: decimal;
+  margin-left: 20px;
 }

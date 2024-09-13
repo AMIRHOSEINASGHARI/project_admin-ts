@@ -84,7 +84,7 @@ const ProductFileUploader = ({
     <div className="space-y-5">
       <div {...getRootProps()}>
         <Input {...getInputProps()} />
-        <div className="p-5 text-center cursor-pointer hover:bg-light2 group dark:hover:bg-dark2 Transition bg-light1 rounded-card dark:bg-dark3 flex flex-col justify-center items-center min-h-[280px] border border-dashed border-b-border-light dark:border-border-dark">
+        <div className="p-5 text-center cursor-pointer hover:bg-light3 group dark:hover:bg-dark2 Transition bg-light2 rounded-card dark:bg-dark3 flex flex-col justify-center items-center min-h-[280px] border border-dashed border-b-border-light dark:border-border-dark">
           <SolarCloudUploadBoldDuotone className="lg:text-[120px] text-[50px] text-primary-1 group-hover:-translate-y-1 Transition" />
           <span className="text-lg font-semibold">Drop or select files</span>
           <p className="text-sm text-slate-500">

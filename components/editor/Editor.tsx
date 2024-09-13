@@ -9,6 +9,8 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { HeadingNode } from "@lexical/rich-text";
+import { ListItemNode, ListNode } from "@lexical/list";
+import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 // plugins
 import OnChangePlugin from "./plugins/OnChangePlugin";
 import ToolBarPlugin from "./plugins/ToolBarPlugin";
@@ -36,19 +38,20 @@ const Editor = () => {
     namespace: "MyEditor",
     theme: editorTheme,
     onError,
-    nodes: [HeadingNode],
+    nodes: [HeadingNode, ListNode, ListItemNode],
   };
 
   return (
     <LexicalComposer initialConfig={initialConfig}>
       <div className="rounded-card border border-dashed border-border-light dark:border-border-dark overflow-hidden">
         <ToolBarPlugin />
-        <div className="relative bg-light1 min-h-[200px] dark:bg-dark3 p-4">
+        <div className="relative bg-light2 min-h-[200px] dark:bg-dark3 p-4">
           <RichTextPlugin
             contentEditable={<ContentEditable className="focus:outline-none" />}
             placeholder={<Placeholder />}
             ErrorBoundary={LexicalErrorBoundary}
           />
+          <ListPlugin />
           <HistoryPlugin />
           <OnChangePlugin onChange={onChange} />
         </div>
