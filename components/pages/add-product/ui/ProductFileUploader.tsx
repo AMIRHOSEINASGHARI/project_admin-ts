@@ -38,7 +38,7 @@ const ProductFileUploader = ({
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     setFiles(acceptedFiles);
-    onFieldChange(acceptedFiles);
+    // onFieldChange(acceptedFiles);
   }, []);
 
   const { startUpload, isUploading, permittedFileInfo } = useUploadThing(

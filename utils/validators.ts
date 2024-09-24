@@ -17,12 +17,16 @@ export const productFormSchema = z.object({
         z.instanceof(File), // For newly uploaded files
       ])
     )
-    .min(2, "At least two images are required")
-    .max(10, "Maximum number of images is 10!"),
+    .min(2, "At least two images is required"),
   price: z
     .union([
-      z.number().min(0, "Invalid price!"),
-      z.string().regex(/^\d+(\.\d{1,2})?$/, "Invalid price format!"),
+      z.number().min(0, "Invalid price format! Minimum value is 0$"),
+      z
+        .string()
+        .regex(
+          /^\d+(\.\d{1,2})?$/,
+          "Invalid price format! Minimum value is 0$"
+        ),
     ])
     .refine(
       (value) =>
@@ -33,8 +37,10 @@ export const productFormSchema = z.object({
     ),
   stock: z
     .union([
-      z.number().min(0, "Invalid stock!"),
-      z.string().regex(/^\d+(\.\d{1,2})?$/, "Invalid stock format!"),
+      z.number().min(0, "Invalid stock format! Minimum value is 0"),
+      z
+        .string()
+        .regex(/^\d+(\.\d{1,2})?$/, "Invalid stock format! Minimum value is 0"),
     ])
     .refine(
       (value) =>
@@ -45,13 +51,21 @@ export const productFormSchema = z.object({
     ),
   discount: z
     .union([
-      z.number().min(0, "Invalid discount!"),
-      z.string().regex(/^\d+(\.\d{1,2})?$/, "Invalid discount format!"),
+      z.number().min(0, "Invalid discount format! Minimum value is 0%"),
+      z
+        .string()
+        .regex(
+          /^\d+(\.\d{1,2})?$/,
+          "Invalid discount format! Minimum value is 0%"
+        ),
     ])
-    .refine((value) =>
-      typeof value === "number" ? value >= 0 : parseFloat(value) >= 0
-    )
-    .optional(),
+    .refine(
+      (value) =>
+        typeof value === "number" ? value >= 0 : parseFloat(value) >= 0,
+      {
+        message: "Discount is required!",
+      }
+    ),
   category: z.string().min(1, "Category is required!"),
   brand: z.string().min(1, "Brand name is required!"),
   publish: z.boolean(),

@@ -62,7 +62,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
     images: [],
     price: product?.price || "",
     stock: product?.stock || "",
-    discount: product?.discount,
+    discount: product?.discount || "",
     category: product?.category || "",
     brand: product?.brand || "",
     publish: product?.published || true,
@@ -315,7 +315,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                   control={form.control}
                   name="keywords"
                   render={({ field }) => (
-                    <FormItem className="col-span-2">
+                    <FormItem className="sm:col-span-2 md:col-span-1 lg:col-span-2">
                       <FormControl>
                         <ProductFormKeywords
                           keywords={field.value}
