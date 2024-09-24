@@ -15,7 +15,7 @@ export type ProductType = Document & {
   title: string;
   subDescription: string;
   content: string;
-  image: string[];
+  images: string[];
   price: number;
   stock: number;
   discount: number;

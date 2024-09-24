@@ -175,7 +175,7 @@ export const createProduct = async (data: CreateProduct) => {
       category,
       brand,
       keywords,
-      publish,
+      published: publish,
       createdBy: currentUser?._id,
     });
 

@@ -2,6 +2,8 @@
 
 // react
 import { useState } from "react";
+// next
+import { useRouter } from "next/navigation";
 // types
 import { ProductType } from "@/types/product";
 // form
@@ -10,6 +12,10 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 // constants
 import { productCategory } from "@/constants";
+// actions
+import { createProduct } from "@/actions/product";
+// hooks
+import useServerAction from "@/hooks/callServerAction";
 // utils
 import { productFormSchema } from "@/utils/validators";
 // cmp
@@ -45,6 +51,7 @@ import toast from "react-hot-toast";
 import clsx from "clsx";
 import Editor from "../editor/Editor";
 import ProductFormKeywords from "./ProductFormKeywords";
+import Loader from "./Loader";
 
 type ProductFormProps = {
   page: "add" | "edit";
@@ -54,11 +61,13 @@ type ProductFormProps = {
 const ProductForm = ({ page, product }: ProductFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [images, setImages] = useState<string[]>([]);
+  const router = useRouter();
+  const { loading, action } = useServerAction(createProduct);
 
   const formDefaultValues = {
     title: product?.title || "",
-    subDescription: "", // TODO: change the product model: add subDescription field
-    content: product?.description || "", // TODO: change the product model: change description field to content
+    subDescription: product?.subDescription || "", // TODO: change the product model: add subDescription field
+    content: product?.content || "", // TODO: change the product model: change description field to content
     images: [],
     price: product?.price || "",
     stock: product?.stock || "",
@@ -77,13 +86,19 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
   });
 
   // Define submit handler.
-  const onSubmit = (values: z.infer<typeof productFormSchema>) => {
+  const onSubmit = async (values: z.infer<typeof productFormSchema>) => {
     if (!!values.images.find((item) => typeof item !== "string")) {
       toast.error("Upload your files first!");
       return;
     }
 
-    console.log(values);
+    const result = await action(values);
+    if (result?.code !== 201) {
+      toast.error(result?.message);
+    } else {
+      toast.success(result?.message);
+      router.push("/products");
+    }
   };
 
   return (
@@ -354,7 +369,13 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
               )}
             />
             <Button type="submit" variant="secondary" className="font-bold">
-              {page === "add" ? "Create product" : "Edit Product"}
+              {loading ? (
+                <Loader />
+              ) : page === "add" ? (
+                "Create product"
+              ) : (
+                "Edit Product"
+              )}
             </Button>
           </div>
         </View>

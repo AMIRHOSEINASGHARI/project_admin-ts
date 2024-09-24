@@ -222,6 +222,11 @@ export const productCategory = [
     title: "Watch",
     value: "watch",
   },
+  {
+    icon: <SolarHanger2BoldDuotone />,
+    title: "Clothes",
+    value: "cloth",
+  },
 ];
 
 export const analyticsCards_cardsData = [
