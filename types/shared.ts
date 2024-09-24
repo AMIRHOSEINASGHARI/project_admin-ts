@@ -41,3 +41,16 @@ export type MenuLinksProps = {
 };
 
 export type HeadingNodes = 1 | 2 | 3 | 4 | 5 | 6;
+
+export type ActiveNodes =
+  | "paragraph"
+  | "bold"
+  | "italic"
+  | "strike"
+  | "underline"
+  | "bulletList"
+  | "orderedList"
+  | "align-left"
+  | "align-center"
+  | "align-right"
+  | "justify";

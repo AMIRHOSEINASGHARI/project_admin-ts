@@ -7,9 +7,12 @@ import StarterKit from "@tiptap/starter-kit";
 import Paragraph from "@tiptap/extension-paragraph";
 import Heading from "@tiptap/extension-heading";
 import Placeholder from "@tiptap/extension-placeholder";
-
-import "./styles/editor-styles.css";
+import Underline from "@tiptap/extension-underline";
+import TextAlign from "@tiptap/extension-text-align";
+// plugins
 import EditorToolbar from "./plugins/EditorToolbar";
+// styles
+import "./styles/editor-styles.css";
 
 type EditorProps = {
   content: string;
@@ -22,7 +25,7 @@ const Editor = ({ content, onFieldChange }: EditorProps) => {
     editorProps: {
       attributes: {
         class:
-          "bg-light2 dark:bg-dark3 p-[16px] min-h-[200px] overflow-auto max-h-[500px] focus:outline-none",
+          "bg-light2 dark:bg-dark3 p-[16px] min-h-[200px] overflow-auto max-h-[400px] focus:outline-none",
       },
     },
     extensions: [
@@ -37,6 +40,11 @@ const Editor = ({ content, onFieldChange }: EditorProps) => {
       }),
       Heading.configure({
         levels: [1, 2, 3, 4, 5, 6],
+      }),
+      Underline,
+      TextAlign.configure({
+        alignments: ["left", "right", "center", "justify"],
+        types: ["heading", "paragraph"],
       }),
     ],
     onUpdate({ editor }) {
