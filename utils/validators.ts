@@ -55,4 +55,7 @@ export const productFormSchema = z.object({
   category: z.string().min(1, "Category is required!"),
   brand: z.string().min(1, "Brand name is required!"),
   publish: z.boolean(),
+  keywords: z
+    .array(z.string().min(1, "Too short!"))
+    .min(2, "Must have at least 2 items!"),
 });

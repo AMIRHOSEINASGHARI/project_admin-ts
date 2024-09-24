@@ -65,6 +65,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
     category: product?.category || "",
     brand: product?.brand || "",
     publish: product?.published || true,
+    keywords: product?.keywords || [],
   };
 
   // Define form.
