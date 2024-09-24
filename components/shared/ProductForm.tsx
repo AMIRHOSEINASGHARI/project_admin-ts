@@ -44,6 +44,7 @@ import ProductFileUploader from "../pages/add-product/ui/ProductFileUploader";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 import Editor from "../editor/Editor";
+import ProductFormKeywords from "./ProductFormKeywords";
 
 type ProductFormProps = {
   page: "add" | "edit";
@@ -310,8 +311,21 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                     </FormItem>
                   )}
                 />
-                {/* // TODO: keyword selection component */}
-                <p className="text-red-500 bg-red-200">KEYWORDS comes here</p>
+                <FormField
+                  control={form.control}
+                  name="keywords"
+                  render={({ field }) => (
+                    <FormItem className="col-span-2">
+                      <FormControl>
+                        <ProductFormKeywords
+                          keywords={field.value}
+                          onFieldChange={field.onChange}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
               </CardContent>
             </div>
           </Card>

@@ -34,14 +34,6 @@ const Editor = ({ content, onFieldChange }: EditorProps) => {
       Placeholder.configure({
         placeholder: "Write something awesome …",
       }),
-      Paragraph.configure({
-        HTMLAttributes: {
-          class: "text-[15px]",
-        },
-      }),
-      Heading.configure({
-        levels: [1, 2, 3, 4, 5, 6],
-      }),
       Underline,
       TextAlign.configure({
         alignments: ["left", "right", "center", "justify"],
@@ -55,6 +47,7 @@ const Editor = ({ content, onFieldChange }: EditorProps) => {
       const isEmpty = editor.isEmpty;
       onFieldChange(isEmpty ? "" : editor.getHTML());
     },
+    immediatelyRender: false,
   });
 
   return (
