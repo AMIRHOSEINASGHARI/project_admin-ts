@@ -1,9 +1,13 @@
 "use client";
 
-// Tiptap
-import { type Editor } from "@tiptap/react";
+// react
+import { useEffect, useState } from "react";
+// types
+import { HeadingNodes } from "@/types/shared";
 // constants
 import { editor_selectHeadingNodes } from "@/constants";
+// Tiptap
+import { type Editor } from "@tiptap/react";
 // icons
 import {
   EditorSetAlignCenter,
@@ -36,13 +40,25 @@ import { Toggle } from "@/components/ui/toggle";
 import clsx from "clsx";
 
 const EditorToolbar = ({ editor }: { editor: Editor | null }) => {
+  const [headingNode, setHeadingNode] = useState<"paragraph" | HeadingNodes>(
+    "paragraph"
+  );
+
+  useEffect(() => {
+    if (editor?.isActive("paragraph")) {
+      setHeadingNode("paragraph");
+    } else if (editor?.getAttributes("heading")?.level) {
+      setHeadingNode(editor?.getAttributes("heading")?.level);
+    }
+  }, [editor?.getJSON()]);
+
   if (!editor) return null;
 
   const onValueChange = (value: any) => {
     if (value === "paragraph") {
       editor.commands.setParagraph();
     } else {
-      const level = parseInt(value, 10) as 1 | 2 | 3 | 4 | 5 | 6;
+      const level = parseInt(value, 10) as HeadingNodes;
       editor.chain().focus().toggleHeading({ level }).run();
     }
   };
@@ -50,7 +66,11 @@ const EditorToolbar = ({ editor }: { editor: Editor | null }) => {
   return (
     <div className="px-4 py-2">
       <div className="flex items-center gap-2 flex-wrap">
-        <Select defaultValue="paragraph" onValueChange={onValueChange}>
+        <Select
+          defaultValue="paragraph"
+          onValueChange={onValueChange}
+          value={String(headingNode)}
+        >
           <SelectTrigger className="h-[35px] w-[130px] rounded-md bg-transparent dark:bg-transparent dark:text-light3 text-sm">
             <SelectValue placeholder="Paragraph" />
           </SelectTrigger>

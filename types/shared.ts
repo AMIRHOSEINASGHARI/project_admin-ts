@@ -39,3 +39,5 @@ export type MenuLinksProps = {
   link: string;
   image: JSX.Element;
 };
+
+export type HeadingNodes = 1 | 2 | 3 | 4 | 5 | 6;
