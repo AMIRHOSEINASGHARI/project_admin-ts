@@ -52,7 +52,8 @@ const Editor = ({ content, onFieldChange }: EditorProps) => {
       }),
     ],
     onUpdate({ editor }) {
-      onFieldChange(editor.getHTML());
+      const isEmpty = editor.isEmpty;
+      onFieldChange(isEmpty ? "" : editor.getHTML());
     },
   });
 

@@ -205,7 +205,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
             <CardHeader className="p-card border-b border-dashed border-border-light dark:border-border-dark">
               <CardTitle>Properties</CardTitle>
               <CardDescription>
-                Additional functions and attributes...
+                Pricing and Additional functions and attributes...
               </CardDescription>
             </CardHeader>
             <div className="px-card pb-card space-y-10">

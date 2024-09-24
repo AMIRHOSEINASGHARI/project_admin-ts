@@ -195,6 +195,7 @@ const EditorToolbar = ({ editor }: { editor: Editor | null }) => {
         <Toggle size="sm" data-state="off">
           <EditorSetFullscreen className="text-lg" />
         </Toggle>
+        {/* //TODO: make Editor fullscreen */}
       </div>
     </div>
   );
