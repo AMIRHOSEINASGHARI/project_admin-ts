@@ -1,3 +1,5 @@
+'use client';
+
 type EditorProps = {
   content: string;
   onFieldChange: (value: string) => void;
