@@ -719,3 +719,40 @@ export const coursePage_userReminders_data = [
     color: "bg-theme-rose dark:bg-theme-rose",
   },
 ];
+
+export const editor_selectHeadingNodes = [
+  {
+    title: "Paragraph",
+    value: "paragraph",
+  },
+  {
+    title: "Heading 1",
+    value: 1,
+    className: "font-bold text-[18px]",
+  },
+  {
+    title: "Heading 2",
+    value: 2,
+    className: "font-bold text-[17px]",
+  },
+  {
+    title: "Heading 3",
+    value: 3,
+    className: "font-bold text-[16px]",
+  },
+  {
+    title: "Heading 4",
+    value: 4,
+    className: "font-bold text-[15px]",
+  },
+  {
+    title: "Heading 5",
+    value: 5,
+    className: "font-bold text-[14px]",
+  },
+  {
+    title: "Heading 6",
+    value: 6,
+    className: "font-bold text-[13px]",
+  },
+];

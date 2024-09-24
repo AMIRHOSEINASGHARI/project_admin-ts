@@ -1,17 +1,27 @@
 "use client";
 
+// Tiptap
+import { type Editor } from "@tiptap/react";
+// constants
+import { editor_selectHeadingNodes } from "@/constants";
 // icons
 import {
-  MingcuteAlignCenterLine,
-  MingcuteAlignJustifyLine,
-  MingcuteAlignLeftLine,
-  MingcuteAlignRightLine,
-  MingcuteListCheckLine,
-  MingcuteListOrderedLine,
-  OcticonBold24,
-  TablerItalic,
-  TablerStrikethrough,
-  TablerUnderline,
+  EditorSetAlignCenter,
+  EditorSetJustify,
+  EditorSetAlignLeft,
+  EditorSetAlignRight,
+  EditorSetBulletList,
+  EditorSetOrderedList,
+  EditorSetBold,
+  EditorSetItalic,
+  EditorSetStrikethrough,
+  EditorSetUnderline,
+  EditorSetFullscreen,
+  EditorSetExitFullscreen,
+  EditorSetLink,
+  EditorSetUnlink,
+  EditorSetClearNodes,
+  EditorSetHardBreak,
 } from "@/components/svg";
 // cmp
 import {
@@ -23,69 +33,89 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Toggle } from "@/components/ui/toggle";
+import clsx from "clsx";
 
-const EditorToolbar = () => {
+const EditorToolbar = ({ editor }: { editor: Editor | null }) => {
+  if (!editor) return null;
+
+  const onValueChange = (value: any) => {
+    if (value === "paragraph") {
+      editor.commands.setParagraph();
+    } else {
+      const level = parseInt(value, 10) as 1 | 2 | 3 | 4 | 5 | 6;
+      editor.chain().focus().toggleHeading({ level }).run();
+    }
+  };
+
   return (
     <div className="px-4 py-2">
       <div className="flex items-center gap-2 flex-wrap">
-        <Select defaultValue="paragraph">
+        <Select defaultValue="paragraph" onValueChange={onValueChange}>
           <SelectTrigger className="h-[35px] w-[130px] rounded-md bg-transparent dark:bg-transparent dark:text-light3 text-sm">
             <SelectValue placeholder="Paragraph" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="paragraph">Paragraph</SelectItem>
-            <SelectItem value="h1" className="font-bold text-[18px]">
-              Heading 1
-            </SelectItem>
-            <SelectItem value="h2" className="font-bold text-[17px]">
-              Heading 2
-            </SelectItem>
-            <SelectItem value="h3" className="font-bold text-[16px]">
-              Heading 3
-            </SelectItem>
-            <SelectItem value="h4" className="font-bold text-[15px]">
-              Heading 4
-            </SelectItem>
-            <SelectItem value="h5" className="font-bold text-[14px]">
-              Heading 5
-            </SelectItem>
-            <SelectItem value="h6" className="font-bold text-[13px]">
-              Heading 6
-            </SelectItem>
+            {editor_selectHeadingNodes.map((item) => (
+              <SelectItem
+                key={item.value}
+                value={String(item.value)}
+                className={clsx(item.value !== "paragraph" && item.className)}
+              >
+                {item.title}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
         <Separator orientation="vertical" className="h-[20px]" />
         <Toggle size="sm">
-          <OcticonBold24 className="text-lg" />
+          <EditorSetBold className="text-lg" />
         </Toggle>
         <Toggle size="sm">
-          <TablerItalic className="text-lg" />
+          <EditorSetItalic className="text-lg" />
         </Toggle>
         <Toggle size="sm">
-          <TablerUnderline className="text-lg " />
+          <EditorSetUnderline className="text-lg" />
         </Toggle>
         <Toggle size="sm">
-          <TablerStrikethrough className="text-lg" />
+          <EditorSetStrikethrough className="text-lg" />
         </Toggle>
         <Separator orientation="vertical" className="h-[20px]" />
         <Toggle size="sm">
-          <MingcuteListCheckLine className="text-lg" />
+          <EditorSetBulletList className="text-lg" />
         </Toggle>
         <Toggle size="sm">
-          <MingcuteListOrderedLine className="text-lg" />
+          <EditorSetOrderedList className="text-lg" />
         </Toggle>
         <Separator orientation="vertical" className="h-[20px]" />
         <Toggle size="sm">
-          <MingcuteAlignLeftLine className="text-lg" />
+          <EditorSetAlignLeft className="text-lg" />
         </Toggle>
         <Toggle size="sm">
-          <MingcuteAlignCenterLine className="text-lg" />
+          <EditorSetAlignCenter className="text-lg" />
         </Toggle>
         <Toggle size="sm" data-state="off">
-          <MingcuteAlignRightLine className="text-lg" />
+          <EditorSetAlignRight className="text-lg" />
         </Toggle>
         <Toggle size="sm" data-state="off">
-          <MingcuteAlignJustifyLine className="text-lg" />
+          <EditorSetJustify className="text-lg" />
+        </Toggle>
+        <Separator orientation="vertical" className="h-[20px]" />
+        <Toggle size="sm" data-state="off">
+          <EditorSetLink className="text-lg" />
+        </Toggle>
+        <Toggle size="sm" data-state="off">
+          <EditorSetUnlink className="text-lg" />
+        </Toggle>
+        <Separator orientation="vertical" className="h-[20px]" />
+        <Toggle size="sm" data-state="off">
+          <EditorSetHardBreak className="text-lg" />
+        </Toggle>
+        <Toggle size="sm" data-state="off">
+          <EditorSetClearNodes className="text-lg" />
+        </Toggle>
+        <Separator orientation="vertical" className="h-[20px]" />
+        <Toggle size="sm" data-state="off">
+          <EditorSetFullscreen className="text-lg" />
         </Toggle>
       </div>
     </div>
