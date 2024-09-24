@@ -10,15 +10,15 @@ import { generateClientDropzoneAccept } from "uploadthing/client";
 // utils / uploadthing
 import { useUploadThing } from "@/utils/uploadthing";
 // cmp
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { Progress } from "../ui/progress";
-import { Badge } from "../ui/badge";
-import CustomTooltip from "./CustomTooltip";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
+import CustomTooltip from "@/components/shared/CustomTooltip";
 import clsx from "clsx";
 import toast from "react-hot-toast";
 // icons
-import { CrossRegular, SolarCloudUploadBoldDuotone } from "../svg";
+import { CrossRegular, SolarCloudUploadBoldDuotone } from "../../../svg";
 
 type ProductFileUploaderProps = {
   onFieldChange: (value: File[] | string[]) => void;

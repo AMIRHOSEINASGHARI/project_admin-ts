@@ -40,7 +40,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Button } from "../ui/button";
 import View from "./layout/View";
-import ProductFileUploader from "./ProductFileUploader";
+import ProductFileUploader from "../pages/add-product/ui/ProductFileUploader";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 import Editor from "../editor/Editor";
