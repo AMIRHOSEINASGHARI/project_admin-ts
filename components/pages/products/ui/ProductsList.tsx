@@ -52,12 +52,12 @@ const ProductsList = ({ products }: { products: ProductType[] }) => {
       product: (
         <div className="flex items-center gap-4 overflow-hidden">
           <Image
-            src={product?.image}
+            src={product?.images[0]}
             width={100}
             height={100}
             alt="image"
             priority
-            className="rounded-xl w-[64px] h-[64px]"
+            className="rounded-product w-[64px] h-[64px]"
           />
           <div className="overflow-hidden flex flex-col">
             <p className="truncate">{product?.title}</p>

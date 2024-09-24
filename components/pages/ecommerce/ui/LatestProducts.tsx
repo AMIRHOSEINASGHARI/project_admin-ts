@@ -43,12 +43,12 @@ const LatestProducts = async () => {
             className="flex items-center gap-3"
           >
             <Image
-              src={product?.image}
+              src={product?.images[0]}
               width={100}
               height={100}
               alt="product"
               priority
-              className="w-[50px] h-[50px]"
+              className="w-[50px] h-[50px] rounded-product"
             />
             <div className="flex flex-col">
               <span className="text-small">

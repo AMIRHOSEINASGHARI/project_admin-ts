@@ -42,6 +42,7 @@ const config = {
         card: "16px",
         dropdownBox: "10px",
         dropdownItem: "10px",
+        product: "12px",
       },
       padding: {
         card: "24px",
