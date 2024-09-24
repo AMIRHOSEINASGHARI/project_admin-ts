@@ -4,6 +4,8 @@ import { Document } from "mongoose";
 import { BlogType } from "./blog";
 import { ProductType } from "./product";
 
+export type AdminRoll = "USER" | "ADMIN" | "OWNER";
+
 export type AdminType = Document & {
   username: string;
   password: string;
@@ -13,7 +15,7 @@ export type AdminType = Document & {
   address?: string;
   country?: string;
   avatar?: string;
-  roll?: string;
+  roll?: AdminRoll;
   productsCreated?: ProductType[] | [];
   blogsCreated?: BlogType[] | [];
   createdAt: Date;

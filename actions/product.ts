@@ -1,13 +1,17 @@
 "use server";
 
+// next
+import { revalidatePath } from "next/cache";
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
+import AdminModel from "@/models/admin";
 // models
 import ProductModel from "@/models/product";
 // types
-import { ProductType } from "@/types/product";
+import { CreateProduct, ProductType } from "@/types/product";
 // utils
 import connectDB from "@/utils/connectDB";
+import { getServerSession } from "@/utils/session";
 
 export const getLatestProducts = async () => {
   try {
@@ -121,5 +125,74 @@ export const getProducts = async (searchParams: {
   } catch (error: any) {
     console.log(error);
     throw new Error(error);
+  }
+};
+
+export const createProduct = async (data: CreateProduct) => {
+  try {
+    await connectDB();
+
+    const session = getServerSession();
+
+    if (!session) {
+      return {
+        message: ResponseMessages.UN_AUTHORIZED,
+        code: ResponseCodes.UN_AUTHORIZED,
+      };
+    }
+
+    const currentUser = await AdminModel.findById(session?.userId);
+
+    if (currentUser?.roll === "USER") {
+      return {
+        message: ResponseMessages.ACCESS_DENIED,
+        code: ResponseCodes.UN_AUTHORIZED,
+      };
+    }
+
+    const {
+      title,
+      subDescription,
+      content,
+      images,
+      price,
+      stock,
+      discount,
+      category,
+      brand,
+      keywords,
+      publish,
+    } = data;
+
+    const newProduct = await ProductModel.create({
+      title,
+      subDescription,
+      content,
+      images,
+      price: +price,
+      stock: +stock,
+      discount: +discount,
+      category,
+      brand,
+      keywords,
+      publish,
+      createdBy: currentUser?._id,
+    });
+
+    currentUser?.productsCreated?.push(newProduct?._id);
+    await currentUser.save();
+
+    revalidatePath("/products");
+
+    return {
+      message: ResponseMessages.SUCCESSFULLY_CREATED,
+      code: ResponseCodes.SUCCESSFULLY_CREATED,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      message: ResponseMessages.SERVER_ERROR,
+      code: ResponseCodes.SERVER_ERROR,
+    };
   }
 };

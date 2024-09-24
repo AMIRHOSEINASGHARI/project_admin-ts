@@ -28,3 +28,17 @@ export type ProductType = Document & {
   createdBy?: AdminType;
   createdAt: Date;
 };
+
+export type CreateProduct = {
+  title: string;
+  subDescription: string;
+  content: string;
+  brand: string;
+  category: string;
+  discount: number;
+  price: number;
+  stock: number;
+  images: string[];
+  keywords: string[];
+  publish: boolean;
+};
