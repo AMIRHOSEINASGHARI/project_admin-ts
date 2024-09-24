@@ -9,6 +9,7 @@ export const productFormSchema = z.object({
     .string()
     .min(100, "Sub description must be between 100 and 150 characters!")
     .max(150, "Sub description must be between 100 and 150 characters!"),
+  content: z.string().min(1, "Description is required!"),
   images: z
     .array(
       z.union([

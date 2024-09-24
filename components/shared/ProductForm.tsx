@@ -57,7 +57,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
   const formDefaultValues = {
     title: product?.title || "",
     subDescription: "", // TODO: change the product model: add subDescription field
-    // content: product?.description || "", // TODO: change the product model: change description field to content
+    content: product?.description || "", // TODO: change the product model: change description field to content
     images: [],
     price: product?.price || "",
     stock: product?.stock || "",
@@ -69,6 +69,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
 
   // Define form.
   const form = useForm<z.infer<typeof productFormSchema>>({
+    mode: "all",
     resolver: zodResolver(productFormSchema),
     defaultValues: formDefaultValues,
   });
@@ -155,9 +156,23 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                   )}
                 />
               </CardContent>
-              <CardContent className="space-y-5">
+              <CardContent className="flex flex-col gap-5">
                 <h1 className="bold-value-3">Content</h1>
-                <Editor />
+                <FormField
+                  control={form.control}
+                  name="content"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Editor
+                          content={field.value}
+                          onFieldChange={field.onChange}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
               </CardContent>
               <CardContent className="space-y-5">
                 <h1 className="bold-value-3">Images</h1>

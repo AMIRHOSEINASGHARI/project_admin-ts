@@ -200,3 +200,5 @@ export { default as OcticonBold24 } from "../../public/icons/editor/octicon--bol
 export { default as TablerItalic } from "../../public/icons/editor/tabler--italic.svg";
 export { default as TablerStrikethrough } from "../../public/icons/editor/tabler--strikethrough.svg";
 export { default as TablerUnderline } from "../../public/icons/editor/tabler--underline.svg";
+export { default as FullScreenEditor } from "../../public/icons/editor/full-screen-editor.svg";
+export { default as ExitFullScreenEditor } from "../../public/icons/editor/exit-full-screen-editor.svg";
