@@ -13,19 +13,20 @@ export type ProductOrderType = {
 
 export type ProductType = Document & {
   title: string;
-  description?: string;
-  image: string;
+  subDescription: string;
+  content: string;
+  image: string[];
   price: number;
   stock: number;
-  discount?: number;
+  discount: number;
   category: string;
-  keywords?: string[];
-  orders?: ProductOrderType[];
+  keywords: string[];
+  orders: ProductOrderType[];
   brand: string;
-  likes?: LikeType[];
-  comments?: CommentType[];
-  published?: boolean;
-  createdBy?: AdminType;
+  likes: LikeType[];
+  comments: CommentType[];
+  published: boolean;
+  createdBy: AdminType;
   createdAt: Date;
 };
 

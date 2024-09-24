@@ -3,13 +3,14 @@ import { Schema, models, model } from "mongoose";
 
 const productSchema = new Schema({
   title: { type: String, required: true },
-  description: { type: String },
-  image: { type: String, required: true },
+  subDescription: { type: String, required: true },
+  content: { type: String, required: true },
+  image: { type: [String], required: true },
   price: { type: Number, required: true },
   stock: { type: Number, required: true },
-  discount: { type: Number, default: 0 },
+  discount: { type: Number, required: true, default: 0 },
   category: { type: String, required: true },
-  keywords: { type: [String], default: [] },
+  keywords: { type: [String], required: true },
   orders: [
     {
       orderId: {
@@ -22,8 +23,8 @@ const productSchema = new Schema({
   brand: { type: String, required: true },
   likes: [{ type: Schema.Types.ObjectId, ref: "Like", default: [] }],
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment", default: [] }],
-  published: { type: Boolean, default: false },
-  createdBy: { type: Schema.Types.ObjectId, ref: "Admin" },
+  published: { type: Boolean, default: false, required: true },
+  createdBy: { type: Schema.Types.ObjectId, ref: "Admin", required: true },
   createdAt: {
     type: Date,
     default: () => Date.now(),
