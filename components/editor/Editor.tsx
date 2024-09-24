@@ -9,6 +9,7 @@ import Heading from "@tiptap/extension-heading";
 import Placeholder from "@tiptap/extension-placeholder";
 import Underline from "@tiptap/extension-underline";
 import TextAlign from "@tiptap/extension-text-align";
+import Link from "@tiptap/extension-link";
 // plugins
 import EditorToolbar from "./plugins/EditorToolbar";
 // styles
@@ -35,7 +36,7 @@ const Editor = ({ content, onFieldChange }: EditorProps) => {
       }),
       Paragraph.configure({
         HTMLAttributes: {
-          class: "text-[13px]",
+          class: "text-[15px]",
         },
       }),
       Heading.configure({
@@ -45,6 +46,9 @@ const Editor = ({ content, onFieldChange }: EditorProps) => {
       TextAlign.configure({
         alignments: ["left", "right", "center", "justify"],
         types: ["heading", "paragraph"],
+      }),
+      Link.configure({
+        validate: (href) => /^https?:\/\//.test(href),
       }),
     ],
     onUpdate({ editor }) {

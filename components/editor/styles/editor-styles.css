@@ -43,3 +43,10 @@
   list-style-type: decimal;
   margin: 0 16px;
 }
+
+/* Links */
+.tiptap a {
+  text-decoration: underline;
+  color: var(--primary-1);
+  cursor: pointer;
+}

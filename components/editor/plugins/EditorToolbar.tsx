@@ -38,6 +38,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Toggle } from "@/components/ui/toggle";
 import clsx from "clsx";
+import SetLink from "../ui/SetLink";
 
 const EditorToolbar = ({ editor }: { editor: Editor | null }) => {
   const [headingNode, setHeadingNode] = useState<"paragraph" | HeadingNodes>(
@@ -134,34 +135,6 @@ const EditorToolbar = ({ editor }: { editor: Editor | null }) => {
       isActive: editor.isActive({ textAlign: "justify" }),
       seprator: true,
     },
-    {
-      node: "link",
-      icon: <EditorSetLink className="text-lg" />,
-      onClick: () => editor.chain().focus().toggleBold().run(),
-      isActive: editor.isActive("link"),
-      seprator: false,
-    },
-    {
-      node: "unlink",
-      icon: <EditorSetUnlink className="text-lg" />,
-      onClick: () => editor.chain().focus().toggleBold().run(),
-      isActive: editor.isActive("unlink"),
-      seprator: true,
-    },
-    {
-      node: "break",
-      icon: <EditorSetHardBreak className="text-lg" />,
-      onClick: () => editor.commands.setHardBreak(),
-      isActive: false,
-      seprator: false,
-    },
-    {
-      node: "clear",
-      icon: <EditorSetClearNodes className="text-lg" />,
-      onClick: () => editor.commands.clearNodes(),
-      isActive: false,
-      seprator: true,
-    },
   ];
 
   return (
@@ -202,6 +175,23 @@ const EditorToolbar = ({ editor }: { editor: Editor | null }) => {
             )}
           </Fragment>
         ))}
+        <SetLink editor={editor} />
+        <Separator orientation="vertical" className="h-[20px]" />
+        <Toggle
+          size="sm"
+          data-state="off"
+          onClick={() => editor.commands.setHardBreak()}
+        >
+          <EditorSetHardBreak className="text-lg" />
+        </Toggle>
+        <Toggle
+          size="sm"
+          data-state="off"
+          onClick={() => editor.commands.clearNodes()}
+        >
+          <EditorSetClearNodes className="text-lg" />
+        </Toggle>
+        <Separator orientation="vertical" className="h-[20px]" />
         <Toggle size="sm" data-state="off">
           <EditorSetFullscreen className="text-lg" />
         </Toggle>
