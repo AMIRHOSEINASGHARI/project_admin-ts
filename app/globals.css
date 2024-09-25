@@ -225,3 +225,7 @@
 .border-color {
   @apply border-slate-100 dark:border-dark2;
 }
+
+.back-link {
+  @apply flex items-center gap-2 text-[0.875rem] font-[700] p-2 rounded-lg hover:bg-light2 dark:hover:bg-dark3 Transition w-fit
+}
