@@ -46,7 +46,7 @@ const formSchema = z.object({
   username: z
     .string()
     .min(4, { message: "Username must be between 4 and 10 characters" })
-    .max(10, { message: "َUsername must be between 4 and 10 characters" }),
+    .max(20, { message: "َUsername must be between 4 and 10 characters" }),
   password: z
     .string()
     .min(4, { message: "Password must be between 4 and 10 characters" })
@@ -62,7 +62,7 @@ const AuthForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "owner-demo",
+      username: "demo@onlineshop.com",
       password: "demo1234",
     },
   });
@@ -162,10 +162,7 @@ const AuthForm = () => {
                 type="submit"
                 variant="secondary"
                 disabled={loading}
-                className={clsx("w-full", {
-                  "bg-gray-100 text-dark1 dark:bg-dark2 dark:text-light1":
-                    loading,
-                })}
+                className="w-full"
               >
                 {loading ? <Loader text="Sending data..." /> : "Submit"}
               </Button>

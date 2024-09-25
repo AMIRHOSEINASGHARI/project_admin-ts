@@ -368,7 +368,12 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                 </FormItem>
               )}
             />
-            <Button type="submit" variant="secondary" className="font-bold">
+            <Button
+              type="submit"
+              variant="secondary"
+              className="font-bold min-w-[134px]"
+              disabled={loading}
+            >
               {loading ? (
                 <Loader />
               ) : page === "add" ? (
