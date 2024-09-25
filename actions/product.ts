@@ -128,6 +128,41 @@ export const getProducts = async (searchParams: {
   }
 };
 
+export const getProduct = async (id: string) => {
+  try {
+    await connectDB();
+
+    const session = getServerSession();
+
+    if (!session) {
+      return {
+        message: ResponseMessages.UN_AUTHORIZED,
+        code: ResponseCodes.UN_AUTHORIZED,
+      };
+    }
+
+    const currentUser = await AdminModel.findById(session?.userId);
+
+    if (currentUser?.roll === "USER") {
+      return {
+        message: ResponseMessages.ACCESS_DENIED,
+        code: ResponseCodes.UN_AUTHORIZED,
+      };
+    }
+
+    const product = await ProductModel.findById(id).lean<ProductType>();
+
+    return {
+      product,
+      message: ResponseMessages.SUCCESSFULLY_FETCHED,
+      code: ResponseCodes.SUCCESSFULLY_FETCHED,
+    };
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
+
 export const createProduct = async (data: CreateProduct) => {
   try {
     await connectDB();
