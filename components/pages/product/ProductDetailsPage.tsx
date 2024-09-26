@@ -9,6 +9,7 @@ import { SolarAltArrowLeftLineDuotone } from "@/components/svg";
 import HeadingActions from "./ui/HeadingActions";
 import View from "@/components/shared/layout/View";
 import ProductImages from "./ui/ProductImages";
+import ProductSummaryInfo from "./ui/ProductSummaryInfo";
 
 const ProductDetailsPage = async ({ id }: { id: string }) => {
   const data = await getProduct(id);
@@ -24,8 +25,18 @@ const ProductDetailsPage = async ({ id }: { id: string }) => {
         </Link>
         <HeadingActions id={id} published={data?.product?.published} />
       </div>
-      <View variant="flex-gap">
+      <View variant="flex-gap" className="gap-[40px]">
         <ProductImages images={data?.product?.images} />
+        <ProductSummaryInfo
+          brand={data?.product?.brand}
+          category={data?.product?.category}
+          createdBy={data?.product?.createdBy}
+          discount={data?.product?.discount}
+          price={data?.product?.price}
+          stock={data?.product?.stock}
+          subDescription={data?.product?.subDescription}
+          title={data?.product?.title}
+        />
       </View>
     </View>
   );

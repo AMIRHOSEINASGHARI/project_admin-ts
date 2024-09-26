@@ -40,7 +40,7 @@ const ProductImages = ({ images }: { images: string[] }) => {
   return (
     <div className="w-full xl:w-[60%] flex flex-col items-center gap-5">
       <Carousel
-        className="rounded-card overflow-hidden relative"
+        className="rounded-card overflow-hidden relative max-w-[630px] max-h-[630px]"
         setApi={setapi}
       >
         <CarouselContent>

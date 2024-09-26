@@ -90,15 +90,17 @@
   }
 }
 
+/* Hide scroll bar: START */
 .sidebarScroll::-webkit-scrollbar {
   display: none;
 }
-
 .sidebarScroll {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+/* Hide scroll bar: END */
 
+/* Loader spinner: START */
 .loader {
   display: block;
   --height-of-loader: 4px;
@@ -109,7 +111,6 @@
   background-color: rgba(0, 0, 0, 0.2);
   position: relative;
 }
-
 .loader::before {
   content: "";
   position: absolute;
@@ -121,111 +122,122 @@
   border-radius: 30px;
   animation: moving 1s ease-in-out infinite;
 }
-
 @keyframes moving {
   50% {
     width: 100%;
   }
-
   100% {
     width: 0;
     right: 0;
     left: unset;
   }
 }
+/* Loader spinner: END */
 
+/* Animation: START */
 .Transition {
   @apply transition duration-150 ease-in-out;
 }
-
 .card_hover {
   @apply hover:bg-light3 dark:hover:bg-dark3 Transition;
 }
+/* Animation: END */
 
+/* UI: START */
 .pages_spaces {
   @apply text-dark1 dark:text-light1 pt-[90px] pl-[350px] max-md:px-4 md:pr-12 max-lg:pb-[50px] lg:mb-[200px] min-h-screen transition-all duration-150 max-w-[1600px] mx-auto;
 }
-
 .btn_icon {
   @apply p-[8px] rounded-full hover:bg-light3 hover:dark:bg-slate-800 hover:text-icon-hover-light dark:hover:text-icon-hover-dark dark:text-icon-dark text-icon-light text-[25px];
 }
-
 .logo-color {
   @apply text-primary-1 dark:text-primary-4;
 }
-
-.heading1 {
-  @apply text-large font-extrabold;
-}
-
-.subheading {
-  @apply text-small text-dark3 dark:text-light3;
-}
-
-.bold-value {
-  @apply font-bold text-large;
-}
-
-.bold-value-2 {
-  @apply font-medium;
-}
-
-.bold-value-3 {
-  @apply text-[16px] font-semibold leading-none tracking-tight;
-}
-
 .chart-cartesian-grid {
   @apply stroke-slate-100 dark:stroke-dark3;
 }
-
 .tableContainer {
   @apply rounded-card shadow-card dark:shadow-dark bg-white dark:bg-dark2 overflow-hidden;
 }
-
-.table_sub_text {
-  @apply font-light text-xs text-slate-500;
-}
-
-.text_disabled {
-  @apply text-slate-500 text-[12px];
-}
-
-.card_title {
-  @apply text-[14px] font-medium;
-}
-
-.card_description {
-  @apply text-[14px] text-slate-500;
-}
-
-.badge-green {
-  @apply bg-green-100 text-green-700 dark:bg-green-800/30 dark:text-green-300;
-}
-
-.badge-blue {
-  @apply bg-blue-100 text-blue-700 dark:bg-blue-800/30 dark:text-blue-300;
-}
-
-.badge-orange {
-  @apply bg-orange-100 text-orange-700 dark:bg-orange-800/30 dark:text-orange-300;
-}
-
-.badge-slate {
-  @apply bg-slate-100 text-slate-700 dark:bg-slate-800/30 dark:text-slate-300;
-}
-
-.badge-gray {
-  @apply bg-gray-200 text-gray-700 dark:bg-gray-600/30 dark:text-gray-300;
-}
-
-.badge-rose {
-  @apply bg-rose-100 text-rose-700 dark:bg-rose-800/30 dark:text-rose-300;
-}
-
 .border-color {
   @apply border-slate-100 dark:border-dark2;
 }
-
 .back-link {
   @apply flex items-center gap-2 text-[0.875rem] font-[700] p-2 rounded-lg hover:bg-light2 dark:hover:bg-dark3 Transition w-fit
 }
+/* UI: END */
+
+/* Badges: START */
+.badge-green {
+  @apply bg-green-100 text-green-700 dark:bg-green-800/30 dark:text-green-300;
+}
+.badge-blue {
+  @apply bg-blue-100 text-blue-700 dark:bg-blue-800/30 dark:text-blue-300;
+}
+.badge-orange {
+  @apply bg-orange-100 text-orange-700 dark:bg-orange-800/30 dark:text-orange-300;
+}
+.badge-slate {
+  @apply bg-slate-100 text-slate-700 dark:bg-slate-800/30 dark:text-slate-300;
+}
+.badge-gray {
+  @apply bg-gray-200 text-gray-700 dark:bg-gray-600/30 dark:text-gray-300;
+}
+.badge-rose {
+  @apply bg-rose-100 text-rose-700 dark:bg-rose-800/30 dark:text-rose-300;
+}
+/* Badges: END */
+
+/* Text: START */
+.h1 {
+  @apply text-[35px] font-extrabold
+}
+.h2 {
+  @apply text-[32px] font-bold
+}
+.h3 {
+  @apply text-[30px] font-bold
+}
+.h4 {
+  @apply text-[25px] font-bold
+}
+.h5 {
+  @apply text-[20px] font-bold
+}
+.h6 {
+  @apply text-[17px] font-bold
+}
+.heading1 {
+  @apply text-large font-extrabold;
+}
+.subheading {
+  @apply text-small text-dark3 dark:text-light3;
+}
+.bold-value {
+  @apply font-bold text-large;
+}
+.bold-value-2 {
+  @apply font-medium;
+}
+.bold-value-3 {
+  @apply text-[16px] font-semibold leading-none tracking-tight;
+}
+.table_sub_text {
+  @apply font-light text-xs text-slate-500;
+}
+.text_disabled {
+  @apply text-slate-500 text-[12px];
+}
+.card_title {
+  @apply text-[14px] font-medium;
+}
+.card_description {
+  @apply text-[14px] text-slate-500;
+}
+.price {
+  @apply font-[700] text-xl;
+}
+.price_discount {
+  @apply font-[700] text-xl text-[var(--text-disabled)] line-through;
+}
+/* Text: END */

@@ -29,3 +29,10 @@ export const shorterText = (
     return text;
   }
 };
+
+export const applyDiscount = (price: number, discount: number): number => {
+  const discounted_value = (price * discount) / 100;
+  const final_value = price - discounted_value;
+
+  return +final_value.toFixed(2);
+};

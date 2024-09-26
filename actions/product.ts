@@ -150,7 +150,13 @@ export const getProduct = async (id: string) => {
       };
     }
 
-    const product = await ProductModel.findById(id).lean<ProductType>();
+    const product = await ProductModel.findById(id)
+      .populate({
+        path: "createdBy",
+        model: AdminModel,
+        select: "username name",
+      })
+      .lean<ProductType>();
 
     return {
       product,
