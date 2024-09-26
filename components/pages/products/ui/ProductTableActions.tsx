@@ -27,7 +27,7 @@ const ProductTableActions = ({ id }: { id: string }) => {
             href={`/products/${id}`}
             className="w-full flex items-center gap-dropdownItem"
           >
-            <SolarEyeBoldDuotone className="text-icon-size text-icon-light dark:text-icon-dark" />
+            <SolarEyeBoldDuotone className="icon" />
             View
           </Link>
         </DropdownMenuItem>
@@ -36,7 +36,7 @@ const ProductTableActions = ({ id }: { id: string }) => {
             href={`/products/${id}/edit`}
             className="w-full flex items-center gap-dropdownItem"
           >
-            <SolarPenBoldDuotone className="text-icon-size text-icon-light dark:text-icon-dark" />
+            <SolarPenBoldDuotone className="icon" />
             Edit
           </Link>
         </DropdownMenuItem>

@@ -36,7 +36,7 @@ const CalendarSearch = () => {
                 Start date
               </span>
             )}
-            <SolarCalendarBoldDuotone className="text-icon-size text-icon-light dark:text-icon-dark" />
+            <SolarCalendarBoldDuotone className="icon" />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto" side="bottom">
@@ -64,7 +64,7 @@ const CalendarSearch = () => {
                 End date
               </span>
             )}
-            <SolarCalendarBoldDuotone className="text-icon-size text-icon-light dark:text-icon-dark" />
+            <SolarCalendarBoldDuotone className="icon" />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">

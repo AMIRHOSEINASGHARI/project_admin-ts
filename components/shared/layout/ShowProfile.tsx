@@ -122,9 +122,7 @@ const ShowProfile = () => {
                 className="flex items-center gap-5 px-2 py-3 rounded-btn hoverable"
                 onClick={() => onClose()}
               >
-                <div className="text-icon-size text-icon-light dark:text-icon-dark">
-                  {link.icon}
-                </div>
+                <div className="icon">{link.icon}</div>
                 <span className="text-small">{link.name}</span>
               </Link>
             </li>

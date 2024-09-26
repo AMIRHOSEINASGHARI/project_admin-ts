@@ -37,8 +37,11 @@ import {
   SolarTvBoldDuotone,
   SolarWatchSquareBoldDuotone,
 } from "@/components/svg";
-// cmp
+// types
 import { NavColor } from "@/types/shared";
+// mock
+import { fakeUsers } from "@/mock/users";
+// cmp
 import clsx from "clsx";
 
 export const images = {
@@ -759,5 +762,99 @@ export const editor_selectHeadingNodes = [
     title: "Heading 6",
     value: 6,
     className: "font-bold text-[13px]",
+  },
+];
+
+export const productReviews_rating = [
+  {
+    starts: "5",
+    progressValue: 20,
+    value: "2.03k",
+  },
+  {
+    starts: "4",
+    progressValue: 18,
+    value: "8.49k",
+  },
+  {
+    starts: "3",
+    progressValue: 25,
+    value: "6.98k",
+  },
+  {
+    starts: "2",
+    progressValue: 5,
+    value: "9.12k",
+  },
+  {
+    starts: "1",
+    progressValue: 30,
+    value: "1.95k",
+  },
+];
+
+export const productReviews_reviews = [
+  {
+    user: fakeUsers[0],
+    date: "26 Sep 2024",
+    title:
+      "The sun slowly set over the horizon, painting the sky in vibrant hues of orange and pink.",
+    like: 123,
+    disLike: 34,
+  },
+  {
+    user: fakeUsers[1],
+    date: "25 Sep 2024",
+    title: "She eagerly opened the gift, her eyes sparkling with excitement.",
+    like: 123,
+    disLike: 34,
+  },
+  {
+    user: fakeUsers[2],
+    date: "24 Sep 2024",
+    title:
+      "The old oak tree stood tall and majestic, its branches swaying gently in the breeze.",
+    like: 123,
+    disLike: 34,
+  },
+  {
+    user: fakeUsers[3],
+    date: "23 Sep 2024",
+    title:
+      "The aroma of freshly brewed coffee filled the air, awakening my senses.",
+    like: 123,
+    disLike: 34,
+  },
+  {
+    user: fakeUsers[4],
+    date: "22 Sep 2024",
+    title:
+      "The children giggled with joy as they ran through the sprinklers on a hot summer day.",
+    like: 123,
+    disLike: 34,
+  },
+  {
+    user: fakeUsers[5],
+    date: "21 Sep 2024",
+    title:
+      "He carefully crafted a beautiful sculpture out of clay, his hands skillfully shaping the intricate details.",
+    like: 123,
+    disLike: 34,
+  },
+  {
+    user: fakeUsers[6],
+    date: "20 Sep 2024",
+    title:
+      "The concert was a mesmerizing experience, with the music filling the venue and the crowd cheering in delight.",
+    like: 123,
+    disLike: 34,
+  },
+  {
+    user: fakeUsers[7],
+    date: "19 Sep 2024",
+    title:
+      "The waves crashed against the shore, creating a soothing symphony of sound.",
+    like: 123,
+    disLike: 34,
   },
 ];
