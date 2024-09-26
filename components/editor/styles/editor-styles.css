@@ -8,30 +8,47 @@
   font-size: 13px;
 }
 
+.tiptap p {
+  font-size: 14px;
+  margin-block: 2px;
+}
+
 /* Headings */
 .tiptap h1 {
   font-size: 58px;
-  font-weight: 900;
+  font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 8px;
 }
 .tiptap h2 {
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 8px;
 }
 .tiptap h3 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 8px;
 }
 .tiptap h4 {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 8px;
 }
 .tiptap h5 {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 8px;
 }
 .tiptap h6 {
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 8px;
 }
 
 /* Lists */

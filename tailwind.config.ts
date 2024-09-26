@@ -75,7 +75,7 @@ const config = {
         "error-light": "#e11d48",
         "error-dark": "#f43f5e",
         border: {
-          light: "#cbd5e1",
+          light: "#e2e8f0",
           dark: "#334155",
         },
         icon: {

@@ -11,6 +11,7 @@ import View from "@/components/shared/layout/View";
 import ProductImages from "./ui/ProductImages";
 import ProductSummaryInfo from "./ui/ProductSummaryInfo";
 import ProductBadges from "./ui/ProductBadges";
+import ProductInformationTabs from "./ui/ProductInformationTabs";
 
 const ProductDetailsPage = async ({ id }: { id: string }) => {
   const data = await getProduct(id);
@@ -40,6 +41,7 @@ const ProductDetailsPage = async ({ id }: { id: string }) => {
         />
       </View>
       <ProductBadges />
+      <ProductInformationTabs content={data?.product?.content} />
     </View>
   );
 };
