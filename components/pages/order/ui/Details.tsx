@@ -23,7 +23,7 @@ const Details = ({ items, summary }: DetailsProps) => {
     product: (
       <div className="flex items-center gap-4 w-[400px]">
         <Image
-          src={item?.productId?.image}
+          src={item?.productId?.images[0]}
           width={100}
           height={100}
           alt="product"
