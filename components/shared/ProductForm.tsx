@@ -13,7 +13,7 @@ import { z } from "zod";
 // constants
 import { productCategory } from "@/constants";
 // actions
-import { createProduct } from "@/actions/product";
+import { createProduct, editProduct } from "@/actions/product";
 // hooks
 import useServerAction from "@/hooks/callServerAction";
 // utils
@@ -62,20 +62,23 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [images, setImages] = useState<string[]>(product?.images || []);
   const router = useRouter();
-  const { loading, action } = useServerAction(createProduct);
+  const { loading: createLoading, action: createAction } =
+    useServerAction(createProduct);
+  const { loading: editLoading, action: editAction } =
+    useServerAction(editProduct);
 
   const formDefaultValues = {
-    title: product?.title || "",
-    subDescription: product?.subDescription || "",
-    content: product?.content || "",
-    images: images,
-    price: product?.price || "",
-    stock: product?.stock || "",
-    discount: product?.discount || "",
-    category: product?.category || "",
-    brand: product?.brand || "",
-    publish: product?.published || true,
-    keywords: product?.keywords || [],
+    title: product ? product?.title : "",
+    subDescription: product ? product?.subDescription : "",
+    content: product ? product?.content : "",
+    images: product ? product?.images : images,
+    price: product ? product?.price : "",
+    stock: product ? product?.stock : "",
+    discount: product ? product?.discount : "",
+    category: product ? product?.category : "",
+    brand: product ? product?.brand : "",
+    publish: product ? product?.published : true,
+    keywords: product ? product?.keywords : [],
   };
 
   // Define form.
@@ -92,12 +95,25 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
       return;
     }
 
-    const result = await action(values);
-    if (result?.code !== 201) {
-      toast.error(result?.message);
-    } else {
-      toast.success(result?.message);
-      router.push("/products");
+    if (page === "add") {
+      const result = await createAction(values);
+      if (result?.code !== 201) {
+        toast.error(result?.message);
+      } else {
+        toast.success(result?.message);
+        router.push("/products");
+      }
+    } else if (page === "edit") {
+      const result = await editAction({
+        ...values,
+        id: product?._id,
+      });
+      if (result?.code !== 201) {
+        toast.error(result?.message);
+      } else {
+        toast.success(result?.message);
+        router.push(`/products/${product?._id}`);
+      }
     }
   };
 
@@ -372,9 +388,9 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
               type="submit"
               variant="secondary"
               className="font-bold min-w-[134px]"
-              disabled={loading}
+              disabled={createLoading || editLoading}
             >
-              {loading ? (
+              {createLoading || editLoading ? (
                 <Loader />
               ) : page === "add" ? (
                 "Create product"
