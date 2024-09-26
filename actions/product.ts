@@ -8,7 +8,7 @@ import AdminModel from "@/models/admin";
 // models
 import ProductModel from "@/models/product";
 // types
-import { CreateProduct, ProductType } from "@/types/product";
+import { CreateProduct, EditProduct, ProductType } from "@/types/product";
 // utils
 import connectDB from "@/utils/connectDB";
 import { getServerSession } from "@/utils/session";
@@ -228,6 +228,73 @@ export const createProduct = async (data: CreateProduct) => {
     return {
       message: ResponseMessages.SUCCESSFULLY_CREATED,
       code: ResponseCodes.SUCCESSFULLY_CREATED,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      message: ResponseMessages.SERVER_ERROR,
+      code: ResponseCodes.SERVER_ERROR,
+    };
+  }
+};
+
+export const editProduct = async (data: EditProduct) => {
+  try {
+    await connectDB();
+
+    const session = getServerSession();
+
+    if (!session) {
+      return {
+        message: ResponseMessages.UN_AUTHORIZED,
+        code: ResponseCodes.UN_AUTHORIZED,
+      };
+    }
+
+    const currentUser = await AdminModel.findById(session?.userId);
+
+    if (currentUser?.roll === "USER") {
+      return {
+        message: ResponseMessages.ACCESS_DENIED,
+        code: ResponseCodes.UN_AUTHORIZED,
+      };
+    }
+
+    const {
+      id,
+      title,
+      subDescription,
+      content,
+      images,
+      price,
+      stock,
+      discount,
+      category,
+      brand,
+      keywords,
+      publish,
+    } = data;
+
+    await ProductModel.findByIdAndUpdate(id, {
+      title,
+      subDescription,
+      content,
+      images,
+      price: +price,
+      stock: +stock,
+      discount: +discount,
+      category,
+      brand,
+      keywords,
+      published: publish,
+      createdBy: currentUser?._id,
+    });
+
+    revalidatePath("/products");
+
+    return {
+      message: ResponseMessages.SUCCESSFULLY_UPDATED,
+      code: ResponseCodes.SUCCESSFULLY_UPDATED,
     };
   } catch (error) {
     console.log(error);
