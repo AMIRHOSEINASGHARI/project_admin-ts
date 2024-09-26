@@ -1,6 +1,7 @@
 // cmp
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ProductReviews from "./ProductReviews";
 
 const ProductInformationTabs = ({ content }: { content: string }) => {
   return (
@@ -31,6 +32,9 @@ const ProductInformationTabs = ({ content }: { content: string }) => {
             className="tiptap"
             dangerouslySetInnerHTML={{ __html: content }}
           />
+        </TabsContent>
+        <TabsContent value="reviews">
+          <ProductReviews />
         </TabsContent>
       </Tabs>
     </Card>
