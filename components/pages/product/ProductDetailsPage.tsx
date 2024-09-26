@@ -10,6 +10,7 @@ import HeadingActions from "./ui/HeadingActions";
 import View from "@/components/shared/layout/View";
 import ProductImages from "./ui/ProductImages";
 import ProductSummaryInfo from "./ui/ProductSummaryInfo";
+import ProductBadges from "./ui/ProductBadges";
 
 const ProductDetailsPage = async ({ id }: { id: string }) => {
   const data = await getProduct(id);
@@ -17,7 +18,7 @@ const ProductDetailsPage = async ({ id }: { id: string }) => {
   if (!data?.product) notFound();
 
   return (
-    <View orientation="vertical">
+    <View className="space-y-10">
       <div className="flex items-center justify-between">
         <Link href="/products" className="back-link">
           <SolarAltArrowLeftLineDuotone />
@@ -38,6 +39,7 @@ const ProductDetailsPage = async ({ id }: { id: string }) => {
           title={data?.product?.title}
         />
       </View>
+      <ProductBadges />
     </View>
   );
 };

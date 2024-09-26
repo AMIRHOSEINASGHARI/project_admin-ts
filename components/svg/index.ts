@@ -18,7 +18,9 @@ export { default as CalendarRegular } from "../../public/icons/CalendarRegular.s
 export { default as CategoryRegular } from "../../public/icons/CategoryRegular.svg";
 export { default as ChartHistogramRegular } from "../../public/icons/ChartHistogram.svg";
 export { default as CheckRegular } from "../../public/icons/CheckRegular.svg";
+export { default as CheckFill } from "../../public/icons/check-fill.svg";
 export { default as CloudUploadRegular } from "../../public/icons/CloudUploadRegular.svg";
+export { default as ClockFill } from "../../public/icons/clock-fill.svg";
 export { default as CoinRegular } from "../../public/icons/CoinRegular.svg";
 export { default as CourseRegular } from "../../public/icons/CourseRegular.svg";
 export { default as CommentRegular } from "../../public/icons/CommentRegular.svg";
@@ -55,6 +57,7 @@ export { default as SearchRegular } from "../../public/icons/SearchRegular.svg";
 export { default as SettingsSlidersRegular } from "../../public/icons/SettingsSlidersRegular.svg";
 export { default as SettingsRegular } from "../../public/icons/SettingsRegular.svg";
 export { default as ShieldRegular } from "../../public/icons/ShieldRegular.svg";
+export { default as ShieldFill } from "../../public/icons/shield-fill.svg";
 export { default as ShopRegular } from "../../public/icons/ShopRegular.svg";
 export { default as SidebarRegular } from "../../public/icons/SidebarRegular.svg";
 export { default as StarRegular } from "../../public/icons/StarRegular.svg";
