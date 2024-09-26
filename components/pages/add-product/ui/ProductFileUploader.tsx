@@ -38,7 +38,6 @@ const ProductFileUploader = ({
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     setFiles(acceptedFiles);
-    // onFieldChange(acceptedFiles);
   }, []);
 
   const { startUpload, isUploading, permittedFileInfo } = useUploadThing(
@@ -165,9 +164,7 @@ const ProductFileUploader = ({
                     isUploading,
                 })}
                 onClick={() => startUpload(files)}
-                disabled={
-                  isUploading || files?.length < 2 || files?.length > 10
-                }
+                disabled={isUploading || files?.length < 2}
               >
                 <SolarCloudUploadBoldDuotone className="text-icon-size text-white dark:text-black" />
                 Upload
