@@ -24,7 +24,7 @@ type ProductFileUploaderProps = {
   onFieldChange: (value: File[] | string[]) => void;
   files: File[];
   setFiles: Dispatch<SetStateAction<File[]>>;
-  images?: string[];
+  images: string[];
   setImages: Dispatch<SetStateAction<string[]>>;
 };
 
@@ -32,6 +32,7 @@ const ProductFileUploader = ({
   onFieldChange,
   files,
   setFiles,
+  images,
   setImages,
 }: ProductFileUploaderProps) => {
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
@@ -51,6 +52,7 @@ const ProductFileUploader = ({
 
         const imageUrls = data.map((file) => file.url);
         setImages(imageUrls);
+        setFiles([]);
         onFieldChange(imageUrls);
         setUploadProgress(null);
       },
@@ -79,6 +81,12 @@ const ProductFileUploader = ({
     onFieldChange(newFiles);
   };
 
+  const removeImage = (url: string) => {
+    const newImages = images.filter((image) => image !== url);
+    setImages(() => newImages);
+    onFieldChange(newImages);
+  };
+
   return (
     <div className="space-y-5">
       <div {...getRootProps()}>
@@ -93,6 +101,33 @@ const ProductFileUploader = ({
           </p>
         </div>
       </div>
+      {files.length === 0 && images?.length !== 0 && (
+        <div className="flex items-center justify-center gap-3 flex-wrap">
+          {images.map((image) => (
+            <div
+              key={image}
+              className="rounded-card overflow-hidden relative w-[78px] h-[78px]"
+            >
+              <Image
+                src={image}
+                width={100}
+                height={100}
+                alt={image}
+                priority
+                className="w-full h-full object-cover"
+              />
+              <Button
+                type="button"
+                variant="icon"
+                className="absolute top-1 right-1 text-[8px] p-1 bg-black/50 rounded-full text-white dark:text-white"
+                onClick={() => removeImage(image)}
+              >
+                <CrossRegular />
+              </Button>
+            </div>
+          ))}
+        </div>
+      )}
       {files.length > 0 && (
         <>
           <div className="flex items-center justify-center gap-3 flex-wrap">
@@ -128,7 +163,7 @@ const ProductFileUploader = ({
               </div>
             ))}
           </div>
-          {isUploading ? (
+          {isUploading && (
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <Badge variant="gray">{uploadProgress || 0}% completed</Badge>
@@ -142,36 +177,41 @@ const ProductFileUploader = ({
                 className="bg-primary-1 dark:bg-primary-1"
               />
             </div>
-          ) : (
-            <div className="flex items-center justify-end gap-3">
-              <span className="text-small">{files?.length} files</span>
-              <Button
-                type="button"
-                variant="outline"
-                className="py-1 px-2"
-                onClick={() => {
-                  setFiles(() => []);
-                  onFieldChange([]);
-                }}
-              >
-                Remove all
-              </Button>
-              <Button
-                type="button"
-                variant="default"
-                className={clsx("gap-2 py-1 px-2 min-w-[70px]", {
-                  "text-slate-400 bg-slate-200 hover:bg-slate-200 cursor-not-allowed":
-                    isUploading,
-                })}
-                onClick={() => startUpload(files)}
-                disabled={isUploading || files?.length < 2}
-              >
-                <SolarCloudUploadBoldDuotone className="text-icon-size text-white dark:text-black" />
-                Upload
-              </Button>
-            </div>
           )}
         </>
+      )}
+      {(files.length !== 0 || images.length !== 0) && (
+        <div className="flex items-center justify-end gap-3">
+          <span className="text-small">
+            {files?.length || images?.length} files
+          </span>
+          <Button
+            type="button"
+            variant="outline"
+            className="py-1 px-2"
+            disabled={isUploading}
+            onClick={() => {
+              setFiles(() => []);
+              setImages(() => []);
+              onFieldChange([]);
+            }}
+          >
+            Remove all
+          </Button>
+          <Button
+            type="button"
+            variant="default"
+            className={clsx("gap-2 py-1 px-2 min-w-[70px]", {
+              "text-slate-400 bg-slate-200 hover:bg-slate-200 cursor-not-allowed":
+                isUploading,
+            })}
+            onClick={() => startUpload(files)}
+            disabled={isUploading || files?.length < 2}
+          >
+            <SolarCloudUploadBoldDuotone className="text-icon-size text-white dark:text-black" />
+            Upload
+          </Button>
+        </div>
       )}
     </div>
   );

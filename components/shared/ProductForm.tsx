@@ -60,15 +60,15 @@ type ProductFormProps = {
 
 const ProductForm = ({ page, product }: ProductFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
-  const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<string[]>(product?.images || []);
   const router = useRouter();
   const { loading, action } = useServerAction(createProduct);
 
   const formDefaultValues = {
     title: product?.title || "",
-    subDescription: product?.subDescription || "", // TODO: change the product model: add subDescription field
-    content: product?.content || "", // TODO: change the product model: change description field to content
-    images: [],
+    subDescription: product?.subDescription || "",
+    content: product?.content || "",
+    images: images,
     price: product?.price || "",
     stock: product?.stock || "",
     discount: product?.discount || "",
