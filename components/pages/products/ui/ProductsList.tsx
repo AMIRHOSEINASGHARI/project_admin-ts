@@ -1,5 +1,6 @@
 // next
 import Image from "next/image";
+import Link from "next/link";
 // types
 import { ProductType } from "@/types/product";
 // cmp
@@ -50,7 +51,10 @@ const ProductsList = ({ products }: { products: ProductType[] }) => {
     return {
       key: product?._id,
       product: (
-        <div className="flex items-center gap-4 overflow-hidden">
+        <Link
+          className="flex items-center gap-4 overflow-hidden"
+          href={`/products/${product?._id}`}
+        >
           <Image
             src={product?.images[0]}
             width={100}
@@ -65,7 +69,7 @@ const ProductsList = ({ products }: { products: ProductType[] }) => {
               {product?.category}
             </span>
           </div>
-        </div>
+        </Link>
       ),
       createdAt: (
         <div className="flex flex-col">
@@ -112,10 +116,10 @@ const ProductsList = ({ products }: { products: ProductType[] }) => {
         <TableBody>
           {tableRows.map((item) => (
             <TableRow key={item.key}>
-              <TableCell className="min-w-[200px] max-w-[300px]">
+              <TableCell className="min-w-[250px] max-w-[300px]">
                 {item.product}
               </TableCell>
-              <TableCell className="min-w-[130px]">{item.createdAt}</TableCell>
+              <TableCell className="min-w-[180px]">{item.createdAt}</TableCell>
               <TableCell className="min-w-[100px] max-w-[110px]">
                 {item.stock}
               </TableCell>
