@@ -19,3 +19,16 @@ export type BlogType = Document & {
   metaKeywords: string[];
   enableComments: boolean;
 };
+
+export type CreateBlog = {
+  title: string;
+  description: string;
+  content: string;
+  cover: string;
+  tags: string[];
+  metaTitle: string;
+  metaDescription: string;
+  metaKeywords: string[];
+  enableComments: boolean;
+  published: boolean;
+};
