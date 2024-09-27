@@ -1,9 +1,7 @@
+import "./styles/loader-bar.css";
+
 const LoaderBar = () => {
-  return (
-    <div className="flex h-[50vh] w-full items-center justify-center">
-      <div className="loader"></div>
-    </div>
-  );
+  return <div className="loader_container"></div>;
 };
 
 export default LoaderBar;

@@ -1,11 +1,9 @@
-"use client";
-
 import { TailSpin } from "react-loader-spinner";
 
 const Loader = ({
-  width,
-  height,
-  color,
+  width = 20,
+  height = 20,
+  color = "currentColor",
   text,
   strokeWidth,
 }: {
@@ -19,9 +17,9 @@ const Loader = ({
     <div className="flex items-center gap-3">
       <TailSpin
         visible={true}
-        height={height || 20}
-        width={width || 20}
-        color={color || "currentColor"}
+        height={height}
+        width={width}
+        color={color}
         ariaLabel="tail-spin-loading"
         radius="1"
         strokeWidth={strokeWidth || 5}
