@@ -39,6 +39,7 @@ import View from "../layout/View";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 import Loader from "../Loader";
+import BlogFileUploader from "./ui/BlogFileUploader";
 
 type BlogFormProps = {
   page: "add" | "edit";
@@ -175,7 +176,15 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
                   name="cover"
                   render={({ field }) => (
                     <FormItem>
-                      <FormControl>BlogFileUploader</FormControl>
+                      <FormControl>
+                        <BlogFileUploader
+                          cover={cover}
+                          setCover={setCover}
+                          files={files}
+                          setFiles={setFiles}
+                          onFieldChange={field.onChange}
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}

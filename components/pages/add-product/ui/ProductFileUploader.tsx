@@ -37,12 +37,15 @@ const ProductFileUploader = ({
 }: ProductFileUploaderProps) => {
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    setFiles(acceptedFiles);
-  }, []);
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      setFiles(acceptedFiles);
+    },
+    [setFiles]
+  );
 
   const { startUpload, isUploading, permittedFileInfo } = useUploadThing(
-    "imageUploader",
+    "productFileUploader",
     {
       onUploadBegin: () => {
         if (uploadProgress === 100) setUploadProgress(() => 0);

@@ -87,8 +87,7 @@ export const blogFormSchema = z.object({
   cover: z
     .string()
     .url("Must be a valid image URL!")
-    .min(1, "One cover is required")
-    .max(1, "Only one cover is required"),
+    .min(1, "One cover is required"),
   tags: z
     .array(z.string().min(1, "Too short!"))
     .min(2, "Must have at least 2 items!"),
