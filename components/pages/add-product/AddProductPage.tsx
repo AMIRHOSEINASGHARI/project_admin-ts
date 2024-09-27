@@ -11,7 +11,7 @@ const AddProductPage = () => {
       <PageHeading text="Create a new product" />
       <CustomBreadcrumb
         data={addProduct_page_breadcrumb_data}
-        breadcrumbPage="New product"
+        breadcrumbPage="Create"
       />
       <ProductForm page="add" />
     </>

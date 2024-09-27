@@ -8,8 +8,8 @@ const blogSchema = new Schema({
   cover: { type: String, required: true },
   tags: { type: [String], default: [], required: true },
   likes: [{ type: Schema.Types.ObjectId, ref: "Like", default: [] }],
-  published: { type: Boolean, default: false },
-  enableComments: { type: Boolean, default: false },
+  published: { type: Boolean, default: true },
+  enableComments: { type: Boolean, default: true },
   createdBy: { type: Schema.Types.ObjectId, ref: "Admin" },
   createdAt: {
     type: Date,
