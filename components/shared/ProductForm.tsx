@@ -50,7 +50,7 @@ import ProductFileUploader from "../pages/add-product/ui/ProductFileUploader";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 import Editor from "../editor/Editor";
-import ProductFormKeywords from "./ProductFormKeywords";
+import FormKeywords from "./FormKeywords";
 import Loader from "./Loader";
 
 type ProductFormProps = {
@@ -348,7 +348,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
                   render={({ field }) => (
                     <FormItem className="sm:col-span-2 md:col-span-1 lg:col-span-2">
                       <FormControl>
-                        <ProductFormKeywords
+                        <FormKeywords
                           keywords={field.value}
                           onFieldChange={field.onChange}
                         />

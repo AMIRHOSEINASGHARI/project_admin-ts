@@ -7,15 +7,17 @@ import TagButton from "./TagButton";
 import clsx from "clsx";
 import { Input } from "../ui/input";
 
-type ProductFormKeywordsProps = {
+type FormKeywordsProps = {
   keywords: string[];
   onFieldChange: (value: string[]) => void;
+  placeholder?: string;
 };
 
-const ProductFormKeywords = ({
+const FormKeywords = ({
   keywords,
   onFieldChange,
-}: ProductFormKeywordsProps) => {
+  placeholder = "Keyword",
+}: FormKeywordsProps) => {
   const [inputFocus, setInputFocus] = useState(false);
   const [value, setValue] = useState("");
 
@@ -59,7 +61,7 @@ const ProductFormKeywords = ({
           />
         ))}
       <Input
-        placeholder="+ Tags"
+        placeholder={placeholder}
         className="flex flex-1 border-none p-[7px] min-w-[100px]  w-full rounded-md bg-white dark:bg-transparent dark:text-light3 text-sm ring-offset-white focus-visible:ring-0 focus-visible:ring-offset-0 dark:border-none dark:ring-offset-0 dark:focus-visible:ring-0"
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -71,4 +73,4 @@ const ProductFormKeywords = ({
   );
 };
 
-export default ProductFormKeywords;
+export default FormKeywords;

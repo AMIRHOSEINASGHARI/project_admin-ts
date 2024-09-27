@@ -40,6 +40,7 @@ import toast from "react-hot-toast";
 import clsx from "clsx";
 import Loader from "../Loader";
 import BlogFileUploader from "./ui/BlogFileUploader";
+import FormKeywords from "../FormKeywords";
 
 type BlogFormProps = {
   page: "add" | "edit";
@@ -77,6 +78,8 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
       toast.error("Upload your cover first!");
       return;
     }
+
+    console.log(values);
   };
 
   return (
@@ -108,18 +111,18 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
                         <Input
                           {...field}
                           placeholder="Blog title"
-                          maxLength={30}
+                          maxLength={100}
                         />
                       </FormControl>
                       <FormMessage />
                       <span
                         className={clsx("text-small ml-[14px]", {
                           "text-[var(--text-disabled)]":
-                            field?.value?.length < 20,
-                          "text-green-500": field?.value?.length >= 20,
+                            field?.value?.length < 50,
+                          "text-green-500": field?.value?.length >= 50,
                         })}
                       >
-                        {field?.value?.length} of 30
+                        {field?.value?.length} of 100
                       </span>
                     </FormItem>
                   )}
@@ -205,13 +208,18 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
             </CardHeader>
             <div className="px-card pb-card">
               <CardContent className="space-y-5">
-                {/* // TODO: tags */}
                 <FormField
                   control={form.control}
                   name="tags"
                   render={({ field }) => (
                     <FormItem className="sm:col-span-2 md:col-span-1 lg:col-span-2">
-                      <FormControl>FormTags</FormControl>
+                      <FormControl>
+                        <FormKeywords
+                          keywords={field.value}
+                          onFieldChange={field.onChange}
+                          placeholder="+ Tags"
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -248,13 +256,18 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
                     </FormItem>
                   )}
                 />
-                {/* // TODO: meta keywords */}
                 <FormField
                   control={form.control}
                   name="metaKeywords"
                   render={({ field }) => (
                     <FormItem className="sm:col-span-2 md:col-span-1 lg:col-span-2">
-                      <FormControl>MetaKeywords</FormControl>
+                      <FormControl>
+                        <FormKeywords
+                          keywords={field.value}
+                          onFieldChange={field.onChange}
+                          placeholder="+ Meta keywords"
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
