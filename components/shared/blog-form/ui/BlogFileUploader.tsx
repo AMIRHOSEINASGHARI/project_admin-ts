@@ -44,9 +44,10 @@ const BlogFileUploader = ({
 
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
+      setCover("");
       setFiles(acceptedFiles);
     },
-    [setFiles]
+    [setFiles, setCover]
   );
 
   const { startUpload, isUploading, permittedFileInfo } = useUploadThing(

@@ -4,6 +4,10 @@
 import { useState } from "react";
 // next
 import { useRouter } from "next/navigation";
+// react query
+import { useMutation } from "@tanstack/react-query";
+// actions
+import { createBlog } from "@/actions/blogs";
 // types
 import { BlogType } from "@/types/blog";
 // form
@@ -12,8 +16,6 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 // utils
 import { blogFormSchema } from "@/utils/validators";
-// hooks
-import useServerAction from "@/hooks/callServerAction";
 // cmp
 import {
   Card,
@@ -51,6 +53,9 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [cover, setCover] = useState<string>(blog?.cover || "");
   const router = useRouter();
+  const { data, error, isLoading, isError, mutate } = useMutation({
+    mutationFn: createBlog,
+  });
 
   const formDefaultValues = {
     title: blog ? blog?.title : "",
@@ -79,7 +84,18 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
       return;
     }
 
-    console.log(values);
+    mutate(
+      { ...values, cover },
+      {
+        onSuccess: (data) => {
+          toast.success(data?.message);
+          router.push("/blogs");
+        },
+        onError: (error: any) => {
+          toast.error(error.message);
+        },
+      }
+    );
   };
 
   return (
@@ -137,18 +153,18 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
                           {...field}
                           placeholder="Description"
                           rows={5}
-                          maxLength={150}
+                          maxLength={250}
                         />
                       </FormControl>
                       <FormMessage />
                       <span
                         className={clsx("text-small ml-[14px]", {
                           "text-[var(--text-disabled)]":
-                            field?.value?.length < 100,
-                          "text-green-500": field?.value?.length >= 100,
+                            field?.value?.length < 200,
+                          "text-green-500": field?.value?.length >= 200,
                         })}
                       >
-                        {field?.value?.length} of 150
+                        {field?.value?.length} of 250
                       </span>
                     </FormItem>
                   )}
@@ -326,9 +342,9 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
               type="submit"
               variant="secondary"
               className="font-bold min-w-[134px]"
-              // disabled={createLoading || editLoading}
+              disabled={isLoading}
             >
-              {false ? (
+              {isLoading ? (
                 <Loader />
               ) : page === "add" ? (
                 "Create blog"

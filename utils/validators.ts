@@ -81,8 +81,8 @@ export const blogFormSchema = z.object({
     .max(100, "Blog title must be between 50 and 100 characters!"),
   description: z
     .string()
-    .min(100, "Description must be between 100 and 150 characters!")
-    .max(150, "Description must be between 100 and 150 characters!"),
+    .min(200, "Description must be between 200 and 250 characters!")
+    .max(250, "Description must be between 200 and 250 characters!"),
   content: z.string().min(1, "Content is required!"),
   cover: z
     .string()
