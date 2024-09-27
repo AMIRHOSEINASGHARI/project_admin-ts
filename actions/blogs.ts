@@ -44,20 +44,12 @@ export const createBlog = async (data: CreateBlog) => {
 
     if (!session) {
       throw new Error(ResponseMessages.UN_AUTHORIZED);
-      // return {
-      //   message: ResponseMessages.UN_AUTHORIZED,
-      //   code: ResponseCodes.UN_AUTHORIZED,
-      // };
     }
 
     const currentUser = await AdminModel.findById(session?.userId);
 
     if (currentUser?.roll === "USER") {
       throw new Error(ResponseMessages.ACCESS_DENIED);
-      // return {
-      //   message: ResponseMessages.ACCESS_DENIED,
-      //   code: ResponseCodes.UN_AUTHORIZED,
-      // };
     }
 
     const {
@@ -99,9 +91,5 @@ export const createBlog = async (data: CreateBlog) => {
   } catch (error) {
     console.log(error);
     throw new Error(ResponseMessages.SERVER_ERROR);
-    // return {
-    //   message: ResponseMessages.SERVER_ERROR,
-    //   code: ResponseCodes.SERVER_ERROR,
-    // };
   }
 };

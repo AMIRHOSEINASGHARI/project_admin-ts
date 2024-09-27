@@ -21,7 +21,7 @@ import {
 const BlogCard = ({ blog }: { blog: BlogType }) => {
   const {
     _id,
-    image,
+    cover,
     title,
     description,
     published,
@@ -73,7 +73,7 @@ const BlogCard = ({ blog }: { blog: BlogType }) => {
       <div className="hidden sm:flex md:hidden lg:flex h-full p-2">
         <div className="rounded-card relative w-[164px] h-full overflow-hidden">
           <Image
-            src={image}
+            src={cover}
             width={200}
             height={200}
             alt="Blog image"

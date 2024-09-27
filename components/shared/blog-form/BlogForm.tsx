@@ -53,7 +53,7 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [cover, setCover] = useState<string>(blog?.cover || "");
   const router = useRouter();
-  const { data, error, isLoading, isError, mutate } = useMutation({
+  const { isLoading, mutate } = useMutation({
     mutationFn: createBlog,
   });
 
