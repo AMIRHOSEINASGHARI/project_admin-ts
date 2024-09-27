@@ -9,7 +9,7 @@ export const productFormSchema = z.object({
     .string()
     .min(100, "Sub description must be between 100 and 150 characters!")
     .max(150, "Sub description must be between 100 and 150 characters!"),
-  content: z.string().min(1, "Description is required!"),
+  content: z.string().min(1, "Content is required!"),
   images: z
     .array(
       z.union([
@@ -72,4 +72,31 @@ export const productFormSchema = z.object({
   keywords: z
     .array(z.string().min(1, "Too short!"))
     .min(2, "Must have at least 2 items!"),
+});
+
+export const blogFormSchema = z.object({
+  title: z
+    .string()
+    .min(50, "Blog title must be between 50 and 100 characters!")
+    .max(100, "Blog title must be between 50 and 100 characters!"),
+  description: z
+    .string()
+    .min(100, "Description must be between 100 and 150 characters!")
+    .max(150, "Description must be between 100 and 150 characters!"),
+  content: z.string().min(1, "Content is required!"),
+  cover: z
+    .string()
+    .url("Must be a valid image URL!")
+    .min(1, "One cover is required")
+    .max(1, "Only one cover is required"),
+  tags: z
+    .array(z.string().min(1, "Too short!"))
+    .min(2, "Must have at least 2 items!"),
+  metaTitle: z.string().min(1, "Meta title is required!"),
+  metaDescription: z.string().min(1, "Meta description is required!"),
+  metaKeywords: z
+    .array(z.string().min(1, "Too short!"))
+    .min(2, "Must have at least 2 items!"),
+  enableComments: z.boolean(),
+  published: z.boolean(),
 });

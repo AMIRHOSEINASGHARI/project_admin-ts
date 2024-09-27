@@ -1,7 +1,7 @@
-import React from "react";
+import AddBlogPage from "@/components/pages/add-blog/AddBlogPage";
 
 const AddBlog = () => {
-  return <div>AddBlog</div>;
+  return <AddBlogPage />;
 };
 
 export default AddBlog;
