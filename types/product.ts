@@ -44,17 +44,6 @@ export type CreateProduct = {
   publish: boolean;
 };
 
-export type EditProduct = {
+export type EditProduct = CreateProduct & {
   id: string;
-  title: string;
-  subDescription: string;
-  content: string;
-  brand: string;
-  category: string;
-  discount: number;
-  price: number;
-  stock: number;
-  images: string[];
-  keywords: string[];
-  publish: boolean;
 };

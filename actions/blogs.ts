@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 import AdminModel from "@/models/admin";
 import BlogModel from "@/models/blog";
 // types
-import { BlogType, CreateBlog } from "@/types/blog";
+import { BlogType, CreateBlog, EditBlog } from "@/types/blog";
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
 // actions
@@ -96,6 +96,49 @@ export const createBlog = async (data: CreateBlog) => {
     return {
       message: ResponseMessages.SUCCESSFULLY_CREATED,
       code: ResponseCodes.SUCCESSFULLY_CREATED,
+    };
+  } catch (error) {
+    console.log(error);
+    throw new Error(ResponseMessages.SERVER_ERROR);
+  }
+};
+
+export const editBlog = async (data: EditBlog) => {
+  try {
+    await checkSession();
+
+    const {
+      title,
+      description,
+      content,
+      cover,
+      tags,
+      metaTitle,
+      metaDescription,
+      metaKeywords,
+      enableComments,
+      published,
+      id,
+    } = data;
+
+    await BlogModel.findByIdAndUpdate(id, {
+      title,
+      description,
+      content,
+      cover,
+      tags,
+      metaTitle,
+      metaDescription,
+      metaKeywords,
+      enableComments,
+      published,
+    });
+
+    revalidatePath("/blogs");
+
+    return {
+      message: ResponseMessages.SUCCESSFULLY_UPDATED,
+      code: ResponseCodes.SUCCESSFULLY_UPDATED,
     };
   } catch (error) {
     console.log(error);

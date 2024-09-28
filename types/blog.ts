@@ -32,3 +32,7 @@ export type CreateBlog = {
   enableComments: boolean;
   published: boolean;
 };
+
+export type EditBlog = CreateBlog & {
+  id: string;
+};
