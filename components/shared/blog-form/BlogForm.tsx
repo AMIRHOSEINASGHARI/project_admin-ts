@@ -75,14 +75,14 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
 
   // Define form.
   const form = useForm<z.infer<typeof blogFormSchema>>({
-    mode: "all",
+    mode: "onSubmit",
     resolver: zodResolver(blogFormSchema),
     defaultValues: formDefaultValues,
   });
 
   // Define submit handler.
   const onSubmit = async (values: z.infer<typeof blogFormSchema>) => {
-    if (typeof cover !== "string") {
+    if (typeof values.cover !== "string") {
       toast.error("Upload your cover first!");
       return;
     }

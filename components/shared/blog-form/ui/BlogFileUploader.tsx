@@ -46,8 +46,9 @@ const BlogFileUploader = ({
     (acceptedFiles: File[]) => {
       setCover("");
       setFiles(acceptedFiles);
+      onFieldChange("");
     },
-    [setFiles, setCover]
+    [setFiles, setCover, onFieldChange]
   );
 
   const { startUpload, isUploading, permittedFileInfo } = useUploadThing(

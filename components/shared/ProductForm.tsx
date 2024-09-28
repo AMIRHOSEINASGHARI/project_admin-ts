@@ -85,7 +85,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
 
   // Define form.
   const form = useForm<z.infer<typeof productFormSchema>>({
-    mode: "all",
+    mode: "onSubmit",
     resolver: zodResolver(productFormSchema),
     defaultValues: formDefaultValues,
   });
