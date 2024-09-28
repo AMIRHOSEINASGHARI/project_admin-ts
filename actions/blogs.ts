@@ -2,8 +2,6 @@
 
 // next
 import { revalidatePath } from "next/cache";
-// utils
-import connectDB from "@/utils/connectDB";
 // models
 import AdminModel from "@/models/admin";
 import BlogModel from "@/models/blog";
@@ -11,12 +9,12 @@ import BlogModel from "@/models/blog";
 import { BlogType, CreateBlog } from "@/types/blog";
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
-// utils
-import { getServerSession } from "@/utils/session";
+// actions
+import { checkSession } from "./shared";
 
 export const getBlogs = async () => {
   try {
-    await connectDB();
+    await checkSession();
 
     const blogs = await BlogModel.find()
       .populate({
@@ -38,19 +36,7 @@ export const getBlogs = async () => {
 
 export const createBlog = async (data: CreateBlog) => {
   try {
-    await connectDB();
-
-    const session = getServerSession();
-
-    if (!session) {
-      throw new Error(ResponseMessages.UN_AUTHORIZED);
-    }
-
-    const currentUser = await AdminModel.findById(session?.userId);
-
-    if (currentUser?.roll === "USER") {
-      throw new Error(ResponseMessages.ACCESS_DENIED);
-    }
+    const currentUser = await checkSession();
 
     const {
       title,

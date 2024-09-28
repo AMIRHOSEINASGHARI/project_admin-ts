@@ -23,6 +23,8 @@ export const checkSession = async () => {
     if (currentUser?.roll === "USER") {
       throw new Error(ResponseMessages.ACCESS_DENIED);
     }
+
+    return currentUser;
   } catch (error: any) {
     console.log(error);
     throw new Error(`Cannot check user at this time:`, error);

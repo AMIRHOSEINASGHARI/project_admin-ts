@@ -9,13 +9,13 @@ import AdminModel from "@/models/admin";
 import ProductModel from "@/models/product";
 // types
 import { CreateProduct, EditProduct, ProductType } from "@/types/product";
-// utils
-import connectDB from "@/utils/connectDB";
-import { getServerSession } from "@/utils/session";
+// actions
+import { checkSession } from "./shared";
 
 export const getLatestProducts = async () => {
   try {
-    await connectDB();
+    await checkSession();
+
     const products = await ProductModel.find({
       stock: { $gt: 0 },
       published: true,
@@ -49,7 +49,7 @@ export const getProducts = async (searchParams: {
   published?: boolean;
 }) => {
   try {
-    await connectDB();
+    await checkSession();
 
     const { page, search, stock, discount, sort, category, published } =
       searchParams;
@@ -130,25 +130,7 @@ export const getProducts = async (searchParams: {
 
 export const getProduct = async (id: string) => {
   try {
-    await connectDB();
-
-    const session = getServerSession();
-
-    if (!session) {
-      return {
-        message: ResponseMessages.UN_AUTHORIZED,
-        code: ResponseCodes.UN_AUTHORIZED,
-      };
-    }
-
-    const currentUser = await AdminModel.findById(session?.userId);
-
-    if (currentUser?.roll === "USER") {
-      return {
-        message: ResponseMessages.ACCESS_DENIED,
-        code: ResponseCodes.UN_AUTHORIZED,
-      };
-    }
+    await checkSession();
 
     const product = await ProductModel.findById(id)
       .populate({
@@ -171,19 +153,7 @@ export const getProduct = async (id: string) => {
 
 export const createProduct = async (data: CreateProduct) => {
   try {
-    await connectDB();
-
-    const session = getServerSession();
-
-    if (!session) {
-      throw new Error(ResponseMessages.UN_AUTHORIZED);
-    }
-
-    const currentUser = await AdminModel.findById(session?.userId);
-
-    if (currentUser?.roll === "USER") {
-      throw new Error(ResponseMessages.ACCESS_DENIED);
-    }
+    const currentUser = await checkSession();
 
     const {
       title,
@@ -231,19 +201,7 @@ export const createProduct = async (data: CreateProduct) => {
 
 export const editProduct = async (data: EditProduct) => {
   try {
-    await connectDB();
-
-    const session = getServerSession();
-
-    if (!session) {
-      throw new Error(ResponseMessages.UN_AUTHORIZED);
-    }
-
-    const currentUser = await AdminModel.findById(session?.userId);
-
-    if (currentUser?.roll === "USER") {
-      throw new Error(ResponseMessages.ACCESS_DENIED);
-    }
+    await checkSession();
 
     const {
       id,
@@ -272,7 +230,6 @@ export const editProduct = async (data: EditProduct) => {
       brand,
       keywords,
       published: publish,
-      createdBy: currentUser?._id,
     });
 
     revalidatePath("/products");

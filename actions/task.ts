@@ -1,17 +1,18 @@
 "use server";
 
-// utils
-import connectDB from "@/utils/connectDB";
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
 import AdminModel from "@/models/admin";
 import TaskModel from "@/models/task";
+// types
 import { TaskType } from "@/types/task";
+// actions
+import { checkSession } from "./shared";
 
 export const upcommingEvents = async () => {
   try {
-    await connectDB();
+    await checkSession();
 
     const tasks = await TaskModel.find()
       .populate({
