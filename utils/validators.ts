@@ -105,3 +105,7 @@ export const blogFormSchema = z.object({
   enableComments: z.boolean(),
   published: z.boolean(),
 });
+
+export const blogAddCommentFormSchema = z.object({
+  text: z.string().min(1, { message: "Comment is requiered!" }),
+});

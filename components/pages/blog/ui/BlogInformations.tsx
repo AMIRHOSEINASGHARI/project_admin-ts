@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import View from "@/components/shared/layout/View";
 import TagsSection from "./TagsSection";
 import LikesSection from "./LikesSection";
+import AddComment from "./AddComment";
 
 const BlogInformations = ({
   blog: { title, cover, content, description, tags },
@@ -40,6 +41,7 @@ const BlogInformations = ({
         <TagsSection tags={tags} />
         <LikesSection />
         <Separator />
+        <AddComment />
       </View>
     </View>
   );
