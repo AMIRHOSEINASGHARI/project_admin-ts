@@ -24,29 +24,20 @@ export const loginUser = async (data: {
     const { username, password } = data;
 
     if (!username || !password) {
-      return {
-        message: ResponseMessages.MISSING_CREDENTIALS,
-        code: ResponseCodes.BAD_REQUEST,
-      };
+      throw new Error(ResponseMessages.MISSING_CREDENTIALS);
     }
 
     const admin = await AdminModel.findOne({ username });
 
     if (!admin) {
-      return {
-        message: ResponseMessages.USER_NOT_FOUND,
-        code: ResponseCodes.NOT_FOUND,
-      };
+      throw new Error(ResponseMessages.USER_NOT_FOUND);
     }
 
     // verify password
     const isValidPassword = await verifyPassword(password, admin.password);
 
     if (!isValidPassword) {
-      return {
-        message: ResponseMessages.USER_NOT_FOUND,
-        code: ResponseCodes.NOT_FOUND,
-      };
+      throw new Error(ResponseMessages.USER_NOT_FOUND);
     }
 
     // creating token

@@ -1,5 +1,16 @@
 import { z } from "zod";
 
+export const authFormSchema = z.object({
+  username: z
+    .string()
+    .min(4, { message: "Username must be between 4 and 10 characters" })
+    .max(20, { message: "َUsername must be between 4 and 10 characters" }),
+  password: z
+    .string()
+    .min(4, { message: "Password must be between 4 and 10 characters" })
+    .max(10, { message: "Password must be between 4 and 10 characters" }),
+});
+
 export const productFormSchema = z.object({
   title: z
     .string()

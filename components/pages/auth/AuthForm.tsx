@@ -5,18 +5,18 @@ import { useState } from "react";
 // next
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+// react query
+import { useMutation } from "@tanstack/react-query";
 // z - hook-form
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 // actions
 import { loginUser } from "@/actions/auth";
-// hooks
-import useServerAction from "@/hooks/callServerAction";
-// enums
-import { ResponseCodes } from "@/enums";
 // constants
 import { images } from "@/constants";
+// utils
+import { authFormSchema } from "@/utils/validators";
 // cmp
 import {
   Form,
@@ -31,51 +31,40 @@ import { Button } from "@/components/ui/button";
 import DarkModeToggle from "@/components/shared/DarkModeToggle";
 import toast from "react-hot-toast";
 import Loader from "@/components/shared/Loader";
-import clsx from "clsx";
 // icons
 import {
-  EyeCrossedRegular,
-  EyeRegular,
   LogoRegular,
   SolarEyeBoldDuotone,
   SolarEyeClosedBoldDuotone,
 } from "@/components/svg";
 
-// form schema
-const formSchema = z.object({
-  username: z
-    .string()
-    .min(4, { message: "Username must be between 4 and 10 characters" })
-    .max(20, { message: "َUsername must be between 4 and 10 characters" }),
-  password: z
-    .string()
-    .min(4, { message: "Password must be between 4 and 10 characters" })
-    .max(10, { message: "Password must be between 4 and 10 characters" }),
-});
-
 const AuthForm = () => {
-  const { replace } = useRouter();
-  const { loading, action } = useServerAction(loginUser);
+  const router = useRouter();
   const [passwordType, setPasswordType] = useState<"password" | "text">(
     "password"
   );
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const { isLoading, mutate } = useMutation({
+    mutationFn: loginUser,
+  });
+
+  const form = useForm<z.infer<typeof authFormSchema>>({
+    resolver: zodResolver(authFormSchema),
     defaultValues: {
       username: "demo@onlineshop.com",
       password: "demo1234",
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    const result = await action(values);
-
-    if (result?.code === ResponseCodes.SUCCESSFULLY_CREATED) {
-      toast.success(result?.message);
-      replace("/dashboard");
-    } else {
-      toast.error(result?.message);
-    }
+  const onSubmit = async (values: z.infer<typeof authFormSchema>) => {
+    mutate(values, {
+      onSuccess: (data) => {
+        toast.success(data?.message);
+        router.push("/dashboard");
+      },
+      onError: (error: any) => {
+        toast.error(error.message);
+      },
+    });
   };
 
   return (
@@ -161,10 +150,10 @@ const AuthForm = () => {
               <Button
                 type="submit"
                 variant="secondary"
-                disabled={loading}
+                disabled={isLoading}
                 className="w-full"
               >
-                {loading ? <Loader text="Sending data..." /> : "Submit"}
+                {isLoading ? <Loader text="Sending data..." /> : "Submit"}
               </Button>
               <div className="w-full flex justify-center">
                 <DarkModeToggle />
