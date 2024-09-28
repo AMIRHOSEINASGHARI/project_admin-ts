@@ -6,12 +6,12 @@ import { getProduct } from "@/actions/product";
 // icons
 import { SolarAltArrowLeftLineDuotone } from "@/components/svg";
 // cmp
-import HeadingActions from "./ui/HeadingActions";
 import View from "@/components/shared/layout/View";
 import ProductImages from "./ui/ProductImages";
 import ProductSummaryInfo from "./ui/ProductSummaryInfo";
 import ProductBadges from "./ui/ProductBadges";
 import ProductInformationTabs from "./ui/ProductInformationTabs";
+import ProductHeadingActions from "./ui/ProductHeadingActions";
 
 const ProductDetailsPage = async ({ id }: { id: string }) => {
   const data = await getProduct(id);
@@ -25,7 +25,7 @@ const ProductDetailsPage = async ({ id }: { id: string }) => {
           <SolarAltArrowLeftLineDuotone />
           <span>Back</span>
         </Link>
-        <HeadingActions id={id} published={data?.product?.published} />
+        <ProductHeadingActions id={id} published={data?.product?.published} />
       </div>
       <View variant="flex-gap" className="gap-[40px]">
         <ProductImages images={data?.product?.images} />

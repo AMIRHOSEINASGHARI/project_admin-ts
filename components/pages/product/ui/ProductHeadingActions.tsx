@@ -21,12 +21,15 @@ import {
 import { Button } from "@/components/ui/button";
 
 type ProductStatus = "Published" | "Draft";
-type HeadingActionsProps = {
+type ProductHeadingActionsProps = {
   id: string;
   published: boolean;
 };
 
-const HeadingActions = ({ id, published }: HeadingActionsProps) => {
+const ProductHeadingActions = ({
+  id,
+  published,
+}: ProductHeadingActionsProps) => {
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<"Published" | "Draft">(
     published ? "Published" : "Draft"
@@ -75,4 +78,4 @@ const HeadingActions = ({ id, published }: HeadingActionsProps) => {
   );
 };
 
-export default HeadingActions;
+export default ProductHeadingActions;

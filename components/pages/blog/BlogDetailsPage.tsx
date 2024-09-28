@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SolarAltArrowLeftLineDuotone } from "@/components/svg";
 // cmp
 import View from "@/components/shared/layout/View";
+import BlogHeadingActions from "./ui/BlogHeadingActions";
 
 const BlogDetailsPage = ({ id }: { id: string }) => {
   return (
@@ -13,6 +14,7 @@ const BlogDetailsPage = ({ id }: { id: string }) => {
           <SolarAltArrowLeftLineDuotone />
           <span>Back</span>
         </Link>
+        <BlogHeadingActions id={id} published={true} />
       </div>
     </View>
   );
