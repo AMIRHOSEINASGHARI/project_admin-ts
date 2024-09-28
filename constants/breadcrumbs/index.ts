@@ -52,3 +52,13 @@ export const addBlog_page_breadcrumb_data = [
     href: "/blogs",
   },
 ];
+export const editBlog_page_breadcrumb_data = [
+  {
+    title: "Dashboard",
+    href: "/dashboard",
+  },
+  {
+    title: "Blogs",
+    href: "/blogs",
+  },
+];
