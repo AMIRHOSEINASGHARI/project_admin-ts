@@ -8,6 +8,7 @@ import View from "@/components/shared/layout/View";
 import TagsSection from "./TagsSection";
 import LikesSection from "./LikesSection";
 import AddComment from "./AddComment";
+import CommentsSection from "./CommentsSection";
 
 const BlogInformations = ({
   blog: { title, cover, content, description, tags },
@@ -42,6 +43,8 @@ const BlogInformations = ({
         <LikesSection />
         <Separator />
         <AddComment />
+        <Separator />
+        <CommentsSection />
       </View>
     </View>
   );

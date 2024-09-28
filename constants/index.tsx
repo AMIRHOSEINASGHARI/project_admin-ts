@@ -858,3 +858,46 @@ export const productReviews_reviews = [
     disLike: 34,
   },
 ];
+
+export const blogDetailsPage_comments = [
+  {
+    user: fakeUsers[0],
+    date: "27 Sep 2024",
+    text: "She eagerly opened the gift, her eyes sparkling with excitement.",
+  },
+  {
+    user: fakeUsers[1],
+    date: "26 Sep 2024",
+    text: "The aroma of freshly brewed coffee filled the air, awakening my senses.",
+  },
+  {
+    user: fakeUsers[2],
+    date: "24 Sep 2024",
+    text: "The children giggled with joy as they ran through the sprinklers on a hot summer day.",
+  },
+  {
+    user: fakeUsers[3],
+    date: "23 Sep 2024",
+    text: "He carefully crafted a beautiful sculpture out of clay, his hands skillfully shaping the intricate details.",
+  },
+  {
+    user: fakeUsers[4],
+    date: "22 Sep 2024",
+    text: "The concert was a mesmerizing experience, with the music filling the venue and the crowd cheering in delight.",
+  },
+  {
+    user: fakeUsers[5],
+    date: "21 Sep 2024",
+    text: "The waves crashed against the shore, creating a soothing symphony of sound.",
+  },
+  {
+    user: fakeUsers[6],
+    date: "20 Sep 2024",
+    text: "The scent of blooming flowers wafted through the garden, creating a fragrant paradise.",
+  },
+  {
+    user: fakeUsers[7],
+    date: "19 Sep 2024",
+    text: "She gazed up at the night sky, marveling at the twinkling stars that dotted the darkness.",
+  },
+];

@@ -204,6 +204,9 @@
 .text_disabled {
   @apply text-slate-500 text-[12px];
 }
+.username {
+  @apply text-[14px] font-medium;
+}
 .card_title {
   @apply text-[14px] font-medium;
 }

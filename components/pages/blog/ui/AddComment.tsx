@@ -35,7 +35,7 @@ const AddComment = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-        <h5 className="h5">Comments (4)</h5>
+        <h5 className="h5">Comments (8)</h5>
         <FormField
           control={form.control}
           name="text"
