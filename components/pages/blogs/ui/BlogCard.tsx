@@ -17,6 +17,7 @@ import {
   SolarOverflowMenuVertical,
   SolarShareBoldDuotone,
 } from "@/components/svg";
+import BlogCardActions from "./BlogCardAction";
 
 const BlogCard = ({ blog }: { blog: BlogType }) => {
   const {
@@ -51,9 +52,7 @@ const BlogCard = ({ blog }: { blog: BlogType }) => {
         </Link>
         <p className="card_description line-clamp-2">{description}</p>
         <div className="flex items-center justify-between w-full">
-          <Button variant="icon">
-            <SolarOverflowMenuVertical className="transform rotate-90" />
-          </Button>
+          <BlogCardActions id={_id} />
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
               <SolarChatRoundDotsBoldDuotone className="text-icon-light dark:text-icon-dark" />
