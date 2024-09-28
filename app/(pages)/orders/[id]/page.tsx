@@ -1,8 +1,10 @@
+// types
+import { PageParams } from "@/types/pages";
 // cmp
 import OrderDetailsPage from "@/components/pages/order/OrderDetailsPage";
 
-const OrderDetails = ({ params }: { params: { id: string } }) => {
-  return <OrderDetailsPage id={params.id} />;
+const OrderDetails = ({ params: { id } }: PageParams) => {
+  return <OrderDetailsPage id={id} />;
 };
 
 export default OrderDetails;
