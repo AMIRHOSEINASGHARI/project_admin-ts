@@ -8,11 +8,11 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
 } from "@/components/ui/select";
 
 const SortBlogs = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const [value, setValue] = useState<string>("Latest");
 
   const onOpenChange = () => {
     setOpen(!open);
@@ -20,9 +20,15 @@ const SortBlogs = () => {
 
   return (
     <div className="flex max-lg:justify-end">
-      <Select defaultValue="Latest" open={open} onOpenChange={onOpenChange}>
+      <Select
+        defaultValue="Latest"
+        open={open}
+        onOpenChange={onOpenChange}
+        value={value}
+        onValueChange={(e) => setValue(e)}
+      >
         <SelectTrigger className="h-fit min-w-[150px] flex flex-1 rounded-md border-none bg-white dark:bg-transparent dark:text-light3 text-sm">
-          <SelectValue placeholder="Sort by: Latest" />
+          Sort by: {value}
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="Latest">{!open && "Sort by "}Latest</SelectItem>

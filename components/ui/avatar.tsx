@@ -41,7 +41,6 @@ const AvatarImage = React.forwardRef<
     size?: "sm" | "md" | "lg";
   }
 >(({ className, size, ...props }, ref) => {
-  const sizes = size === "sm";
   return (
     <AvatarPrimitive.Image
       ref={ref}

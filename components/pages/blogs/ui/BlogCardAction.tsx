@@ -24,7 +24,7 @@ const BlogCardActions = ({ id }: { id: string }) => {
           <SolarOverflowMenuVertical className="transform rotate-90" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent side="left">
+      <DropdownMenuContent side="top">
         <DropdownMenuItem>
           <Link
             href={`/blogs/${id}`}
