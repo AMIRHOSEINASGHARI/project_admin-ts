@@ -180,6 +180,9 @@
 .h6 {
   @apply text-[17px] font-bold
 }
+.paragraph {
+  @apply  text-[15px] font-medium;
+}
 .heading1 {
   @apply text-large font-extrabold;
 }

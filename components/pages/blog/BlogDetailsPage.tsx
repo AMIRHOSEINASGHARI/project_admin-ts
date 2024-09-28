@@ -8,6 +8,7 @@ import { SolarAltArrowLeftLineDuotone } from "@/components/svg";
 // cmp
 import View from "@/components/shared/layout/View";
 import BlogHeadingActions from "./ui/BlogHeadingActions";
+import BlogInformations from "./ui/BlogInformations";
 
 const BlogDetailsPage = async ({ id }: { id: string }) => {
   const data = await getBlog(id);
@@ -23,6 +24,7 @@ const BlogDetailsPage = async ({ id }: { id: string }) => {
         </Link>
         <BlogHeadingActions id={id} published={true} />
       </div>
+      <BlogInformations blog={data?.blog} />
     </View>
   );
 };
