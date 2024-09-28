@@ -176,19 +176,13 @@ export const createProduct = async (data: CreateProduct) => {
     const session = getServerSession();
 
     if (!session) {
-      return {
-        message: ResponseMessages.UN_AUTHORIZED,
-        code: ResponseCodes.UN_AUTHORIZED,
-      };
+      throw new Error(ResponseMessages.UN_AUTHORIZED);
     }
 
     const currentUser = await AdminModel.findById(session?.userId);
 
     if (currentUser?.roll === "USER") {
-      return {
-        message: ResponseMessages.ACCESS_DENIED,
-        code: ResponseCodes.UN_AUTHORIZED,
-      };
+      throw new Error(ResponseMessages.ACCESS_DENIED);
     }
 
     const {
@@ -231,10 +225,7 @@ export const createProduct = async (data: CreateProduct) => {
     };
   } catch (error) {
     console.log(error);
-    return {
-      message: ResponseMessages.SERVER_ERROR,
-      code: ResponseCodes.SERVER_ERROR,
-    };
+    throw new Error(ResponseMessages.SERVER_ERROR);
   }
 };
 

@@ -22,12 +22,7 @@ export const productFormSchema = z.object({
     .max(150, "Sub description must be between 100 and 150 characters!"),
   content: z.string().min(1, "Content is required!"),
   images: z
-    .array(
-      z.union([
-        z.string().url("Must be a valid image URL!"), // For existing images (URLs)
-        z.instanceof(File), // For newly uploaded files
-      ])
-    )
+    .array(z.string().url("Must be a valid image URL!"))
     .min(2, "At least two images is required"),
   price: z
     .union([

@@ -14,8 +14,8 @@ import { z } from "zod";
 import { productCategory } from "@/constants";
 // actions
 import { createProduct, editProduct } from "@/actions/product";
-// hooks
-import useServerAction from "@/hooks/callServerAction";
+// react query
+import { useMutation } from "@tanstack/react-query";
 // utils
 import { productFormSchema } from "@/utils/validators";
 // cmp
@@ -62,10 +62,12 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [images, setImages] = useState<string[]>(product?.images || []);
   const router = useRouter();
-  const { loading: createLoading, action: createAction } =
-    useServerAction(createProduct);
-  const { loading: editLoading, action: editAction } =
-    useServerAction(editProduct);
+  const { isLoading: isCreating, mutate: mutateCreate } = useMutation({
+    mutationFn: createProduct,
+  });
+  const { isLoading: isEditing, mutate: mutateEdit } = useMutation({
+    mutationFn: editProduct,
+  });
 
   const formDefaultValues = {
     title: product ? product?.title : "",
@@ -95,25 +97,43 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
       return;
     }
 
+    const formData = {
+      ...values,
+      discount: +values.discount,
+      price: +values.price,
+      stock: +values.stock,
+    };
+
     if (page === "add") {
-      const result = await createAction(values);
-      if (result?.code !== 201) {
-        toast.error(result?.message);
-      } else {
-        toast.success(result?.message);
-        router.push("/products");
-      }
-    } else if (page === "edit") {
-      const result = await editAction({
-        ...values,
-        id: product?._id,
+      mutateCreate(formData, {
+        onSuccess: (data) => {
+          toast.success(data?.message);
+          router.push("/products");
+        },
+        onError: (error: any) => {
+          toast.error(error.message);
+        },
       });
-      if (result?.code !== 201) {
-        toast.error(result?.message);
-      } else {
-        toast.success(result?.message);
-        router.push(`/products/${product?._id}`);
-      }
+
+      return;
+    }
+
+    if (page === "edit") {
+      mutateEdit(
+        {
+          ...formData,
+          id: product?._id,
+        },
+        {
+          onSuccess: (data) => {
+            toast.success(data?.message);
+            router.push(`/products/${product?._id}`);
+          },
+          onError: (error: any) => {
+            toast.error(error.message);
+          },
+        }
+      );
     }
   };
 
@@ -388,9 +408,9 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
               type="submit"
               variant="secondary"
               className="font-bold min-w-[134px]"
-              disabled={createLoading || editLoading}
+              disabled={isCreating || isEditing}
             >
-              {createLoading || editLoading ? (
+              {isCreating || isEditing ? (
                 <Loader />
               ) : page === "add" ? (
                 "Create product"
