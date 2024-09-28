@@ -34,6 +34,29 @@ export const getBlogs = async () => {
   }
 };
 
+export const getBlog = async (id: string) => {
+  try {
+    await checkSession();
+
+    const blog = await BlogModel.findById(id)
+      .populate({
+        path: "createdBy",
+        model: AdminModel,
+        select: "username name avatar",
+      })
+      .lean<BlogType>();
+
+    return {
+      blog,
+      message: ResponseMessages.SUCCESSFULLY_FETCHED,
+      code: ResponseCodes.SUCCESSFULLY_FETCHED,
+    };
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
+
 export const createBlog = async (data: CreateBlog) => {
   try {
     const currentUser = await checkSession();

@@ -74,8 +74,8 @@ const BlogCard = ({ blog }: { blog: BlogType }) => {
         <div className="rounded-card relative w-[164px] h-full overflow-hidden">
           <Image
             src={cover}
-            width={200}
-            height={200}
+            width={500}
+            height={500}
             alt="Blog image"
             priority
             className="w-full h-full object-cover"

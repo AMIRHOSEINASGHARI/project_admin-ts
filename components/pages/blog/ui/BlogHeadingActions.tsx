@@ -42,7 +42,10 @@ const BlogHeadingActions = ({ id, published }: BlogHeadingActionsProps) => {
       <CustomTooltip
         trigger={
           <Button asChild variant="icon">
-            <Link href={`${process.env.NEXT_PUBLIC_LIVE_URL}/blogs/${id}`}>
+            <Link
+              href={`${process.env.NEXT_PUBLIC_LIVE_URL}/blogs/${id}`}
+              target="_blank"
+            >
               <SolarSquareShareLineBoldDuotone />
             </Link>
           </Button>
