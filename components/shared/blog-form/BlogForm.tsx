@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 // react query
 import { useMutation } from "@tanstack/react-query";
 // actions
-import { createBlog } from "@/actions/blogs";
+import { createBlog, editBlog } from "@/actions/blogs";
 // types
-import { BlogType } from "@/types/blog";
+import { BlogType, EditBlog } from "@/types/blog";
 // form
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -53,8 +53,11 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [cover, setCover] = useState<string>(blog?.cover || "");
   const router = useRouter();
-  const { isLoading, mutate } = useMutation({
+  const { isLoading: isCreating, mutate: mutateCreate } = useMutation({
     mutationFn: createBlog,
+  });
+  const { isLoading: isEditing, mutate: mutateEdit } = useMutation({
+    mutationFn: editBlog,
   });
 
   const formDefaultValues = {
@@ -84,9 +87,8 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
       return;
     }
 
-    mutate(
-      { ...values, cover },
-      {
+    if (page === "add") {
+      mutateCreate(values, {
         onSuccess: (data) => {
           toast.success(data?.message);
           router.push("/blogs");
@@ -94,8 +96,28 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
         onError: (error: any) => {
           toast.error(error.message);
         },
-      }
-    );
+      });
+
+      return;
+    }
+
+    if (page === "edit") {
+      mutateEdit(
+        {
+          ...values,
+          id: blog?._id,
+        },
+        {
+          onSuccess: (data) => {
+            toast.success(data?.message);
+            router.push(`/blogs/${blog?._id}`);
+          },
+          onError: (error: any) => {
+            toast.error(error.message);
+          },
+        }
+      );
+    }
   };
 
   return (
@@ -342,9 +364,9 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
               type="submit"
               variant="secondary"
               className="font-bold min-w-[134px]"
-              disabled={isLoading}
+              disabled={isCreating || isEditing}
             >
-              {isLoading ? (
+              {isCreating || isEditing ? (
                 <Loader />
               ) : page === "add" ? (
                 "Create blog"
