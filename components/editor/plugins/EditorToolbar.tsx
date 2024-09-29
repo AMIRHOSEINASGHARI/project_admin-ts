@@ -70,70 +70,70 @@ const EditorToolbar = ({ editor }: { editor: Editor | null }) => {
       icon: <EditorSetBold className="text-lg" />,
       onClick: () => editor.chain().focus().toggleBold().run(),
       isActive: editor.isActive("bold"),
-      seprator: false,
+      needSeprator: false,
     },
     {
       node: "italic",
       icon: <EditorSetItalic className="text-lg" />,
       onClick: () => editor.chain().focus().toggleItalic().run(),
       isActive: editor.isActive("italic"),
-      seprator: false,
+      needSeprator: false,
     },
     {
       node: "underline",
       icon: <EditorSetUnderline className="text-lg" />,
       onClick: () => editor.chain().focus().toggleUnderline().run(),
       isActive: editor.isActive("underline"),
-      seprator: false,
+      needSeprator: false,
     },
     {
       node: "strike",
       icon: <EditorSetStrikethrough className="text-lg" />,
       onClick: () => editor.chain().focus().toggleStrike().run(),
       isActive: editor.isActive("strike"),
-      seprator: true,
+      needSeprator: true,
     },
     {
       node: "bulletList",
       icon: <EditorSetBulletList className="text-lg" />,
       onClick: () => editor.chain().focus().toggleBulletList().run(),
       isActive: editor.isActive("bulletList"),
-      seprator: false,
+      needSeprator: false,
     },
     {
       node: "orderedList",
       icon: <EditorSetOrderedList className="text-lg" />,
       onClick: () => editor.chain().focus().toggleOrderedList().run(),
       isActive: editor.isActive("orderedList"),
-      seprator: true,
+      needSeprator: true,
     },
     {
       node: "align-left",
       icon: <EditorSetAlignLeft className="text-lg" />,
       onClick: () => editor.commands.setTextAlign("left"),
       isActive: editor.isActive({ textAlign: "left" }),
-      seprator: false,
+      needSeprator: false,
     },
     {
       node: "align-center",
       icon: <EditorSetAlignCenter className="text-lg" />,
       onClick: () => editor.commands.setTextAlign("center"),
       isActive: editor.isActive({ textAlign: "center" }),
-      seprator: false,
+      needSeprator: false,
     },
     {
       node: "align-right",
       icon: <EditorSetAlignRight className="text-lg" />,
       onClick: () => editor.commands.setTextAlign("right"),
       isActive: editor.isActive({ textAlign: "right" }),
-      seprator: false,
+      needSeprator: false,
     },
     {
       node: "justify",
       icon: <EditorSetJustify className="text-lg" />,
       onClick: () => editor.commands.setTextAlign("justify"),
       isActive: editor.isActive({ textAlign: "justify" }),
-      seprator: true,
+      needSeprator: true,
     },
   ];
 
@@ -170,7 +170,7 @@ const EditorToolbar = ({ editor }: { editor: Editor | null }) => {
             >
               {item.icon}
             </Toggle>
-            {item.seprator && (
+            {item.needSeprator && (
               <Separator orientation="vertical" className="h-[20px]" />
             )}
           </Fragment>

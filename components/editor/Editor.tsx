@@ -4,8 +4,6 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 // Tiptap extensions
 import StarterKit from "@tiptap/starter-kit";
-import Paragraph from "@tiptap/extension-paragraph";
-import Heading from "@tiptap/extension-heading";
 import Placeholder from "@tiptap/extension-placeholder";
 import Underline from "@tiptap/extension-underline";
 import TextAlign from "@tiptap/extension-text-align";
