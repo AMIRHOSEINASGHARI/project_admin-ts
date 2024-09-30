@@ -13,7 +13,7 @@ const SidebarMenuLink = ({
   image,
 }: MenuLinksProps) => {
   const styles = clsx("rounded-lg ml-2 mb-1 Transition", {
-    "hover:bg-primary-6 bg-primary-3 bg-opacity-10 text-primary-4 dark:bg-primary-6 dark:text-primary-5 font-medium":
+    "bg-primary-4 text-primary-1 dark:bg-primary-6 dark:text-primary-5 font-medium":
       pathname === link && navColor === "Integrate",
     "text-icon-light dark:text-icon-dark hover:dark:bg-dark2 hover:bg-light3":
       pathname !== link && navColor === "Integrate",

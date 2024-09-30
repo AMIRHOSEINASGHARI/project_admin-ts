@@ -6,10 +6,7 @@ import { usePathname } from "next/navigation";
 // providers
 import { useNavColor } from "@/providers/ThemeProvider";
 // constants
-import {
-  sidebar_Accordions,
-  sidebar_accordionTriggerStyles,
-} from "@/constants";
+import { sidebar_Accordions } from "@/constants";
 // cmp
 import clsx from "clsx";
 import {
@@ -31,6 +28,25 @@ const Sidebar = () => {
     navColor === "Integrate"
       ? "bg-white dark:bg-dark1"
       : "bg-dark1 dark:bg-dark2";
+
+  const accordionStyles = {
+    // className's of wrapper of accordion trigger: including it's text and arrow icon
+    rootClassName: "relative justify-start p-[8px] pt-[16px] pl-[20px] group",
+    // className's of anything without arrow icon
+    className: clsx(
+      "text-[11px] transform ml-[2px] group-hover:translate-x-[5px] group-hover:text-black dark:group-hover:text-white Transition font-medium uppercase tracking-tight text-gray-400 dark:text-slate-500",
+      {
+        "text-slate-500 group-hover:text-white": navColor === "Apparent",
+      }
+    ),
+    // className's of arrow icon
+    arrowClassName: clsx(
+      "absolute left-1 hidden group-hover:flex group-hover:animate-fade group-hover:animate-duration-500 dark:text-white",
+      {
+        "text-slate-500 group-hover:text-white": navColor === "Apparent",
+      }
+    ),
+  };
 
   return (
     <aside
@@ -54,7 +70,7 @@ const Sidebar = () => {
           })}
         >
           <AccordionItem value={accordion.value} className="border-none">
-            <AccordionTrigger {...sidebar_accordionTriggerStyles(navColor)}>
+            <AccordionTrigger {...accordionStyles}>
               {accordion.value}
             </AccordionTrigger>
             <AccordionContent>
