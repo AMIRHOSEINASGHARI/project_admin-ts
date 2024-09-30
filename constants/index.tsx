@@ -36,6 +36,12 @@ import {
   SolarTabletBoldDuotone,
   SolarTvBoldDuotone,
   SolarWatchSquareBoldDuotone,
+  SolarFileTextBoldDuotone,
+  SolarMoneyBagBoldDuotone,
+  SolarGolfBoldDuotone,
+  SolarLetterOpenedBoldDuotone,
+  SolarChatSquareCallBoldDuotone,
+  SolarDocumentAddBoldDuotone,
 } from "@/components/svg";
 // types
 import { NavColor } from "@/types/shared";
@@ -64,11 +70,6 @@ export const menuLinks = [
     link: "/dashboard",
   },
   {
-    title: "Crypto",
-    image: <CoinRegular />,
-    link: "/crypto",
-  },
-  {
     title: "Analytics",
     image: <SolarAnalyticsBoldDuotone />,
     link: "/analytics",
@@ -89,54 +90,69 @@ export const menuLinks = [
     link: "/booking",
   },
   {
+    title: "File",
+    image: <SolarFileTextBoldDuotone />,
+    link: "/file",
+  },
+  {
     title: "Course",
     image: <SolarMonitorBoldDuotone />,
     link: "/course",
   },
   {
-    title: "Orders",
-    image: <SolarCartLarge4BoldDuotone />,
-    link: "/orders",
+    title: "User",
+    image: <SolarUserCircleBoldDuotone />,
+    link: "/users",
   },
   {
-    title: "Products",
+    title: "Product",
     image: <SolarHanger2BoldDuotone />,
     link: "/products",
   },
   {
-    title: "Add Product",
-    image: <SolarAddFolderBoldDuotone />,
-    link: "/add-product",
+    title: "Order",
+    image: <SolarCartLarge4BoldDuotone />,
+    link: "/orders",
   },
   {
-    title: "Comments",
-    image: <SolarChatRoundDotsBoldDuotone />,
-    link: "/comments",
+    title: "Invoice",
+    image: <SolarDocumentsBoldDuotone />,
+    link: "/invoice",
   },
   {
-    title: "Users",
-    image: <SolarUsersGroupTwoRoundedBoldDuotone />,
-    link: "/users",
-  },
-  {
-    title: "Blogs",
+    title: "Blog",
     image: <SolarTextFieldFocusBoldDuotone />,
     link: "/blogs",
   },
   {
-    title: "Add Blog",
-    image: <SolarAddFolderBoldDuotone />,
-    link: "/add-blog",
+    title: "Job",
+    image: <SolarMoneyBagBoldDuotone />,
+    link: "/jobs",
   },
   {
-    title: "Tasks",
+    title: "Tour",
+    image: <SolarGolfBoldDuotone />,
+    link: "/tours",
+  },
+  {
+    title: "File manager",
+    image: <SolarDocumentAddBoldDuotone />,
+    link: "/file-manager",
+  },
+  {
+    title: "Mail",
+    image: <SolarLetterOpenedBoldDuotone />,
+    link: "/mail",
+  },
+  {
+    title: "Chat",
+    image: <SolarChatSquareCallBoldDuotone />,
+    link: "/chat",
+  },
+  {
+    title: "Kanban",
     image: <SolarChecklistMinimalisticBoldDuotone />,
-    link: "/tasks",
-  },
-  {
-    title: "Account",
-    image: <SolarUserCircleBoldDuotone />,
-    link: "/account",
+    link: "/kanban",
   },
 ];
 

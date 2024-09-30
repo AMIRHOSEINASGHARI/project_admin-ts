@@ -197,6 +197,11 @@ export { default as SolarHeartBold } from "../../public/icons/solar/solar--heart
 export { default as SolarPin } from "../../public/icons/solar/solar--pin.svg";
 export { default as SolarSmileEmoji } from "../../public/icons/solar/solar--smile-emoji.svg";
 export { default as SolarSquareShareLineBoldDuotone } from "../../public/icons/solar/solar--square-share-line-bold-duotone.svg";
+export { default as SolarChatSquareCallBoldDuotone } from "../../public/icons/solar/solar--chat-square-call-bold-duotone.svg";
+export { default as SolarDocumentAddBoldDuotone } from "../../public/icons/solar/solar--document-add-bold-duotone.svg";
+export { default as SolarGolfBoldDuotone } from "../../public/icons/solar/solar--golf-bold-duotone.svg";
+export { default as SolarLetterOpenedBoldDuotone } from "../../public/icons/solar/solar--letter-opened-bold-duotone.svg";
+export { default as SolarMoneyBagBoldDuotone } from "../../public/icons/solar/solar--money-bag-bold-duotone.svg";
 // editor component icons
 export { default as EditorSetAlignCenter } from "../../public/icons/editor/editor-set-align-center.svg";
 export { default as EditorSetJustify } from "../../public/icons/editor/editor-set-justify.svg";
