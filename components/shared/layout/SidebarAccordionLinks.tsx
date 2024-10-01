@@ -21,9 +21,13 @@ import SidebarMenuLink from "./SidebarMenuLink";
 const SidebarAccordionLinks = ({
   navColor,
   pathname,
+  handleCloseSheet,
+  isMobile = false,
 }: {
   pathname: string;
   navColor: NavColor | null;
+  handleCloseSheet?: () => void;
+  isMobile: boolean;
 }) => {
   const [activeLink, setActiveLink] = useState("");
 
@@ -42,6 +46,14 @@ const SidebarAccordionLinks = ({
     navColor === "Integrate"
       ? "text-black dark:text-white"
       : "text-white dark:text-white";
+
+  const onClick = () => {
+    if (isMobile && handleCloseSheet) {
+      handleCloseSheet();
+    } else {
+      return;
+    }
+  };
 
   return (
     <ul>
@@ -75,7 +87,11 @@ const SidebarAccordionLinks = ({
             <AccordionContent className="w-full">
               <ul className="w-full space-y-1">
                 {item.innerLinks.map((innerLink) => (
-                  <li key={innerLink.href} className="w-full pl-8">
+                  <li
+                    key={innerLink.href}
+                    className="w-full pl-8"
+                    onClick={onClick}
+                  >
                     <Link
                       href={innerLink.href}
                       className={clsx(

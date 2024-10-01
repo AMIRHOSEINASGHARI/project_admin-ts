@@ -39,6 +39,7 @@ export type MenuLinksProps = {
   link: string;
   image: JSX.Element;
   isLink?: boolean;
+  onClick?: () => void;
 };
 
 export type HeadingNodes = 1 | 2 | 3 | 4 | 5 | 6;

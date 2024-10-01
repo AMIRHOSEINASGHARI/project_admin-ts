@@ -93,7 +93,11 @@ const Sidebar = () => {
         <AccordionItem value="Management" className="border-none">
           <AccordionTrigger {...accordionStyles}>Management</AccordionTrigger>
           <AccordionContent>
-            <SidebarAccordionLinks navColor={navColor} pathname={pathname} />
+            <SidebarAccordionLinks
+              isMobile={false}
+              navColor={navColor}
+              pathname={pathname}
+            />
             <ul>
               {menuLinks.slice(14, 18).map((item) => (
                 <SidebarMenuLink

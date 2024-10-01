@@ -12,6 +12,7 @@ const SidebarMenuLink = ({
   link,
   image,
   isLink = true,
+  onClick,
 }: MenuLinksProps) => {
   const styles = clsx("rounded-lg ml-2 mb-1 Transition", {
     "bg-primary-4 text-primary-1 dark:bg-primary-6 dark:text-primary-5 font-medium":
@@ -27,7 +28,11 @@ const SidebarMenuLink = ({
   return (
     <li className={styles}>
       {isLink ? (
-        <Link href={link} className="flex items-center gap-[15px] p-[10px]">
+        <Link
+          href={link}
+          className="flex items-center gap-[15px] p-[10px]"
+          onClick={onClick}
+        >
           <div className="text-icon-size">{image}</div>
           <span className="text-sm">{title}</span>
         </Link>

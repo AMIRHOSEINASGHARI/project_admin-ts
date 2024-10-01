@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 // providers
 import { useNavColor } from "@/providers/ThemeProvider";
 // constants
-import { sidebar_Accordions } from "@/constants";
+import { menuLinks } from "@/constants";
 // cmp
 import {
   Sheet,
@@ -25,6 +25,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import SidebarMenuLink from "./SidebarMenuLink";
+import SidebarAccordionLinks from "./SidebarAccordionLinks";
 import clsx from "clsx";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 // icons
@@ -53,6 +54,10 @@ const MobileNav = () => {
     setOpen(!open);
   };
 
+  const onClose = () => {
+    setOpen(false);
+  };
+
   const accordionStyles = {
     // className's of wrapper of accordion trigger: including it's text and arrow icon
     rootClassName: "relative justify-start p-[8px] pt-[16px] pl-[20px] group",
@@ -77,41 +82,70 @@ const MobileNav = () => {
       <div
         className={`flex items-center justify-between fixed text-primary-1 p-4 top-0 z-20 w-full`}
       >
-        <Link href="/dashboard" className="flex items-center gap-[10px]">
+        <Link
+          href="/dashboard"
+          className="flex items-center gap-[10px]"
+          onClick={onClose}
+        >
           <LogoRegular className="ml-[20px] text-[40px]" />
         </Link>
       </div>
-      {sidebar_Accordions.map((accordion) => (
-        <Accordion
-          key={accordion.value}
-          type="single"
-          defaultValue={accordion.value}
-          collapsible
-          className={clsx("px-4", {
-            "pt-[70px]": accordion.value === "Overview",
-          })}
-        >
-          <AccordionItem value={accordion.value} className="border-none">
-            <AccordionTrigger {...accordionStyles}>
-              {accordion.value}
-            </AccordionTrigger>
-            <AccordionContent>
-              <ul>
-                {accordion.list.map((item) => (
-                  <SidebarMenuLink
-                    key={item.title}
-                    title={item.title}
-                    image={item.image}
-                    link={item.link}
-                    navColor={navColor}
-                    pathname={pathname}
-                  />
-                ))}
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      ))}
+      <Accordion
+        type="single"
+        defaultValue="Overview"
+        collapsible
+        className="px-4 pt-[70px]"
+      >
+        <AccordionItem value="Overview" className="border-none">
+          <AccordionTrigger {...accordionStyles}>Overview</AccordionTrigger>
+          <AccordionContent>
+            <ul>
+              {menuLinks.slice(0, 7).map((item) => (
+                <SidebarMenuLink
+                  key={item.title}
+                  title={item.title}
+                  image={item.image}
+                  link={item.link}
+                  navColor={navColor}
+                  pathname={pathname}
+                  onClick={onClose}
+                />
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+      <Accordion
+        type="single"
+        defaultValue="Management"
+        collapsible
+        className="px-4"
+      >
+        <AccordionItem value="Management" className="border-none">
+          <AccordionTrigger {...accordionStyles}>Management</AccordionTrigger>
+          <AccordionContent>
+            <SidebarAccordionLinks
+              isMobile={true}
+              handleCloseSheet={onClose}
+              navColor={navColor}
+              pathname={pathname}
+            />
+            <ul>
+              {menuLinks.slice(14, 18).map((item) => (
+                <SidebarMenuLink
+                  key={item.title}
+                  title={item.title}
+                  image={item.image}
+                  link={item.link}
+                  navColor={navColor}
+                  pathname={pathname}
+                  onClick={onClose}
+                />
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 
