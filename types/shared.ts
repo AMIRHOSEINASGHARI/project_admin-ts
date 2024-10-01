@@ -38,6 +38,7 @@ export type MenuLinksProps = {
   navColor: NavColor | null;
   link: string;
   image: JSX.Element;
+  isLink?: boolean;
 };
 
 export type HeadingNodes = 1 | 2 | 3 | 4 | 5 | 6;

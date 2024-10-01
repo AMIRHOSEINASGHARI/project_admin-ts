@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 // providers
 import { useNavColor } from "@/providers/ThemeProvider";
 // constants
-import { sidebar_Accordions } from "@/constants";
+import { menuLinks } from "@/constants";
 // cmp
 import clsx from "clsx";
 import {
@@ -16,6 +16,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import SidebarMenuLink from "./SidebarMenuLink";
+import SidebarAccordionLinks from "./SidebarAccordionLinks";
 // icons
 import { LogoRegular } from "@/components/svg";
 
@@ -59,37 +60,55 @@ const Sidebar = () => {
           <LogoRegular className="ml-[20px] text-[40px]" />
         </Link>
       </div>
-      {sidebar_Accordions.map((accordion) => (
-        <Accordion
-          key={accordion.value}
-          type="single"
-          defaultValue={accordion.value}
-          collapsible
-          className={clsx("px-4", {
-            "pt-[70px]": accordion.value === "Overview",
-          })}
-        >
-          <AccordionItem value={accordion.value} className="border-none">
-            <AccordionTrigger {...accordionStyles}>
-              {accordion.value}
-            </AccordionTrigger>
-            <AccordionContent>
-              <ul>
-                {accordion.list.map((item) => (
-                  <SidebarMenuLink
-                    key={item.title}
-                    title={item.title}
-                    image={item.image}
-                    link={item.link}
-                    navColor={navColor}
-                    pathname={pathname}
-                  />
-                ))}
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      ))}
+      <Accordion
+        type="single"
+        defaultValue="Overview"
+        collapsible
+        className="px-4 pt-[70px]"
+      >
+        <AccordionItem value="Overview" className="border-none">
+          <AccordionTrigger {...accordionStyles}>Overview</AccordionTrigger>
+          <AccordionContent>
+            <ul>
+              {menuLinks.slice(0, 7).map((item) => (
+                <SidebarMenuLink
+                  key={item.title}
+                  title={item.title}
+                  image={item.image}
+                  link={item.link}
+                  navColor={navColor}
+                  pathname={pathname}
+                />
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+      <Accordion
+        type="single"
+        defaultValue="Management"
+        collapsible
+        className="px-4"
+      >
+        <AccordionItem value="Management" className="border-none">
+          <AccordionTrigger {...accordionStyles}>Management</AccordionTrigger>
+          <AccordionContent>
+            <SidebarAccordionLinks navColor={navColor} pathname={pathname} />
+            <ul>
+              {menuLinks.slice(14, 18).map((item) => (
+                <SidebarMenuLink
+                  key={item.title}
+                  title={item.title}
+                  image={item.image}
+                  link={item.link}
+                  navColor={navColor}
+                  pathname={pathname}
+                />
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </aside>
   );
 };

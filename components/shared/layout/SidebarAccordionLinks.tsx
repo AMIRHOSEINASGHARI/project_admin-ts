@@ -1,0 +1,99 @@
+"use client";
+
+// react
+import { useEffect, useState } from "react";
+// next
+import Link from "next/link";
+// types
+import { NavColor } from "@/types/shared";
+// constants
+import { sidebar_accordionList } from "@/constants";
+// cmp
+import clsx from "clsx";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import SidebarMenuLink from "./SidebarMenuLink";
+
+const SidebarAccordionLinks = ({
+  navColor,
+  pathname,
+}: {
+  pathname: string;
+  navColor: NavColor | null;
+}) => {
+  const [activeLink, setActiveLink] = useState("");
+
+  const onValueChange = (value: string) => {
+    setActiveLink(value);
+  };
+
+  useEffect(() => {
+    const pathnames = pathname.split("/");
+    const accordionValue = `/${pathnames[1]}`;
+
+    setActiveLink(accordionValue);
+  }, [pathname]);
+
+  return (
+    <ul>
+      <Accordion
+        type="single"
+        collapsible
+        value={activeLink}
+        onValueChange={onValueChange}
+      >
+        {sidebar_accordionList.map((item) => (
+          <AccordionItem
+            key={item.value}
+            value={item.value}
+            className="border-none"
+          >
+            <AccordionTrigger
+              rootClassName="p-0 relative"
+              className="w-full"
+              arrowClassName="absolute right-1"
+            >
+              <SidebarMenuLink
+                key={item.trigger.title}
+                title={item.trigger.title}
+                image={item.trigger.image}
+                navColor={navColor}
+                pathname={pathname}
+                link={item.value}
+                isLink={false}
+              />
+            </AccordionTrigger>
+            <AccordionContent className="w-full">
+              <ul className="w-full space-y-1">
+                {item.innerLinks.map((innerLink) => (
+                  <li key={innerLink.href} className="w-full pl-8">
+                    <Link
+                      href={innerLink.href}
+                      className={clsx(
+                        "w-full block p-2 rounded-lg hover:bg-light2 hover:dark:bg-dark3",
+                        {
+                          "bg-light2 dark:bg-dark3 dark:text-white":
+                            pathname === innerLink.href,
+                          "dark:text-white text-black":
+                            pathname !== innerLink.href,
+                        }
+                      )}
+                    >
+                      {innerLink.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </ul>
+  );
+};
+
+export default SidebarAccordionLinks;

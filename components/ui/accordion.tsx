@@ -39,7 +39,7 @@ const AccordionTrigger = React.forwardRef<
       <div className={cn(className)}>{children}</div>
       <SolarAltArrowRightLineDuotone
         className={cn(
-          "h-4 w-4 shrink-0 transition-transform duration-200",
+          "h-4 w-4 shrink-0 transition-transform duration-200 dark:text-white",
           arrowClassName
         )}
       />

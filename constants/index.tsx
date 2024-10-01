@@ -4,7 +4,6 @@ import {
   ArrowTrendUpRegular,
   BagsFill,
   CartFill,
-  CoinRegular,
   MessageFill,
   UsersFill,
   SolarHomeAngleBoldDuotone,
@@ -14,9 +13,6 @@ import {
   SolarMonitorBoldDuotone,
   SolarCartLarge4BoldDuotone,
   SolarHanger2BoldDuotone,
-  SolarAddFolderBoldDuotone,
-  SolarChatRoundDotsBoldDuotone,
-  SolarUsersGroupTwoRoundedBoldDuotone,
   SolarTextFieldFocusBoldDuotone,
   SolarChecklistMinimalisticBoldDuotone,
   SolarUserCircleBoldDuotone,
@@ -43,12 +39,8 @@ import {
   SolarChatSquareCallBoldDuotone,
   SolarDocumentAddBoldDuotone,
 } from "@/components/svg";
-// types
-import { NavColor } from "@/types/shared";
 // mock
 import { fakeUsers } from "@/mock/users";
-// cmp
-import clsx from "clsx";
 
 export const images = {
   authLogin: "/images/auth-login.png",
@@ -163,11 +155,120 @@ export const sidebar_Accordions = [
   },
   {
     value: "Management",
-    list: menuLinks.slice(7, 14),
+    list: menuLinks.slice(7, 18),
+  },
+];
+
+export const sidebar_accordionList = [
+  {
+    trigger: menuLinks[7],
+    value: "/user",
+    innerLinks: [
+      {
+        href: "/user/profile",
+        title: "Profile",
+      },
+      {
+        href: "/user/cards",
+        title: "Cards",
+      },
+      {
+        href: "/user/list",
+        title: "List",
+      },
+      {
+        href: "/user/create",
+        title: "Create",
+      },
+      {
+        href: "/user/account",
+        title: "Account",
+      },
+    ],
   },
   {
-    value: "Settings",
-    list: menuLinks.slice(14, 16),
+    trigger: menuLinks[8],
+    value: "/product",
+    innerLinks: [
+      {
+        href: "/product/list",
+        title: "List",
+      },
+      {
+        href: "/product/cards",
+        title: "Cards",
+      },
+      {
+        href: "/product/create",
+        title: "Create",
+      },
+    ],
+  },
+  {
+    trigger: menuLinks[9],
+    value: "/order",
+    innerLinks: [
+      {
+        href: "/order/list",
+        title: "List",
+      },
+    ],
+  },
+  {
+    trigger: menuLinks[10],
+    value: "/invoice",
+    innerLinks: [
+      {
+        href: "/invoice/list",
+        title: "List",
+      },
+      {
+        href: "/invoice/create",
+        title: "Create",
+      },
+    ],
+  },
+  {
+    trigger: menuLinks[11],
+    value: "/blog",
+    innerLinks: [
+      {
+        href: "/blog/list",
+        title: "List",
+      },
+      {
+        href: "/blog/create",
+        title: "Create",
+      },
+    ],
+  },
+  {
+    trigger: menuLinks[12],
+    value: "/job",
+    innerLinks: [
+      {
+        href: "/job/list",
+        title: "List",
+      },
+      {
+        href: "/job/create",
+        title: "Create",
+      },
+    ],
+  },
+  {
+    trigger: menuLinks[13],
+    value: "/tour",
+    innerLinks: [
+      {
+        href: "/tour/list",
+        title: "List",
+      },
+      {
+        href: "/tour/create",
+        title: "Create",
+      },
+    ],
   },
 ];
 
