@@ -62,14 +62,14 @@ export const menuLinks = [
     link: "/dashboard",
   },
   {
-    title: "Analytics",
-    image: <SolarAnalyticsBoldDuotone />,
-    link: "/analytics",
-  },
-  {
     title: "Ecommerce",
     image: <SolarBagBoldDuotone />,
     link: "/ecommerce",
+  },
+  {
+    title: "Analytics",
+    image: <SolarAnalyticsBoldDuotone />,
+    link: "/analytics",
   },
   {
     title: "Banking",
