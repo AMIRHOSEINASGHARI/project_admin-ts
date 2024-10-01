@@ -8,12 +8,14 @@ import { ResponseCodes, ResponseMessages } from "@/enums";
 import OrderModel from "@/models/order";
 import ProductModel from "@/models/product";
 import UserModel from "@/models/user";
+// utils
+import connectDB from "@/utils/connectDB";
 // actions
 import { checkSession } from "./shared";
 
 export const getOrders = async () => {
   try {
-    await checkSession();
+    await connectDB();
 
     const orders = await OrderModel.find()
       .populate({
@@ -39,7 +41,7 @@ export const getOrders = async () => {
 
 export const getOrder = async (id: string) => {
   try {
-    await checkSession();
+    await connectDB();
 
     const order = await OrderModel.findById(id)
       .populate({

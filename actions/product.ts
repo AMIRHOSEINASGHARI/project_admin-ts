@@ -11,10 +11,12 @@ import ProductModel from "@/models/product";
 import { CreateProduct, EditProduct, ProductType } from "@/types/product";
 // actions
 import { checkSession } from "./shared";
+// utils
+import connectDB from "@/utils/connectDB";
 
 export const getLatestProducts = async () => {
   try {
-    await checkSession();
+    await connectDB();
 
     const products = await ProductModel.find({
       stock: { $gt: 0 },
@@ -49,7 +51,7 @@ export const getProducts = async (searchParams: {
   published?: boolean;
 }) => {
   try {
-    await checkSession();
+    await connectDB();
 
     const { page, search, stock, discount, sort, category, published } =
       searchParams;
@@ -130,7 +132,7 @@ export const getProducts = async (searchParams: {
 
 export const getProduct = async (id: string) => {
   try {
-    await checkSession();
+    await connectDB();
 
     const product = await ProductModel.findById(id)
       .populate({

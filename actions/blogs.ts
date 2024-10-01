@@ -11,10 +11,12 @@ import { BlogType, CreateBlog, EditBlog } from "@/types/blog";
 import { ResponseCodes, ResponseMessages } from "@/enums";
 // actions
 import { checkSession } from "./shared";
+// utils
+import connectDB from "@/utils/connectDB";
 
 export const getBlogs = async () => {
   try {
-    await checkSession();
+    await connectDB();
 
     const blogs = await BlogModel.find()
       .populate({
@@ -36,7 +38,7 @@ export const getBlogs = async () => {
 
 export const getBlog = async (id: string) => {
   try {
-    await checkSession();
+    await connectDB();
 
     const blog = await BlogModel.findById(id)
       .populate({
