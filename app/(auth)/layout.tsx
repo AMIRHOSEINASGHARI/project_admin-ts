@@ -1,6 +1,9 @@
-import { getServerSession } from "@/utils/session";
+// next
 import { redirect } from "next/navigation";
-import React from "react";
+// utils
+import { getServerSession } from "@/utils/session";
+// cmp
+import AuthPageHeader from "@/components/pages/auth/ui/AuthPageHeader";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   const session = getServerSession();
@@ -8,7 +11,12 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   if (session) {
     redirect("/dashboard");
   }
-  return <div>{children}</div>;
+  return (
+    <div>
+      <AuthPageHeader />
+      <main>{children}</main>
+    </div>
+  );
 };
 
 export default AuthLayout;

@@ -33,6 +33,7 @@ import {
   SolarEyeClosedBoldDuotone,
 } from "@/components/svg";
 import { Card } from "@/components/ui/card";
+import clsx from "clsx";
 
 const AuthForm = () => {
   const router = useRouter();
@@ -67,7 +68,7 @@ const AuthForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center h-screen p-4"
+        className="flex flex-col items-center justify-center h-screen p-6"
       >
         <Card>
           <div className="sm:w-[400px]">
@@ -138,7 +139,11 @@ const AuthForm = () => {
                 type="submit"
                 variant="secondary"
                 disabled={isLoading}
-                className="w-full"
+                className={clsx(
+                  "w-full",
+                  !isLoading &&
+                    "bg-primary-1 hover:bg-primary-3 dark:bg-primary-4 dark:hover:bg-primary-5"
+                )}
               >
                 {isLoading ? <Loader text="Sending data..." /> : "Submit"}
               </Button>
