@@ -1,7 +1,7 @@
-import OrdersPage from "@/components/pages/orders/OrdersPage";
+import OrdersListPage from "@/components/pages/management/order/list/OrdersListPage";
 
-const Orders = () => {
-  return <OrdersPage />;
+const OrdersList = () => {
+  return <OrdersListPage />;
 };
 
-export default Orders;
+export default OrdersList;

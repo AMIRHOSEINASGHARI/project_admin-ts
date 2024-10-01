@@ -93,7 +93,7 @@ export const createBlog = async (data: CreateBlog) => {
     currentUser?.blogsCreated?.push(newBlog?._id);
     await currentUser.save();
 
-    revalidatePath("/blogs");
+    revalidatePath("/blog");
 
     return {
       message: ResponseMessages.SUCCESSFULLY_CREATED,
@@ -136,7 +136,7 @@ export const editBlog = async (data: EditBlog) => {
       published,
     });
 
-    revalidatePath("/blogs");
+    revalidatePath("/blog");
 
     return {
       message: ResponseMessages.SUCCESSFULLY_UPDATED,

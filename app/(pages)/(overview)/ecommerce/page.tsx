@@ -1,4 +1,4 @@
-import EcommercePage from "@/components/pages/ecommerce/EcommercePage";
+import EcommercePage from "@/components/pages/overview/ecommerce/EcommercePage";
 
 const Ecommerce = () => {
   return <EcommercePage />;

@@ -189,7 +189,7 @@ export const createProduct = async (data: CreateProduct) => {
     currentUser?.productsCreated?.push(newProduct?._id);
     await currentUser.save();
 
-    revalidatePath("/products");
+    revalidatePath("/product");
 
     return {
       message: ResponseMessages.SUCCESSFULLY_CREATED,
@@ -234,7 +234,7 @@ export const editProduct = async (data: EditProduct) => {
       published: publish,
     });
 
-    revalidatePath("/products");
+    revalidatePath("/product");
 
     return {
       message: ResponseMessages.SUCCESSFULLY_UPDATED,

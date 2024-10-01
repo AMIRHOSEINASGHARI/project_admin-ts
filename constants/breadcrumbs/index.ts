@@ -16,7 +16,7 @@ export const products_page_breadcrumb_data = [
   },
   {
     title: "Products",
-    href: "/products",
+    href: "/product/list",
   },
 ];
 
@@ -27,7 +27,7 @@ export const addProduct_page_breadcrumb_data = [
   },
   {
     title: "Products",
-    href: "/products",
+    href: "/product/list",
   },
 ];
 
@@ -38,7 +38,7 @@ export const editProduct_page_breadcrumb_data = [
   },
   {
     title: "Products",
-    href: "/products",
+    href: "/product/list",
   },
 ];
 
@@ -49,7 +49,7 @@ export const blogs_page_breadcrumb_data = [
   },
   {
     title: "Blogs",
-    href: "/blogs",
+    href: "/blog/list",
   },
 ];
 
@@ -60,7 +60,7 @@ export const addBlog_page_breadcrumb_data = [
   },
   {
     title: "Blogs",
-    href: "/blogs",
+    href: "/blog/list",
   },
 ];
 
@@ -71,6 +71,6 @@ export const editBlog_page_breadcrumb_data = [
   },
   {
     title: "Blogs",
-    href: "/blogs",
+    href: "/blog/list",
   },
 ];

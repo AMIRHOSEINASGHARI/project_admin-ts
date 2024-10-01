@@ -1,7 +1,7 @@
-import AddBlogPage from "@/components/pages/add-blog/AddBlogPage";
+import CreateBlogPage from "@/components/pages/management/blog/create/CreateBlogPage";
 
 const AddBlog = () => {
-  return <AddBlogPage />;
+  return <CreateBlogPage />;
 };
 
 export default AddBlog;

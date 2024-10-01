@@ -1,4 +1,4 @@
-import BankingPage from "@/components/pages/banking/BankingPage";
+import BankingPage from "@/components/pages/overview/banking/BankingPage";
 
 const Banking = () => {
   return <BankingPage />;

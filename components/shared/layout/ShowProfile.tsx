@@ -64,22 +64,22 @@ const ShowProfile = () => {
     {
       icon: <SolarUserCircleBoldDuotone />,
       name: "Profile",
-      href: "/account",
+      href: "/user/account",
     },
     {
       icon: <SolarChecklistMinimalisticBoldDuotone />,
-      name: "Tasks",
-      href: "/tasks",
+      name: "Kanban",
+      href: "/kanban",
     },
     {
       icon: <SolarHanger2BoldDuotone />,
       name: "Products",
-      href: "/products",
+      href: "/product/list",
     },
     {
       icon: <SolarAddFolderBoldDuotone />,
       name: "New Product",
-      href: "/add-product",
+      href: "/product/create",
     },
   ];
 

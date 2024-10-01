@@ -94,37 +94,37 @@ export const menuLinks = [
   {
     title: "User",
     image: <SolarUserCircleBoldDuotone />,
-    link: "/users",
+    link: "/user/list",
   },
   {
     title: "Product",
     image: <SolarHanger2BoldDuotone />,
-    link: "/products",
+    link: "/product/list",
   },
   {
     title: "Order",
     image: <SolarCartLarge4BoldDuotone />,
-    link: "/orders",
+    link: "/order/list",
   },
   {
     title: "Invoice",
     image: <SolarDocumentsBoldDuotone />,
-    link: "/invoice",
+    link: "/invoice/list",
   },
   {
     title: "Blog",
     image: <SolarTextFieldFocusBoldDuotone />,
-    link: "/blogs",
+    link: "/blog/list",
   },
   {
     title: "Job",
     image: <SolarMoneyBagBoldDuotone />,
-    link: "/jobs",
+    link: "/job/list",
   },
   {
     title: "Tour",
     image: <SolarGolfBoldDuotone />,
-    link: "/tours",
+    link: "/tour/list",
   },
   {
     title: "File manager",

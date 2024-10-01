@@ -1,13 +1,13 @@
-import ProductsPage from "@/components/pages/products/ProductsPage";
+import ProductsListPage from "@/components/pages/management/product/list/ProductsListPage";
 
 export const dynamic = "force-dynamic";
 
-const Products = ({
+const ProductsList = ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  return <ProductsPage searchParams={searchParams} />;
+  return <ProductsListPage searchParams={searchParams} />;
 };
 
-export default Products;
+export default ProductsList;

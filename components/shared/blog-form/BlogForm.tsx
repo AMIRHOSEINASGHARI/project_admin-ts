@@ -91,7 +91,7 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
       mutateCreate(values, {
         onSuccess: (data) => {
           toast.success(data?.message);
-          router.push("/blogs");
+          router.push("/blog/list");
         },
         onError: (error: any) => {
           toast.error(error.message);
@@ -110,7 +110,7 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
         {
           onSuccess: (data) => {
             toast.success(data?.message);
-            router.push(`/blogs/${blog?._id}`);
+            router.push(`/blog/${blog?._id}`);
           },
           onError: (error: any) => {
             toast.error(error.message);

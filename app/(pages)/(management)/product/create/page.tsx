@@ -1,7 +1,7 @@
-import AddProductPage from "@/components/pages/add-product/AddProductPage";
+import CreateProductPage from "@/components/pages/management/product/create/CreateProductPage";
 
 const CreateProduct = () => {
-  return <AddProductPage />;
+  return <CreateProductPage />;
 };
 
 export default CreateProduct;

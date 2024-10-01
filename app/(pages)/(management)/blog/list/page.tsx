@@ -1,7 +1,7 @@
-import BlogsPage from "@/components/pages/blogs/BlogsPage";
+import BlogsListPage from "@/components/pages/management/blog/list/BlogsListPage";
 
-const Blogs = () => {
-  return <BlogsPage />;
+const BlogsList = () => {
+  return <BlogsListPage />;
 };
 
-export default Blogs;
+export default BlogsList;

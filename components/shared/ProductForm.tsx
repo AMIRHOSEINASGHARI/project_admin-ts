@@ -46,12 +46,12 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Button } from "../ui/button";
 import View from "./layout/View";
-import ProductFileUploader from "../pages/add-product/ui/ProductFileUploader";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 import Editor from "../editor/Editor";
 import FormKeywords from "./FormKeywords";
 import Loader from "./Loader";
+import ProductFileUploader from "../pages/management/product/create/ui/ProductFileUploader";
 
 type ProductFormProps = {
   page: "add" | "edit";
@@ -108,7 +108,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
       mutateCreate(formData, {
         onSuccess: (data) => {
           toast.success(data?.message);
-          router.push("/products");
+          router.push("/product/list");
         },
         onError: (error: any) => {
           toast.error(error.message);
@@ -127,7 +127,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
         {
           onSuccess: (data) => {
             toast.success(data?.message);
-            router.push(`/products/${product?._id}`);
+            router.push(`/product/${product?._id}`);
           },
           onError: (error: any) => {
             toast.error(error.message);
