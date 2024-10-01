@@ -672,6 +672,27 @@ export const bookingPage_TotalIncomes_radialChartComponent_data = [
   },
 ];
 
+export const filePage_googleFilesCards_data = [
+  {
+    image: "/icons/files/dropbox.png",
+    title: "Dropbox",
+    totalSize: 22.35,
+    currentSize: 20.24,
+  },
+  {
+    image: "/icons/files/google-drive.png",
+    title: "Drive",
+    totalSize: 22.35,
+    currentSize: 4.47,
+  },
+  {
+    image: "/icons/files/onedrive.png",
+    title: "OneDrive",
+    totalSize: 22.35,
+    currentSize: 11.18,
+  },
+];
+
 export const coursePage_courseCards_data = [
   {
     value: 6,
