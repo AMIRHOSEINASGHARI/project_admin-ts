@@ -72,7 +72,7 @@ const SidebarAccordionLinks = ({
             <AccordionTrigger
               rootClassName="p-0 relative"
               className="w-full"
-              arrowClassName={`absolute right-1 dark:text-white ${arrowColor}`}
+              arrowClassName={`absolute right-2 dark:text-white ${arrowColor}`}
             >
               <SidebarMenuLink
                 key={item.trigger.title}

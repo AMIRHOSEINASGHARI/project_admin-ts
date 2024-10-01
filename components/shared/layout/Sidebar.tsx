@@ -32,10 +32,10 @@ const Sidebar = () => {
 
   const accordionStyles = {
     // className's of wrapper of accordion trigger: including it's text and arrow icon
-    rootClassName: "relative justify-start p-[8px] pt-[16px] pl-[20px] group",
+    rootClassName: "relative justify-start p-[8px] pt-[16px] pl-[18px] group",
     // className's of anything without arrow icon
     className: clsx(
-      "text-[11px] transform ml-[2px] group-hover:translate-x-[5px] group-hover:text-black dark:group-hover:text-white Transition font-medium uppercase tracking-tight text-gray-400 dark:text-slate-500",
+      "text-[11px] transform group-hover:translate-x-[5px] group-hover:text-black dark:group-hover:text-white Transition font-medium uppercase tracking-tight text-gray-400 dark:text-slate-500",
       {
         "text-slate-500 group-hover:text-white": navColor === "Apparent",
       }
@@ -57,14 +57,14 @@ const Sidebar = () => {
         className={`${sidebarBGColor} flex items-center justify-between fixed text-primary-1 border-r border-color p-4 top-0 w-[300px] z-20`}
       >
         <Link href="/dashboard" className="flex items-center gap-[10px]">
-          <LogoRegular className="ml-[20px] text-[40px]" />
+          <LogoRegular className="ml-[15px] text-[40px]" />
         </Link>
       </div>
       <Accordion
         type="single"
         defaultValue="Overview"
         collapsible
-        className="px-4 pt-[70px]"
+        className="px-3 pt-[70px]"
       >
         <AccordionItem value="Overview" className="border-none">
           <AccordionTrigger {...accordionStyles}>Overview</AccordionTrigger>
