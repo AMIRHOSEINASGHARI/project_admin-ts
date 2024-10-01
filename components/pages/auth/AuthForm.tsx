@@ -2,8 +2,6 @@
 
 // react
 import { useState } from "react";
-// next
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 // react query
 import { useMutation } from "@tanstack/react-query";
@@ -13,8 +11,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 // actions
 import { loginUser } from "@/actions/auth";
-// constants
-import { images } from "@/constants";
 // utils
 import { authFormSchema } from "@/utils/validators";
 // cmp
@@ -28,7 +24,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import DarkModeToggle from "@/components/shared/DarkModeToggle";
 import toast from "react-hot-toast";
 import Loader from "@/components/shared/Loader";
 // icons
@@ -37,6 +32,7 @@ import {
   SolarEyeBoldDuotone,
   SolarEyeClosedBoldDuotone,
 } from "@/components/svg";
+import { Card } from "@/components/ui/card";
 
 const AuthForm = () => {
   const router = useRouter();
@@ -71,20 +67,11 @@ const AuthForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex items-center gap-[150px] bg-white dark:bg-dark1 p-[30px]"
+        className="flex flex-col items-center justify-center h-screen p-4"
       >
-        <div className="max-xl:hidden bg-gray-100 dark:bg-dark2 rounded-3xl h-screen w-1/2 flex items-center justify-center">
-          <Image
-            src={images.authLogin}
-            priority
-            width={450}
-            height={450}
-            alt="auth-login"
-          />
-        </div>
-        <div className="max-xl:flex max-xl:justify-center max-xl:mt-16 max-xl:w-full">
+        <Card>
           <div className="sm:w-[400px]">
-            <div className="mb-[20px]">
+            <div className="mb-[20px] flex flex-col justify-center items-center">
               <LogoRegular className="text-[50px] text-primary-1" />
               <h1 className="text-gray-600 dark:text-light2 mb-[10px] font-bold text-2xl">
                 Welcome back! 👋🏻
@@ -155,12 +142,9 @@ const AuthForm = () => {
               >
                 {isLoading ? <Loader text="Sending data..." /> : "Submit"}
               </Button>
-              <div className="w-full flex justify-center">
-                <DarkModeToggle />
-              </div>
             </div>
           </div>
-        </div>
+        </Card>
       </form>
     </Form>
   );
