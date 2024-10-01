@@ -12,12 +12,12 @@ const FilePage = () => {
     <View orientation="vertical">
       <GoogleFilesCards />
       <View variant="flex-gap">
-        <View orientation="vertical">
+        <View orientation="vertical" className="w-full xl:w-[70%]">
           <DataActivity />
           <Folders />
           <RecentFiles />
         </View>
-        <View orientation="vertical">
+        <View orientation="vertical" className="w-full xl:w-[30%]">
           <FilesSummary />
           <UpgradePlan />
         </View>

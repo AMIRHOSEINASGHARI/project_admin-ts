@@ -595,6 +595,40 @@ export const bookingpage_statistics_chartConfig = {
   },
 } satisfies ChartConfig;
 
+export const filePage_dataActivity_chartData = [
+  { month: "January", images: 10, media: 10, documents: 10, other: 10 },
+  { month: "February", images: 34, media: 34, documents: 34, other: 34 },
+  { month: "March", images: 13, media: 13, documents: 13, other: 13 },
+  { month: "April", images: 56, media: 56, documents: 56, mother: 56 },
+  { month: "May", images: 77, media: 77, documents: 77, other: 77 },
+  { month: "June", images: 88, media: 88, documents: 88, other: 88 },
+  { month: "July", images: 99, media: 99, documents: 99, other: 99 },
+  { month: "August", images: 77, media: 77, documents: 77, other: 77 },
+  { month: "September", images: 45, media: 45, documents: 45, other: 45 },
+  { month: "October", images: 12, media: 12, documents: 12, other: 12 },
+  { month: "November", images: 43, media: 43, documents: 43, other: 43 },
+  { month: "December", images: 34, media: 34, documents: 34, other: 34 },
+];
+
+export const filePage_dataActivity_chartConfig = {
+  images: {
+    label: "Images",
+    color: "var(--primary-1)",
+  },
+  media: {
+    label: "Media",
+    color: "var(--chart-rose)",
+  },
+  documents: {
+    label: "documents",
+    color: "var(--chart-amber)",
+  },
+  other: {
+    label: "other",
+    color: "var(--ghost)",
+  },
+} satisfies ChartConfig;
+
 export const coursePage_hoursSpent_chartData = (
   status: ChartShowStatusType
 ) => {
