@@ -68,9 +68,9 @@ const AuthForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center h-screen p-6"
+        className="fixed z-40 w-full flex flex-col items-center justify-center h-screen p-6"
       >
-        <Card>
+        <Card className="shadow-none dark:shadow-dark">
           <div className="sm:w-[400px]">
             <div className="mb-[20px] flex flex-col justify-center items-center">
               <LogoRegular className="text-[50px] text-primary-1" />

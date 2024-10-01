@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { getServerSession } from "@/utils/session";
 // cmp
 import AuthPageHeader from "@/components/pages/auth/ui/AuthPageHeader";
+import AuthPageBackground from "@/components/pages/auth/ui/AuthPageBackground";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   const session = getServerSession();
@@ -14,6 +15,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <AuthPageHeader />
+      <AuthPageBackground />
       <main>{children}</main>
     </div>
   );
