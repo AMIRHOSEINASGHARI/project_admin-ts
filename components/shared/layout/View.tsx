@@ -14,7 +14,7 @@ const View = ({
 }) => {
   return (
     <div
-      className={clsx(className || "", {
+      className={clsx("w-full", className || "", {
         "space-y-5": orientation === "vertical",
         "space-x-5": orientation === "horizental",
         "flex flex-wrap gap-5": variant === "flex-wrap",

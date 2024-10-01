@@ -1,7 +1,7 @@
-import React from "react";
+import FilePage from "@/components/pages/overview/file/FilePage";
 
 const File = () => {
-  return <div>File</div>;
+  return <FilePage />;
 };
 
 export default File;
