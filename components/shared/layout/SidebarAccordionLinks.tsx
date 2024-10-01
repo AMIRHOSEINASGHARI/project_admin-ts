@@ -38,6 +38,11 @@ const SidebarAccordionLinks = ({
     setActiveLink(accordionValue);
   }, [pathname]);
 
+  const arrowColor =
+    navColor === "Integrate"
+      ? "text-black dark:text-white"
+      : "text-white dark:text-white";
+
   return (
     <ul>
       <Accordion
@@ -55,7 +60,7 @@ const SidebarAccordionLinks = ({
             <AccordionTrigger
               rootClassName="p-0 relative"
               className="w-full"
-              arrowClassName="absolute right-1"
+              arrowClassName={`absolute right-1 dark:text-white ${arrowColor}`}
             >
               <SidebarMenuLink
                 key={item.trigger.title}

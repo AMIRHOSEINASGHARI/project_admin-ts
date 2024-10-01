@@ -205,7 +205,7 @@
   @apply text-slate-500 text-[12px];
 }
 .username {
-  @apply text-[14px] font-medium;
+  @apply text-[14px] font-medium dark:text-white;
 }
 .card_title {
   @apply text-[14px] font-medium;
