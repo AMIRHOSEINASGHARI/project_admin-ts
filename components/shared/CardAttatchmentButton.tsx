@@ -9,7 +9,7 @@ const CardAttatchmentButton = ({
   title = "View all",
   icon = <AngleRightRegular className="text-lg" />,
   href = "#",
-  variant = "link",
+  variant = "action",
 }: {
   title?: string;
   icon?: JSX.Element;
@@ -22,6 +22,7 @@ const CardAttatchmentButton = ({
     | "secondary"
     | "ghost"
     | "link"
+    | "action"
     | null
     | undefined;
 }) => {
