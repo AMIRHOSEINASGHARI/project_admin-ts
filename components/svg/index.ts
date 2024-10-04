@@ -60,6 +60,7 @@ export { default as ShieldRegular } from "../../public/icons/ShieldRegular.svg";
 export { default as ShieldFill } from "../../public/icons/shield-fill.svg";
 export { default as ShopRegular } from "../../public/icons/ShopRegular.svg";
 export { default as SidebarRegular } from "../../public/icons/SidebarRegular.svg";
+export { default as StarFill } from "../../public/icons/StarFill.svg";
 export { default as StarRegular } from "../../public/icons/StarRegular.svg";
 export { default as SunRegular } from "../../public/icons/SunRegular.svg";
 export { default as TelegramRegular } from "../../public/icons/TelegramRegular.svg";
@@ -219,3 +220,18 @@ export { default as EditorSetLink } from "../../public/icons/editor/editor-set-l
 export { default as EditorSetUnlink } from "../../public/icons/editor/editor-set-unlink.svg";
 export { default as EditorSetClearNodes } from "../../public/icons/editor/editor-set-clear-nodes.svg";
 export { default as EditorSetHardBreak } from "../../public/icons/editor/editor-set-hard-break.svg";
+// files icons
+export { default as IcAi } from "../../public/icons/files/ic-ai.svg";
+export { default as IcAudio } from "../../public/icons/files/ic-audio.svg";
+export { default as IcDocument } from "../../public/icons/files/ic-document.svg";
+export { default as IcExcel } from "../../public/icons/files/ic-excel.svg";
+export { default as IcFile } from "../../public/icons/files/ic-file.svg";
+export { default as IcFolder } from "../../public/icons/files/ic-folder.svg";
+export { default as IcImg } from "../../public/icons/files/ic-img.svg";
+export { default as IcPdf } from "../../public/icons/files/ic-pdf.svg";
+export { default as IcPowerPoint } from "../../public/icons/files/ic-power_point.svg";
+export { default as IcPts } from "../../public/icons/files/ic-pts.svg";
+export { default as IcTxt } from "../../public/icons/files/ic-txt.svg";
+export { default as IcVideo } from "../../public/icons/files/ic-video.svg";
+export { default as IcWord } from "../../public/icons/files/ic-word.svg";
+export { default as IcZip } from "../../public/icons/files/ic-zip.svg";

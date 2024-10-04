@@ -38,9 +38,12 @@ import {
   SolarLetterOpenedBoldDuotone,
   SolarChatSquareCallBoldDuotone,
   SolarDocumentAddBoldDuotone,
+  IcFolder,
+  IcImg,
 } from "@/components/svg";
 // mock
 import { fakeUsers } from "@/mock/users";
+import { File } from "@/types/shared";
 
 export const images = {
   authLogin: "/images/auth-login.png",
@@ -1018,5 +1021,85 @@ export const blogDetailsPage_comments = [
     user: fakeUsers[7],
     date: "19 Sep 2024",
     text: "She gazed up at the night sky, marveling at the twinkling stars that dotted the darkness.",
+  },
+];
+
+export const files: File[] = [
+  {
+    id: "1",
+    type: "folder",
+    icon: <IcFolder />,
+    image: null,
+    important: true,
+    modified: new Date("04 Oct 2024"),
+    name: "Docs",
+    size: "2.24 Gb",
+    tags: ["Technology", "Travel", "Health and Wellness"],
+  },
+  {
+    id: "2",
+    type: "folder",
+    icon: <IcFolder />,
+    image: null,
+    important: false,
+    modified: new Date("29 Sep 2024"),
+    name: "Foods",
+    size: "381.47 Mb",
+    tags: ["Technology", "Travel", "Health and Wellness"],
+  },
+  {
+    id: "3",
+    type: "folder",
+    icon: <IcFolder />,
+    image: null,
+    important: false,
+    modified: new Date("03 Oct 2024"),
+    name: "Projects",
+    size: "1.12 Gb",
+    tags: ["Technology", "Travel", "Health and Wellness"],
+  },
+  {
+    id: "4",
+    type: "folder",
+    icon: <IcFolder />,
+    image: null,
+    important: false,
+    modified: new Date("30 Sep 2024"),
+    name: "Sport",
+    size: "457.76 Mb",
+    tags: ["Technology", "Travel", "Health and Wellness"],
+  },
+  {
+    id: "5",
+    type: "folder",
+    icon: <IcFolder />,
+    image: null,
+    important: true,
+    modified: new Date("01 Oct 2024"),
+    name: "Training",
+    size: "572.2 Mb",
+    tags: ["Technology", "Travel", "Health and Wellness"],
+  },
+  {
+    id: "6",
+    type: "folder",
+    icon: <IcFolder />,
+    image: null,
+    important: false,
+    modified: new Date("02 Oct 2024"),
+    name: "Work",
+    size: "762.94 Mb",
+    tags: ["Technology", "Travel", "Health and Wellness"],
+  },
+  {
+    id: "7",
+    type: "jpg",
+    icon: <IcImg />,
+    image: "/images/covers/cover_12.jpg",
+    important: true,
+    modified: new Date("02 Oct 2024"),
+    name: "cover-12.jpg",
+    size: "2.08 Mb",
+    tags: ["Technology", "Travel", "Health and Wellness"],
   },
 ];

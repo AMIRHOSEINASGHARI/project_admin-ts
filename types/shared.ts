@@ -56,3 +56,32 @@ export type ActiveNodes =
   | "align-center"
   | "align-right"
   | "justify";
+
+export type FileType =
+  | "folder"
+  | "jpg"
+  | "mp3"
+  | "mp4"
+  | "iso"
+  | "ppt"
+  | "docx"
+  | "esp"
+  | "xlsx"
+  | "ai"
+  | "rar"
+  | "txt"
+  | "zip"
+  | "pdf"
+  | "psd";
+
+export type File = {
+  id: string;
+  type: FileType;
+  icon: JSX.Element;
+  name: string;
+  size: string;
+  modified: Date;
+  important: boolean;
+  image: string | null;
+  tags: string[];
+};
