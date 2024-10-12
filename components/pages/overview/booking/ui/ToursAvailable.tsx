@@ -28,7 +28,7 @@ const ToursAvailable = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>ToursAvailable</CardTitle>
+        <CardTitle>Tours available</CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer

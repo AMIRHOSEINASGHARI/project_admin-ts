@@ -1282,3 +1282,30 @@ export const files: File[] = [
     tags: ["important", "work", "shared"],
   },
 ];
+
+export const filePage_summary_data = [
+  {
+    title: "Images",
+    value: 223,
+    size: "11.18 Gb",
+    icon: <IcImg />,
+  },
+  {
+    title: "Media",
+    value: 223,
+    size: "4.47 Gb",
+    icon: <IcVideo />,
+  },
+  {
+    title: "Documents",
+    value: 223,
+    size: "11.18 Gb",
+    icon: <IcDocument />,
+  },
+  {
+    title: "Other",
+    value: 223,
+    size: "2.24 Gb",
+    icon: <IcFile />,
+  },
+];
