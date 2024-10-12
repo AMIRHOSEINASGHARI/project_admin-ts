@@ -5,7 +5,6 @@ import DataActivity from "./ui/DataActivity";
 import Folders from "./ui/Folders";
 import RecentFiles from "./ui/RecentFiles";
 import FilesSummary from "./ui/FilesSummary";
-import UpgradePlan from "./ui/UpgradePlan";
 
 const FilePage = () => {
   return (
@@ -19,7 +18,6 @@ const FilePage = () => {
         </View>
         <View orientation="vertical" className="w-full xl:w-[30%]">
           <FilesSummary />
-          <UpgradePlan />
         </View>
       </View>
     </View>
