@@ -1,9 +1,9 @@
 "use client";
 
-import { fetchSession } from "@/providers/queries";
 // react query
 import { useQuery } from "@tanstack/react-query";
 // services
+import { fetchSession } from "@/services/queries";
 
 const useSession = () => {
   const { data, isLoading, isError, error } = useQuery({
