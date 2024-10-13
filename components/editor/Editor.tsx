@@ -1,5 +1,7 @@
 "use client";
 
+// types
+import { EditorProps } from "@/types/components";
 // Tiptap base
 import { useEditor, EditorContent } from "@tiptap/react";
 // Tiptap extensions
@@ -12,11 +14,6 @@ import Link from "@tiptap/extension-link";
 import EditorToolbar from "./plugins/EditorToolbar";
 // styles
 import "./styles/editor-styles.css";
-
-type EditorProps = {
-  content: string;
-  onFieldChange: (value: string) => void;
-};
 
 const Editor = ({ content, onFieldChange }: EditorProps) => {
   const editor = useEditor({

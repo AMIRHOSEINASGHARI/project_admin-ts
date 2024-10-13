@@ -1,7 +1,7 @@
 // next
 import Link from "next/link";
 // types
-import { MenuLinksProps } from "@/types/shared";
+import { MenuLinksProps } from "@/types/components";
 // cmp
 import clsx from "clsx";
 

@@ -28,20 +28,6 @@ export type RecentTransitionsTableData = {
 
 export type ChartShowStatusType = "Weekly" | "Monthly" | "Yearly";
 
-export type PageSearchParams = {
-  [key: string]: string | string[] | undefined;
-};
-
-export type MenuLinksProps = {
-  title: string;
-  pathname: string;
-  navColor: NavColor | null;
-  link: string;
-  image: JSX.Element;
-  isLink?: boolean;
-  onClick?: () => void;
-};
-
 export type HeadingNodes = 1 | 2 | 3 | 4 | 5 | 6;
 
 export type ActiveNodes =

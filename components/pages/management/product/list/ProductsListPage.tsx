@@ -3,7 +3,7 @@ import Link from "next/link";
 // actions
 import { getProducts } from "@/actions/product";
 // types
-import { PageSearchParams } from "@/types/shared";
+import { PageSearchParams } from "@/types/components";
 // constants
 import { products_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // cmp
