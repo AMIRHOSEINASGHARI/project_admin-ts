@@ -17,6 +17,16 @@ const adminSchema = new Schema({
     default: () => Date.now(),
     immutabale: true,
   },
+  state: { type: String, default: "" },
+  city: { type: String, default: "" },
+  company: { type: String, default: "" },
+  zipcode: { type: Number, default: 0 },
+  status: {
+    type: String,
+    default: "Pending",
+    enum: ["Active", "Pending", "Banned", "Rejected"],
+  },
+  about: { type: String, default: "" },
 });
 
 const AdminModel = models?.Admin || model("Admin", adminSchema);

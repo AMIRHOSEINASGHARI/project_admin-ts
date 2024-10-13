@@ -1,6 +1,12 @@
 // cmp
 import View from "@/components/shared/layout/View";
-import { Card } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
 const ProfileTab = () => {
@@ -8,6 +14,7 @@ const ProfileTab = () => {
     <View variant="flex-gap">
       <View orientation="vertical" className="w-full xl:w-[35%]">
         <FollowersBox />
+        <AboutBox />
       </View>
     </View>
   );
@@ -27,6 +34,21 @@ const FollowersBox = () => {
         <span className="bold-value">9,124</span>
         <span className="text-[var(--text-disabled)] text-sm">Following</span>
       </div>
+    </Card>
+  );
+};
+
+const AboutBox = () => {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="mb-6">About</CardTitle>
+        <CardDescription className="text-black dark:text-white">
+          Tart I love sugar plum I love oat cake. Sweet roll caramels I love
+          jujubes. Topping cake wafer..
+        </CardDescription>
+      </CardHeader>
+      <CardContent>adw</CardContent>
     </Card>
   );
 };
