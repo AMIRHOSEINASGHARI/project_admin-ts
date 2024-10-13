@@ -1,7 +1,7 @@
-import React from "react";
+import ProfilePage from "@/components/pages/management/user/profile/ProfilePage";
 
 const Profile = () => {
-  return <div>Profile</div>;
+  return <ProfilePage />;
 };
 
 export default Profile;

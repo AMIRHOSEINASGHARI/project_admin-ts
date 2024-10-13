@@ -64,7 +64,7 @@ const Sidebar = () => {
         type="single"
         defaultValue="Overview"
         collapsible
-        className="px-3 pt-[70px]"
+        className="px-4 pt-[70px]"
       >
         <AccordionItem value="Overview" className="border-none">
           <AccordionTrigger {...accordionStyles}>Overview</AccordionTrigger>

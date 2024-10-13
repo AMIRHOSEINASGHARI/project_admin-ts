@@ -74,3 +74,14 @@ export const editBlog_page_breadcrumb_data = [
     href: "/blog/list",
   },
 ];
+
+export const user_profile_page_breadcrumb_data = [
+  {
+    title: "Dashboard",
+    href: "/dashboard",
+  },
+  {
+    title: "User",
+    href: "/user/list",
+  },
+];
