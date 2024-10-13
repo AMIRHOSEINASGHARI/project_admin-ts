@@ -1,3 +1,5 @@
+"use client";
+
 // cmp
 import View from "@/components/shared/layout/View";
 import {

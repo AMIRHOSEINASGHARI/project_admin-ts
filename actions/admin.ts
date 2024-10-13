@@ -1,4 +1,4 @@
-"use server";
+// "use server";
 
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
@@ -10,14 +10,14 @@ import { AdminType } from "@/types/admin";
 import connectDB from "@/utils/connectDB";
 import { getServerSession } from "@/utils/session";
 
-const getCurrentAdmin = async () => {
+export const getCurrentAdmin = async () => {
   try {
     await connectDB();
 
     const session = getServerSession();
 
     const admin = await AdminModel.findById(session?.userId)
-      .select("username name email about city company")
+      .select("-password")
       .lean<AdminType>();
 
     if (!admin) {
