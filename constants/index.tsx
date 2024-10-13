@@ -52,6 +52,10 @@ import {
   IcPowerPoint,
   IcDocument,
   IcWord,
+  SolarUserCdBoldDuotone,
+  SolarHeartBold,
+  SolarUsersGroupRoundedBoldDuotone,
+  SolarAddImageBold,
 } from "@/components/svg";
 // mock
 import { fakeUsers } from "@/mock/users";
@@ -1307,5 +1311,32 @@ export const filePage_summary_data = [
     value: 223,
     size: "2.24 Gb",
     icon: <IcFile />,
+  },
+];
+
+export const profilePage_tabs_data = [
+  {
+    value: "profile",
+    title: "Profile",
+    icon: <SolarUserCdBoldDuotone className="icon" />,
+    content: "Profile tab",
+  },
+  {
+    value: "followers",
+    title: "Followers",
+    icon: <SolarHeartBold className="icon" />,
+    content: "Followers tab",
+  },
+  {
+    value: "friends",
+    title: "Friends",
+    icon: <SolarUsersGroupRoundedBoldDuotone className="icon" />,
+    content: "Friends tab",
+  },
+  {
+    value: "gallery",
+    title: "Gallery",
+    icon: <SolarAddImageBold className="icon" />,
+    content: "Gallery tab",
   },
 ];

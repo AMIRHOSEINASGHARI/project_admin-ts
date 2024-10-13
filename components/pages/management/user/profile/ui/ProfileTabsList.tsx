@@ -2,19 +2,15 @@
 import Image from "next/image";
 // types
 import { ProfileTabsListProps } from "@/types/components";
+// constants
+import { profilePage_tabs_data } from "@/constants";
 // cmp
-import {
-  SolarAddImageBold,
-  SolarHeartBold,
-  SolarUserCdBoldDuotone,
-  SolarUsersGroupRoundedBoldDuotone,
-} from "@/components/svg";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const ProfileTabsList = ({ name, avatar, roll }: ProfileTabsListProps) => {
   return (
-    <Tabs defaultValue="account">
+    <Tabs defaultValue={profilePage_tabs_data[0].value}>
       <Card
         className="h-[290px] w-full relative overflow-hidden"
         style={{
@@ -50,35 +46,25 @@ const ProfileTabsList = ({ name, avatar, roll }: ProfileTabsListProps) => {
         </div>
         <div className="bg-white flex items-center justify-center xl:justify-end dark:bg-dark3 absolute z-20 bottom-0 right-0 left-0 w-full px-card">
           <TabsList className="bg-transparent flex items-center gap-5 w-fit">
-            <TabsTrigger
-              value="profile"
-              className="bg-transparent flex items-center gap-2 py-3 border-b-2 border-transparent data-[state=active]:border-black dark:data-[state=active]:border-white dark:data-[state=active]:bg-transparent data-[state=active]:text-black dark:data-[state=active]:text-white rounded-none"
-            >
-              <SolarUserCdBoldDuotone className="icon" /> Profile
-            </TabsTrigger>
-            <TabsTrigger
-              value="followers"
-              className="bg-transparent flex items-center gap-2 py-3 border-b-2 border-transparent data-[state=active]:border-black dark:data-[state=active]:border-white dark:data-[state=active]:bg-transparent data-[state=active]:text-black dark:data-[state=active]:text-white rounded-none"
-            >
-              <SolarHeartBold className="icon" /> Followers
-            </TabsTrigger>
-            <TabsTrigger
-              value="friends"
-              className="bg-transparent flex items-center gap-2 py-3 border-b-2 border-transparent data-[state=active]:border-black dark:data-[state=active]:border-white dark:data-[state=active]:bg-transparent data-[state=active]:text-black dark:data-[state=active]:text-white rounded-none"
-            >
-              <SolarUsersGroupRoundedBoldDuotone className="icon" /> Friends
-            </TabsTrigger>
-            <TabsTrigger
-              value="gallery"
-              className="bg-transparent flex items-center gap-2 py-3 border-b-2 border-transparent data-[state=active]:border-black dark:data-[state=active]:border-white dark:data-[state=active]:bg-transparent data-[state=active]:text-black dark:data-[state=active]:text-white rounded-none"
-            >
-              <SolarAddImageBold className="icon" /> Gallery
-            </TabsTrigger>
+            {profilePage_tabs_data.map(({ value, title, icon }) => (
+              <div key={value}>
+                <TabsTrigger
+                  value={value}
+                  className="bg-transparent flex items-center gap-2 py-3 border-b-2 border-transparent data-[state=active]:border-black dark:data-[state=active]:border-white dark:data-[state=active]:bg-transparent data-[state=active]:text-black dark:data-[state=active]:text-white rounded-none"
+                >
+                  {icon} {title}
+                </TabsTrigger>
+              </div>
+            ))}
           </TabsList>
         </div>
       </Card>
       <div className="mt-10">
-        <TabsContent value="profile">profile</TabsContent>
+        {profilePage_tabs_data.map(({ value, content }) => (
+          <TabsContent value={value} key={value}>
+            {content}
+          </TabsContent>
+        ))}
       </div>
     </Tabs>
   );
