@@ -1,3 +1,8 @@
+// cmp
+import FollowersTab from "@/components/pages/management/user/profile/ui/FollowersTab";
+import FriendsTab from "@/components/pages/management/user/profile/ui/FriendsTab";
+import GalleryTab from "@/components/pages/management/user/profile/ui/GalleryTab";
+import ProfileTab from "@/components/pages/management/user/profile/ui/ProfileTab";
 // icons
 import {
   ArrowTrendDownRegular,
@@ -1319,24 +1324,24 @@ export const profilePage_tabs_data = [
     value: "profile",
     title: "Profile",
     icon: <SolarUserCdBoldDuotone className="icon" />,
-    content: "Profile tab",
+    content: <ProfileTab />,
   },
   {
     value: "followers",
     title: "Followers",
     icon: <SolarHeartBold className="icon" />,
-    content: "Followers tab",
+    content: <FollowersTab />,
   },
   {
     value: "friends",
     title: "Friends",
     icon: <SolarUsersGroupRoundedBoldDuotone className="icon" />,
-    content: "Friends tab",
+    content: <FriendsTab />,
   },
   {
     value: "gallery",
     title: "Gallery",
     icon: <SolarAddImageBold className="icon" />,
-    content: "Gallery tab",
+    content: <GalleryTab />,
   },
 ];

@@ -12,7 +12,7 @@ const ProfileTabsList = ({ name, avatar, roll }: ProfileTabsListProps) => {
   return (
     <Tabs defaultValue={profilePage_tabs_data[0].value}>
       <Card
-        className="h-[290px] w-full relative overflow-hidden"
+        className="h-[290px] w-full relative overflow-hidden mb-10"
         style={{
           padding: 0,
         }}
@@ -59,7 +59,7 @@ const ProfileTabsList = ({ name, avatar, roll }: ProfileTabsListProps) => {
           </TabsList>
         </div>
       </Card>
-      <div className="mt-10">
+      <div>
         {profilePage_tabs_data.map(({ value, content }) => (
           <TabsContent value={value} key={value}>
             {content}
