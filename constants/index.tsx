@@ -61,11 +61,15 @@ import {
   SolarHeartBold,
   SolarUsersGroupRoundedBoldDuotone,
   SolarImages,
+  Facebook,
+  Instagram,
+  Twitter,
 } from "@/components/svg";
 // mock
 import { fakeUsers } from "@/mock/users";
 // types
 import { File } from "@/types/shared";
+import { Linkedin } from "lucide-react";
 
 export const images = {
   authLogin: "/images/auth-login.png",
@@ -1344,5 +1348,82 @@ export const profilePage_tabs_data = [
     title: "Gallery",
     icon: <SolarImages className="icon" />,
     content: <GalleryTab />,
+  },
+];
+
+export const profilePage_profileTab_socialBox_links = [
+  {
+    icon: <Facebook className="text-xl text-blue-500" />,
+    link: "https://www.facebook.com/caitlyn.kerluke",
+  },
+  {
+    icon: <Instagram className="text-xl text-rose-500" />,
+    link: "https://www.instagram.com/caitlyn.kerluke",
+  },
+  {
+    icon: <Linkedin className="text-xl text-blue-700" />,
+    link: "https://www.linkedin.com/in/caitlyn.kerluke",
+  },
+  {
+    icon: <Twitter className="text-xl text-black dark:text-white" />,
+    link: "https://www.twitter.com/caitlyn.kerluke",
+  },
+];
+
+export const profilePage_profileTab_postsBox_data = [
+  {
+    id: "1",
+    title:
+      "The sun slowly set over the horizon, painting the sky in vibrant hues of orange and pink.",
+    image: "/images/covers/cover_17.jpg",
+    likes: 20,
+    comments: [
+      {
+        id: "1",
+        avatar: "/images/avatars/avatar_10.jpg",
+        name: "Lainey Davidson",
+        comment: "Praesent venenatis metus at",
+        date: "12 Oct 2024",
+      },
+      {
+        id: "2",
+        avatar: "/images/avatars/avatar_15.jpg",
+        name: "Cristopher Cardenas",
+        comment:
+          "Etiam rhoncus. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed lectus.",
+        date: "11 Oct 2024",
+      },
+    ],
+  },
+  {
+    id: "2",
+    title: "She eagerly opened the gift, her eyes sparkling with excitement.",
+    image: "/images/covers/cover_15.jpg",
+    likes: 20,
+    comments: [
+      {
+        id: "1",
+        avatar: "/images/avatars/avatar_3.jpg",
+        name: "Cristopher Cardenas",
+        comment: "Praesent venenatis metus at",
+        date: "12 Oct 2024",
+      },
+      {
+        id: "2",
+        avatar: "/images/avatars/avatar_4.jpg",
+        name: "Melanie Noble",
+        comment:
+          "Etiam rhoncus. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed lectus.",
+        date: "11 Oct 2024",
+      },
+    ],
+  },
+  {
+    id: "3",
+    title:
+      "The old oak tree stood tall and majestic, its branches swaying gently in the breeze.",
+    image: "/images/covers/cover_20.jpg",
+    likes: 20,
+    comments: [],
   },
 ];
