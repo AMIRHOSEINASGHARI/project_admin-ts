@@ -60,7 +60,7 @@ import {
   SolarUserCdBoldDuotone,
   SolarHeartBold,
   SolarUsersGroupRoundedBoldDuotone,
-  SolarAddImageBold,
+  SolarImages,
 } from "@/components/svg";
 // mock
 import { fakeUsers } from "@/mock/users";
@@ -1342,7 +1342,7 @@ export const profilePage_tabs_data = [
   {
     value: "gallery",
     title: "Gallery",
-    icon: <SolarAddImageBold className="icon" />,
+    icon: <SolarImages className="icon" />,
     content: <GalleryTab />,
   },
 ];

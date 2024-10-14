@@ -12,6 +12,8 @@ import {
   SolarLetterBoldDuotone,
   SolarMapPointWaveBoldDuotone,
   Twitter,
+  SolarVideocameraRecordBoldDuotone,
+  SolarImages,
 } from "@/components/svg";
 import { Linkedin } from "lucide-react";
 // cmp
@@ -25,6 +27,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 const ProfileTab = () => {
   return (
@@ -33,6 +37,9 @@ const ProfileTab = () => {
         <FollowersBox />
         <AboutBox />
         <SocialBox />
+      </View>
+      <View orientation="vertical" className="w-full xl:w-[65%]">
+        <TextBox />
       </View>
     </View>
   );
@@ -178,6 +185,27 @@ const SocialBox = () => {
           ))}
         </ul>
       </CardContent>
+    </Card>
+  );
+};
+
+const TextBox = () => {
+  return (
+    <Card className="space-y-5">
+      <Textarea placeholder="Share what you are thinking here..." rows={5} />
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Button type="button" variant="ghost" className="rounded-full gap-2">
+            <SolarImages className="text-icon-size text-green-500" />
+            <span className="font-bold">Image/Video</span>
+          </Button>
+          <Button type="button" variant="ghost" className="rounded-full gap-2">
+            <SolarVideocameraRecordBoldDuotone className="text-icon-size text-rose-500" />
+            <span className="font-bold">Streaming</span>
+          </Button>
+        </div>
+        <Button type="button">Post</Button>
+      </div>
     </Card>
   );
 };
