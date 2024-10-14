@@ -109,3 +109,23 @@ export const blogFormSchema = z.object({
 export const blogAddCommentFormSchema = z.object({
   text: z.string().min(1, { message: "Comment is requiered!" }),
 });
+
+export const userFormSchema = z.object({
+  username: z.string().min(1, { message: "Username is requiered!" }),
+  password: z.string().min(1, { message: "Password is requiered!" }),
+  name: z.string().min(1, { message: "Name is requiered!" }),
+  email: z.string().min(1, { message: "Email is requiered!" }),
+  phoneNumber: z.number().min(1, { message: "Phone number is requiered!" }),
+  address: z.string().min(1, { message: "Address is requiered!" }),
+  country: z.string().min(1, { message: "Country is requiered!" }),
+  avatar: z
+    .string()
+    .url("Must be a valid image URL!")
+    .min(1, "Avatar is required"),
+  roll: z.string().min(1, { message: "Roll is requiered!" }),
+  state: z.string().min(1, { message: "State is requiered!" }),
+  city: z.string().min(1, { message: "City is requiered!" }),
+  company: z.string().min(1, { message: "Company is requiered!" }),
+  zipcode: z.number().min(1, { message: "Zipcode is requiered!" }),
+  status: z.string().min(1, { message: "Status is requiered!" }),
+});
