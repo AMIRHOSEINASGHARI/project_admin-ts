@@ -64,6 +64,7 @@ import {
 } from "@/components/svg";
 // mock
 import { fakeUsers } from "@/mock/users";
+// types
 import { File } from "@/types/shared";
 
 export const images = {

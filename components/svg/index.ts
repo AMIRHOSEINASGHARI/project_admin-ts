@@ -74,6 +74,7 @@ export { default as UsersRegular } from "../../public/icons/UsersRegular.svg";
 export { default as Google } from "../../public/icons/Google.svg";
 export { default as Twitter } from "../../public/icons/Twitter.svg";
 export { default as Youtube } from "../../public/icons/Youtube.svg";
+export { default as Facebook } from "../../public/icons/Facebook.svg";
 export { default as Instagram } from "../../public/icons/Instagram.svg";
 export { default as ShapeSquare } from "../../public/icons/ShapeSquare.svg";
 export { default as Paypal } from "../../public/icons/ic--baseline-paypal.svg";

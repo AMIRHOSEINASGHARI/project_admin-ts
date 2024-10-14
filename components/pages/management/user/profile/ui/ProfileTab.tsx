@@ -4,14 +4,19 @@
 import { fetchCurrentAdmin } from "@/services/queries";
 // react query
 import { useQuery } from "@tanstack/react-query";
-// cmp
-import View from "@/components/shared/layout/View";
-import Loader from "@/components/shared/Loader";
+// icons
 import {
+  Facebook,
+  Instagram,
   SolarDocumentsBoldDuotone,
   SolarLetterBoldDuotone,
   SolarMapPointWaveBoldDuotone,
+  Twitter,
 } from "@/components/svg";
+import { Linkedin } from "lucide-react";
+// cmp
+import Loader from "@/components/shared/Loader";
+import View from "@/components/shared/layout/View";
 import {
   Card,
   CardContent,
@@ -27,6 +32,7 @@ const ProfileTab = () => {
       <View orientation="vertical" className="w-full xl:w-[35%]">
         <FollowersBox />
         <AboutBox />
+        <SocialBox />
       </View>
     </View>
   );
@@ -128,6 +134,50 @@ const AboutBox = () => {
           </CardContent>
         </>
       )}
+    </Card>
+  );
+};
+
+const SocialBox = () => {
+  const links = [
+    {
+      icon: <Facebook className="text-xl text-blue-500" />,
+      link: "https://www.facebook.com/caitlyn.kerluke",
+    },
+    {
+      icon: <Instagram className="text-xl text-rose-500" />,
+      link: "https://www.instagram.com/caitlyn.kerluke",
+    },
+    {
+      icon: <Linkedin className="text-xl text-blue-700" />,
+      link: "https://www.linkedin.com/in/caitlyn.kerluke",
+    },
+    {
+      icon: <Twitter className="text-xl text-black dark:text-white" />,
+      link: "https://www.twitter.com/caitlyn.kerluke",
+    },
+  ];
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Social</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ul className="space-y-5">
+          {links.map(({ icon, link }) => (
+            <li
+              key={link}
+              className="flex items-center gap-5 overflow-hidden w-full"
+            >
+              <div className="w-7 h-7 flex items-center justify-center">
+                {icon}
+              </div>
+              <p className="line-clamp-3 text-sm hover:underline">{link}</p>
+            </li>
+          ))}
+        </ul>
+      </CardContent>
     </Card>
   );
 };
