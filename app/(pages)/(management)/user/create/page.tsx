@@ -1,7 +1,7 @@
-import React from "react";
+import CreateUserPage from "@/components/pages/management/user/create/CreateUserPage";
 
 const CreateUser = () => {
-  return <div>CreateUser</div>;
+  return <CreateUserPage />;
 };
 
 export default CreateUser;

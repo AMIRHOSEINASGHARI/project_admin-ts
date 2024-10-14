@@ -2,11 +2,11 @@
 import { getServerSession } from "@/utils/session";
 // constants
 import { user_profile_page_breadcrumb_data } from "@/constants/breadcrumbs";
+import { images } from "@/constants";
 // cmp
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
 import ProfileTabsList from "./ui/ProfileTabsList";
-import { images } from "@/constants";
 
 const ProfilePage = () => {
   const session = getServerSession();
