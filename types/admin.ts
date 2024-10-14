@@ -27,4 +27,5 @@ export type AdminType = Document & {
   zipcode: number;
   status: AdminStatus;
   about: string;
+  isVerified: boolean;
 };

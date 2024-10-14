@@ -1,3 +1,5 @@
+// react
+import { Dispatch, SetStateAction } from "react";
 // types
 import { AdminRoll, AdminType } from "./admin";
 import { NavColor } from "./shared";
@@ -30,4 +32,22 @@ export type EditorProps = {
 export type UserFormPorps = {
   type: "create" | "edit";
   user?: AdminType;
+};
+
+export type BlogFileUploaderProps = {
+  onFieldChange: (value: File[] | string) => void;
+  files: File[];
+  setFiles: Dispatch<SetStateAction<File[]>>;
+  cover: string;
+  setCover: Dispatch<SetStateAction<string>>;
+};
+
+export type AvatarFileUploaderProps = {
+  onFieldChange: (value: File[] | string) => void;
+  files: File[];
+  setFiles: Dispatch<SetStateAction<File[]>>;
+  avatar: string;
+  setAvatar: Dispatch<SetStateAction<string>>;
+  isVerified: boolean;
+  setIsVerified: Dispatch<SetStateAction<boolean>>;
 };

@@ -27,6 +27,7 @@ const adminSchema = new Schema({
     enum: ["Active", "Pending", "Banned", "Rejected"],
   },
   about: { type: String, default: "" },
+  isVerified: { type: Boolean, default: true },
 });
 
 const AdminModel = models?.Admin || model("Admin", adminSchema);

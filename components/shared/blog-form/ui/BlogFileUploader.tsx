@@ -1,13 +1,7 @@
 "use client";
 
 // react
-import {
-  Dispatch,
-  MouseEvent,
-  SetStateAction,
-  useCallback,
-  useState,
-} from "react";
+import { MouseEvent, useCallback, useState } from "react";
 // next
 import Image from "next/image";
 // uploadthing
@@ -15,6 +9,8 @@ import { useDropzone } from "@uploadthing/react";
 import { generateClientDropzoneAccept } from "uploadthing/client";
 // utils / uploadthing
 import { useUploadThing } from "@/utils/uploadthing";
+// types
+import { BlogFileUploaderProps } from "@/types/components";
 // cmp
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -24,14 +20,6 @@ import clsx from "clsx";
 import toast from "react-hot-toast";
 // icons
 import { CrossRegular, SolarCloudUploadBoldDuotone } from "../../../svg";
-
-type BlogFileUploaderProps = {
-  onFieldChange: (value: File[] | string) => void;
-  files: File[];
-  setFiles: Dispatch<SetStateAction<File[]>>;
-  cover: string;
-  setCover: Dispatch<SetStateAction<string>>;
-};
 
 const BlogFileUploader = ({
   cover,

@@ -1,5 +1,7 @@
 "use client";
 
+// react
+import { useState } from "react";
 // react query
 import { useMutation } from "@tanstack/react-query";
 // z - hook-form
@@ -30,6 +32,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 const UserForm = ({ type, user }: UserFormPorps) => {
+  const [files, setFiles] = useState<File[]>([]);
+  const [avatar, setAvatar] = useState<string>(user?.avatar || "");
+  const [isVerified, setIsVerified] = useState<boolean>(true);
+
   const formDefaultValues = {
     username: user?.username || "",
     password: user?.password || "",
@@ -60,7 +66,26 @@ const UserForm = ({ type, user }: UserFormPorps) => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <View variant="flex-gap">
-          <UploadAvatar />
+          <FormField
+            control={form.control}
+            name="avatar"
+            render={({ field }) => (
+              <FormItem className="w-full xl:w-[35%]">
+                <FormControl>
+                  <UploadAvatar
+                    avatar={avatar}
+                    setAvatar={setAvatar}
+                    files={files}
+                    setFiles={setFiles}
+                    onFieldChange={field.onChange}
+                    isVerified={isVerified}
+                    setIsVerified={setIsVerified}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <Card className="w-full xl:w-[65%]">others</Card>
         </View>
       </form>
