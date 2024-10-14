@@ -1427,3 +1427,22 @@ export const profilePage_profileTab_postsBox_data = [
     comments: [],
   },
 ];
+
+export const profilePage_friendsTab_social_data = [
+  {
+    id: "Facebook",
+    icon: <Facebook className="text-xl text-blue-500" />,
+  },
+  {
+    id: "Instagram",
+    icon: <Instagram className="text-xl text-rose-500" />,
+  },
+  {
+    id: "Linkedin",
+    icon: <Linkedin className="text-xl text-blue-700" />,
+  },
+  {
+    id: "Twitter",
+    icon: <Twitter className="text-xl text-black dark:text-white" />,
+  },
+];
