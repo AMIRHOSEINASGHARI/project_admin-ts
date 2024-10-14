@@ -50,4 +50,5 @@ export type AvatarFileUploaderProps = {
   setAvatar: Dispatch<SetStateAction<string>>;
   isVerified: boolean;
   setIsVerified: Dispatch<SetStateAction<boolean>>;
+  formMessage: JSX.Element;
 };

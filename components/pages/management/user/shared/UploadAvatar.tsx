@@ -29,6 +29,7 @@ const UploadAvatar = ({
   onFieldChange,
   isVerified,
   setIsVerified,
+  formMessage,
 }: AvatarFileUploaderProps) => {
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
@@ -75,7 +76,7 @@ const UploadAvatar = ({
       <div {...getRootProps()} className="my-10">
         <Input {...getInputProps()} multiple={false} disabled={isUploading} />
         <div className="group flex flex-col w-full items-center justify-center gap-7 cursor-pointer">
-          <div className="border border-border-light dark:border-border-dark w-[130px] h-[130px] rounded-full p-2 relative">
+          <div className="border border-dashed border-border-light dark:border-border-dark w-[140px] h-[140px] rounded-full p-2 relative">
             {files.length === 0 && avatar?.length === 0 && (
               <div className="bg-light2 dark:bg-dark3 rounded-full flex gap-2 items-center flex-col justify-center w-full h-full">
                 <SolarCloudUploadBoldDuotone className="text-icon-light dark:text-icon-dark text-[35px]" />
@@ -114,6 +115,7 @@ const UploadAvatar = ({
           <span className="text_disabled text-center max-w-[200px]">
             Allowed *.jpeg, *.jpg, *.png, *.webp max size of 4 Mb
           </span>
+          <div className="-mt-7">{formMessage}</div>
         </div>
       </div>
       <div>

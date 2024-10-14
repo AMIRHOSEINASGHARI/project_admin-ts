@@ -128,4 +128,5 @@ export const userFormSchema = z.object({
   company: z.string().min(1, { message: "Company is requiered!" }),
   zipcode: z.number().min(1, { message: "Zipcode is requiered!" }),
   status: z.string().min(1, { message: "Status is requiered!" }),
+  isVerified: z.boolean(),
 });

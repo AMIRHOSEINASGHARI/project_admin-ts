@@ -11,7 +11,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 // utils
 import { userFormSchema } from "@/utils/validators";
 // types
-import { AdminType } from "@/types/admin";
 import { UserFormPorps } from "@/types/components";
 // cmp
 import View from "@/components/shared/layout/View";
@@ -34,7 +33,9 @@ import { Card } from "@/components/ui/card";
 const UserForm = ({ type, user }: UserFormPorps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [avatar, setAvatar] = useState<string>(user?.avatar || "");
-  const [isVerified, setIsVerified] = useState<boolean>(true);
+  const [isVerified, setIsVerified] = useState<boolean>(
+    user ? user?.isVerified : true
+  );
 
   const formDefaultValues = {
     username: user?.username || "",
@@ -51,6 +52,7 @@ const UserForm = ({ type, user }: UserFormPorps) => {
     company: user?.company || "",
     zipcode: user?.zipcode || 0,
     status: user?.status || "",
+    isVerified,
   };
 
   const form = useForm<z.infer<typeof userFormSchema>>({
@@ -80,13 +82,183 @@ const UserForm = ({ type, user }: UserFormPorps) => {
                     onFieldChange={field.onChange}
                     isVerified={isVerified}
                     setIsVerified={setIsVerified}
+                    formMessage={<FormMessage />}
                   />
                 </FormControl>
-                <FormMessage />
               </FormItem>
             )}
           />
-          <Card className="w-full xl:w-[65%]">others</Card>
+          <Card className="h-fit w-full xl:w-[65%]">
+            <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-5">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Name" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Username" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Password" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        placeholder="Email address"
+                        type="email"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="phoneNumber"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        placeholder="Phone number"
+                        type="number"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="country"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Country" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="state"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="State/region" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="city"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="City" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="address"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Address" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="zipcode"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Zipcode" type="number" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="company"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Company" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="roll"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Roll" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="mt-5 flex justify-end">
+              <Button
+                type="submit"
+                className="font-bold min-w-[100px]"
+                // disabled={isCreating || isEditing}
+              >
+                {false ? (
+                  <Loader />
+                ) : type === "create" ? (
+                  "Create user"
+                ) : (
+                  "Edit user"
+                )}
+              </Button>
+            </div>
+          </Card>
         </View>
       </form>
     </Form>
