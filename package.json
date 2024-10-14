@@ -58,6 +58,7 @@
     "react-hook-form": "^7.52.2",
     "react-hot-toast": "^2.4.1",
     "react-loader-spinner": "^6.1.6",
+    "react-phone-number-input": "^3.4.8",
     "recharts": "^2.12.7",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",

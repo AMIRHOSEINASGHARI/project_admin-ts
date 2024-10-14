@@ -13,7 +13,7 @@ export type AdminType = Document & {
   password: string;
   name: string;
   email: string;
-  phoneNumber: string;
+  phoneNumber: number;
   address: string;
   country: string;
   avatar: string;

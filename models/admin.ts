@@ -5,7 +5,7 @@ const adminSchema = new Schema({
   password: { type: String, required: true },
   name: { type: String, required: true },
   email: { type: String, default: "" },
-  phoneNumber: { type: String, default: "" },
+  phoneNumber: { type: Number, default: 0 },
   address: { type: String, default: "" },
   country: { type: String, default: "" },
   avatar: { type: String, default: "" },

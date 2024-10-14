@@ -1,5 +1,5 @@
 // types
-import { AdminRoll } from "./admin";
+import { AdminRoll, AdminType } from "./admin";
 import { NavColor } from "./shared";
 
 export type PageSearchParams = {
@@ -25,4 +25,9 @@ export type ProfileTabsListProps = {
 export type EditorProps = {
   content: string;
   onFieldChange: (value: string) => void;
+};
+
+export type UserFormPorps = {
+  type: "create" | "edit";
+  user?: AdminType;
 };
