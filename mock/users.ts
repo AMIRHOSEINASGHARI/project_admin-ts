@@ -7,4 +7,5 @@ export const fakeUsers = [...Array(24)].map((_, index) => ({
   email: faker.internet.email(),
   company: faker.company.name(),
   isVerified: faker.datatype.boolean(),
+  location: faker.location.country(),
 }));

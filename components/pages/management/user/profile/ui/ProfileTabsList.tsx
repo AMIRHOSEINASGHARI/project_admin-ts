@@ -25,8 +25,8 @@ const ProfileTabsList = ({ name, avatar, roll }: ProfileTabsListProps) => {
           priority
           className="w-full h-full object-cover"
         />
-        <div className="bg-primary-2 opacity-80 w-full h-full absolute inset-0 z-10" />
-        <div className="absolute max-xl:w-full max-xl:h-full flex max-xl:items-center max-xl:flex-col gap-6 max-xl:py-10 max-xl:top-0 xl:left-7 xl:bottom-7 z-30">
+        <div className="bg-primary-2 opacity-80 w-full h-full absolute inset-0 z-[1]" />
+        <div className="absolute max-xl:w-full max-xl:h-full flex max-xl:items-center max-xl:flex-col gap-6 max-xl:py-10 max-xl:top-0 xl:left-7 xl:bottom-7 z-[3]">
           <Image
             src={avatar}
             width={300}
@@ -44,7 +44,7 @@ const ProfileTabsList = ({ name, avatar, roll }: ProfileTabsListProps) => {
             </span>
           </div>
         </div>
-        <div className="bg-white flex items-center justify-center xl:justify-end dark:bg-dark3 absolute z-20 bottom-0 right-0 left-0 w-full px-card">
+        <div className="bg-white flex items-center justify-center xl:justify-end dark:bg-dark3 absolute z-[2] bottom-0 right-0 left-0 w-full px-card">
           <TabsList className="bg-transparent flex items-center gap-5 w-fit">
             {profilePage_tabs_data.map(({ value, title, icon }) => (
               <div key={value}>

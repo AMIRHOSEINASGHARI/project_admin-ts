@@ -200,8 +200,8 @@ const TextBox = () => {
   return (
     <Card className="space-y-5">
       <Textarea placeholder="Share what you are thinking here..." rows={5} />
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between flex-wrap gap-3">
+        <div className="flex items-center flex-wrap gap-3">
           <Button type="button" variant="ghost" className="rounded-full gap-2">
             <SolarImages className="text-icon-size text-green-500" />
             <span className="font-bold">Image/Video</span>
