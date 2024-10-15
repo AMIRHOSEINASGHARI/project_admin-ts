@@ -49,7 +49,7 @@ export const getAdmins = async () => {
 
     const admins = await AdminModel.find()
       .select("-password")
-      .lean<AdminType>();
+      .lean<AdminType[]>();
 
     return {
       admins,
