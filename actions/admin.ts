@@ -43,6 +43,25 @@ export const getCurrentAdmin = async () => {
   }
 };
 
+export const getAdmins = async () => {
+  try {
+    await connectDB();
+
+    const admins = await AdminModel.find()
+      .select("-password")
+      .lean<AdminType>();
+
+    return {
+      admins,
+      message: ResponseMessages.SUCCESSFULLY_FETCHED,
+      code: ResponseCodes.SUCCESSFULLY_FETCHED,
+    };
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
+
 export const createUser = async (data: CreateUser) => {
   try {
     await checkSession();
