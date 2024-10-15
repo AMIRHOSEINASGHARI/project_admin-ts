@@ -1,7 +1,7 @@
-import React from "react";
+import UserCardsPage from "@/components/pages/management/user/cards/UserCardsPage";
 
-const Users = () => {
-  return <div>Users cards</div>;
+const UserCards = () => {
+  return <UserCardsPage />;
 };
 
-export default Users;
+export default UserCards;
