@@ -35,7 +35,7 @@ export type CreateUser = {
   password: string;
   name: string;
   email: string;
-  phoneNumber: string;
+  phoneNumber: number;
   address: string;
   country: string;
   avatar: string;
@@ -44,6 +44,5 @@ export type CreateUser = {
   city: string;
   company: string;
   zipcode: number;
-  status: string;
   isVerified: boolean;
 };

@@ -126,7 +126,23 @@ export const userFormSchema = z.object({
   state: z.string().min(1, { message: "State is requiered!" }),
   city: z.string().min(1, { message: "City is requiered!" }),
   company: z.string().min(1, { message: "Company is requiered!" }),
-  zipcode: z.number().min(1, { message: "Zipcode is requiered!" }),
-  status: z.string().min(1, { message: "Status is requiered!" }),
+  zipcode: z
+    .union([
+      z.number().min(1, "Invalid zipcode format! Minimum value is 1"),
+      z
+        .string()
+        .regex(
+          /^\d+(\.\d{1,2})?$/,
+          "Invalid zipcode format! Minimum value is 1"
+        ),
+    ])
+    .refine(
+      (value) =>
+        typeof value === "number" ? value >= 0 : parseFloat(value) >= 0,
+      {
+        message: "Zipcode is required!",
+      }
+    ),
+  // status: z.string().min(1, { message: "Status is requiered!" }),
   isVerified: z.boolean(),
 });

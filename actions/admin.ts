@@ -61,7 +61,6 @@ export const createUser = async (data: CreateUser) => {
       city,
       company,
       zipcode,
-      status,
       isVerified,
     } = data;
 
@@ -87,7 +86,6 @@ export const createUser = async (data: CreateUser) => {
       city,
       company,
       zipcode,
-      status,
       isVerified,
     });
 

@@ -2,6 +2,8 @@
 
 // react
 import { useState } from "react";
+// next
+import { useRouter } from "next/navigation";
 // react query
 import { useMutation } from "@tanstack/react-query";
 // z - hook-form
@@ -12,18 +14,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { userFormSchema } from "@/utils/validators";
 // types
 import { UserFormPorps } from "@/types/components";
+// actions
+import { createUser } from "@/actions/admin";
 // cmp
 import View from "@/components/shared/layout/View";
 import UploadAvatar from "./UploadAvatar";
 import toast from "react-hot-toast";
 import Loader from "@/components/shared/Loader";
-import clsx from "clsx";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -36,22 +38,25 @@ const UserForm = ({ type, user }: UserFormPorps) => {
   const [isVerified, setIsVerified] = useState<boolean>(
     user ? user?.isVerified : true
   );
+  const router = useRouter();
+  const { isLoading: isCreating, mutate: mutateCreate } = useMutation({
+    mutationFn: createUser,
+  });
 
   const formDefaultValues = {
-    username: user?.username || "",
-    password: user?.password || "",
-    name: user?.name || "",
-    email: user?.email || "",
-    phoneNumber: user?.phoneNumber || "",
-    address: user?.address || "",
-    country: user?.country || "",
-    avatar: user?.avatar || "",
-    roll: user?.roll || "",
-    state: user?.state || "",
-    city: user?.city || "",
-    company: user?.company || "",
-    zipcode: user?.zipcode || 0,
-    status: user?.status || "",
+    username: user ? user?.username : "",
+    password: user ? user?.password : "",
+    name: user ? user?.name : "",
+    email: user ? user?.email : "",
+    phoneNumber: user ? user?.phoneNumber : "",
+    address: user ? user?.address : "",
+    country: user ? user?.country : "",
+    avatar: user ? user?.avatar : "",
+    roll: user ? user?.roll : "",
+    state: user ? user?.state : "",
+    city: user ? user?.city : "",
+    company: user ? user?.company : "",
+    zipcode: user ? user?.zipcode : 0,
     isVerified,
   };
 
@@ -60,9 +65,27 @@ const UserForm = ({ type, user }: UserFormPorps) => {
     defaultValues: formDefaultValues,
   });
 
-  const onSubmit = async (values: z.infer<typeof userFormSchema>) => {
-    console.log(values);
+  const onSubmit = (values: z.infer<typeof userFormSchema>) => {
+    const formData = {
+      ...values,
+      phoneNumber: +values.phoneNumber,
+      zipcode: +values.zipcode,
+    };
+
+    if (type === "create") {
+      mutateCreate(formData, {
+        onSuccess: (data) => {
+          toast.success(data?.message);
+          router.push("/user/list");
+        },
+        onError: (error: any) => {
+          toast.error(error.message);
+        },
+      });
+    }
   };
+
+  console.log(form.getValues());
 
   return (
     <Form {...form}>
@@ -208,7 +231,12 @@ const UserForm = ({ type, user }: UserFormPorps) => {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input {...field} placeholder="Zipcode" type="number" />
+                      <Input
+                        {...field}
+                        placeholder="Zipcode"
+                        type="number"
+                        min={0}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -243,9 +271,9 @@ const UserForm = ({ type, user }: UserFormPorps) => {
               <Button
                 type="submit"
                 className="font-bold min-w-[100px]"
-                // disabled={isCreating || isEditing}
+                disabled={isCreating}
               >
-                {false ? (
+                {isCreating ? (
                   <Loader />
                 ) : type === "create" ? (
                   "Create user"
