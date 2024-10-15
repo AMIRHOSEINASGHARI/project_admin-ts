@@ -29,3 +29,21 @@ export type AdminType = Document & {
   about: string;
   isVerified: boolean;
 };
+
+export type CreateUser = {
+  username: string;
+  password: string;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  address: string;
+  country: string;
+  avatar: string;
+  roll: string;
+  state: string;
+  city: string;
+  company: string;
+  zipcode: number;
+  status: string;
+  isVerified: boolean;
+};
