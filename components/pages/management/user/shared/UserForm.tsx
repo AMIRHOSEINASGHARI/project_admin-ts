@@ -42,7 +42,7 @@ const UserForm = ({ type, user }: UserFormPorps) => {
     password: user?.password || "",
     name: user?.name || "",
     email: user?.email || "",
-    phoneNumber: user?.phoneNumber || 0,
+    phoneNumber: user?.phoneNumber || "",
     address: user?.address || "",
     country: user?.country || "",
     avatar: user?.avatar || "",
@@ -148,11 +148,7 @@ const UserForm = ({ type, user }: UserFormPorps) => {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input
-                        {...field}
-                        placeholder="Phone number"
-                        type="number"
-                      />
+                      <Input {...field} placeholder="Phone number" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

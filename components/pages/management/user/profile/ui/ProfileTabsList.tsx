@@ -44,7 +44,7 @@ const ProfileTabsList = ({ name, avatar, roll }: ProfileTabsListProps) => {
             </span>
           </div>
         </div>
-        <div className="bg-white flex items-center justify-center xl:justify-end dark:bg-dark3 absolute z-[2] bottom-0 right-0 left-0 w-full px-card">
+        <div className="bg-white flex items-center justify-center xl:justify-end dark:bg-dark3 absolute z-[4] xl:z-[2] bottom-0 right-0 left-0 w-full px-card">
           <TabsList className="bg-transparent flex items-center gap-5 w-fit">
             {profilePage_tabs_data.map(({ value, title, icon }) => (
               <div key={value}>

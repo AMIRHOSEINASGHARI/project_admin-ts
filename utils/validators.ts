@@ -115,7 +115,7 @@ export const userFormSchema = z.object({
   password: z.string().min(1, { message: "Password is requiered!" }),
   name: z.string().min(1, { message: "Name is requiered!" }),
   email: z.string().min(1, { message: "Email is requiered!" }),
-  phoneNumber: z.number().min(1, { message: "Phone number is requiered!" }),
+  phoneNumber: z.string().min(1, { message: "Phone number is requiered!" }),
   address: z.string().min(1, { message: "Address is requiered!" }),
   country: z.string().min(1, { message: "Country is requiered!" }),
   avatar: z

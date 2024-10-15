@@ -52,3 +52,9 @@ export type AvatarFileUploaderProps = {
   setIsVerified: Dispatch<SetStateAction<boolean>>;
   formMessage: JSX.Element;
 };
+
+export type PhoneNumberInputProps = {
+  phoneNumber: string;
+  setPhoneNumber: Dispatch<SetStateAction<string>>;
+  onFieldChange: (value: string) => void;
+};
