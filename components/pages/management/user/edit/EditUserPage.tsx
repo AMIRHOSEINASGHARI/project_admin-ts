@@ -1,34 +1,20 @@
 // next
-import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
+// actions
+import { getAdmin } from "@/actions/admin";
 // utils
 import { getServerSession } from "@/utils/session";
 // constants
 import { user_create_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // cmp
-import { Button } from "@/components/ui/button";
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
 import UserForm from "../shared/UserForm";
-import { getAdmin } from "@/actions/admin";
-import { notFound } from "next/navigation";
 
 const EditUserPage = async ({ id }: { id: string }) => {
   const session = getServerSession();
 
-  if (id === session?.userId) {
-    return (
-      <div>
-        If you want to edit your profile data, go to{" "}
-        <Button
-          asChild
-          variant="action"
-          className="text-blue-500 hover:bg-transparent dark:hover:bg-transparent hover:underline"
-        >
-          <Link href="/user/account">Account page</Link>
-        </Button>
-      </div>
-    );
-  }
+  if (id === session?.userId) redirect("/user/account");
 
   const data = await getAdmin(id);
 
