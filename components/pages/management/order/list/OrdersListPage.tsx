@@ -1,5 +1,7 @@
 // actions
 import { getOrders } from "@/actions/order";
+// utils
+import { jsonParser } from "@/utils/functions";
 // constants
 import { orders_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // cmp
@@ -17,7 +19,7 @@ const OrdersListPage = async () => {
         data={orders_page_breadcrumb_data}
         breadcrumbPage="List"
       />
-      <OrdersList orders={JSON.parse(JSON.stringify(data?.orders))} />
+      <OrdersList orders={jsonParser(data?.orders)} />
     </>
   );
 };

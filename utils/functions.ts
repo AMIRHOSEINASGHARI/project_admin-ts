@@ -36,3 +36,8 @@ export const applyDiscount = (price: number, discount: number): number => {
 
   return +final_value.toFixed(2);
 };
+
+export const jsonParser = (data: any) => {
+  const parsedData = JSON.parse(JSON.stringify(data));
+  return parsedData;
+};

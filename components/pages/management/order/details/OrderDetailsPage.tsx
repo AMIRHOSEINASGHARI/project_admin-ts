@@ -2,6 +2,8 @@
 import { notFound } from "next/navigation";
 // actions
 import { getOrder } from "@/actions/order";
+// utils
+import { jsonParser } from "@/utils/functions";
 // cmp
 import Heading from "./ui/Heading";
 import HeadingActions from "./ui/HeadingActions";
@@ -23,8 +25,8 @@ const OrderDetailsPage = async ({ id }: { id: string }) => {
         createdAt={data?.order?.createdAt}
       />
       <HeadingActions
-        id={JSON.parse(JSON.stringify(id))}
-        status={JSON.parse(JSON.stringify(data?.order?.status))}
+        id={jsonParser(id)}
+        status={jsonParser(data?.order?.status)}
       />
       <View variant="flex-gap">
         <View orientation="vertical" className="w-full xl:w-[65%]">

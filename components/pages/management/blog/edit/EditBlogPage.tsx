@@ -2,6 +2,8 @@
 import { notFound } from "next/navigation";
 // actions
 import { getBlog } from "@/actions/blogs";
+// utils
+import { jsonParser } from "@/utils/functions";
 // constants
 import { addBlog_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // cmp
@@ -21,7 +23,7 @@ const EditBlogPage = async ({ id }: { id: string }) => {
         data={addBlog_page_breadcrumb_data}
         breadcrumbPage={data?.blog?.title}
       />
-      <BlogForm page="edit" blog={JSON.parse(JSON.stringify(data?.blog))} />
+      <BlogForm page="edit" blog={jsonParser(data?.blog)} />
     </>
   );
 };

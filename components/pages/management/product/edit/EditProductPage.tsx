@@ -2,6 +2,8 @@
 import { notFound } from "next/navigation";
 // actions
 import { getProduct } from "@/actions/product";
+// utils
+import { jsonParser } from "@/utils/functions";
 // constants
 import { editProduct_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // cmp
@@ -21,10 +23,7 @@ const EditProductPage = async ({ id }: { id: string }) => {
         data={editProduct_page_breadcrumb_data}
         breadcrumbPage={data?.product?.title}
       />
-      <ProductForm
-        page="edit"
-        product={JSON.parse(JSON.stringify(data?.product))}
-      />
+      <ProductForm page="edit" product={jsonParser(data?.product)} />
     </>
   );
 };

@@ -2,14 +2,16 @@
 import Link from "next/link";
 // acitons
 import { getAdmins } from "@/actions/admin";
+// utils
+import { jsonParser } from "@/utils/functions";
 // constants
 import { user_list_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // icons
 import { PlusRegular } from "@/components/svg";
 // cmp
+import { Button } from "@/components/ui/button";
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
-import { Button } from "@/components/ui/button";
 import UserListTable from "./ui/UserListTable";
 
 const UserListPage = async () => {
@@ -32,7 +34,7 @@ const UserListPage = async () => {
           </Link>
         </Button>
       </div>
-      <UserListTable admins={JSON.parse(JSON.stringify(data?.admins))} />
+      <UserListTable admins={jsonParser(data?.admins)} />
     </>
   );
 };

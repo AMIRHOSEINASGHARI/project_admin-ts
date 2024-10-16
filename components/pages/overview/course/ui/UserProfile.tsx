@@ -1,5 +1,6 @@
 // utils
 import { getServerSession } from "@/utils/session";
+import { jsonParser } from "@/utils/functions";
 // constants
 import { images } from "@/constants";
 // cmp
@@ -27,7 +28,7 @@ const UserProfile = () => {
         <span className="font-semibold text-sm">
           {session?.name || session?.username}
         </span>
-        <CopyID userId={JSON.parse(JSON.stringify(session?.userId))} />
+        <CopyID userId={jsonParser(session?.userId)} />
       </div>
     );
   }
