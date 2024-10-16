@@ -15,6 +15,17 @@ const PagesLayout = async ({ children }: { children: React.ReactNode }) => {
     redirect("/auth");
   }
 
+  if (session?.role !== "OWNER") {
+    return (
+      <div className="text-center flex items-center justify-center flex-col h-screen dark:text-white">
+        <span className="bold-value">Access Denied!</span>
+        <p className="text-error-light dark:text-error-dark">
+          Only Owners can visit this page!
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Navbar />

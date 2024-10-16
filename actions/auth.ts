@@ -33,6 +33,12 @@ export const loginUser = async (data: {
       throw new Error(ResponseMessages.USER_NOT_FOUND);
     }
 
+    if (admin?.role !== "OWNER") {
+      throw new Error(
+        ResponseMessages.ACCESS_DENIED + " Only Owners has access"
+      );
+    }
+
     // verify password
     const isValidPassword = await verifyPassword(password, admin.password);
 
