@@ -45,4 +45,5 @@ export type CreateUser = {
   company: string;
   zipcode: number;
   isVerified: boolean;
+  about: string;
 };

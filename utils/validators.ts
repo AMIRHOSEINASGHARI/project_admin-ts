@@ -144,5 +144,5 @@ export const userFormSchema = z.object({
       }
     ),
   isVerified: z.boolean(),
-  about: z.string().optional(),
+  about: z.string(),
 });

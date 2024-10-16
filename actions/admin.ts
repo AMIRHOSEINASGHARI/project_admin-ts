@@ -66,22 +66,7 @@ export const createUser = async (data: CreateUser) => {
   try {
     await checkSession();
 
-    const {
-      username,
-      password,
-      name,
-      email,
-      phoneNumber,
-      address,
-      country,
-      avatar,
-      role,
-      state,
-      city,
-      company,
-      zipcode,
-      isVerified,
-    } = data;
+    const { username, password } = data;
 
     const isUsernameExist = await AdminModel.findOne({ username });
 
@@ -92,20 +77,8 @@ export const createUser = async (data: CreateUser) => {
     const hashedPassword = await hashPassword(password);
 
     await AdminModel.create({
-      username,
+      ...data,
       password: hashedPassword,
-      name,
-      email,
-      phoneNumber,
-      address,
-      country,
-      avatar,
-      role,
-      state,
-      city,
-      company,
-      zipcode,
-      isVerified,
     });
 
     revalidatePath("/user");
