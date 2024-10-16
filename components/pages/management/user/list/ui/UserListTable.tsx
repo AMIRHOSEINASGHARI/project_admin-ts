@@ -27,6 +27,7 @@ import UserStatusTabs from "./UserStatusTabs";
 import View from "@/components/shared/layout/View";
 import SearchUser from "./SearchUser";
 import SearchUserByRole from "./SearchUserByRole";
+import UserPagination from "./UserPagination";
 
 const UserListTable = ({ admins }: { admins: AdminType[] }) => {
   if (admins?.length === 0) return "no data";
@@ -85,35 +86,38 @@ const UserListTable = ({ admins }: { admins: AdminType[] }) => {
   }));
 
   return (
-    <div className="tableContainer space-y-4">
-      <UserStatusTabs admins={admins} />
-      <View variant="flex-gap" className="px-4">
-        <SearchUserByRole />
-        <SearchUser />
-      </View>
-      <Table>
-        <TableHeader>
-          <TableRow className="border-none">
-            {tableHeads.map((head) => (
-              <TableHead key={head}>{head}</TableHead>
-            ))}
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {tableRows.map((item) => (
-            <TableRow key={item.key}>
-              <TableCell className="min-w-[300px]">{item.name}</TableCell>
-              <TableCell className="min-w-[200px]">
-                {item.phoneNumber}
-              </TableCell>
-              <TableCell className="min-w-[200px]">{item.company}</TableCell>
-              <TableCell className="min-w-[180px]">{item.role}</TableCell>
-              <TableCell className="min-w-[100px]">{item.status}</TableCell>
-              <TableCell className="min-w-[100px]">{item.actions}</TableCell>
+    <div className="tableContainer">
+      <div className="space-y-4">
+        <UserStatusTabs admins={admins} />
+        <View variant="flex-gap" className="px-4">
+          <SearchUserByRole />
+          <SearchUser />
+        </View>
+        <Table className="border-b border-dashed border-border-light dark:border-border-dark">
+          <TableHeader>
+            <TableRow className="border-none">
+              {tableHeads.map((head) => (
+                <TableHead key={head}>{head}</TableHead>
+              ))}
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {tableRows.map((item) => (
+              <TableRow key={item.key}>
+                <TableCell className="min-w-[300px]">{item.name}</TableCell>
+                <TableCell className="min-w-[200px]">
+                  {item.phoneNumber}
+                </TableCell>
+                <TableCell className="min-w-[200px]">{item.company}</TableCell>
+                <TableCell className="min-w-[180px]">{item.role}</TableCell>
+                <TableCell className="min-w-[100px]">{item.status}</TableCell>
+                <TableCell className="min-w-[100px]">{item.actions}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+      <UserPagination />
     </div>
   );
 };
