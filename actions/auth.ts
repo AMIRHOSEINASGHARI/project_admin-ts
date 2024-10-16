@@ -47,7 +47,7 @@ export const loginUser = async (data: {
         userId: admin._id,
         name: admin.name,
         avatar: admin.avatar,
-        roll: admin.roll,
+        role: admin.role,
       },
       SECRET_KEY!,
       {

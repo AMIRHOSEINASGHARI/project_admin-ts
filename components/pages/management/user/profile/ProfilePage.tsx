@@ -21,7 +21,7 @@ const ProfilePage = () => {
       <ProfileTabsList
         avatar={session?.avatar || images.admin}
         name={session?.name}
-        roll={session?.roll}
+        role={session?.role}
       />
     </>
   );

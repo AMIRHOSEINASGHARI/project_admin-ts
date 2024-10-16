@@ -9,7 +9,7 @@ const adminSchema = new Schema({
   address: { type: String, default: "" },
   country: { type: String, default: "" },
   avatar: { type: String, default: "" },
-  roll: { type: String, default: "USER" },
+  role: { type: String, default: "USER" },
   productsCreated: [{ type: Schema.Types.ObjectId, ref: "Product" }],
   blogsCreated: [{ type: Schema.Types.ObjectId, ref: "Blog" }],
   createdAt: {

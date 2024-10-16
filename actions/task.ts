@@ -18,7 +18,7 @@ export const upcommingEvents = async () => {
       .populate({
         path: "createdBy",
         model: AdminModel,
-        select: "username name avatar roll",
+        select: "username name avatar role",
       })
       .sort({ createdAt: -1 })
       .lean<TaskType[]>();

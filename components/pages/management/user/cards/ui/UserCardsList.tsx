@@ -16,7 +16,7 @@ const UserCardsList = ({ admins }: { admins: AdminType[] }) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
-      {admins.map(({ _id, avatar, name, roll, isVerified }) => (
+      {admins.map(({ _id, avatar, name, role, isVerified }) => (
         <Card key={_id} style={{ padding: 0 }}>
           <div className="flex flex-col items-center justify-center gap-2 p-card">
             <Avatar size="lg" className="mb-3">
@@ -27,7 +27,7 @@ const UserCardsList = ({ admins }: { admins: AdminType[] }) => {
               {isVerified && <CheckFill className="text-lg text-green-500" />}
               <span className="username line-clamp-1">{name}</span>
             </div>
-            <span className="line-clamp-1 text_disabled">{roll}</span>
+            <span className="line-clamp-1 text_disabled">{role}</span>
             <div className="flex items-center gap-1">
               {userCardsPage_social_data.map(({ id, icon }) => (
                 <Button

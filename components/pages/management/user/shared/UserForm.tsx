@@ -52,7 +52,7 @@ const UserForm = ({ type, user }: UserFormPorps) => {
     address: user ? user?.address : "",
     country: user ? user?.country : "",
     avatar: user ? user?.avatar : "",
-    roll: user ? user?.roll : "",
+    role: user ? user?.role : "",
     state: user ? user?.state : "",
     city: user ? user?.city : "",
     company: user ? user?.company : "",
@@ -256,11 +256,11 @@ const UserForm = ({ type, user }: UserFormPorps) => {
               />
               <FormField
                 control={form.control}
-                name="roll"
+                name="role"
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input {...field} placeholder="Roll" />
+                      <Input {...field} placeholder="Role" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

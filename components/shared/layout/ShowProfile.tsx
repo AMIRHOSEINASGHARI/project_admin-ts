@@ -107,7 +107,7 @@ const ShowProfile = () => {
             <span className="text-darkGray mb-2 text-small dark:text-light3">
               {data?.session?.name}
             </span>
-            <Badge>{data?.session?.roll}</Badge>
+            <Badge>{data?.session?.role}</Badge>
           </div>
         )}
         <Separator className="my-5" />

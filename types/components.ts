@@ -1,7 +1,7 @@
 // react
 import { Dispatch, SetStateAction } from "react";
 // types
-import { AdminRoll, AdminType } from "./admin";
+import { AdminRole, AdminType } from "./admin";
 import { NavColor } from "./shared";
 
 export type PageSearchParams = {
@@ -21,7 +21,7 @@ export type MenuLinksProps = {
 export type ProfileTabsListProps = {
   name: string;
   avatar: string;
-  roll: AdminRoll;
+  role: AdminRole;
 };
 
 export type EditorProps = {

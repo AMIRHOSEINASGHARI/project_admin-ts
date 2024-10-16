@@ -58,7 +58,7 @@ const Details = ({ items, summary }: DetailsProps) => {
           <SolarPenBoldDuotone />
         </Button>
       </div>
-      <Table className="sidebarScroll">
+      <Table className="sidebarscroll">
         <TableBody className="border-b border-light3 dark:border-dark3 border-dashed">
           {tableRows?.map((item) => (
             <TableRow

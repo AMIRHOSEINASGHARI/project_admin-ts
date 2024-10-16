@@ -122,7 +122,7 @@ export const userFormSchema = z.object({
     .string()
     .url("Must be a valid image URL!")
     .min(1, "Avatar is required"),
-  roll: z.string().min(1, { message: "Roll is requiered!" }),
+  role: z.string().min(1, { message: "Role is requiered!" }),
   state: z.string().min(1, { message: "State is requiered!" }),
   city: z.string().min(1, { message: "City is requiered!" }),
   company: z.string().min(1, { message: "Company is requiered!" }),

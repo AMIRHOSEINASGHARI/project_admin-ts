@@ -51,7 +51,7 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`${sidebarBGColor} w-[300px] max-md:hidden fixed z-40 left-0 h-screen border-r border-color overflow-y-auto sidebarScroll`}
+      className={`${sidebarBGColor} w-[300px] max-md:hidden fixed z-40 left-0 h-screen border-r border-color overflow-y-auto sidebarscroll`}
     >
       <div
         className={`${sidebarBGColor} flex items-center justify-between fixed text-primary-1 border-r border-color p-4 top-0 w-[300px] z-20`}

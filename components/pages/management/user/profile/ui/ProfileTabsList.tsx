@@ -8,7 +8,7 @@ import { profilePage_tabs_data } from "@/constants";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const ProfileTabsList = ({ name, avatar, roll }: ProfileTabsListProps) => {
+const ProfileTabsList = ({ name, avatar, role }: ProfileTabsListProps) => {
   return (
     <Tabs defaultValue={profilePage_tabs_data[0].value}>
       <Card
@@ -40,7 +40,7 @@ const ProfileTabsList = ({ name, avatar, roll }: ProfileTabsListProps) => {
               {name}
             </span>
             <span className="text-[var(--text-disabled)] text-small">
-              {roll}
+              {role}
             </span>
           </div>
         </div>

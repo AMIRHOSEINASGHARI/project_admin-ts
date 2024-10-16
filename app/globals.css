@@ -95,10 +95,10 @@
 }
 
 /* Hide scroll bar: START */
-.sidebarScroll::-webkit-scrollbar {
+.sidebarscroll::-webkit-scrollbar {
   display: none;
 }
-.sidebarScroll {
+.sidebarscroll {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }

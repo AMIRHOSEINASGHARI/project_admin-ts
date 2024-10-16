@@ -4,7 +4,7 @@ import { Document } from "mongoose";
 import { BlogType } from "./blog";
 import { ProductType } from "./product";
 
-export type AdminRoll = "USER" | "ADMIN" | "OWNER";
+export type AdminRole = "USER" | "ADMIN" | "OWNER";
 
 export type AdminStatus = "Active" | "Pending" | "Banned" | "Rejected";
 
@@ -17,7 +17,7 @@ export type AdminType = Document & {
   address: string;
   country: string;
   avatar: string;
-  roll: AdminRoll;
+  role: AdminRole;
   productsCreated: ProductType[] | [];
   blogsCreated: BlogType[] | [];
   createdAt: Date;
@@ -39,7 +39,7 @@ export type CreateUser = {
   address: string;
   country: string;
   avatar: string;
-  roll: string;
+  role: string;
   state: string;
   city: string;
   company: string;
