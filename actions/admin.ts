@@ -117,19 +117,50 @@ export const createUser = async (data: UserFormData) => {
   }
 };
 
-export const editUser = async (data: UserFormData) => {
+export const editUser = async (data: UserFormData & { userId: string }) => {
   try {
-    const currentUser = await checkSession();
+    await connectDB();
 
-    const { username } = data;
+    const {
+      username,
+      name,
+      email,
+      phoneNumber,
+      address,
+      country,
+      avatar,
+      role,
+      state,
+      city,
+      company,
+      zipcode,
+      isVerified,
+      about,
+      userId,
+    } = data;
 
     const isUsernameExist = await AdminModel.findOne({ username });
 
-    if (isUsernameExist?._id !== currentUser?._id) {
+    if (!isUsernameExist?._id.equals(userId)) {
       throw new Error("Username already exist!");
     }
 
-    await AdminModel.create(data);
+    await AdminModel.findByIdAndUpdate(userId, {
+      username,
+      name,
+      email,
+      phoneNumber,
+      address,
+      country,
+      avatar,
+      role,
+      state,
+      city,
+      company,
+      zipcode,
+      isVerified,
+      about,
+    });
 
     revalidatePath("/user");
 

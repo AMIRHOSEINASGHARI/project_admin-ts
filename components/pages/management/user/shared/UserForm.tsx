@@ -15,7 +15,7 @@ import { userFormSchema } from "@/utils/validators";
 // types
 import { UserFormPorps } from "@/types/components";
 // actions
-import { createUser } from "@/actions/admin";
+import { createUser, editUser } from "@/actions/admin";
 // cmp
 import View from "@/components/shared/layout/View";
 import UploadAvatar from "./UploadAvatar";
@@ -42,6 +42,9 @@ const UserForm = ({ type, user }: UserFormPorps) => {
   const router = useRouter();
   const { isLoading: isCreating, mutate: mutateCreate } = useMutation({
     mutationFn: createUser,
+  });
+  const { isLoading: isEditing, mutate: mutateEdit } = useMutation({
+    mutationFn: editUser,
   });
 
   const formDefaultValues = {
@@ -82,6 +85,20 @@ const UserForm = ({ type, user }: UserFormPorps) => {
           toast.error(error.message);
         },
       });
+    }
+    if (type === "edit") {
+      mutateEdit(
+        { ...formData, userId: user?._id },
+        {
+          onSuccess: (data) => {
+            toast.success(data?.message);
+            router.push("/user/list");
+          },
+          onError: (error: any) => {
+            toast.error(error.message);
+          },
+        }
+      );
     }
   };
 
@@ -273,9 +290,9 @@ const UserForm = ({ type, user }: UserFormPorps) => {
               <Button
                 type="submit"
                 className="font-bold min-w-[100px]"
-                disabled={isCreating}
+                disabled={isCreating || isEditing}
               >
-                {isCreating ? (
+                {isCreating || isEditing ? (
                   <Loader />
                 ) : type === "create" ? (
                   "Create user"
