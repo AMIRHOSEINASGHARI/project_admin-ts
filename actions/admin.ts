@@ -197,3 +197,21 @@ export const editUserStatus = async (data: {
     throw new Error(ResponseMessages.SERVER_ERROR);
   }
 };
+
+export const deleteUser = async (userId: string) => {
+  try {
+    await checkSession();
+
+    await AdminModel.findByIdAndDelete(userId);
+
+    revalidatePath("/user");
+
+    return {
+      message: ResponseMessages.SUCCESSFULLY_DELETED,
+      code: ResponseCodes.SUCCESSFULLY_DELETED,
+    };
+  } catch (error) {
+    console.log(error);
+    throw new Error(ResponseMessages.SERVER_ERROR);
+  }
+};
