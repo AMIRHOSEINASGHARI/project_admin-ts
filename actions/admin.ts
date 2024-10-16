@@ -119,3 +119,34 @@ export const createUser = async (data: UserFormData) => {
     throw new Error(ResponseMessages.SERVER_ERROR);
   }
 };
+
+export const editUser = async (data: UserFormData) => {
+  try {
+    const currentUser = await checkSession();
+
+    const { username, password } = data;
+
+    const isUsernameExist = await AdminModel.findOne({ username });
+
+    if (isUsernameExist?._id !== currentUser?._id) {
+      throw new Error("Username already exist!");
+    }
+
+    const hashedPassword = await hashPassword(password);
+
+    await AdminModel.create({
+      ...data,
+      password: hashedPassword,
+    });
+
+    revalidatePath("/user");
+
+    return {
+      message: ResponseMessages.SUCCESSFULLY_CREATED,
+      code: ResponseCodes.SUCCESSFULLY_CREATED,
+    };
+  } catch (error) {
+    console.log(error);
+    throw new Error(ResponseMessages.SERVER_ERROR);
+  }
+};

@@ -20,7 +20,7 @@ export const checkSession = async () => {
 
     const currentUser = await AdminModel.findById(session?.userId);
 
-    if (currentUser?.role === "USER") {
+    if (currentUser?.role !== "OWNER") {
       throw new Error(ResponseMessages.ACCESS_DENIED);
     }
 
