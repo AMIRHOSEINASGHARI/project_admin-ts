@@ -6,6 +6,11 @@ import Link from "next/link";
 import { AdminType } from "@/types/admin";
 // constants
 import { images } from "@/constants";
+// icons
+import {
+  SolarOverflowMenuVertical,
+  SolarPenBoldDuotone,
+} from "@/components/svg";
 // cmp
 import {
   Table,
@@ -18,11 +23,10 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  SolarOverflowMenuVertical,
-  SolarPenBoldDuotone,
-} from "@/components/svg";
 import UserStatusTabs from "./UserStatusTabs";
+import View from "@/components/shared/layout/View";
+import SearchUser from "./SearchUser";
+import SearchUserByRole from "./SearchUserByRole";
 
 const UserListTable = ({ admins }: { admins: AdminType[] }) => {
   if (admins?.length === 0) return "no data";
@@ -83,6 +87,10 @@ const UserListTable = ({ admins }: { admins: AdminType[] }) => {
   return (
     <div className="tableContainer space-y-4">
       <UserStatusTabs admins={admins} />
+      <View variant="flex-gap" className="px-4">
+        <SearchUserByRole />
+        <SearchUser />
+      </View>
       <Table>
         <TableHeader>
           <TableRow className="border-none">
