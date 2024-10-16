@@ -31,6 +31,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
 
 const UserForm = ({ type, user }: UserFormPorps) => {
   const [files, setFiles] = useState<File[]>([]);
@@ -58,6 +59,7 @@ const UserForm = ({ type, user }: UserFormPorps) => {
     company: user ? user?.company : "",
     zipcode: user ? user?.zipcode : 0,
     isVerified,
+    about: user ? user?.about : "",
   };
 
   const form = useForm<z.infer<typeof userFormSchema>>({
@@ -260,6 +262,22 @@ const UserForm = ({ type, user }: UserFormPorps) => {
                   <FormItem>
                     <FormControl>
                       <Input {...field} placeholder="Role" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="about"
+                render={({ field }) => (
+                  <FormItem className="col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2">
+                    <FormControl>
+                      <Textarea
+                        {...field}
+                        rows={5}
+                        placeholder="About (Optional)"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

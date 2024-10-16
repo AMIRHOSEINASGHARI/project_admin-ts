@@ -143,6 +143,6 @@ export const userFormSchema = z.object({
         message: "Zipcode is required!",
       }
     ),
-  // status: z.string().min(1, { message: "Status is requiered!" }),
   isVerified: z.boolean(),
+  about: z.string().optional(),
 });
