@@ -107,3 +107,14 @@ export const user_cards_page_breadcrumb_data = [
     href: "/user/list",
   },
 ];
+
+export const user_list_page_breadcrumb_data = [
+  {
+    title: "Dashboard",
+    href: "/dashboard",
+  },
+  {
+    title: "User",
+    href: "/user/list",
+  },
+];

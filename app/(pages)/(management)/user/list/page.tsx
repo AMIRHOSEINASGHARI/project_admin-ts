@@ -1,7 +1,7 @@
-import React from "react";
+import UserListPage from "@/components/pages/management/user/list/UserListPage";
 
-const Users = () => {
-  return <div>UsersList</div>;
+const UserList = () => {
+  return <UserListPage />;
 };
 
-export default Users;
+export default UserList;
