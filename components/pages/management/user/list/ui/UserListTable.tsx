@@ -22,9 +22,11 @@ import {
   SolarOverflowMenuVertical,
   SolarPenBoldDuotone,
 } from "@/components/svg";
+import UserStatusTabs from "./UserStatusTabs";
 
 const UserListTable = ({ admins }: { admins: AdminType[] }) => {
   if (admins?.length === 0) return "no data";
+
   const tableHeads = ["Name", "Phone number", "Company", "Role", "Status", ""];
 
   const tableRows = admins?.map((admin: AdminType) => ({
@@ -80,6 +82,7 @@ const UserListTable = ({ admins }: { admins: AdminType[] }) => {
 
   return (
     <div className="tableContainer space-y-4">
+      <UserStatusTabs admins={admins} />
       <Table>
         <TableHeader>
           <TableRow className="border-none">
