@@ -30,7 +30,7 @@ export type AdminType = Document & {
   isVerified: boolean;
 };
 
-export type CreateUser = {
+export type UserFormData = {
   username: string;
   password: string;
   name: string;
