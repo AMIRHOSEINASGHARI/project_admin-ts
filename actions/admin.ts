@@ -7,11 +7,10 @@ import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
 import AdminModel from "@/models/admin";
 // types
-import { AdminType, UserFormData } from "@/types/admin";
+import { AdminStatus, AdminType, UserFormData } from "@/types/admin";
 // utils
 import connectDB from "@/utils/connectDB";
 import { getServerSession } from "@/utils/session";
-import { hashPassword } from "@/utils/functions";
 import { checkSession } from "./shared";
 
 export const getCurrentAdmin = async () => {
@@ -165,8 +164,33 @@ export const editUser = async (data: UserFormData & { userId: string }) => {
     revalidatePath("/user");
 
     return {
-      message: ResponseMessages.SUCCESSFULLY_CREATED,
-      code: ResponseCodes.SUCCESSFULLY_CREATED,
+      message: ResponseMessages.SUCCESSFULLY_UPDATED,
+      code: ResponseCodes.SUCCESSFULLY_UPDATED,
+    };
+  } catch (error) {
+    console.log(error);
+    throw new Error(ResponseMessages.SERVER_ERROR);
+  }
+};
+
+export const editUserStatus = async (data: {
+  userId: string;
+  status: AdminStatus;
+}) => {
+  try {
+    await checkSession();
+
+    const { userId, status } = data;
+
+    await AdminModel.findByIdAndUpdate(userId, {
+      status,
+    });
+
+    revalidatePath("/user");
+
+    return {
+      message: ResponseMessages.SUCCESSFULLY_UPDATED,
+      code: ResponseCodes.SUCCESSFULLY_UPDATED,
     };
   } catch (error) {
     console.log(error);
