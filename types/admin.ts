@@ -32,7 +32,6 @@ export type AdminType = Document & {
 
 export type UserFormData = {
   username: string;
-  password: string;
   name: string;
   email: string;
   phoneNumber: string;

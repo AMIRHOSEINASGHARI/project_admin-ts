@@ -2,10 +2,17 @@
 import Link from "next/link";
 // utils
 import { getServerSession } from "@/utils/session";
+// constants
+import { user_create_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // cmp
 import { Button } from "@/components/ui/button";
+import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
+import PageHeading from "@/components/shared/PageHeading";
+import UserForm from "../shared/UserForm";
+import { getAdmin } from "@/actions/admin";
+import { notFound } from "next/navigation";
 
-const EditUserPage = ({ id }: { id: string }) => {
+const EditUserPage = async ({ id }: { id: string }) => {
   const session = getServerSession();
 
   if (id === session?.userId) {
@@ -23,7 +30,20 @@ const EditUserPage = ({ id }: { id: string }) => {
     );
   }
 
-  return <div>EditUserPage {id}</div>;
+  const data = await getAdmin(id);
+
+  if (!data?.admin) notFound();
+
+  return (
+    <>
+      <PageHeading text="Edit" />
+      <CustomBreadcrumb
+        data={user_create_page_breadcrumb_data}
+        breadcrumbPage={data?.admin?.name || data?.admin?.username || ""}
+      />
+      <UserForm type="edit" user={JSON.parse(JSON.stringify(data?.admin))} />
+    </>
+  );
 };
 
 export default EditUserPage;

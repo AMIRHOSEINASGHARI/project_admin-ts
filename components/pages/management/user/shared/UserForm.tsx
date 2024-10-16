@@ -46,7 +46,6 @@ const UserForm = ({ type, user }: UserFormPorps) => {
 
   const formDefaultValues = {
     username: user ? user?.username : "",
-    password: user ? user?.password : "",
     name: user ? user?.name : "",
     email: user ? user?.email : "",
     phoneNumber: user ? user?.phoneNumber : "",
@@ -85,8 +84,6 @@ const UserForm = ({ type, user }: UserFormPorps) => {
       });
     }
   };
-
-  console.log(form.getValues());
 
   return (
     <Form {...form}>
@@ -133,18 +130,6 @@ const UserForm = ({ type, user }: UserFormPorps) => {
                   <FormItem>
                     <FormControl>
                       <Input {...field} placeholder="Username" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Input {...field} placeholder="Password" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -259,7 +244,7 @@ const UserForm = ({ type, user }: UserFormPorps) => {
                 control={form.control}
                 name="role"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2">
                     <FormControl>
                       <Input {...field} placeholder="Role" />
                     </FormControl>

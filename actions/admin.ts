@@ -47,9 +47,7 @@ export const getAdmin = async (id: string) => {
   try {
     await connectDB();
 
-    const admin = await AdminModel.findById(id)
-      .select("-password")
-      .lean<AdminType>();
+    const admin = await AdminModel.findById(id).lean<AdminType>();
 
     if (!admin) {
       return {
@@ -74,7 +72,11 @@ export const getAdmins = async () => {
   try {
     await connectDB();
 
-    const admins = await AdminModel.find()
+    const session = getServerSession();
+
+    const admins = await AdminModel.find({
+      _id: { $ne: session?.userId },
+    })
       .select("-password")
       .lean<AdminType[]>();
 
@@ -93,7 +95,7 @@ export const createUser = async (data: UserFormData) => {
   try {
     await checkSession();
 
-    const { username, password } = data;
+    const { username } = data;
 
     const isUsernameExist = await AdminModel.findOne({ username });
 
@@ -101,12 +103,7 @@ export const createUser = async (data: UserFormData) => {
       throw new Error("Username already exist!");
     }
 
-    const hashedPassword = await hashPassword(password);
-
-    await AdminModel.create({
-      ...data,
-      password: hashedPassword,
-    });
+    await AdminModel.create(data);
 
     revalidatePath("/user");
 
@@ -124,7 +121,7 @@ export const editUser = async (data: UserFormData) => {
   try {
     const currentUser = await checkSession();
 
-    const { username, password } = data;
+    const { username } = data;
 
     const isUsernameExist = await AdminModel.findOne({ username });
 
@@ -132,12 +129,7 @@ export const editUser = async (data: UserFormData) => {
       throw new Error("Username already exist!");
     }
 
-    const hashedPassword = await hashPassword(password);
-
-    await AdminModel.create({
-      ...data,
-      password: hashedPassword,
-    });
+    await AdminModel.create(data);
 
     revalidatePath("/user");
 
