@@ -68,7 +68,6 @@ const UserForm = ({ type, user }: UserFormPorps) => {
   const onSubmit = (values: z.infer<typeof userFormSchema>) => {
     const formData = {
       ...values,
-      phoneNumber: +values.phoneNumber,
       zipcode: +values.zipcode,
     };
 

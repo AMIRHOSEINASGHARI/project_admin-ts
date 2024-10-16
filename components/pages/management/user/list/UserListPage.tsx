@@ -10,13 +10,16 @@ import { PlusRegular } from "@/components/svg";
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
 import { Button } from "@/components/ui/button";
+import UserListTable from "./ui/UserListTable";
 
-const UserListPage = () => {
+const UserListPage = async () => {
+  const data = await getAdmins();
+
   return (
     <>
       <div className="flex items-center justify-between flex-wrap">
         <div>
-          <PageHeading text="User list" />
+          <PageHeading text="List" />
           <CustomBreadcrumb
             data={user_list_page_breadcrumb_data}
             breadcrumbPage="List"
@@ -29,6 +32,7 @@ const UserListPage = () => {
           </Link>
         </Button>
       </div>
+      <UserListTable admins={JSON.parse(JSON.stringify(data?.admins))} />
     </>
   );
 };
