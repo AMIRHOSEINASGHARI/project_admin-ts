@@ -21,13 +21,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import UserStatusTabs from "./UserStatusTabs";
 import View from "@/components/shared/layout/View";
 import SearchUser from "./SearchUser";
 import SearchUserByRole from "./SearchUserByRole";
 import UserPagination from "./UserPagination";
+import TableActions from "./TableActions";
 
 const UserListTable = ({ admins }: { admins: AdminType[] }) => {
   if (admins?.length === 0) return "no data";
@@ -73,16 +73,7 @@ const UserListTable = ({ admins }: { admins: AdminType[] }) => {
         {admin?.status || "_"}
       </Badge>
     ),
-    actions: (
-      <div className="flex items-center gap-1">
-        <Button variant="icon">
-          <SolarPenBoldDuotone />
-        </Button>
-        <Button variant="icon">
-          <SolarOverflowMenuVertical />
-        </Button>
-      </div>
-    ),
+    actions: <TableActions id={admin?._id} status={admin?.status} />,
   }));
 
   return (
