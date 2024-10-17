@@ -13,7 +13,7 @@ const CreateJobPage = () => {
         data={create_job__page_breadcrumb_data}
         breadcrumbPage="New job"
       />
-      <JobForm />
+      <JobForm type="create" />
     </>
   );
 };

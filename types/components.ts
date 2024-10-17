@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 // types
 import { AdminRole, AdminType } from "./admin";
 import { NavColor } from "./shared";
+import { JobType } from "./job";
 
 export type PageSearchParams = {
   [key: string]: string | string[] | undefined;
@@ -58,3 +59,5 @@ export type PhoneNumberInputProps = {
   setPhoneNumber: Dispatch<SetStateAction<string>>;
   onFieldChange: (value: string) => void;
 };
+
+export type JobFormProps = { type: "create" | "edit"; job?: JobType };
