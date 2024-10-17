@@ -20,7 +20,7 @@ export type CartType = {
   checkoutStatus?: CheckoutStatus;
 };
 
-export type UserType = Document & {
+export interface UserType extends Document {
   username: string;
   displayName?: string;
   password: string;
@@ -32,4 +32,4 @@ export type UserType = Document & {
   comments?: CommentType[];
   cart?: CartType;
   createdAt: Date;
-};
+}

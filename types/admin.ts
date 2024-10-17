@@ -8,7 +8,7 @@ export type AdminRole = "OWNER";
 
 export type AdminStatus = "Active" | "Pending" | "Banned" | "Rejected";
 
-export type AdminType = Document & {
+export interface AdminType extends Document {
   username: string;
   password: string;
   name: string;
@@ -28,7 +28,7 @@ export type AdminType = Document & {
   status: AdminStatus;
   about: string;
   isVerified: boolean;
-};
+}
 
 export type UserFormData = {
   username: string;

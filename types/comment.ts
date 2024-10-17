@@ -4,7 +4,7 @@ import { Document } from "mongoose";
 import { ProductType } from "./product";
 import { UserType } from "./user";
 
-export type CommentType = Document & {
+export interface CommentType extends Document {
   title: string;
   description: string;
   productId: ProductType;
@@ -13,4 +13,4 @@ export type CommentType = Document & {
   status?: string;
   published?: boolean;
   createdAt: Date;
-};
+}

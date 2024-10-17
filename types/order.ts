@@ -22,7 +22,7 @@ export type OrderSummaryType = {
   totalPayable: number;
 };
 
-export type OrderType = Document & {
+export interface OrderType extends Document {
   status: OrderStatus;
   deliveryAddress: string;
   userId: UserType;
@@ -32,4 +32,4 @@ export type OrderType = Document & {
   items: OrderItemType[];
   summary: OrderSummaryType;
   createdAt: Date;
-};
+}

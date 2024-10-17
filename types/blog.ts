@@ -4,7 +4,7 @@ import { Document } from "mongoose";
 import { LikeType } from "./like";
 import { AdminType } from "./admin";
 
-export type BlogType = Document & {
+export interface BlogType extends Document {
   title: string;
   description: string;
   content: string;
@@ -18,7 +18,7 @@ export type BlogType = Document & {
   metaDescription: string;
   metaKeywords: string[];
   enableComments: boolean;
-};
+}
 
 export type CreateBlog = {
   title: string;

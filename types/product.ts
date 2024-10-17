@@ -11,7 +11,7 @@ export type ProductOrderType = {
   quantity?: number;
 };
 
-export type ProductType = Document & {
+export interface ProductType extends Document {
   title: string;
   subDescription: string;
   content: string;
@@ -28,7 +28,7 @@ export type ProductType = Document & {
   published: boolean;
   createdBy: AdminType;
   createdAt: Date;
-};
+}
 
 export type CreateProduct = {
   title: string;
