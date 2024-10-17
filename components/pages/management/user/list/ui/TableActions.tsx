@@ -6,6 +6,10 @@ import { useState } from "react";
 import Link from "next/link";
 // types
 import { AdminStatus } from "@/types/admin";
+// react query
+import { useMutation } from "@tanstack/react-query";
+// actions
+import { deleteUser, editUserStatus } from "@/actions/admin";
 // icons
 import {
   SolarOverflowMenuVertical,
@@ -22,8 +26,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import clsx from "clsx";
-import { useMutation } from "@tanstack/react-query";
-import { editUserStatus } from "@/actions/admin";
 import toast from "react-hot-toast";
 import Loader from "@/components/shared/Loader";
 
@@ -31,6 +33,9 @@ const TableActions = ({ id, status }: { id: string; status: AdminStatus }) => {
   const [open, setOpen] = useState(false);
   const { isLoading: isStatusLoading, mutate: mutateStatus } = useMutation({
     mutationFn: editUserStatus,
+  });
+  const { isLoading: isDeleteLoading, mutate: mutateDelete } = useMutation({
+    mutationFn: deleteUser,
   });
 
   const onOpenChange = () => {
@@ -41,26 +46,38 @@ const TableActions = ({ id, status }: { id: string; status: AdminStatus }) => {
     setOpen(false);
   };
 
-  const editStatus = (value: AdminStatus) => {
-    if (value === status) {
-      onClose();
-      return;
-    }
-
-    const data = {
-      userId: id,
-      status: value,
-    };
-
-    mutateStatus(data, {
-      onSuccess: (data) => {
-        toast.success(data?.message);
+  const handleUser = (value: AdminStatus | "Delete") => {
+    if (value === "Delete") {
+      mutateDelete(id, {
+        onSuccess: (data) => {
+          toast.success(data?.message);
+          onClose();
+        },
+        onError: (error: any) => {
+          toast.error(error.message);
+        },
+      });
+    } else {
+      if (value === status) {
         onClose();
-      },
-      onError: (error: any) => {
-        toast.error(error.message);
-      },
-    });
+        return;
+      }
+
+      const data = {
+        userId: id,
+        status: value,
+      };
+
+      mutateStatus(data, {
+        onSuccess: (data) => {
+          toast.success(data?.message);
+          onClose();
+        },
+        onError: (error: any) => {
+          toast.error(error.message);
+        },
+      });
+    }
   };
 
   const statusButtons: { value: AdminStatus; isActive: boolean }[] = [
@@ -100,21 +117,31 @@ const TableActions = ({ id, status }: { id: string; status: AdminStatus }) => {
               className={clsx(
                 "cursor-pointer",
                 item.isActive && "bg-slate-200 dark:bg-slate-700",
-                isStatusLoading && "flex justify-center"
+                isStatusLoading || (isDeleteLoading && "flex justify-center")
               )}
-              onClick={() => editStatus(item.value)}
-              disabled={isStatusLoading}
+              onClick={() => handleUser(item.value)}
+              disabled={isStatusLoading || isDeleteLoading}
               onSelect={(e) => e.preventDefault()}
             >
-              {isStatusLoading ? <Loader /> : item.value}
+              {item.value}
             </DropdownMenuItem>
           ))}
           <Separator className="dark:bg-slate-700" />
           <DropdownMenuItem
-            className="cursor-pointer text-rose-500 dark:text-rose-500"
-            icon={<SolarTrashBinTrashBoldDuotone className="text-rose-500" />}
+            className={clsx(
+              "cursor-pointer text-rose-500 dark:text-rose-500",
+              isStatusLoading || (isDeleteLoading && "flex justify-center")
+            )}
+            icon={
+              !isDeleteLoading || !isDeleteLoading ? (
+                <SolarTrashBinTrashBoldDuotone className="text-rose-500" />
+              ) : undefined
+            }
+            onClick={() => handleUser("Delete")}
+            disabled={isStatusLoading || isDeleteLoading}
+            onSelect={(e) => e.preventDefault()}
           >
-            Delete
+            {isStatusLoading || isDeleteLoading ? <Loader /> : "Delete"}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
