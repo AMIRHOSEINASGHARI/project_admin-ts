@@ -38,3 +38,8 @@ export interface JobType extends Document {
   properties: JobProperties;
   createdAt: Date;
 }
+
+export type CreateJob = JobProperties & {
+  title: string;
+  content: string;
+};

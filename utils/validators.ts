@@ -145,3 +145,46 @@ export const userFormSchema = z.object({
   isVerified: z.boolean(),
   about: z.string(),
 });
+
+export const jobFormSchema = z.object({
+  employmentType: z
+    .string()
+    .min(1, { message: "Employment type is requiered!" }),
+  experience: z.string().min(1, { message: "Experience is requiered!" }),
+  role: z.string().min(1, { message: "Role is requiered!" }),
+  skills: z
+    .array(z.string().min(1, "Too short!"))
+    .min(2, "Must have at least 2 items!"),
+  workingSchedule: z
+    .array(z.string().min(1, "Too short!"))
+    .min(2, "Must have at least 2 items!"),
+  locations: z
+    .array(z.string().min(1, "Too short!"))
+    .min(2, "Must have at least 2 items!"),
+  expired: z.date().refine((date) => date > new Date(), {
+    message: "Expiration date must be in the future!",
+  }),
+  salary: z.string().min(1, { message: "Salary is requiered!" }),
+  price: z
+    .union([
+      z.number().min(0, "Invalid price format!"),
+      z.string().regex(/^\d+(\.\d{1,2})?$/, "Invalid price format!"),
+    ])
+    .refine(
+      (value) =>
+        typeof value === "number" ? value >= 1 : parseFloat(value) >= 1,
+      {
+        message: "Price should not be $0.00!",
+      }
+    ),
+  address: z.string().min(1, { message: "Address is requiered!" }),
+  company: z.string().min(1, { message: "Company is requiered!" }),
+  phoneNumber: z.string().min(1, { message: "Phone number is requiered!" }),
+  image: z.string().url("Must be a valid image URL!"),
+  benefits: z
+    .array(z.string().min(1, "Too short!"))
+    .min(2, "Must have at least 2 items!"),
+  published: z.boolean(),
+  title: z.string().min(1, { message: "Title is requiered!" }),
+  content: z.string().min(1, { message: "Content is requiered!" }),
+});
