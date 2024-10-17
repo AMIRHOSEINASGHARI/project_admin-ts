@@ -1,7 +1,7 @@
-import React from "react";
+import CreateJobPage from "@/components/pages/management/job/create/CreateJobPage";
 
 const CreateJob = () => {
-  return <div>CreateJob</div>;
+  return <CreateJobPage />;
 };
 
 export default CreateJob;

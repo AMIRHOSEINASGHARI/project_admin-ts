@@ -118,3 +118,14 @@ export const user_list_page_breadcrumb_data = [
     href: "/user/list",
   },
 ];
+
+export const create_job__page_breadcrumb_data = [
+  {
+    title: "Dashboard",
+    href: "/dashboard",
+  },
+  {
+    title: "Job",
+    href: "/job/list",
+  },
+];
