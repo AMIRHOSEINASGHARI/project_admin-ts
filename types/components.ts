@@ -61,3 +61,11 @@ export type PhoneNumberInputProps = {
 };
 
 export type JobFormProps = { type: "create" | "edit"; job?: JobType };
+
+export type JobFileUploaderProps = {
+  onFieldChange: (value: File[] | string) => void;
+  files: File[];
+  setFiles: Dispatch<SetStateAction<File[]>>;
+  image: string;
+  setImage: Dispatch<SetStateAction<string>>;
+};
