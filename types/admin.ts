@@ -4,7 +4,7 @@ import { Document } from "mongoose";
 import { BlogType } from "./blog";
 import { ProductType } from "./product";
 
-export type AdminRole = "USER" | "ADMIN" | "OWNER";
+export type AdminRole = "OWNER";
 
 export type AdminStatus = "Active" | "Pending" | "Banned" | "Rejected";
 

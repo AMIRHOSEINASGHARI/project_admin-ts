@@ -12,6 +12,9 @@ import { AdminStatus, AdminType, UserFormData } from "@/types/admin";
 import connectDB from "@/utils/connectDB";
 import { getServerSession } from "@/utils/session";
 import { checkSession } from "./shared";
+import { sign } from "jsonwebtoken";
+import { SECRET_KEY, SESSION_EXPIRATION } from "@/utils/vars";
+import { cookies } from "next/headers";
 
 export const getCurrentAdmin = async () => {
   try {
@@ -162,6 +165,32 @@ export const editUser = async (data: UserFormData & { userId: string }) => {
     });
 
     revalidatePath("/user");
+
+    if (isUsernameExist?.role === "OWNER") {
+      // creating token
+      const accessToken = sign(
+        {
+          username,
+          userId: isUsernameExist._id,
+          name: name,
+          avatar: avatar,
+          role: isUsernameExist?.role,
+        },
+        SECRET_KEY!,
+        {
+          expiresIn: SESSION_EXPIRATION,
+        }
+      );
+
+      // setting token in cookie
+      cookies().set("accessToken", accessToken, {
+        httpOnly: true,
+        secure: true,
+        expires: new Date(Date.now() + SESSION_EXPIRATION),
+        sameSite: "lax",
+        path: "/",
+      });
+    }
 
     return {
       message: ResponseMessages.SUCCESSFULLY_UPDATED,

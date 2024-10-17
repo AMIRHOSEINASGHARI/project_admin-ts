@@ -263,7 +263,11 @@ const UserForm = ({ type, user }: UserFormPorps) => {
                 render={({ field }) => (
                   <FormItem className="col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2">
                     <FormControl>
-                      <Input {...field} placeholder="Role" />
+                      <Input
+                        {...field}
+                        placeholder="Role"
+                        disabled={user?.role === "OWNER"}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
