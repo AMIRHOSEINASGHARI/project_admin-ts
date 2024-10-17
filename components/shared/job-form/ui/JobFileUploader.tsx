@@ -40,7 +40,7 @@ const JobFileUploader = ({
   );
 
   const { startUpload, isUploading, permittedFileInfo } = useUploadThing(
-    "blogFileUploader",
+    "jobFileUploader",
     {
       onUploadBegin: () => {
         if (uploadProgress === 100) setUploadProgress(() => 0);
