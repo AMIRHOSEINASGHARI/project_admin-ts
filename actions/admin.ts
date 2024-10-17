@@ -25,7 +25,7 @@ export const getCurrentAdmin = async () => {
 
     if (!admin) {
       return {
-        admin: null,
+        admin: undefined,
         message: ResponseMessages.USER_NOT_FOUND,
         code: ResponseCodes.NOT_FOUND,
       };
