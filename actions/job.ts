@@ -7,11 +7,28 @@ import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
 import JobModel from "@/models/jog";
 // types
-import { CreateJob } from "@/types/job";
+import { CreateJob, JobType } from "@/types/job";
 // actions
 import { checkSession } from "./shared";
 // utils
 import connectDB from "@/utils/connectDB";
+
+export const getAdmins = async () => {
+  try {
+    await connectDB();
+
+    const jobs = await JobModel.find().lean<JobType[]>();
+
+    return {
+      jobs,
+      message: ResponseMessages.SUCCESSFULLY_FETCHED,
+      code: ResponseCodes.SUCCESSFULLY_FETCHED,
+    };
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
 
 export const createJob = async (data: CreateJob) => {
   try {
