@@ -580,9 +580,6 @@ const JobForm = ({ type, job }: JobFormProps) => {
                                       <Label htmlFor={item}>{item}</Label>
                                     </div>
                                   </FormControl>
-                                  {/* <FormLabel className="font-normal">
-                                    {item.label}
-                                  </FormLabel> */}
                                 </FormItem>
                               );
                             }}

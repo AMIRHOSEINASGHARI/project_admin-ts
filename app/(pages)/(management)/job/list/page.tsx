@@ -1,7 +1,7 @@
-import React from "react";
+import JobListPage from "@/components/pages/management/job/list/JobListPage";
 
-const Jobs = () => {
-  return <div>Jobs</div>;
+const Job = () => {
+  return <JobListPage />;
 };
 
-export default Jobs;
+export default Job;
