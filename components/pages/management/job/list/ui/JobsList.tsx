@@ -8,7 +8,7 @@ import JobCard from "./JobCard";
 const JobsList = ({ jobs }: { jobs: JobType[] }) => {
   return (
     <div>
-      <div className="flex items-center justify-between w-full mb-8">
+      <div className="flex items-center flex-wrap max-xl:gap-4 xl:flex-nowrap justify-between w-full mb-8">
         <SearchJobs />
         <FilterJobs />
       </div>
