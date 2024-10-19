@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 // react query
 import { useMutation } from "@tanstack/react-query";
 // actions
+import { createJob } from "@/actions/job";
 // types
 import { JobSalary, JobType } from "@/types/job";
 import { JobFormProps } from "@/types/components";
@@ -71,6 +72,9 @@ const JobForm = ({ type, job }: JobFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [image, setImage] = useState<string>(job?.properties?.image || "");
   const router = useRouter();
+  const { isLoading: isCreating, mutate: mutateCreate } = useMutation({
+    mutationFn: createJob,
+  });
 
   const formDefaultValues = {
     title: job ? job?.title : "",
@@ -106,7 +110,23 @@ const JobForm = ({ type, job }: JobFormProps) => {
       return;
     }
 
+    const formData = {
+      ...values,
+      price: +values.price,
+    };
+
     if (type === "create") {
+      mutateCreate(formData, {
+        onSuccess: (data) => {
+          toast.success(data?.message);
+          router.push("/job/list");
+        },
+        onError: (error: any) => {
+          toast.error(error.message);
+        },
+      });
+
+      return;
     }
 
     if (type === "edit") {
@@ -604,9 +624,9 @@ const JobForm = ({ type, job }: JobFormProps) => {
               type="submit"
               variant="secondary"
               className="font-bold min-w-[134px]"
-              //   disabled={isCreating || isEditing}
+              disabled={isCreating}
             >
-              {false ? (
+              {isCreating ? (
                 <Loader />
               ) : type === "create" ? (
                 "Create job"

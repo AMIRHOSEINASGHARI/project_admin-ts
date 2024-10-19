@@ -40,7 +40,7 @@ export interface JobProperties {
   company: string;
   phoneNumber: string;
   image: string;
-  benefits: JobBenefits[];
+  benefits: string[];
   published: boolean;
 }
 

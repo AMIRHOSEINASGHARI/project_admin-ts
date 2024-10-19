@@ -147,10 +147,18 @@ export const userFormSchema = z.object({
 });
 
 export const jobFormSchema = z.object({
-  employmentType: z
-    .string()
-    .min(1, { message: "Employment type is requiered!" }),
-  experience: z.string().min(1, { message: "Experience is requiered!" }),
+  employmentType: z.enum(
+    ["Full-time", "Part-time", "On demand", "Negotiable"],
+    {
+      invalid_type_error: "Invalid Employment type!",
+    }
+  ),
+  experience: z.enum(
+    ["No experience", "1 year exp", "2 year exp", "> 3 year exp"],
+    {
+      invalid_type_error: "Invalid Experience type!",
+    }
+  ),
   role: z.string().min(1, { message: "Role is requiered!" }),
   skills: z
     .array(z.string().min(1, "Too short!"))
@@ -166,7 +174,9 @@ export const jobFormSchema = z.object({
     .refine((date) => date > new Date(), {
       message: "Expiration date must be in the future!",
     }),
-  salary: z.string().min(1, { message: "Salary is requiered!" }),
+  salary: z.enum(["Hourly", "Custom"], {
+    invalid_type_error: "Invalid salary type!",
+  }),
   price: z
     .union([
       z.number().min(0, "Invalid price format!"),
