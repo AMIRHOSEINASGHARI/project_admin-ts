@@ -83,6 +83,7 @@ export const images = {
   notAllowed: "/images/not-allowed.png",
   error: "/images/sad.png",
   inviteAndEarn: "/images/invite-and-earn.png",
+  noImage: "/images/no-image.jpg",
 };
 
 export const menuLinks = [
