@@ -67,6 +67,7 @@ import {
 } from "@/components/svg";
 // mock
 import { fakeUsers } from "@/mock/users";
+import { JobBenefits } from "@/types/job";
 // types
 import { File } from "@/types/shared";
 import { Linkedin } from "lucide-react";
@@ -1464,4 +1465,17 @@ export const userCardsPage_social_data = [
     id: "Twitter",
     icon: <Twitter className="text-xl text-black dark:text-white" />,
   },
+];
+
+export const jobBenefits: JobBenefits[] = [
+  "Free parking",
+  "Bonus commission",
+  "Travel",
+  "Device support",
+  "Health care",
+  "Training",
+  "Health insurance",
+  "Retirement plans",
+  "Paid time off",
+  "Flexible work schedule",
 ];

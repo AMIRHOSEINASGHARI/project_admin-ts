@@ -161,9 +161,11 @@ export const jobFormSchema = z.object({
   locations: z
     .array(z.string().min(1, "Too short!"))
     .min(2, "Must have at least 2 items!"),
-  expired: z.date().refine((date) => date > new Date(), {
-    message: "Expiration date must be in the future!",
-  }),
+  expired: z
+    .date({ message: "Expiration date is requiered!" })
+    .refine((date) => date > new Date(), {
+      message: "Expiration date must be in the future!",
+    }),
   salary: z.string().min(1, { message: "Salary is requiered!" }),
   price: z
     .union([
@@ -181,9 +183,7 @@ export const jobFormSchema = z.object({
   company: z.string().min(1, { message: "Company is requiered!" }),
   phoneNumber: z.string().min(1, { message: "Phone number is requiered!" }),
   image: z.string().url("Must be a valid image URL!"),
-  benefits: z
-    .array(z.string().min(1, "Too short!"))
-    .min(2, "Must have at least 2 items!"),
+  benefits: z.array(z.string()).min(1, "Choose at least one option!"),
   published: z.boolean(),
   title: z.string().min(1, { message: "Title is requiered!" }),
   content: z.string().min(1, { message: "Content is requiered!" }),

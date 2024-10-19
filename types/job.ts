@@ -14,6 +14,18 @@ export type JobExperience =
 
 export type JobSalary = "Hourly" | "Custom";
 
+export type JobBenefits =
+  | "Free parking"
+  | "Bonus commission"
+  | "Travel"
+  | "Device support"
+  | "Health care"
+  | "Training"
+  | "Health insurance"
+  | "Retirement plans"
+  | "Paid time off"
+  | "Flexible work schedule";
+
 export interface JobProperties {
   employmentType: JobEmployment;
   experience: JobExperience;
@@ -28,7 +40,7 @@ export interface JobProperties {
   company: string;
   phoneNumber: string;
   image: string;
-  benefits: string[];
+  benefits: JobBenefits[];
   published: boolean;
 }
 

@@ -205,6 +205,9 @@ export { default as SolarGolfBoldDuotone } from "../../public/icons/solar/solar-
 export { default as SolarLetterOpenedBoldDuotone } from "../../public/icons/solar/solar--letter-opened-bold-duotone.svg";
 export { default as SolarMoneyBagBoldDuotone } from "../../public/icons/solar/solar--money-bag-bold-duotone.svg";
 export { default as SolarImages } from "../../public/icons/solar/solar--images.svg";
+export { default as SolarBarChart } from "../../public/icons/solar/solar--bar-chart.svg";
+export { default as SolarCalendar2 } from "../../public/icons/solar/solar--calendar-2.svg";
+export { default as SolarSalary } from "../../public/icons/solar/solar--salary.svg";
 // editor component icons
 export { default as EditorSetAlignCenter } from "../../public/icons/editor/editor-set-align-center.svg";
 export { default as EditorSetJustify } from "../../public/icons/editor/editor-set-justify.svg";
