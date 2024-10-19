@@ -1,7 +1,7 @@
 import JobListPage from "@/components/pages/management/job/list/JobListPage";
 
-const Job = () => {
+const Jobs = () => {
   return <JobListPage />;
 };
 
-export default Job;
+export default Jobs;

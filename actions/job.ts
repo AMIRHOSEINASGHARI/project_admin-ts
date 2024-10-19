@@ -13,7 +13,7 @@ import { checkSession } from "./shared";
 // utils
 import connectDB from "@/utils/connectDB";
 
-export const getAdmins = async () => {
+export const getJobs = async () => {
   try {
     await connectDB();
 
@@ -21,6 +21,23 @@ export const getAdmins = async () => {
 
     return {
       jobs,
+      message: ResponseMessages.SUCCESSFULLY_FETCHED,
+      code: ResponseCodes.SUCCESSFULLY_FETCHED,
+    };
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
+
+export const getJob = async (id: string) => {
+  try {
+    await connectDB();
+
+    const job = await JobModel.findById(id).lean<JobType>();
+
+    return {
+      job,
       message: ResponseMessages.SUCCESSFULLY_FETCHED,
       code: ResponseCodes.SUCCESSFULLY_FETCHED,
     };

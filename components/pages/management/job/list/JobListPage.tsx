@@ -1,7 +1,7 @@
 // next
 import Link from "next/link";
 // actions
-import { getAdmins } from "@/actions/job";
+import { getJobs } from "@/actions/job";
 // constants
 import { job_list_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // icons
@@ -13,7 +13,7 @@ import PageHeading from "@/components/shared/PageHeading";
 import JobsList from "./ui/JobsList";
 
 const JobListPage = async () => {
-  const data = await getAdmins();
+  const data = await getJobs();
 
   return (
     <>
