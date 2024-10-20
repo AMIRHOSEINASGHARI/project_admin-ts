@@ -1,3 +1,5 @@
+// next
+import { notFound } from "next/navigation";
 // actions
 import { getCurrentAdmin } from "@/actions/admin";
 // utils
@@ -11,6 +13,8 @@ import UserForm from "../shared/UserForm";
 
 const AccountPage = async () => {
   const data = await getCurrentAdmin();
+
+  if (data?.admin === undefined) notFound();
 
   return (
     <>
