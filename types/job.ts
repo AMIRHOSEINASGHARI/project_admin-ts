@@ -55,3 +55,7 @@ export type CreateJob = JobProperties & {
   title: string;
   content: string;
 };
+
+export type EditJob = CreateJob & {
+  id: string;
+};

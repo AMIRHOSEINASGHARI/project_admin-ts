@@ -7,7 +7,7 @@ import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
 import JobModel from "@/models/jog";
 // types
-import { CreateJob, JobType } from "@/types/job";
+import { CreateJob, EditJob, JobType } from "@/types/job";
 // actions
 import { checkSession } from "./shared";
 // utils
@@ -100,6 +100,67 @@ export const createJob = async (data: CreateJob) => {
     return {
       message: ResponseMessages.SUCCESSFULLY_CREATED,
       code: ResponseCodes.SUCCESSFULLY_CREATED,
+    };
+  } catch (error) {
+    console.log(error);
+    throw new Error(ResponseMessages.SERVER_ERROR);
+  }
+};
+
+export const editJob = async (data: EditJob) => {
+  try {
+    await checkSession();
+
+    const {
+      employmentType,
+      experience,
+      role,
+      skills,
+      workingSchedule,
+      locations,
+      expired,
+      salary,
+      price,
+      address,
+      company,
+      phoneNumber,
+      image,
+      benefits,
+      published,
+      title,
+      content,
+      id,
+    } = data;
+
+    const modelInput = {
+      title,
+      content,
+      properties: {
+        employmentType,
+        experience,
+        role,
+        skills,
+        workingSchedule,
+        locations,
+        expired,
+        salary,
+        price: +price,
+        address,
+        company,
+        phoneNumber,
+        image,
+        benefits,
+        published,
+      },
+    };
+
+    await JobModel.findByIdAndUpdate(id, modelInput);
+
+    revalidatePath("/job");
+
+    return {
+      message: ResponseMessages.SUCCESSFULLY_UPDATED,
+      code: ResponseCodes.SUCCESSFULLY_UPDATED,
     };
   } catch (error) {
     console.log(error);
