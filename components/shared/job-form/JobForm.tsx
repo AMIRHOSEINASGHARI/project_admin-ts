@@ -260,7 +260,7 @@ const JobForm = ({ type, job }: JobFormProps) => {
                       <FormItem>
                         <FormControl>
                           <RadioGroup
-                            defaultValue="Full-time"
+                            defaultValue={field.value}
                             className="flex items-center flex-wrap gap-7"
                             onValueChange={(e) => field.onChange(e)}
                           >
@@ -294,7 +294,7 @@ const JobForm = ({ type, job }: JobFormProps) => {
                       <FormItem>
                         <FormControl>
                           <RadioGroup
-                            defaultValue="1 year exp"
+                            defaultValue={field.value}
                             className="flex items-center flex-wrap gap-7"
                             onValueChange={(e) => field.onChange(e)}
                           >

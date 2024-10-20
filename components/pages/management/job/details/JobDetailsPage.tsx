@@ -19,7 +19,7 @@ const JobDetailsPage = async ({ id }: { id: string }) => {
     <div className="space-y-7">
       <div className="flex items-center justify-between">
         <Button asChild variant="action">
-          <Link href="/product/list">
+          <Link href="/job/list">
             <SolarAltArrowLeftLineDuotone />
             Back
           </Link>
