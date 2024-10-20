@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 // react query
 import { useMutation } from "@tanstack/react-query";
 // actions
-import { createJob } from "@/actions/job";
+import { createJob, editJob } from "@/actions/job";
 // types
-import { JobSalary, JobType } from "@/types/job";
+import { JobSalary } from "@/types/job";
 import { JobFormProps } from "@/types/components";
 // form
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -64,7 +64,7 @@ import JobFileUploader from "./ui/JobFileUploader";
 
 const JobForm = ({ type, job }: JobFormProps) => {
   const [expired, setExpired] = useState<Date | undefined>(
-    job ? job?.properties?.expired : undefined
+    job ? new Date(job?.properties?.expired) : undefined
   );
   const [salary, setSalary] = useState<JobSalary>(
     job ? job?.properties?.salary : "Hourly"
@@ -74,6 +74,9 @@ const JobForm = ({ type, job }: JobFormProps) => {
   const router = useRouter();
   const { isLoading: isCreating, mutate: mutateCreate } = useMutation({
     mutationFn: createJob,
+  });
+  const { isLoading: isEditing, mutate: mutateEdit } = useMutation({
+    mutationFn: editJob,
   });
 
   const formDefaultValues = {
@@ -130,8 +133,22 @@ const JobForm = ({ type, job }: JobFormProps) => {
     }
 
     if (type === "edit") {
+      mutateEdit(
+        { ...formData, id: job?._id },
+        {
+          onSuccess: (data) => {
+            toast.success(data?.message);
+            router.push(`/job/${job?._id}`);
+          },
+          onError: (error: any) => {
+            toast.error(error.message);
+          },
+        }
+      );
     }
   };
+
+  console.log(job);
 
   return (
     <Form {...form}>
@@ -621,9 +638,9 @@ const JobForm = ({ type, job }: JobFormProps) => {
               type="submit"
               variant="secondary"
               className="font-bold min-w-[134px]"
-              disabled={isCreating}
+              disabled={isCreating || isEditing}
             >
-              {isCreating ? (
+              {isCreating || isEditing ? (
                 <Loader />
               ) : type === "create" ? (
                 "Create job"
