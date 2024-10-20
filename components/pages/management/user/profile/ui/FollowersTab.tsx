@@ -15,7 +15,7 @@ const FollowersTab = () => {
   return (
     <div>
       <PageHeading text="Followers" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+      <div className="listGrid1">
         {fakeUsers.map(({ id, image, name, location }, index) => {
           const isFollowed =
             index === 4 || index === 5 || index === 6 || index === 7;

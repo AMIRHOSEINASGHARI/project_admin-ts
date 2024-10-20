@@ -11,7 +11,7 @@ import JobCandidates from "./JobCandidates";
 const JobDetailsTabs = ({ job }: { job: JobType }) => {
   return (
     <Tabs defaultValue="jobContent">
-      <TabsList className="tabList dark:bg-transparent">
+      <TabsList className="tabList dark:bg-transparent mb-5">
         <TabsTrigger value="jobContent" className="tabTrigger">
           Job Content
         </TabsTrigger>

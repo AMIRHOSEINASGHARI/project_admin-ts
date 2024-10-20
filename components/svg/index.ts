@@ -208,6 +208,7 @@ export { default as SolarImages } from "../../public/icons/solar/solar--images.s
 export { default as SolarBarChart } from "../../public/icons/solar/solar--bar-chart.svg";
 export { default as SolarCalendar2 } from "../../public/icons/solar/solar--calendar-2.svg";
 export { default as SolarSalary } from "../../public/icons/solar/solar--salary.svg";
+export { default as SolarPhoneBold } from "../../public/icons/solar/solar--phone-bold.svg";
 // editor component icons
 export { default as EditorSetAlignCenter } from "../../public/icons/editor/editor-set-align-center.svg";
 export { default as EditorSetJustify } from "../../public/icons/editor/editor-set-justify.svg";

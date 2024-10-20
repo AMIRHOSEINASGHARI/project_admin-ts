@@ -64,6 +64,10 @@ import {
   Facebook,
   Instagram,
   Twitter,
+  SolarPhoneBold,
+  SolarChatRoundDotsBoldDuotone,
+  SolarLetterBoldDuotone,
+  SolarCloudUploadBoldDuotone,
 } from "@/components/svg";
 // mock
 import { fakeUsers } from "@/mock/users";
@@ -1479,4 +1483,31 @@ export const jobBenefits: JobBenefits[] = [
   "Retirement plans",
   "Paid time off",
   "Flexible work schedule",
+];
+
+export const jobCandidates_callToActionList = [
+  {
+    id: "1",
+    icon: <SolarPhoneBold />,
+    className:
+      "text-rose-500 dark:text-rose-300 bg-rose-100 dark:bg-rose-800/30 hover:text-rose-600 dark:hover:text-rose-200 hover:bg-rose-200 dark:hover:bg-rose-800/40",
+  },
+  {
+    id: "2",
+    icon: <SolarChatRoundDotsBoldDuotone />,
+    className:
+      "text-sky-500 dark:text-sky-300 bg-sky-100 dark:bg-sky-800/30 hover:text-sky-600 dark:hover:text-sky-200 hover:bg-sky-200 dark:hover:bg-sky-800/40",
+  },
+  {
+    id: "3",
+    icon: <SolarLetterBoldDuotone />,
+    className:
+      "text-green-500 dark:text-green-300 bg-green-100 dark:bg-green-800/30 hover:text-green-600 dark:hover:text-green-200 hover:bg-green-200 dark:hover:bg-green-800/40",
+  },
+  {
+    id: "4",
+    icon: <SolarCloudUploadBoldDuotone />,
+    className:
+      "text-purple-500 dark:text-purple-300 bg-purple-100 dark:bg-purple-800/30 hover:text-purple-600 dark:hover:text-purple-200 hover:bg-purple-200 dark:hover:bg-purple-800/40",
+  },
 ];

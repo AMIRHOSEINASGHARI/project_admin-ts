@@ -15,7 +15,7 @@ const UserCardsList = ({ admins }: { admins: AdminType[] }) => {
   if (admins?.length === 0) return "no data";
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+    <div className="listGrid1">
       {admins.map(({ _id, avatar, name, role, isVerified }) => (
         <Card key={_id} style={{ padding: 0 }}>
           <div className="flex flex-col items-center justify-center gap-2 p-card">

@@ -14,7 +14,7 @@ const FriendsTab = () => {
   return (
     <div>
       <PageHeading text="Friends" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+      <div className="listGrid1">
         {fakeUsers.map(({ id, company, email, image, isVerified, name }) => (
           <Card key={id} className="relative">
             <Button variant="icon" className="absolute right-2 top-2">
