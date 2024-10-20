@@ -45,13 +45,10 @@ const ProfileTabsList = ({ name, avatar, role }: ProfileTabsListProps) => {
           </div>
         </div>
         <div className="bg-white flex items-center justify-center xl:justify-end dark:bg-dark3 absolute z-[4] xl:z-[2] bottom-0 right-0 left-0 w-full px-card">
-          <TabsList className="bg-transparent flex items-center gap-5 w-fit">
+          <TabsList className="tabList">
             {profilePage_tabs_data.map(({ value, title, icon }) => (
               <div key={value}>
-                <TabsTrigger
-                  value={value}
-                  className="bg-transparent flex items-center gap-2 py-3 border-b-2 border-transparent data-[state=active]:border-black dark:data-[state=active]:border-white dark:data-[state=active]:bg-transparent data-[state=active]:text-black dark:data-[state=active]:text-white rounded-none"
-                >
+                <TabsTrigger value={value} className="tabTrigger">
                   {icon} {title}
                 </TabsTrigger>
               </div>

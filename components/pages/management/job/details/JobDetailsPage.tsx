@@ -6,8 +6,9 @@ import { getJob } from "@/actions/job";
 // icons
 import { SolarAltArrowLeftLineDuotone } from "@/components/svg";
 // cmp
-import JobHeadingActions from "./ui/JobHeadingActions";
 import { Button } from "@/components/ui/button";
+import JobHeadingActions from "./ui/JobHeadingActions";
+import JobDetailsTabs from "./ui/JobDetailsTabs";
 
 const JobDetailsPage = async ({ id }: { id: string }) => {
   const data = await getJob(id);
@@ -15,7 +16,7 @@ const JobDetailsPage = async ({ id }: { id: string }) => {
   if (!data?.job) notFound();
 
   return (
-    <div>
+    <div className="space-y-7">
       <div className="flex items-center justify-between">
         <Button asChild variant="action">
           <Link href="/product/list">
@@ -28,6 +29,7 @@ const JobDetailsPage = async ({ id }: { id: string }) => {
           published={data?.job?.properties?.published}
         />
       </div>
+      <JobDetailsTabs />
     </div>
   );
 };

@@ -220,3 +220,11 @@
   @apply font-[700] text-xl text-[var(--text-disabled)] line-through;
 }
 /* Text: END */
+
+/* Tabs: START */
+.tabTrigger {
+  @apply bg-transparent dark:bg-transparent flex items-center gap-2 py-3 px-0 border-b-2 border-transparent data-[state=active]:border-black dark:data-[state=active]:border-white data-[state=active]:dark:bg-transparent data-[state=active]:text-black dark:data-[state=active]:text-white rounded-none;
+}
+.tabList {
+  @apply bg-transparent dark:bg-transparent flex items-center gap-8 w-fit rounded-none;
+}
