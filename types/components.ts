@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 // types
 import { AdminRole, AdminType } from "./admin";
 import { NavColor } from "./shared";
-import { JobType } from "./job";
+import { JobEmployment, JobExperience, JobSalary, JobType } from "./job";
 
 export type PageSearchParams = {
   [key: string]: string | string[] | undefined;
@@ -68,4 +68,18 @@ export type JobFileUploaderProps = {
   setFiles: Dispatch<SetStateAction<File[]>>;
   image: string;
   setImage: Dispatch<SetStateAction<string>>;
+};
+
+export type JobContentDetailsProps = {
+  address: string;
+  company: string;
+  employmentType: JobEmployment;
+  experience: JobExperience;
+  expired: Date;
+  image: string;
+  phoneNumber: string;
+  price: number;
+  published: boolean;
+  salary: JobSalary;
+  createdAt: Date;
 };

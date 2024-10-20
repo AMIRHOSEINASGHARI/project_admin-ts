@@ -29,7 +29,7 @@ const JobDetailsPage = async ({ id }: { id: string }) => {
           published={data?.job?.properties?.published}
         />
       </div>
-      <JobDetailsTabs />
+      <JobDetailsTabs job={data?.job} />
     </div>
   );
 };
