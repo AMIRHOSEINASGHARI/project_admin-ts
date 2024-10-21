@@ -47,3 +47,20 @@ export const getTours = async () => {
     throw new Error(error);
   }
 };
+
+export const getTour = async (id: string) => {
+  try {
+    await connectDB();
+
+    const tour = await TourModel.findById(id).lean<TourType>();
+
+    return {
+      tour,
+      message: ResponseMessages.SUCCESSFULLY_FETCHED,
+      code: ResponseCodes.SUCCESSFULLY_FETCHED,
+    };
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
