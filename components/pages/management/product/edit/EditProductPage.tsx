@@ -23,7 +23,7 @@ const EditProductPage = async ({ id }: { id: string }) => {
         data={editProduct_page_breadcrumb_data}
         breadcrumbPage={data?.product?.title}
       />
-      <ProductForm page="edit" product={jsonParser(data?.product)} />
+      <ProductForm type="edit" product={jsonParser(data?.product)} />
     </>
   );
 };

@@ -4,6 +4,8 @@ import { Dispatch, SetStateAction } from "react";
 import { AdminRole, AdminType } from "./admin";
 import { NavColor } from "./shared";
 import { JobEmployment, JobExperience, JobSalary, JobType } from "./job";
+import { TourType } from "./tour";
+import { ProductType } from "./product";
 
 export type PageSearchParams = {
   [key: string]: string | string[] | undefined;
@@ -82,4 +84,11 @@ export type JobContentDetailsProps = {
   published: boolean;
   salary: JobSalary;
   createdAt: Date;
+};
+
+export type TourFormProps = { type: "create" | "edit"; tour?: TourType };
+
+export type ProductFormProps = {
+  type: "create" | "edit";
+  product?: ProductType;
 };

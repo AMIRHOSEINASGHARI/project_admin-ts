@@ -17,3 +17,19 @@ export interface TourType {
   discount: number;
   createdAt: Date;
 }
+
+export type CreateTour = {
+  name: string;
+  content: string;
+  images: string[];
+  tourGuide: string;
+  startDate: Date;
+  endDate: Date;
+  duration: string;
+  destination: string;
+  services: string[];
+  tags: string[];
+  published: boolean;
+  price: number;
+  discount: number;
+};

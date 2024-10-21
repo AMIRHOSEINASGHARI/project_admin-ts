@@ -5,7 +5,7 @@ import { useState } from "react";
 // next
 import { useRouter } from "next/navigation";
 // types
-import { ProductType } from "@/types/product";
+import { ProductFormProps } from "@/types/components";
 // form
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -53,12 +53,7 @@ import FormKeywords from "./FormKeywords";
 import Loader from "./Loader";
 import ProductFileUploader from "../pages/management/product/create/ui/ProductFileUploader";
 
-type ProductFormProps = {
-  page: "add" | "edit";
-  product?: ProductType;
-};
-
-const ProductForm = ({ page, product }: ProductFormProps) => {
+const ProductForm = ({ type, product }: ProductFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [images, setImages] = useState<string[]>(product?.images || []);
   const router = useRouter();
@@ -104,7 +99,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
       stock: +values.stock,
     };
 
-    if (page === "add") {
+    if (type === "create") {
       mutateCreate(formData, {
         onSuccess: (data) => {
           toast.success(data?.message);
@@ -118,7 +113,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
       return;
     }
 
-    if (page === "edit") {
+    if (type === "edit") {
       mutateEdit(
         {
           ...formData,
@@ -412,7 +407,7 @@ const ProductForm = ({ page, product }: ProductFormProps) => {
             >
               {isCreating || isEditing ? (
                 <Loader />
-              ) : page === "add" ? (
+              ) : type === "create" ? (
                 "Create product"
               ) : (
                 "Edit Product"

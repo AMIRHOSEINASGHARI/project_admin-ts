@@ -13,7 +13,7 @@ const CreateProductPage = () => {
         data={addProduct_page_breadcrumb_data}
         breadcrumbPage="Create"
       />
-      <ProductForm page="add" />
+      <ProductForm type="create" />
     </>
   );
 };

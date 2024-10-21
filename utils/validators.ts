@@ -198,3 +198,68 @@ export const jobFormSchema = z.object({
   title: z.string().min(1, { message: "Title is requiered!" }),
   content: z.string().min(1, { message: "Content is requiered!" }),
 });
+
+export const tourFormSchema = z.object({
+  name: z
+    .string()
+    .min(20, "Tour name must be between 20 and 30 characters!")
+    .max(30, "Tour name must be between 20 and 30 characters!"),
+  content: z.string().min(1, "Content is required!"),
+  images: z
+    .array(z.string().url("Must be a valid image URL!"))
+    .min(3, "At least three images is required"),
+  price: z
+    .union([
+      z.number().min(0, "Invalid price format! Minimum value is 0$"),
+      z
+        .string()
+        .regex(
+          /^\d+(\.\d{1,2})?$/,
+          "Invalid price format! Minimum value is 0$"
+        ),
+    ])
+    .refine(
+      (value) =>
+        typeof value === "number" ? value >= 1 : parseFloat(value) >= 1,
+      {
+        message: "Price should not be $0.00!",
+      }
+    ),
+  discount: z
+    .union([
+      z.number().min(0, "Invalid discount format! Minimum value is 0%"),
+      z
+        .string()
+        .regex(
+          /^\d+(\.\d{1,2})?$/,
+          "Invalid discount format! Minimum value is 0%"
+        ),
+    ])
+    .refine(
+      (value) =>
+        typeof value === "number" ? value >= 0 : parseFloat(value) >= 0,
+      {
+        message: "Discount is required!",
+      }
+    ),
+  publish: z.boolean(),
+  tags: z
+    .array(z.string().min(1, "Too short!"))
+    .min(2, "Must have at least 2 items!"),
+  services: z
+    .array(z.string().min(1, "Too short!"))
+    .min(2, "Must have at least 2 items!"),
+  tourGuide: z.string({ message: "Tour guide is required!" }),
+  startDate: z
+    .date({ message: "Start date is requiered!" })
+    .refine((date) => date > new Date(), {
+      message: "Start date must be in the future!",
+    }),
+  endDate: z
+    .date({ message: "Start date is requiered!" })
+    .refine((date) => date > new Date(), {
+      message: "Start date must be in the future!",
+    }),
+  duration: z.string().min(1, { message: "Duration is required!" }),
+  destination: z.string().min(1, { message: "Destination is required!" }),
+});
