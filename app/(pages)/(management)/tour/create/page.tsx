@@ -1,7 +1,7 @@
-import React from "react";
+import CreateTourPage from "@/components/pages/management/tour/create/CreateTourPage";
 
 const CreateTour = () => {
-  return <div>CreateTour</div>;
+  return <CreateTourPage />;
 };
 
 export default CreateTour;
