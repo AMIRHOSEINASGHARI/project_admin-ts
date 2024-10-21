@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
-import JobModel from "@/models/jog";
+import JobModel from "@/models/job";
 // types
 import { CreateJob, EditJob, JobType } from "@/types/job";
 // actions
