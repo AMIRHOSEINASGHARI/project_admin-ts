@@ -17,22 +17,6 @@ export const createTour = async (data: CreateTour) => {
   try {
     await checkSession();
 
-    const {
-      name,
-      content,
-      images,
-      tourGuide,
-      startDate,
-      endDate,
-      duration,
-      destination,
-      services,
-      tags,
-      published,
-      price,
-      discount,
-    } = data;
-
     await TourModel.create(data);
 
     revalidatePath("/tour");
@@ -44,5 +28,22 @@ export const createTour = async (data: CreateTour) => {
   } catch (error) {
     console.log(error);
     throw new Error(ResponseMessages.SERVER_ERROR);
+  }
+};
+
+export const getTours = async () => {
+  try {
+    await connectDB();
+
+    const tours = await TourModel.find().lean<TourType[]>();
+
+    return {
+      tours,
+      message: ResponseMessages.SUCCESSFULLY_FETCHED,
+      code: ResponseCodes.SUCCESSFULLY_FETCHED,
+    };
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
   }
 };
