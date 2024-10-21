@@ -1,0 +1,19 @@
+// types
+import { AdminType } from "./admin";
+
+export interface TourType {
+  name: string;
+  content: string;
+  images: string[];
+  tourGuide: AdminType;
+  startDate: Date;
+  endDate: Date;
+  duration: string;
+  destination: string;
+  services: string[];
+  tags: string[];
+  published: boolean;
+  price: number;
+  discount: number;
+  createdAt: Date;
+}
