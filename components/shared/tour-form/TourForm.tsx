@@ -3,10 +3,13 @@
 // react
 import { useState } from "react";
 // next
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 // react query
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 // actions
+// services
+import { fetchAdmins } from "@/services/queries";
 // types
 import { TourFormProps } from "@/types/components";
 // form
@@ -17,7 +20,7 @@ import { z } from "zod";
 import { tourFormSchema } from "@/utils/validators";
 import { cn } from "@/lib/utils";
 // constants
-import { tourServices } from "@/constants";
+import { tourServices, images as constantsImages } from "@/constants";
 // icons
 import { SolarCalendarBoldDuotone } from "@/components/svg";
 // cmp
@@ -72,6 +75,11 @@ const TourForm = ({ type, tour }: TourFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [images, setImages] = useState<string[]>(tour?.images || []);
   const router = useRouter();
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["admins"],
+    queryFn: fetchAdmins,
+  });
 
   const formDefaultValues = {
     name: tour ? tour?.name : "",
@@ -232,16 +240,25 @@ const TourForm = ({ type, tour }: TourFormProps) => {
                               <SelectValue placeholder="Tour guide" />
                             </SelectTrigger>
                             <SelectContent>
-                              {/* {productCategory.map((item) => (
-                              <SelectItem key={item.value} value={item.value}>
-                                <div className="flex items-center gap-2">
-                                  <div className="text-xl text-icon-light dark:text-icon-dark">
-                                    {item.icon}
+                              {data?.map((user: any) => (
+                                <SelectItem key={user._id} value={user._id}>
+                                  <div className="flex items-center gap-2">
+                                    <div className="w-[30px] h-[30px] shrink-0">
+                                      <Image
+                                        src={
+                                          user.avatar || constantsImages.admin
+                                        }
+                                        width={100}
+                                        height={100}
+                                        alt="user"
+                                        priority
+                                        className="w-full h-full rounded-full"
+                                      />
+                                    </div>
+                                    <span>{user.name}</span>
                                   </div>
-                                  <span>{item.title}</span>
-                                </div>
-                              </SelectItem>
-                            ))} */}
+                                </SelectItem>
+                              ))}
                             </SelectContent>
                           </Select>
                         </FormControl>
@@ -413,6 +430,46 @@ const TourForm = ({ type, tour }: TourFormProps) => {
                             }}
                           />
                         ))}
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Price</h1>
+                  <FormField
+                    control={form.control}
+                    name="price"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Price..."
+                            type="number"
+                            min={0}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Discount</h1>
+                  <FormField
+                    control={form.control}
+                    name="discount"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Discount..."
+                            type="number"
+                            min={0}
+                          />
+                        </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
