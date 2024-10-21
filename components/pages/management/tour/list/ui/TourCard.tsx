@@ -120,7 +120,7 @@ const TourCard = ({ tour }: { tour: TourType }) => {
         <span className="text_disabled">
           Posted date:{moment(createdAt).format("lll")}
         </span>
-        <Button type="button" variant="linkSecondary" className="line-clamp-2">
+        <Button type="button" variant="linkSecondary">
           <Link href={`/tour/${_id}`}>{name}</Link>
         </Button>
         {list.map(({ id, icon, value, iconClassName }) => (
