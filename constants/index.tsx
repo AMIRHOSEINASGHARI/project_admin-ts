@@ -1511,3 +1511,16 @@ export const jobCandidates_callToActionList = [
       "text-purple-500 dark:text-purple-300 bg-purple-100 dark:bg-purple-800/30 hover:text-purple-600 dark:hover:text-purple-200 hover:bg-purple-200 dark:hover:bg-purple-800/40",
   },
 ];
+
+export const tourServices = [
+  "Audio guide",
+  "Food and drinks",
+  "Lunch",
+  "Private tour",
+  "Special activities",
+  "Entrance fees",
+  "Gratuities",
+  "Pick-up and drop off",
+  "Professional guide",
+  "Transport by air-conditioned",
+];

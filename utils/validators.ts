@@ -242,7 +242,7 @@ export const tourFormSchema = z.object({
         message: "Discount is required!",
       }
     ),
-  publish: z.boolean(),
+  published: z.boolean(),
   tags: z
     .array(z.string().min(1, "Too short!"))
     .min(2, "Must have at least 2 items!"),
@@ -256,9 +256,9 @@ export const tourFormSchema = z.object({
       message: "Start date must be in the future!",
     }),
   endDate: z
-    .date({ message: "Start date is requiered!" })
+    .date({ message: "End date is requiered!" })
     .refine((date) => date > new Date(), {
-      message: "Start date must be in the future!",
+      message: "End date must be in the future!",
     }),
   duration: z.string().min(1, { message: "Duration is required!" }),
   destination: z.string().min(1, { message: "Destination is required!" }),

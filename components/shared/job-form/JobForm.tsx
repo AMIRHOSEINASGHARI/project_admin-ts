@@ -148,8 +148,6 @@ const JobForm = ({ type, job }: JobFormProps) => {
     }
   };
 
-  console.log(job);
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -168,8 +166,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
             </CardHeader>
             <div className="px-card pb-card space-y-10">
               <CardContent className="space-y-8">
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Title</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Title</h1>
                   <FormField
                     control={form.control}
                     name="title"
@@ -196,8 +194,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Content</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Content</h1>
                   <FormField
                     control={form.control}
                     name="content"
@@ -214,8 +212,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Image</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Image</h1>
                   <FormField
                     control={form.control}
                     name="image"
@@ -251,8 +249,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
             </CardHeader>
             <div className="px-card pb-card">
               <CardContent className="space-y-8">
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Employment type</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Employment type</h1>
                   <FormField
                     control={form.control}
                     name="employmentType"
@@ -285,8 +283,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Experience</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Experience</h1>
                   <FormField
                     control={form.control}
                     name="experience"
@@ -319,8 +317,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Role</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Role</h1>
                   <FormField
                     control={form.control}
                     name="role"
@@ -334,8 +332,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Skills</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Skills</h1>
                   <FormField
                     control={form.control}
                     name="skills"
@@ -353,8 +351,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Working schedule</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Working schedule</h1>
                   <FormField
                     control={form.control}
                     name="workingSchedule"
@@ -372,8 +370,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Locations</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Locations</h1>
                   <FormField
                     control={form.control}
                     name="locations"
@@ -391,8 +389,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Expired</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Expired</h1>
                   <FormField
                     control={form.control}
                     name="expired"
@@ -436,8 +434,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Salary</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Salary</h1>
                   <FormField
                     control={form.control}
                     name="salary"
@@ -484,8 +482,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Price</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Price</h1>
                   <FormField
                     control={form.control}
                     name="price"
@@ -504,8 +502,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Address</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Address</h1>
                   <FormField
                     control={form.control}
                     name="address"
@@ -523,8 +521,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Company</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Company</h1>
                   <FormField
                     control={form.control}
                     name="company"
@@ -542,8 +540,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Phone number</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Phone number</h1>
                   <FormField
                     control={form.control}
                     name="phoneNumber"
@@ -561,8 +559,8 @@ const JobForm = ({ type, job }: JobFormProps) => {
                     )}
                   />
                 </div>
-                <div className="space-y-4">
-                  <h1 className="bold-value-3">Benefits</h1>
+                <div className="space-y-2">
+                  <h1 className="text-small font-semibold">Benefits</h1>
                   <FormField
                     control={form.control}
                     name="benefits"
