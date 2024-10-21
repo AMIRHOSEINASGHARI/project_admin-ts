@@ -10,8 +10,11 @@ import { PlusRegular } from "@/components/svg";
 import { Button } from "@/components/ui/button";
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
+import ToursList from "./ui/ToursList";
 
 const TourListPage = async () => {
+  const data = await getTours();
+
   return (
     <>
       <div className="flex justify-between gap-2">
@@ -31,6 +34,7 @@ const TourListPage = async () => {
           </Button>
         </div>
       </div>
+      <ToursList tours={data?.tours} />
     </>
   );
 };

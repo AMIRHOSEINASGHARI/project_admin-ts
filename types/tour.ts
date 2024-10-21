@@ -1,7 +1,9 @@
+// mongoose
+import { Document } from "mongoose";
 // types
 import { AdminType } from "./admin";
 
-export interface TourType {
+export interface TourType extends Document {
   name: string;
   content: string;
   images: string[];
