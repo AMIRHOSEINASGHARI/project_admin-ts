@@ -151,3 +151,14 @@ export const create_tour_page_breadcrumb_data = [
     href: "/tour/list",
   },
 ];
+
+export const tour_list_page_breadcrumb_data = [
+  {
+    title: "Dashboard",
+    href: "/dashboard",
+  },
+  {
+    title: "Tour",
+    href: "/tour/list",
+  },
+];

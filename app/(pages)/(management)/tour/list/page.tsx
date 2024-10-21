@@ -1,7 +1,7 @@
-import React from "react";
+import TourListPage from "@/components/pages/management/tour/list/TourListPage";
 
-const Tours = () => {
-  return <div>Tours</div>;
+const Tour = () => {
+  return <TourListPage />;
 };
 
-export default Tours;
+export default Tour;
