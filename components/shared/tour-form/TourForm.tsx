@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 // react query
 import { useMutation, useQuery } from "@tanstack/react-query";
 // actions
+import { createTour } from "@/actions/tour";
 // services
 import { fetchAdmins } from "@/services/queries";
 // types
@@ -80,6 +81,12 @@ const TourForm = ({ type, tour }: TourFormProps) => {
     queryKey: ["admins"],
     queryFn: fetchAdmins,
   });
+  const { isLoading: isCreating, mutate: mutateCreate } = useMutation({
+    mutationFn: createTour,
+  });
+  // const { isLoading: isEditing, mutate: mutateEdit } = useMutation({
+  //   mutationFn: editTour,
+  // });
 
   const formDefaultValues = {
     name: tour ? tour?.name : "",
@@ -118,6 +125,17 @@ const TourForm = ({ type, tour }: TourFormProps) => {
     };
 
     if (type === "create") {
+      mutateCreate(formData, {
+        onSuccess: (data) => {
+          toast.success(data?.message);
+          router.push("/tour/list");
+        },
+        onError: (error: any) => {
+          toast.error(error.message);
+        },
+      });
+
+      return;
     }
 
     if (type === "edit") {
@@ -525,9 +543,9 @@ const TourForm = ({ type, tour }: TourFormProps) => {
               type="submit"
               variant="secondary"
               className="font-bold min-w-[134px]"
-              // disabled={isCreating || isEditing}
+              disabled={isCreating}
             >
-              {false ? (
+              {isCreating ? (
                 <Loader />
               ) : type === "create" ? (
                 "Create tour"
