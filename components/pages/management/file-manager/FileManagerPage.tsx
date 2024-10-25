@@ -4,6 +4,8 @@ import { SolarCloudUploadBoldDuotone } from "@/components/svg";
 import { Button } from "@/components/ui/button";
 import PageHeading from "@/components/shared/PageHeading";
 import SearchFiles from "./ui/SearchFiles";
+import DateFilterFiles from "./ui/DateFilterFiles";
+import TypeFilterFiles from "./ui/TypeFilterFiles";
 
 const FileManagerPage = () => {
   return (
@@ -17,6 +19,10 @@ const FileManagerPage = () => {
       </div>
       <div className="flex items-center flex-wrap max-xl:gap-4 xl:flex-nowrap justify-between w-full mb-8">
         <SearchFiles />
+        <div className="flex items-center gap-3 flex-wrap">
+          <DateFilterFiles />
+          <TypeFilterFiles />
+        </div>
       </div>
     </div>
   );
