@@ -6,9 +6,9 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 // react query
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { isError, useMutation, useQuery } from "@tanstack/react-query";
 // actions
-import { createTour } from "@/actions/tour";
+import { createTour, editTour } from "@/actions/tour";
 // services
 import { fetchAdmins } from "@/services/queries";
 // types
@@ -77,16 +77,20 @@ const TourForm = ({ type, tour }: TourFormProps) => {
   const [images, setImages] = useState<string[]>(tour?.images || []);
   const router = useRouter();
 
-  const { data, isLoading, isError } = useQuery({
+  const {
+    data: adminsData,
+    isLoading: isAdminsLoading,
+    isError: isAdminsError,
+  } = useQuery({
     queryKey: ["admins"],
     queryFn: fetchAdmins,
   });
   const { isLoading: isCreating, mutate: mutateCreate } = useMutation({
     mutationFn: createTour,
   });
-  // const { isLoading: isEditing, mutate: mutateEdit } = useMutation({
-  //   mutationFn: editTour,
-  // });
+  const { isLoading: isEditing, mutate: mutateEdit } = useMutation({
+    mutationFn: editTour,
+  });
 
   const formDefaultValues = {
     name: tour ? tour?.name : "",
@@ -151,6 +155,18 @@ const TourForm = ({ type, tour }: TourFormProps) => {
     }
 
     if (type === "edit") {
+      mutateEdit(
+        { ...formData, id: tour?._id },
+        {
+          onSuccess: (data) => {
+            toast.success(data?.message);
+            router.push(`/tour/${tour?._id}`);
+          },
+          onError: (error: any) => {
+            toast.error(error.message);
+          },
+        }
+      );
     }
   };
 
@@ -262,35 +278,54 @@ const TourForm = ({ type, tour }: TourFormProps) => {
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
-                          <Select
-                            onValueChange={field.onChange}
-                            value={field.value}
-                          >
-                            <SelectTrigger className="py-[15px] px-[14px] flex flex-1 rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
-                              <SelectValue placeholder="Tour guide" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {data?.map((user: any) => (
-                                <SelectItem key={user._id} value={user._id}>
-                                  <div className="flex items-center gap-2">
-                                    <div className="w-[30px] h-[30px] shrink-0">
-                                      <Image
-                                        src={
-                                          user.avatar || constantsImages.admin
-                                        }
-                                        width={100}
-                                        height={100}
-                                        alt="user"
-                                        priority
-                                        className="w-full h-full rounded-full"
-                                      />
-                                    </div>
-                                    <span>{user.name}</span>
-                                  </div>
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                          <>
+                            {isAdminsLoading && (
+                              <div className="my-3">
+                                <Loader />
+                              </div>
+                            )}
+                            {isAdminsError && !adminsData && (
+                              <span>Error!</span>
+                            )}
+                            {adminsData &&
+                              !isAdminsLoading &&
+                              !isAdminsError && (
+                                <Select
+                                  onValueChange={field.onChange}
+                                  value={field.value}
+                                >
+                                  <SelectTrigger className="py-[15px] px-[14px] flex flex-1 rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
+                                    <SelectValue placeholder="Tour guide" />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    {isAdminsLoading && <Loader />}
+                                    {adminsData?.map((user: any) => (
+                                      <SelectItem
+                                        key={user._id}
+                                        value={user._id}
+                                      >
+                                        <div className="flex items-center gap-2">
+                                          <div className="w-[30px] h-[30px] shrink-0">
+                                            <Image
+                                              src={
+                                                user.avatar ||
+                                                constantsImages.admin
+                                              }
+                                              width={100}
+                                              height={100}
+                                              alt="user"
+                                              priority
+                                              className="w-full h-full rounded-full"
+                                            />
+                                          </div>
+                                          <span>{user.name}</span>
+                                        </div>
+                                      </SelectItem>
+                                    ))}
+                                  </SelectContent>
+                                </Select>
+                              )}
+                          </>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -554,9 +589,9 @@ const TourForm = ({ type, tour }: TourFormProps) => {
               type="submit"
               variant="secondary"
               className="font-bold min-w-[134px]"
-              disabled={isCreating}
+              disabled={isCreating || isEditing}
             >
-              {isCreating ? (
+              {isCreating || isEditing ? (
                 <Loader />
               ) : type === "create" ? (
                 "Create tour"
