@@ -1496,7 +1496,7 @@ export const jobCandidates_callToActionList = [
     id: "2",
     icon: <SolarChatRoundDotsBoldDuotone />,
     className:
-      "text-sky-500 dark:text-sky-300 bg-sky-100 dark:bg-sky-800/30 hover:text-sky-600 dark:hover:text-sky-200 hover:bg-sky-200 dark:hover:bg-sky-800/40",
+      "text-blue-500 dark:text-blue-300 bg-blue-100 dark:bg-blue-800/30 hover:text-blue-600 dark:hover:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800/40",
   },
   {
     id: "3",
@@ -1508,7 +1508,7 @@ export const jobCandidates_callToActionList = [
     id: "4",
     icon: <SolarCloudUploadBoldDuotone />,
     className:
-      "text-purple-500 dark:text-purple-300 bg-purple-100 dark:bg-purple-800/30 hover:text-purple-600 dark:hover:text-purple-200 hover:bg-purple-200 dark:hover:bg-purple-800/40",
+      "text-yellow-500 dark:text-yellow-300 bg-yellow-100 dark:bg-yellow-800/30 hover:text-yellow-600 dark:hover:text-yellow-200 hover:bg-yellow-200 dark:hover:bg-yellow-800/40",
   },
 ];
 
