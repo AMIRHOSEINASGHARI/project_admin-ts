@@ -59,7 +59,7 @@ export const ourFileRouter = {
       return { uploadedBy: metadata.userId };
     }),
   tourFileUploader: f({
-    image: { maxFileSize: "4MB", minFileCount: 3, maxFileCount: 5 },
+    image: { maxFileSize: "4MB", minFileCount: 5, maxFileCount: 5 },
   })
     .middleware(async ({ req }) => {
       const user = await auth(req);

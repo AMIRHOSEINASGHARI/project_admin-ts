@@ -118,7 +118,7 @@ const TourForm = ({ type, tour }: TourFormProps) => {
 
   // Define form.
   const form = useForm<z.infer<typeof tourFormSchema>>({
-    mode: "onSubmit",
+    mode: "all",
     resolver: zodResolver(tourFormSchema),
     defaultValues: formDefaultValues,
   });

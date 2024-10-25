@@ -48,14 +48,8 @@ const TourFileUploader = ({
       setImages([]);
       setFiles(acceptedFiles);
       onFieldChange([]);
-      if (files.length < 3) {
-        toast.error("Min file count is 3");
-      }
-      if (files.length > 5) {
-        toast.error("Max file count is 5");
-      }
     },
-    [setImages, setFiles, onFieldChange, files]
+    [setImages, setFiles, onFieldChange]
   );
 
   const { startUpload, isUploading, permittedFileInfo } = useUploadThing(
@@ -223,7 +217,7 @@ const TourFileUploader = ({
                 isUploading,
             })}
             onClick={() => startUpload(files)}
-            disabled={isUploading || files?.length < 2}
+            disabled={isUploading || files?.length !== 5}
           >
             <SolarCloudUploadBoldDuotone className="text-icon-size text-white dark:text-black" />
             Upload

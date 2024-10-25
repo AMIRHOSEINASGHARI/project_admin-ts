@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
 import TourModel from "@/models/tour";
+import AdminModel from "@/models/admin";
 // types
 import { CreateTour, TourType } from "@/types/tour";
 // actions
@@ -52,7 +53,13 @@ export const getTour = async (id: string) => {
   try {
     await connectDB();
 
-    const tour = await TourModel.findById(id).lean<TourType>();
+    const tour = await TourModel.findById(id)
+      .populate({
+        path: "tourGuide",
+        model: AdminModel,
+        select: "name phoneNumber",
+      })
+      .lean<TourType>();
 
     return {
       tour,

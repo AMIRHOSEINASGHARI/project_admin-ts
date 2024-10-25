@@ -207,7 +207,8 @@ export const tourFormSchema = z.object({
   content: z.string().min(1, "Content is required!"),
   images: z
     .array(z.string().url("Must be a valid image URL!"))
-    .min(3, "At least three images is required"),
+    .min(5, "5 images is required")
+    .max(5, "5 images is required"),
   price: z
     .union([
       z.number().min(0, "Invalid price format! Minimum value is 0$"),
