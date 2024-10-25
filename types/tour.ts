@@ -35,3 +35,7 @@ export type CreateTour = {
   price: number;
   discount: number;
 };
+
+export type EditTour = CreateTour & {
+  id: string;
+};

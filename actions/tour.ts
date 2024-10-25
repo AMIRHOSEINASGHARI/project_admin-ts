@@ -8,7 +8,7 @@ import { ResponseCodes, ResponseMessages } from "@/enums";
 import TourModel from "@/models/tour";
 import AdminModel from "@/models/admin";
 // types
-import { CreateTour, TourType } from "@/types/tour";
+import { CreateTour, EditTour, TourType } from "@/types/tour";
 // actions
 import { checkSession } from "./shared";
 // utils
@@ -25,6 +25,55 @@ export const createTour = async (data: CreateTour) => {
     return {
       message: ResponseMessages.SUCCESSFULLY_CREATED,
       code: ResponseCodes.SUCCESSFULLY_CREATED,
+    };
+  } catch (error) {
+    console.log(error);
+    throw new Error(ResponseMessages.SERVER_ERROR);
+  }
+};
+
+export const editTour = async (data: EditTour) => {
+  try {
+    await checkSession();
+
+    const {
+      id,
+      name,
+      content,
+      images,
+      tourGuide,
+      startDate,
+      endDate,
+      duration,
+      destination,
+      services,
+      tags,
+      published,
+      price,
+      discount,
+    } = data;
+
+    await TourModel.findByIdAndUpdate(id, {
+      name,
+      content,
+      images,
+      tourGuide,
+      startDate,
+      endDate,
+      duration,
+      destination,
+      services,
+      tags,
+      published,
+      price,
+      discount,
+    });
+
+    revalidatePath("/tour");
+
+    return {
+      message: ResponseMessages.SUCCESSFULLY_UPDATED,
+      code: ResponseCodes.SUCCESSFULLY_UPDATED,
     };
   } catch (error) {
     console.log(error);
