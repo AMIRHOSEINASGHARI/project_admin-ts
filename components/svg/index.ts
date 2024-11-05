@@ -86,7 +86,7 @@ export { default as CartFill } from "../../public/icons/CartFill.svg";
 export { default as UsersFill } from "../../public/icons/UsersFill.svg";
 export { default as MessageFill } from "../../public/icons/MessageFill.svg";
 export { default as SidebarLeftFill } from "../../public/icons/SidebarLeftFill.svg";
-// Icons-Solar
+// Icons-Solar-bold-duotone
 export { default as SolarAddCircleBoldDuotone } from "../../public/icons/solar/solar--add-circle-bold-duotone.svg";
 export { default as SolarDddCircleBoldDuotone } from "../../public/icons/solar/solar--add-circle-bold.svg";
 export { default as SolarAddFolderBoldDuotone } from "../../public/icons/solar/solar--add-folder-bold-duotone.svg";
@@ -194,21 +194,34 @@ export { default as SolarSmartphoneBoldDuotone } from "../../public/icons/solar/
 export { default as SolarLaptopBoldDuotone } from "../../public/icons/solar/solar--laptop-bold-duotone.svg";
 export { default as SolarHeadphonesSquareSoundBoldDuotone } from "../../public/icons/solar/solar--headphones-square-sound-bold-duotone.svg";
 export { default as SolarGamepadBoldDuotone } from "../../public/icons/solar/solar--gamepad-bold-duotone.svg";
-export { default as SolarAddImageBold } from "../../public/icons/solar/solar--add-image-bold.svg";
-export { default as SolarHeartBold } from "../../public/icons/solar/solar--heart-bold.svg";
-export { default as SolarPin } from "../../public/icons/solar/solar--pin.svg";
-export { default as SolarSmileEmoji } from "../../public/icons/solar/solar--smile-emoji.svg";
 export { default as SolarSquareShareLineBoldDuotone } from "../../public/icons/solar/solar--square-share-line-bold-duotone.svg";
 export { default as SolarChatSquareCallBoldDuotone } from "../../public/icons/solar/solar--chat-square-call-bold-duotone.svg";
 export { default as SolarDocumentAddBoldDuotone } from "../../public/icons/solar/solar--document-add-bold-duotone.svg";
 export { default as SolarGolfBoldDuotone } from "../../public/icons/solar/solar--golf-bold-duotone.svg";
 export { default as SolarLetterOpenedBoldDuotone } from "../../public/icons/solar/solar--letter-opened-bold-duotone.svg";
 export { default as SolarMoneyBagBoldDuotone } from "../../public/icons/solar/solar--money-bag-bold-duotone.svg";
+// Icons-Solar-bold
+export { default as SolarAddImageBold } from "../../public/icons/solar/solar--add-image-bold.svg";
+export { default as SolarHeartBold } from "../../public/icons/solar/solar--heart-bold.svg";
+export { default as SolarPin } from "../../public/icons/solar/solar--pin.svg";
+export { default as SolarSmileEmoji } from "../../public/icons/solar/solar--smile-emoji.svg";
 export { default as SolarImages } from "../../public/icons/solar/solar--images.svg";
 export { default as SolarBarChart } from "../../public/icons/solar/solar--bar-chart.svg";
 export { default as SolarCalendar2 } from "../../public/icons/solar/solar--calendar-2.svg";
 export { default as SolarSalary } from "../../public/icons/solar/solar--salary.svg";
 export { default as SolarPhoneBold } from "../../public/icons/solar/solar--phone-bold.svg";
+
+export { default as SolarArchiveBold } from "../../public/icons/solar-bold/solar--archive-bold.svg";
+export { default as SolarDraftBold } from "../../public/icons/solar-bold/solar--draft-bold.svg";
+export { default as SolarExlamationBold } from "../../public/icons/solar-bold/solar--exlamation-bold.svg";
+export { default as SolarImportantBold } from "../../public/icons/solar-bold/solar--important-bold.svg";
+export { default as SolarLabelBold } from "../../public/icons/solar-bold/solar--label-bold.svg";
+export { default as SolarMailBold } from "../../public/icons/solar-bold/solar--mail-bold.svg";
+export { default as SolarMailInboxBold } from "../../public/icons/solar-bold/solar--mail-inbox-bold.svg";
+export { default as SolarSendBold } from "../../public/icons/solar-bold/solar--send-bold.svg";
+export { default as SolarStarBold } from "../../public/icons/solar-bold/solar--star-bold.svg";
+export { default as SolarTrashBold } from "../../public/icons/solar-bold/solar--trash-bold.svg";
+export { default as SolarUnreadLetterBold } from "../../public/icons/solar-bold/solar--unread-letter-bold.svg";
 // editor component icons
 export { default as EditorSetAlignCenter } from "../../public/icons/editor/editor-set-align-center.svg";
 export { default as EditorSetJustify } from "../../public/icons/editor/editor-set-justify.svg";
