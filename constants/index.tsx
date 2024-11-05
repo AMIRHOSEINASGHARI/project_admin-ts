@@ -1066,7 +1066,14 @@ export const files: File[] = [
     modified: new Date("2024-03-25"),
     important: true,
     image: null,
-    tags: ["work", "confidential", "shared"],
+    tags: [
+      "Technology",
+      "Health and Wellness",
+      "Travel",
+      "work",
+      "confidential",
+      "shared",
+    ],
   },
   {
     id: "4e296ff7-f413-42e3-8b8d-12bed36c2c7a",
@@ -1077,7 +1084,7 @@ export const files: File[] = [
     modified: new Date("2024-04-30"),
     important: true,
     image: null,
-    tags: ["work", "personal"],
+    tags: ["Technology", "Health and Wellness", "Travel", "work", "personal"],
   },
   {
     id: "efe2a163-cfb5-43b6-9f4b-5e152c368936",
@@ -1088,7 +1095,13 @@ export const files: File[] = [
     modified: new Date("2024-02-06"),
     important: true,
     image: null,
-    tags: ["important", "confidential"],
+    tags: [
+      "Technology",
+      "Health and Wellness",
+      "Travel",
+      "important",
+      "confidential",
+    ],
   },
   {
     id: "c983b909-9a0c-4287-8667-a40e8bbb82ea",
@@ -1099,7 +1112,7 @@ export const files: File[] = [
     modified: new Date("2024-03-22"),
     important: true,
     image: null,
-    tags: ["personal"],
+    tags: ["Technology", "Health and Wellness", "Travel", "personal"],
   },
   {
     id: "117baabf-28e5-425c-bad9-a7ab810fbc77",
@@ -1110,7 +1123,7 @@ export const files: File[] = [
     modified: new Date("2024-04-07"),
     important: true,
     image: null,
-    tags: ["personal", "work"],
+    tags: ["Technology", "Health and Wellness", "Travel", "personal", "work"],
   },
   {
     id: "232ab6df-1eb4-4d3c-96e6-8f213aa8a6a2",
@@ -1121,7 +1134,7 @@ export const files: File[] = [
     modified: new Date("2024-04-13"),
     important: true,
     image: null,
-    tags: ["important"],
+    tags: ["Technology", "Health and Wellness", "Travel", "important"],
   },
 
   {
@@ -1132,8 +1145,8 @@ export const files: File[] = [
     size: "285KB",
     modified: new Date("2023-11-06"),
     important: true,
-    image: "image_link",
-    tags: ["work", "shared"],
+    image: "/images/covers/cover_1.jpg",
+    tags: ["Technology", "Health and Wellness", "Travel", "work", "shared"],
   },
   {
     id: "cea125dd-8486-4676-aaa0-82f2b860af2a",
@@ -1143,8 +1156,8 @@ export const files: File[] = [
     size: "91KB",
     modified: new Date("2023-12-08"),
     important: false,
-    image: "image_link",
-    tags: ["personal"],
+    image: "/images/covers/cover_2.jpg",
+    tags: ["Technology", "Health and Wellness", "Travel", "personal"],
   },
   {
     id: "7a73a545-0b5e-4890-a165-5543d12aa9cc",
@@ -1154,8 +1167,8 @@ export const files: File[] = [
     size: "489KB",
     modified: new Date("2024-02-23"),
     important: true,
-    image: "image_link",
-    tags: ["important"],
+    image: "/images/covers/cover_3.jpg",
+    tags: ["Technology", "Health and Wellness", "Travel", "important"],
   },
   {
     id: "43c853f0-4969-4ab4-b7cf-4ae62b7f99a0",
@@ -1165,8 +1178,8 @@ export const files: File[] = [
     size: "150KB",
     modified: new Date("2023-12-12"),
     important: false,
-    image: "image_link",
-    tags: ["confidential"],
+    image: "/images/covers/cover_4.jpg",
+    tags: ["Technology", "Health and Wellness", "Travel", "confidential"],
   },
   {
     id: "b646b522-2c91-4fb2-8b3b-22ccfba3a659",
@@ -1176,8 +1189,8 @@ export const files: File[] = [
     size: "96KB",
     modified: new Date("2023-12-05"),
     important: true,
-    image: "image_link",
-    tags: ["important"],
+    image: "/images/covers/cover_5.jpg",
+    tags: ["Technology", "Health and Wellness", "Travel", "important"],
   },
 
   {
@@ -1189,7 +1202,7 @@ export const files: File[] = [
     modified: new Date("2024-02-02"),
     important: false,
     image: null,
-    tags: ["personal", "work"],
+    tags: ["Technology", "Health and Wellness", "Travel", "personal", "work"],
   },
   {
     id: "db78459a-262c-4655-98ba-bccfad95b18e",
@@ -1200,7 +1213,14 @@ export const files: File[] = [
     modified: new Date("2024-03-11"),
     important: true,
     image: null,
-    tags: ["important", "work", "confidential"],
+    tags: [
+      "Technology",
+      "Health and Wellness",
+      "Travel",
+      "important",
+      "work",
+      "confidential",
+    ],
   },
   {
     id: "0d5d18d7-783d-4dfc-ab9c-e7d0a0b4b0ba",
@@ -1211,7 +1231,14 @@ export const files: File[] = [
     modified: new Date("2024-01-11"),
     important: false,
     image: null,
-    tags: ["shared", "confidential", "important"],
+    tags: [
+      "Technology",
+      "Health and Wellness",
+      "Travel",
+      "shared",
+      "confidential",
+      "important",
+    ],
   },
   {
     id: "18f5cea5-c136-4bc2-a3e4-5b02fbc44033",
@@ -1222,7 +1249,7 @@ export const files: File[] = [
     modified: new Date("2024-04-26"),
     important: true,
     image: null,
-    tags: ["personal"],
+    tags: ["Technology", "Health and Wellness", "Travel", "personal"],
   },
   {
     id: "161d78e9-7a3a-4d94-b617-8f62c64b6ab5",
@@ -1233,7 +1260,7 @@ export const files: File[] = [
     modified: new Date("2024-09-15"),
     important: false,
     image: null,
-    tags: ["work", "shared"],
+    tags: ["Technology", "Health and Wellness", "Travel", "work", "shared"],
   },
   {
     id: "b38fec3f-9c0f-4fb8-9145-5985f576308f",
@@ -1244,7 +1271,7 @@ export const files: File[] = [
     modified: new Date("2023-10-23"),
     important: true,
     image: null,
-    tags: ["confidential"],
+    tags: ["Technology", "Health and Wellness", "Travel", "confidential"],
   },
   {
     id: "b92a3fa5-c960-4cbb-98fb-e9df7bd19c2f",
@@ -1255,7 +1282,14 @@ export const files: File[] = [
     modified: new Date("2024-09-24"),
     important: true,
     image: null,
-    tags: ["shared", "work", "confidential"],
+    tags: [
+      "Technology",
+      "Health and Wellness",
+      "Travel",
+      "shared",
+      "work",
+      "confidential",
+    ],
   },
   {
     id: "3f7aee37-212e-443a-8f17-02f1f5395ea8",
@@ -1266,7 +1300,14 @@ export const files: File[] = [
     modified: new Date("2023-11-01"),
     important: true,
     image: null,
-    tags: ["confidential", "personal", "shared"],
+    tags: [
+      "Technology",
+      "Health and Wellness",
+      "Travel",
+      "confidential",
+      "personal",
+      "shared",
+    ],
   },
   {
     id: "b8f488db-feb4-4fbe-8b68-93a88e25423e",
@@ -1277,7 +1318,14 @@ export const files: File[] = [
     modified: new Date("2024-08-20"),
     important: false,
     image: null,
-    tags: ["shared", "personal", "confidential"],
+    tags: [
+      "Technology",
+      "Health and Wellness",
+      "Travel",
+      "shared",
+      "personal",
+      "confidential",
+    ],
   },
   {
     id: "ba74f1c9-da5b-4b8b-9361-5aa9f3213274",
@@ -1288,7 +1336,7 @@ export const files: File[] = [
     modified: new Date("2024-09-15"),
     important: false,
     image: null,
-    tags: ["confidential"],
+    tags: ["Technology", "Health and Wellness", "Travel", "confidential"],
   },
   {
     id: "cd6e9ef6-5fb8-4d81-93e3-4bff8b43adb2",
@@ -1299,7 +1347,14 @@ export const files: File[] = [
     modified: new Date("2024-01-29"),
     important: false,
     image: null,
-    tags: ["important", "work", "shared"],
+    tags: [
+      "Technology",
+      "Health and Wellness",
+      "Travel",
+      "important",
+      "work",
+      "shared",
+    ],
   },
 ];
 

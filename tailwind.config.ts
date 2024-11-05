@@ -46,6 +46,7 @@ const config = {
       },
       padding: {
         card: "24px",
+        "sheet-content": "20px",
       },
       margin: {
         "page-heading": "20px",
