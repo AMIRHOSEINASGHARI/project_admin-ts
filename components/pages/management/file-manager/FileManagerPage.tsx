@@ -6,10 +6,11 @@ import PageHeading from "@/components/shared/PageHeading";
 import SearchFiles from "./ui/SearchFiles";
 import DateFilterFiles from "./ui/DateFilterFiles";
 import TypeFilterFiles from "./ui/TypeFilterFiles";
+import FilesList from "./ui/FilesList";
 
 const FileManagerPage = () => {
   return (
-    <div className="space-y-5">
+    <div className="space-y-8">
       <div className="flex items-center justify-between flex-wrap gap-2">
         <PageHeading text="File manager" />
         <Button type="button" className="gap-2">
@@ -24,6 +25,7 @@ const FileManagerPage = () => {
           <TypeFilterFiles />
         </div>
       </div>
+      <FilesList />
     </div>
   );
 };
