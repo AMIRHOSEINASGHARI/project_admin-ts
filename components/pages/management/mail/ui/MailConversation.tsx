@@ -1,3 +1,5 @@
+// next
+import Image from "next/image";
 // types
 import { Mail } from "@/types/shared";
 // constants
@@ -16,59 +18,76 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import MailConversationHeader from "./MailConversationHeader";
 import Editor from "@/components/editor/Editor";
+import MailEmptyBox from "./EmptyBox";
 
 const MailConversation = ({
-  activeConversation: { from, to, content, important, label, starred, subject },
+  activeConversation,
 }: {
-  activeConversation: Mail;
+  activeConversation: Mail | undefined | null;
 }) => {
   return (
     <div className="w-full rounded-[16px] bg-white dark:bg-dark1">
-      <MailConversationHeader
-        important={important}
-        starred={starred}
-        label={label}
-      />
-      <Separator />
-      <SubjectSection subject={subject} />
-      <Separator />
-      <div className="p-3 space-y-3">
-        <div className="space-y-8 min-h-[300px]">
-          <div className="flex gap-3">
-            <Avatar>
-              <AvatarImage src={from?.avatar || images.admin3} />
-              <AvatarFallback>{from?.name[0]}</AvatarFallback>
-            </Avatar>
-            <div className="overflow-hidden">
-              <div className="flex items-center gap-1 flex-wrap">
-                <span className="text-small whitespace-nowrap">
-                  {from?.name}
-                </span>
-                <span className="text_disabled whitespace-nowrap">
-                  / {from?.email}
-                </span>
+      {!activeConversation ? (
+        <MailEmptyBox
+          title="No conversation selected"
+          subText="Select a conversation to read"
+          type="conversation"
+        />
+      ) : (
+        <>
+          <MailConversationHeader
+            important={activeConversation?.important}
+            starred={activeConversation?.starred}
+            label={activeConversation?.label}
+          />
+          <Separator />
+          <SubjectSection subject={activeConversation?.subject} />
+          <Separator />
+          <div className="p-3 space-y-3">
+            <div className="space-y-8 min-h-[300px]">
+              <div className="flex gap-3">
+                <Avatar>
+                  <AvatarImage
+                    src={activeConversation?.from?.avatar || images.admin3}
+                  />
+                  <AvatarFallback>
+                    {activeConversation?.from?.name[0]}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="overflow-hidden">
+                  <div className="flex items-center gap-1 flex-wrap">
+                    <span className="text-small whitespace-nowrap">
+                      {activeConversation?.from?.name}
+                    </span>
+                    <span className="text_disabled whitespace-nowrap">
+                      / {activeConversation?.from?.email}
+                    </span>
+                  </div>
+                  <span className="text_disabled">
+                    To: {activeConversation?.to?.email}
+                  </span>
+                </div>
               </div>
-              <span className="text_disabled">To: {to?.email}</span>
+              <p className="text-small">{activeConversation?.content}</p>
+            </div>
+            <Editor content="" onFieldChange={(value) => null} />
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <div className="flex items-center gap-1">
+                <Button variant="icon" className="text-xl">
+                  <SolarAddImageBold />
+                </Button>
+                <Button variant="icon" className="text-xl">
+                  <SolarPin />
+                </Button>
+              </div>
+              <Button className="bg-primary-1 dark:bg-primary-1 dark:text-white gap-1 font-medium">
+                Send
+                <SolarSendBold className="text-xl" />
+              </Button>
             </div>
           </div>
-          <p className="text-small">{content}</p>
-        </div>
-        <Editor content="" onFieldChange={(value) => null} />
-        <div className="flex items-center justify-between flex-wrap gap-2">
-          <div className="flex items-center gap-1">
-            <Button variant="icon" className="text-xl">
-              <SolarAddImageBold />
-            </Button>
-            <Button variant="icon" className="text-xl">
-              <SolarPin />
-            </Button>
-          </div>
-          <Button className="bg-primary-1 dark:bg-primary-1 dark:text-white gap-1 font-medium">
-            Send
-            <SolarSendBold className="text-xl" />
-          </Button>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 };

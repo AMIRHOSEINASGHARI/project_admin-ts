@@ -1693,7 +1693,7 @@ export const mails: Mail[] = [
       email: "demo@onlineshop.com",
       avatar: "/images/avatars/avatar_5.jpg",
     },
-    label: "trash",
+    label: "social",
     date: "6 days",
     subject:
       "Mental Health in the Digital Age: Navigating Social Media and Well-being",
@@ -1714,7 +1714,7 @@ export const mails: Mail[] = [
       email: "demo@onlineshop.com",
       avatar: "/images/avatars/avatar_5.jpg",
     },
-    label: "inbox",
+    label: "forums",
     date: "7 days",
     subject: "Sustainable Fashion: How the Industry is Going Green",
     content:
@@ -1776,7 +1776,7 @@ export const mails: Mail[] = [
       email: "demo@onlineshop.com",
       avatar: "/images/avatars/avatar_13.jpg",
     },
-    label: "inbox",
+    label: "promotions",
     date: "10 days",
     subject: "The Future of Renewable Energy: Innovations and Challenges Ahead",
     content:

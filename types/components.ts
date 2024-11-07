@@ -96,13 +96,14 @@ export type ProductFormProps = {
 export type MailFoldersProps = {
   folderMails: Mail[];
   setFolderMails: Dispatch<SetStateAction<Mail[]>>;
-  setActiveConversation: Dispatch<SetStateAction<Mail>>;
+  setActiveConversation: Dispatch<SetStateAction<Mail | undefined | null>>;
+  activeLabel: string | null;
 };
 
 export type MailContainerMobileHeaderProps = {
   folderMails: Mail[];
   setFolderMails: Dispatch<SetStateAction<Mail[]>>;
-  setActiveConversation: Dispatch<SetStateAction<Mail>>;
+  setActiveConversation: Dispatch<SetStateAction<Mail | undefined | null>>;
 };
 
 export type MailConversationHeaderProps = {
