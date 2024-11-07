@@ -1579,13 +1579,21 @@ export const tourServices = [
   "Transport by air-conditioned",
 ];
 
-const mails: Mail[] = [
+export const mails: Mail[] = [
   {
     id: "AB12345XYZ",
-    from: fakeUsers[0],
-    to: fakeUsers[1],
+    from: {
+      name: "Jayvion Simon",
+      email: "nannie.abernathy70@yahoo.com",
+      avatar: "/images/avatars/avatar_1.jpg",
+    },
+    to: {
+      name: "Jaydon Frankie",
+      email: "demo@onlineshop.com",
+      avatar: "/images/avatars/avatar_2.jpg",
+    },
     label: "inbox",
-    date: new Date("2023-11-01T09:45:00"),
+    date: "23 min",
     subject: "The Future of Renewable Energy: Innovations and Challenges Ahead",
     content:
       "Occaecati est et illo quibusdam accusamus qui. Incidunt aut et molestiae ut facere aut. Est quidem iusto praesentium excepturi harum nihil tenetur facilis. Ut omnis voluptates nihil accusantium doloribus eaque debitis.",
@@ -1594,10 +1602,18 @@ const mails: Mail[] = [
   },
   {
     id: "CD67890EFG",
-    from: fakeUsers[2],
-    to: fakeUsers[5],
+    from: {
+      name: "Lucian Obrien",
+      email: "nannie.abernathy70@yahoo.com",
+      avatar: "/images/avatars/avatar_2.jpg",
+    },
+    to: {
+      name: "Deja Brady",
+      email: "demo@onlineshop.com",
+      avatar: "/images/avatars/avatar_3.jpg",
+    },
     label: "sent",
-    date: new Date("2023-10-15T14:30:00"),
+    date: "2 day",
     subject:
       "Exploring the Impact of Artificial Intelligence on Modern Healthcare",
     content:
@@ -1607,10 +1623,18 @@ const mails: Mail[] = [
   },
   {
     id: "GH34567IJK",
-    from: fakeUsers[3],
-    to: fakeUsers[1],
+    from: {
+      name: "Harrison Stein",
+      email: "nannie.abernathy70@yahoo.com",
+      avatar: "/images/avatars/avatar_4.jpg",
+    },
+    to: {
+      name: "Jaydon Frankie",
+      email: "demo@onlineshop.com",
+      avatar: "/images/avatars/avatar_5.jpg",
+    },
     label: "inbox",
-    date: new Date("2023-10-25T11:20:00"),
+    date: "3 days",
     subject: "Climate Change and Its Effects on Global Food Security",
     content:
       "Rerum eius velit dolores. Explicabo ad nemo quibusdam. Voluptatem eum suscipit et ipsum et consequatur aperiam quia. Rerum nulla sequi recusandae illum velit quia quas. Et error laborum maiores cupiditate occaecati.",
@@ -1619,10 +1643,18 @@ const mails: Mail[] = [
   },
   {
     id: "IJ89012LMN",
-    from: fakeUsers[4],
-    to: fakeUsers[1],
+    from: {
+      name: "Reece Chung",
+      email: "nannie.abernathy70@yahoo.com",
+      avatar: "/images/avatars/avatar_6.jpg",
+    },
+    to: {
+      name: "Jaydon Frankie",
+      email: "demo@onlineshop.com",
+      avatar: "/images/avatars/avatar_7.jpg",
+    },
     label: "spam",
-    date: new Date("2023-09-20T08:15:00"),
+    date: "4 days",
     subject: "The Rise of Remote Work: Benefits, Challenges, and Future Trends",
     content:
       "Et non omnis qui. Qui sunt deserunt dolorem aut velit cumque adipisci aut enim. Nihil quis quisquam nesciunt dicta nobis ab aperiam dolorem repellat. Voluptates non blanditiis. Error et tenetur iste soluta cupiditate ratione perspiciatis et. Quibusdam aliquid nam sunt et quisquam non esse.",
@@ -1631,10 +1663,18 @@ const mails: Mail[] = [
   },
   {
     id: "KL56789OPQ",
-    from: fakeUsers[5],
-    to: fakeUsers[1],
+    from: {
+      name: "Lainey Davidson",
+      email: "nannie.abernathy70@yahoo.com",
+      avatar: "/images/avatars/avatar_8.jpg",
+    },
+    to: {
+      name: "Jaydon Frankie",
+      email: "demo@onlineshop.com",
+      avatar: "/images/avatars/avatar_9.jpg",
+    },
     label: "drafts",
-    date: new Date("2023-11-03T12:45:00"),
+    date: "5 days",
     subject: "Understanding Blockchain Technology: Beyond Cryptocurrency",
     content:
       "Nihil ea sunt facilis praesentium atque. Ab animi alias sequi molestias aut velit ea. Sed possimus eos. Et est aliquid est voluptatem.",
@@ -1643,10 +1683,18 @@ const mails: Mail[] = [
   },
   {
     id: "MN01234RST",
-    from: fakeUsers[6],
-    to: fakeUsers[1],
+    from: {
+      name: "Cristopher Cardenas",
+      email: "nannie.abernathy70@yahoo.com",
+      avatar: "/images/avatars/avatar_2.jpg",
+    },
+    to: {
+      name: "Jaydon Frankie",
+      email: "demo@onlineshop.com",
+      avatar: "/images/avatars/avatar_5.jpg",
+    },
     label: "trash",
-    date: new Date("2023-10-10T15:00:00"),
+    date: "6 days",
     subject:
       "Mental Health in the Digital Age: Navigating Social Media and Well-being",
     content:
@@ -1656,10 +1704,18 @@ const mails: Mail[] = [
   },
   {
     id: "OP78901UVW",
-    from: fakeUsers[7],
-    to: fakeUsers[1],
+    from: {
+      name: "Melanie Noble",
+      email: "nannie.abernathy70@yahoo.com",
+      avatar: "/images/avatars/avatar_6.jpg",
+    },
+    to: {
+      name: "Jaydon Frankie",
+      email: "demo@onlineshop.com",
+      avatar: "/images/avatars/avatar_5.jpg",
+    },
     label: "inbox",
-    date: new Date("2023-09-12T10:50:00"),
+    date: "7 days",
     subject: "Sustainable Fashion: How the Industry is Going Green",
     content:
       "Est enim et sit non impedit aperiam cumque animi. Aut eius impedit saepe blanditiis. Totam molestias magnam minima fugiat.",
@@ -1668,10 +1724,18 @@ const mails: Mail[] = [
   },
   {
     id: "QR23456XYZ",
-    from: fakeUsers[8],
-    to: fakeUsers[1],
+    from: {
+      name: "Chase Day",
+      email: "nannie.abernathy70@yahoo.com",
+      avatar: "/images/avatars/avatar_8.jpg",
+    },
+    to: {
+      name: "Jaydon Frankie",
+      email: "demo@onlineshop.com",
+      avatar: "/images/avatars/avatar_13.jpg",
+    },
     label: "inbox",
-    date: new Date("2023-11-02T18:20:00"),
+    date: "8 days",
     subject:
       "Space Exploration: New Frontiers and the Quest for Extraterrestrial Life",
     content:
@@ -1681,10 +1745,18 @@ const mails: Mail[] = [
   },
   {
     id: "ST34567YZA",
-    from: fakeUsers[1],
-    to: fakeUsers[2],
+    from: {
+      name: "Jayvion Simon",
+      email: "nannie.abernathy70@yahoo.com",
+      avatar: "/images/avatars/avatar_14.jpg",
+    },
+    to: {
+      name: "Lucian Obrien",
+      email: "demo@onlineshop.com",
+      avatar: "/images/avatars/avatar_15.jpg",
+    },
     label: "sent",
-    date: new Date("2023-11-05T17:35:00"),
+    date: "9 days",
     subject:
       "The Evolution of E-Commerce: Trends Shaping the Online Retail Landscape",
     content:
@@ -1694,10 +1766,18 @@ const mails: Mail[] = [
   },
   {
     id: "UV67890BCD",
-    from: fakeUsers[10],
-    to: fakeUsers[1],
+    from: {
+      name: "Jayvion Simon",
+      email: "nannie.abernathy70@yahoo.com",
+      avatar: "/images/avatars/avatar_12.jpg",
+    },
+    to: {
+      name: "Harrison Stein",
+      email: "demo@onlineshop.com",
+      avatar: "/images/avatars/avatar_13.jpg",
+    },
     label: "inbox",
-    date: new Date("2023-10-18T21:00:00"),
+    date: "10 days",
     subject: "The Future of Renewable Energy: Innovations and Challenges Ahead",
     content:
       "Occaecati est et illo quibusdam accusamus qui. Incidunt aut et molestiae ut facere aut. Est quidem iusto praesentium excepturi harum nihil tenetur facilis. Ut omnis voluptates nihil accusantium doloribus eaque debitis.",

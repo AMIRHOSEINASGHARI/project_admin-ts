@@ -2,7 +2,7 @@
 import { Dispatch, SetStateAction } from "react";
 // types
 import { AdminRole, AdminType } from "./admin";
-import { NavColor } from "./shared";
+import { Mail, NavColor } from "./shared";
 import { JobEmployment, JobExperience, JobSalary, JobType } from "./job";
 import { TourType } from "./tour";
 import { ProductType } from "./product";
@@ -91,4 +91,9 @@ export type TourFormProps = { type: "create" | "edit"; tour?: TourType };
 export type ProductFormProps = {
   type: "create" | "edit";
   product?: ProductType;
+};
+
+export type MailFoldersProps = {
+  folderMails: Mail[];
+  setFolderMails: Dispatch<SetStateAction<Mail[]>>;
 };

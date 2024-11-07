@@ -86,10 +86,18 @@ export type MailLabel =
 
 export type Mail = {
   id: string;
-  from: FakeUser;
-  to: FakeUser;
+  from: {
+    name: string;
+    email: string;
+    avatar: string;
+  };
+  to: {
+    name: string;
+    email: string;
+    avatar: string;
+  };
   label: MailLabel;
-  date: Date;
+  date: string;
   subject: string;
   content: string;
   important: boolean;
