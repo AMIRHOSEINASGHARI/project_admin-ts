@@ -104,6 +104,7 @@ export type MailContainerMobileHeaderProps = {
   folderMails: Mail[];
   setFolderMails: Dispatch<SetStateAction<Mail[]>>;
   setActiveConversation: Dispatch<SetStateAction<Mail | undefined | null>>;
+  activeLabel: string | null;
 };
 
 export type MailConversationHeaderProps = {

@@ -29,6 +29,7 @@ const MailContainerMobileHeader = ({
   folderMails,
   setActiveConversation,
   setFolderMails,
+  activeLabel,
 }: MailContainerMobileHeaderProps) => {
   return (
     <div className="xl:hidden flex items-center gap-1">
@@ -50,12 +51,16 @@ const MailContainerMobileHeader = ({
               <SolarChatRoundDotsBoldDuotone />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="p-0">
+          <SheetContent side="left" className="p-0 w-fit">
             <HiddenTags />
+            <div className="capitalize font-bold text-md mx-3 mt-5 -mb-4">
+              {activeLabel}
+            </div>
             <MailFolders
               folderMails={folderMails}
               setFolderMails={setFolderMails}
               setActiveConversation={setActiveConversation}
+              activeLabel={activeLabel}
             />
           </SheetContent>
         </Sheet>

@@ -57,6 +57,7 @@ const MailContainer = () => {
         folderMails={folderMails}
         setFolderMails={setFolderMails}
         setActiveConversation={setActiveConversation}
+        activeLabel={params?.get("label")}
       />
       <div className="max-xl:hidden flex gap-3">
         <div className="min-w-[230px]">
