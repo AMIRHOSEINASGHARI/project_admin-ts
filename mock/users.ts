@@ -1,6 +1,7 @@
+import { FakeUser } from "@/types/shared";
 import { faker } from "@faker-js/faker";
 
-export const fakeUsers = [...Array(24)].map((_, index) => ({
+export const fakeUsers: FakeUser[] = [...Array(24)].map((_, index) => ({
   id: faker.string.uuid(),
   image: `/images/avatars/avatar_${index + 1}.jpg`,
   name: faker.person.fullName(),

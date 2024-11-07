@@ -63,8 +63,10 @@ const MailSidebar = () => {
   ];
 
   return (
-    <div className="space-y-3 w-full">
-      <MailCompose />
+    <div className="w-full max-w-[200px]">
+      <div className="p-3">
+        <MailCompose />
+      </div>
       <div className="flex flex-col gap-1">
         {sideMenuItems.map(({ id, icon }) => (
           <Button key={id} variant="ghost" className="justify-start gap-4">

@@ -56,7 +56,6 @@ import {
   IcFile,
   IcPowerPoint,
   IcDocument,
-  IcWord,
   SolarUserCdBoldDuotone,
   SolarHeartBold,
   SolarUsersGroupRoundedBoldDuotone,
@@ -69,12 +68,12 @@ import {
   SolarLetterBoldDuotone,
   SolarCloudUploadBoldDuotone,
 } from "@/components/svg";
+import { Linkedin } from "lucide-react";
 // mock
 import { fakeUsers } from "@/mock/users";
 import { JobBenefits } from "@/types/job";
 // types
-import { File } from "@/types/shared";
-import { Linkedin } from "lucide-react";
+import { File, Mail } from "@/types/shared";
 
 export const images = {
   authLogin: "/images/auth-login.png",
@@ -1578,4 +1577,131 @@ export const tourServices = [
   "Pick-up and drop off",
   "Professional guide",
   "Transport by air-conditioned",
+];
+
+const mails: Mail[] = [
+  {
+    id: "AB12345XYZ",
+    from: fakeUsers[0],
+    to: fakeUsers[1],
+    label: "inbox",
+    date: new Date("2023-11-01T09:45:00"),
+    subject: "The Future of Renewable Energy: Innovations and Challenges Ahead",
+    content:
+      "Occaecati est et illo quibusdam accusamus qui. Incidunt aut et molestiae ut facere aut. Est quidem iusto praesentium excepturi harum nihil tenetur facilis. Ut omnis voluptates nihil accusantium doloribus eaque debitis.",
+    important: true,
+    starred: false,
+  },
+  {
+    id: "CD67890EFG",
+    from: fakeUsers[2],
+    to: fakeUsers[5],
+    label: "sent",
+    date: new Date("2023-10-15T14:30:00"),
+    subject:
+      "Exploring the Impact of Artificial Intelligence on Modern Healthcare",
+    content:
+      "Atque eaque ducimus minima distinctio velit. Laborum et veniam officiis. Delectus ex saepe hic id laboriosam officia. Odit nostrum qui illum saepe debitis ullam. Laudantium beatae modi fugit ut. Dolores consequatur beatae nihil voluptates rem maiores.",
+    important: false,
+    starred: true,
+  },
+  {
+    id: "GH34567IJK",
+    from: fakeUsers[3],
+    to: fakeUsers[1],
+    label: "inbox",
+    date: new Date("2023-10-25T11:20:00"),
+    subject: "Climate Change and Its Effects on Global Food Security",
+    content:
+      "Rerum eius velit dolores. Explicabo ad nemo quibusdam. Voluptatem eum suscipit et ipsum et consequatur aperiam quia. Rerum nulla sequi recusandae illum velit quia quas. Et error laborum maiores cupiditate occaecati.",
+    important: true,
+    starred: true,
+  },
+  {
+    id: "IJ89012LMN",
+    from: fakeUsers[4],
+    to: fakeUsers[1],
+    label: "spam",
+    date: new Date("2023-09-20T08:15:00"),
+    subject: "The Rise of Remote Work: Benefits, Challenges, and Future Trends",
+    content:
+      "Et non omnis qui. Qui sunt deserunt dolorem aut velit cumque adipisci aut enim. Nihil quis quisquam nesciunt dicta nobis ab aperiam dolorem repellat. Voluptates non blanditiis. Error et tenetur iste soluta cupiditate ratione perspiciatis et. Quibusdam aliquid nam sunt et quisquam non esse.",
+    important: false,
+    starred: false,
+  },
+  {
+    id: "KL56789OPQ",
+    from: fakeUsers[5],
+    to: fakeUsers[1],
+    label: "drafts",
+    date: new Date("2023-11-03T12:45:00"),
+    subject: "Understanding Blockchain Technology: Beyond Cryptocurrency",
+    content:
+      "Nihil ea sunt facilis praesentium atque. Ab animi alias sequi molestias aut velit ea. Sed possimus eos. Et est aliquid est voluptatem.",
+    important: false,
+    starred: false,
+  },
+  {
+    id: "MN01234RST",
+    from: fakeUsers[6],
+    to: fakeUsers[1],
+    label: "trash",
+    date: new Date("2023-10-10T15:00:00"),
+    subject:
+      "Mental Health in the Digital Age: Navigating Social Media and Well-being",
+    content:
+      "Non rerum modi. Accusamus voluptatem odit nihil in. Quidem et iusto numquam veniam culpa aperiam odio aut enim. Quae vel dolores. Pariatur est culpa veritatis aut dolorem.",
+    important: false,
+    starred: false,
+  },
+  {
+    id: "OP78901UVW",
+    from: fakeUsers[7],
+    to: fakeUsers[1],
+    label: "inbox",
+    date: new Date("2023-09-12T10:50:00"),
+    subject: "Sustainable Fashion: How the Industry is Going Green",
+    content:
+      "Est enim et sit non impedit aperiam cumque animi. Aut eius impedit saepe blanditiis. Totam molestias magnam minima fugiat.",
+    important: true,
+    starred: false,
+  },
+  {
+    id: "QR23456XYZ",
+    from: fakeUsers[8],
+    to: fakeUsers[1],
+    label: "inbox",
+    date: new Date("2023-11-02T18:20:00"),
+    subject:
+      "Space Exploration: New Frontiers and the Quest for Extraterrestrial Life",
+    content:
+      "Unde a inventore et. Sed esse ut. Atque ducimus quibusdam fuga quas id qui fuga.",
+    important: true,
+    starred: false,
+  },
+  {
+    id: "ST34567YZA",
+    from: fakeUsers[1],
+    to: fakeUsers[2],
+    label: "sent",
+    date: new Date("2023-11-05T17:35:00"),
+    subject:
+      "The Evolution of E-Commerce: Trends Shaping the Online Retail Landscape",
+    content:
+      "Eaque natus adipisci soluta nostrum dolorem. Nesciunt ipsum molestias ut aliquid natus ut omnis qui fugiat. Dolor et rem. Ut neque voluptatem blanditiis quasi ullam deleniti.",
+    important: false,
+    starred: true,
+  },
+  {
+    id: "UV67890BCD",
+    from: fakeUsers[10],
+    to: fakeUsers[1],
+    label: "inbox",
+    date: new Date("2023-10-18T21:00:00"),
+    subject: "The Future of Renewable Energy: Innovations and Challenges Ahead",
+    content:
+      "Occaecati est et illo quibusdam accusamus qui. Incidunt aut et molestiae ut facere aut. Est quidem iusto praesentium excepturi harum nihil tenetur facilis. Ut omnis voluptates nihil accusantium doloribus eaque debitis.",
+    important: true,
+    starred: true,
+  },
 ];

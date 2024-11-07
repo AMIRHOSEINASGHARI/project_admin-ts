@@ -71,3 +71,37 @@ export type File = {
   image: string | null;
   tags: string[];
 };
+
+export type MailLabel =
+  | "inbox"
+  | "sent"
+  | "drafts"
+  | "trash"
+  | "spam"
+  | "important"
+  | "starred"
+  | "social"
+  | "promotions"
+  | "forums";
+
+export type Mail = {
+  id: string;
+  from: FakeUser;
+  to: FakeUser;
+  label: MailLabel;
+  date: Date;
+  subject: string;
+  content: string;
+  important: boolean;
+  starred: boolean;
+};
+
+export type FakeUser = {
+  id: string;
+  image: string;
+  name: string;
+  email: string;
+  company: string;
+  isVerified: boolean;
+  location: string;
+};
