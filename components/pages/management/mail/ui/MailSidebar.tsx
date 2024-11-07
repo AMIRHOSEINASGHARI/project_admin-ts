@@ -63,12 +63,14 @@ const MailSidebar = () => {
   ];
 
   return (
-    <div>
+    <div className="space-y-3">
       <MailCompose />
       <div className="flex flex-col gap-1">
         {sideMenuItems.map(({ id, icon }) => (
           <Button key={id} variant="ghost" className="justify-start gap-4">
-            <div className="text-icon-size">{icon}</div>
+            <div className="text-icon-size text-icon-light dark:text-icon-dark">
+              {icon}
+            </div>
             <span className="capitalize">{id}</span>
           </Button>
         ))}
