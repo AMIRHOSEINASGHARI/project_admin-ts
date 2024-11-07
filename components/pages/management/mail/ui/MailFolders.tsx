@@ -11,8 +11,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const MailFolders = ({ folderMails, setFolderMails }: MailFoldersProps) => {
   return (
-    <div className="w-full max-w-[320px] p-3 rounded-[16px] bg-white dark:bg-dark1 space-y-3">
-      <MailSearch />
+    <div className="w-full p-3 max-w-[320px] rounded-[16px] bg-white dark:bg-dark1 space-y-3">
+      <div className="w-full max-xl:hidden">
+        <MailSearch />
+      </div>
       <div className="flex flex-col gap-1">
         {folderMails.map(({ id, date, from, subject }) => (
           <Button

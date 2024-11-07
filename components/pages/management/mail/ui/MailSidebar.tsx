@@ -69,7 +69,11 @@ const MailSidebar = () => {
       </div>
       <div className="flex flex-col gap-1">
         {sideMenuItems.map(({ id, icon }) => (
-          <Button key={id} variant="ghost" className="justify-start gap-4">
+          <Button
+            key={id}
+            variant="ghost"
+            className="justify-start gap-4 bg-transparent dark:bg-transparent"
+          >
             <div className="text-icon-size text-icon-light dark:text-icon-dark">
               {icon}
             </div>
