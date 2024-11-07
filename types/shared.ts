@@ -73,6 +73,7 @@ export type File = {
 };
 
 export type MailLabel =
+  | "all"
   | "inbox"
   | "sent"
   | "drafts"
