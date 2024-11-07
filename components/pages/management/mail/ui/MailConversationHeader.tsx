@@ -12,19 +12,23 @@ import {
 // cmp
 import CustomTooltip from "@/components/shared/CustomTooltip";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 const MailConversationHeader = ({
   important,
   starred,
+  label,
 }: MailConversationHeaderProps) => {
   const actions = [
     {
       id: "Starred",
-      icon: <SolarStarBold className={starred && "text-yellow-500"} />,
+      icon: <SolarStarBold className={starred ? "text-yellow-500" : ""} />,
     },
     {
       id: "Important",
-      icon: <SolarImportantBold className={important && "text-yellow-500"} />,
+      icon: (
+        <SolarImportantBold className={important ? "text-yellow-500" : ""} />
+      ),
     },
     {
       id: "Archive",
@@ -45,18 +49,35 @@ const MailConversationHeader = ({
   ];
 
   return (
-    <div className="flex items-center justify-end flex-wrap gap-1">
-      {actions.map(({ id, icon }) => (
-        <CustomTooltip
-          key={id}
-          trigger={
-            <Button variant="icon" className="text-xl">
-              {icon}
-            </Button>
+    <div className="flex justify-between items-center p-3">
+      {(label === "social" || label === "forums" || label === "promotions") && (
+        <Badge
+          variant={
+            label === "social"
+              ? "green"
+              : label === "promotions"
+              ? "orange"
+              : "rose"
           }
-          content={id}
-        />
-      ))}
+          className="w-fit h-fit capitalize"
+        >
+          {label}
+        </Badge>
+      )}
+
+      <div className="flex items-center w-full justify-end flex-wrap gap-1">
+        {actions.map(({ id, icon }) => (
+          <CustomTooltip
+            key={id}
+            trigger={
+              <Button variant="icon" className="text-xl">
+                {icon}
+              </Button>
+            }
+            content={id}
+          />
+        ))}
+      </div>
     </div>
   );
 };

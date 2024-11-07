@@ -2,7 +2,7 @@
 import { Dispatch, SetStateAction } from "react";
 // types
 import { AdminRole, AdminType } from "./admin";
-import { Mail, NavColor } from "./shared";
+import { Mail, MailLabel, NavColor } from "./shared";
 import { JobEmployment, JobExperience, JobSalary, JobType } from "./job";
 import { TourType } from "./tour";
 import { ProductType } from "./product";
@@ -102,4 +102,5 @@ export type MailFoldersProps = {
 export type MailConversationHeaderProps = {
   important: boolean;
   starred: boolean;
+  label: MailLabel;
 };
