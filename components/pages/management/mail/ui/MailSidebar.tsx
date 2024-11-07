@@ -63,7 +63,7 @@ const MailSidebar = () => {
   ];
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 w-full">
       <MailCompose />
       <div className="flex flex-col gap-1">
         {sideMenuItems.map(({ id, icon }) => (

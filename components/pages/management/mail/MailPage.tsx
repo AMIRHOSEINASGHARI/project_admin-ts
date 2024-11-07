@@ -4,7 +4,7 @@ import MailContainer from "./ui/MailContainer";
 
 const MailPage = () => {
   return (
-    <div>
+    <div className="w-full h-full">
       <PageHeading text="Mail" />
       <MailContainer />
     </div>
