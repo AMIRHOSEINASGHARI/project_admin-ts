@@ -96,4 +96,10 @@ export type ProductFormProps = {
 export type MailFoldersProps = {
   folderMails: Mail[];
   setFolderMails: Dispatch<SetStateAction<Mail[]>>;
+  setActiveConversation: Dispatch<SetStateAction<Mail>>;
+};
+
+export type MailConversationHeaderProps = {
+  important: boolean;
+  starred: boolean;
 };

@@ -63,7 +63,7 @@ const MailSidebar = () => {
   ];
 
   return (
-    <div className="w-full max-w-[200px]">
+    <div className="w-full">
       <div className="p-3">
         <MailCompose />
       </div>
