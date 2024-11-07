@@ -34,22 +34,21 @@ const MailConversation = ({
       <Separator />
       <div className="p-3 space-y-3">
         <div className="space-y-8 min-h-[300px]">
-          <div className="flex items-center gap-3">
+          <div className="flex gap-3">
             <Avatar>
               <AvatarImage src={from?.avatar || images.admin3} />
               <AvatarFallback>{from?.name[0]}</AvatarFallback>
             </Avatar>
-            <div className="flex flex-col items-start overflow-hidden">
-              <p className="line-clamp-2">
-                <span className="text-small">{from?.name}</span>
-                <span className="text_disabled line-clamp-3">
-                  {" "}
+            <div className="overflow-hidden">
+              <div className="flex items-center gap-1 flex-wrap">
+                <span className="text-small whitespace-nowrap">
+                  {from?.name}
+                </span>
+                <span className="text_disabled whitespace-nowrap">
                   / {from?.email}
                 </span>
-              </p>
-              <span className="text_disabled line-clamp-3">
-                To: {to?.email}
-              </span>
+              </div>
+              <span className="text_disabled">To: {to?.email}</span>
             </div>
           </div>
           <p className="text-small">{content}</p>
