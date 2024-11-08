@@ -3,7 +3,7 @@
 // next
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 // types
-import { MailLabel } from "@/types/shared";
+import { Mail, MailLabel } from "@/types/shared";
 // icons
 import {
   SolarDraftBold,
@@ -19,11 +19,15 @@ import {
 // cmp
 import { Button } from "@/components/ui/button";
 import MailCompose from "./MailCompose";
+import clsx from "clsx";
 
 const MailSidebar = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+
+  const params = new URLSearchParams(searchParams);
+  const activeLabel = params?.get("label");
 
   const sideMenuItems: { icon: JSX.Element; id: MailLabel }[] = [
     {
@@ -73,7 +77,9 @@ const MailSidebar = () => {
   ];
 
   const handleLabel = (label: MailLabel) => {
-    const params = new URLSearchParams(searchParams);
+    if (params.has("id")) {
+      params.delete("id");
+    }
 
     if (label) {
       params.set("label", label);
@@ -94,12 +100,16 @@ const MailSidebar = () => {
           <Button
             key={id}
             variant="ghost"
-            className="justify-start gap-4 bg-transparent dark:bg-transparent"
+            className={clsx(
+              "justify-start gap-4 bg-transparent dark:bg-transparent",
+              {
+                "text-black dark:text-white": activeLabel === id,
+                "text-icon-light dark:text-icon-dark": activeLabel !== id,
+              }
+            )}
             onClick={() => handleLabel(id)}
           >
-            <div className="text-icon-size text-icon-light dark:text-icon-dark">
-              {icon}
-            </div>
+            <div className="text-icon-size">{icon}</div>
             <span className="capitalize">{id}</span>
           </Button>
         ))}

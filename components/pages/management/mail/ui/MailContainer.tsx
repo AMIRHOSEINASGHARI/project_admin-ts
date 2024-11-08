@@ -24,10 +24,12 @@ const MailContainer = () => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const params = new URLSearchParams(searchParams);
+  const pageParams = new URLSearchParams(searchParams);
 
   useEffect(() => {
-    if (!params.get("label")) {
+    const params = new URLSearchParams(searchParams);
+
+    if (!params.has("label")) {
       params.set("label", "inbox");
 
       const newRoute = `${pathname}?${params?.toString()}`;
@@ -57,7 +59,7 @@ const MailContainer = () => {
         folderMails={folderMails}
         setFolderMails={setFolderMails}
         setActiveConversation={setActiveConversation}
-        activeLabel={params?.get("label")}
+        activeLabel={pageParams?.get("label")}
       />
       <div className="max-xl:hidden flex gap-3">
         <div className="min-w-[230px]">
@@ -65,9 +67,9 @@ const MailContainer = () => {
         </div>
         <MailFolders
           folderMails={folderMails}
-          setFolderMails={setFolderMails}
+          activeConversation={activeConversation}
           setActiveConversation={setActiveConversation}
-          activeLabel={params?.get("label")}
+          activeLabel={pageParams?.get("label")}
         />
       </div>
       <MailConversation activeConversation={activeConversation} />

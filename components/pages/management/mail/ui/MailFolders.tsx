@@ -1,3 +1,7 @@
+// react
+import { useEffect } from "react";
+// next
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 // constants
 import { images } from "@/constants";
 // utils
@@ -9,12 +13,39 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import MailSearch from "./MailSearch";
 import MailEmptyBox from "./EmptyBox";
+import clsx from "clsx";
 
 const MailFolders = ({
   folderMails,
-  setFolderMails,
   activeLabel,
+  activeConversation,
+  setActiveConversation,
 }: MailFoldersProps) => {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const handleMailID = (id: string) => {
+    const params = new URLSearchParams(searchParams);
+
+    if (id) {
+      params.set("id", id);
+    } else {
+      params.delete("id");
+    }
+
+    replace(`${pathname}?${params?.toString()}`);
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams);
+    const activeID = params?.get("id");
+
+    const activeMail = folderMails?.find((mail) => mail.id === activeID);
+
+    setActiveConversation(activeMail);
+  });
+
   return (
     <div className="w-full p-3 min-w-[300px] max-w-[320px] rounded-[16px] bg-white dark:bg-dark1 space-y-3">
       <div className="w-full max-xl:hidden">
@@ -32,7 +63,12 @@ const MailFolders = ({
             <Button
               key={id}
               variant="ghost"
-              className="justify-between items-start bg-transparent dark:bg-transparent"
+              className={clsx("justify-between items-start", {
+                "bg-light3 dark:bg-dark3": activeConversation?.id === id,
+                "bg-transparent dark:bg-transparent":
+                  activeConversation?.id !== id,
+              })}
+              onClick={() => handleMailID(id)}
             >
               <div className="flex items-center gap-3">
                 <Avatar>
