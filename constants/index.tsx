@@ -141,11 +141,6 @@ export const menuLinks = [
     link: "/order/list",
   },
   {
-    title: "Invoice",
-    image: <SolarDocumentsBoldDuotone />,
-    link: "/invoice/list",
-  },
-  {
     title: "Blog",
     image: <SolarTextFieldFocusBoldDuotone />,
     link: "/blog/list",
@@ -250,20 +245,6 @@ export const sidebar_accordionList = [
   },
   {
     trigger: menuLinks[10],
-    value: "/invoice",
-    innerLinks: [
-      {
-        href: "/invoice/list",
-        title: "List",
-      },
-      {
-        href: "/invoice/create",
-        title: "Create",
-      },
-    ],
-  },
-  {
-    trigger: menuLinks[11],
     value: "/blog",
     innerLinks: [
       {
@@ -277,7 +258,7 @@ export const sidebar_accordionList = [
     ],
   },
   {
-    trigger: menuLinks[12],
+    trigger: menuLinks[11],
     value: "/job",
     innerLinks: [
       {
@@ -291,7 +272,7 @@ export const sidebar_accordionList = [
     ],
   },
   {
-    trigger: menuLinks[13],
+    trigger: menuLinks[12],
     value: "/tour",
     innerLinks: [
       {
