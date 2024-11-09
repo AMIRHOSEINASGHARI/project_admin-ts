@@ -43,14 +43,16 @@ const ProductsListTable = async ({
           className="flex items-center gap-4 overflow-hidden"
           href={`/product/${product?._id}`}
         >
-          <Image
-            src={product?.images[0]}
-            width={100}
-            height={100}
-            alt="image"
-            priority
-            className="rounded-product w-[64px] h-[64px]"
-          />
+          <div className="w-[64px] h-[64px] rounded-product overflow-hidden">
+            <Image
+              src={product?.images[0]}
+              width={100}
+              height={100}
+              alt="image"
+              priority
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="overflow-hidden flex flex-col">
             <p className="truncate">{product?.title}</p>
             <span className="capitalize table_sub_text">

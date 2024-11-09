@@ -87,6 +87,7 @@ export const images = {
   error: "/images/sad.png",
   inviteAndEarn: "/images/invite-and-earn.png",
   noImage: "/images/no-image.jpg",
+  emptyFolder: "/images/folder-empty.svg",
 };
 
 export const menuLinks = [

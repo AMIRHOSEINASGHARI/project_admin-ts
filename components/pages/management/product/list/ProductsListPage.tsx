@@ -30,7 +30,7 @@ const ProductsListPage = ({
           Export
         </Button>
         <Button asChild>
-          <Link href="/add-product" className="gap-2">
+          <Link href="/product/create" className="gap-2">
             <PlusRegular />
             New product
           </Link>

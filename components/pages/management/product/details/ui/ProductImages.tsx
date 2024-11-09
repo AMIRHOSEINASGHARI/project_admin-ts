@@ -38,7 +38,7 @@ const ProductImages = ({ images }: { images: string[] }) => {
   }, [api]);
 
   return (
-    <div className="w-full xl:w-[60%] flex flex-col items-center gap-5">
+    <div className="w-full xl:w-[60%] max-h-[700px]  flex flex-col items-center justify-center gap-5">
       <Carousel
         className="rounded-card overflow-hidden relative max-w-[630px] max-h-[630px]"
         setApi={setapi}
@@ -52,7 +52,7 @@ const ProductImages = ({ images }: { images: string[] }) => {
                 height={600}
                 alt="product"
                 priority
-                className="w-full h-full"
+                className="w-full h-full object-cover"
               />
             </CarouselItem>
           ))}

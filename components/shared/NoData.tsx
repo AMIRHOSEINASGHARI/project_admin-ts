@@ -1,24 +1,21 @@
 // next
 import Image from "next/image";
+// constants
+import { images } from "@/constants";
 
-type MailEmptyBoxProps = {
+type NoDataProps = {
   title?: string;
   subText?: string;
-  type: "folder" | "conversation";
 };
 
-const MailEmptyBox = ({ title, subText, type }: MailEmptyBoxProps) => {
+const NoData = ({ title, subText }: NoDataProps) => {
   return (
     <div className="flex flex-col gap-2 items-center justify-center h-full w-full">
       <Image
-        src={
-          type === "conversation"
-            ? "/images/email-selected.svg"
-            : "/images/folder-empty.svg"
-        }
+        src={images.emptyFolder}
         width={200}
         height={200}
-        alt="mail-selected"
+        alt="empty"
         priority
       />
       {title && (
@@ -33,4 +30,4 @@ const MailEmptyBox = ({ title, subText, type }: MailEmptyBoxProps) => {
   );
 };
 
-export default MailEmptyBox;
+export default NoData;
