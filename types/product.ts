@@ -47,3 +47,23 @@ export type CreateProduct = {
 export type EditProduct = CreateProduct & {
   id: string;
 };
+
+export type ProductsFilters = {
+  stock?: { $gt: number } | { $gte: number; $lte: number } | number;
+  discount?: { $gt: 0 } | number;
+  category?: string;
+  published?: boolean;
+};
+
+export type ProductStock = "in-stock" | "out-of-stock" | "low-stock";
+export type ProductDiscount = "has-discount" | "no-discount";
+export type ProductPublish = "publish" | "draft";
+
+export type ProductsListParams = {
+  search?: string;
+  stock?: ProductStock;
+  discount?: ProductDiscount;
+  published?: ProductPublish;
+  category?: string;
+  page: string;
+};

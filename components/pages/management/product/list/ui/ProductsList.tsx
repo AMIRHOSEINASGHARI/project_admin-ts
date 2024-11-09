@@ -1,7 +1,7 @@
 // react
 import { Suspense } from "react";
 // types
-import { ProductsListParams } from "@/types/components";
+import { ProductsListParams } from "@/types/product";
 // cmp
 import {
   Table,

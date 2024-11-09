@@ -1,7 +1,7 @@
 // next
 import Link from "next/link";
 // types
-import { ProductsListParams } from "@/types/components";
+import { ProductsListParams } from "@/types/product";
 // constants
 import { products_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // cmp

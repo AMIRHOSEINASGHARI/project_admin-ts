@@ -4,7 +4,7 @@ import Link from "next/link";
 // actions
 import { getProducts } from "@/actions/product";
 // types
-import { ProductsListParams } from "@/types/components";
+import { ProductsListParams } from "@/types/product";
 // cmp
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
