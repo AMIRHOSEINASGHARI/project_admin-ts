@@ -94,15 +94,20 @@ const SidebarAccordionLinks = ({
                   >
                     <Link
                       href={innerLink.href}
-                      className={clsx(
-                        "w-full block p-2 rounded-lg hover:bg-light2 hover:dark:bg-dark3",
-                        {
-                          "bg-light2 dark:bg-dark3 dark:text-white":
-                            pathname === innerLink.href,
-                          "dark:text-white text-black":
-                            pathname !== innerLink.href,
-                        }
-                      )}
+                      className={clsx("w-full block p-2 rounded-lg", {
+                        "bg-light2 dark:bg-dark3 dark:text-white hover:bg-light2 hover:dark:bg-dark3":
+                          pathname === innerLink.href &&
+                          navColor === "Integrate",
+                        "dark:text-white text-black hover:bg-light2 hover:dark:bg-dark3":
+                          pathname !== innerLink.href &&
+                          navColor === "Integrate",
+                        "bg-dark2 dark:bg-dark3 dark:text-white text-white hover:bg-dark3 hover:dark:bg-dark3":
+                          pathname === innerLink.href &&
+                          navColor === "Apparent",
+                        "text-slate-500 dark:text-slate-500 hover:bg-dark3 hover:dark:bg-dark3":
+                          pathname !== innerLink.href &&
+                          navColor === "Apparent",
+                      })}
                     >
                       {innerLink.title}
                     </Link>
