@@ -13,6 +13,7 @@ import { CreateProduct, EditProduct, ProductType } from "@/types/product";
 import { checkSession } from "./shared";
 // utils
 import connectDB from "@/utils/connectDB";
+import { ProductsListParams } from "@/types/components";
 
 export const getLatestProducts = async () => {
   try {
@@ -41,14 +42,7 @@ export const getLatestProducts = async () => {
   }
 };
 
-export const getProducts = async (searchParams: {
-  page: string;
-  search?: string;
-  stock?: "in-stock" | "out-of-stock";
-  discount?: "has-discount" | "no-discount";
-  category?: string;
-  published?: "publish" | "draft";
-}) => {
+export const getProducts = async (searchParams: ProductsListParams) => {
   try {
     await connectDB();
 
@@ -56,7 +50,7 @@ export const getProducts = async (searchParams: {
 
     let query = {};
     let filters: {
-      stock?: { $gt: 0 } | 0;
+      stock?: { $gt: number } | { $gte: number; $lte: number } | number;
       discount?: { $gt: 0 } | number;
       category?: string;
       published?: boolean;
@@ -68,7 +62,13 @@ export const getProducts = async (searchParams: {
     }
     // product stock filter
     if (stock) {
-      stock == "in-stock" ? (filters.stock = { $gt: 0 }) : (filters.stock = 0);
+      if (stock === "in-stock") {
+        filters.stock = { $gt: 10 };
+      } else if (stock === "low-stock") {
+        filters.stock = { $gte: 1, $lte: 10 };
+      } else {
+        filters.stock = 0;
+      }
     }
     // product discount filter
     if (discount) {

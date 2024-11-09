@@ -113,11 +113,15 @@ export type MailConversationHeaderProps = {
   label: MailLabel;
 };
 
+export type ProductStock = "in-stock" | "out-of-stock" | "low-stock";
+export type ProductDiscount = "has-discount" | "no-discount";
+export type ProductPublish = "publish" | "draft";
+
 export type ProductsListParams = {
   search?: string;
-  stock?: "in-stock" | "out-of-stock";
-  discount?: "has-discount" | "no-discount";
-  published?: "publish" | "draft";
+  stock?: ProductStock;
+  discount?: ProductDiscount;
+  published?: ProductPublish;
   category?: string;
   page: string;
 };
