@@ -29,7 +29,7 @@ export const useSession = () => {
 };
 
 export const useHandleSearchParams = (
-  name: string,
+  name?: string,
   setValue?: Dispatch<SetStateAction<string>>
 ) => {
   const searchParams = useSearchParams();
@@ -37,23 +37,27 @@ export const useHandleSearchParams = (
   const { push, replace } = useRouter();
 
   const handleSetQuery = (value: string) => {
-    const params = new URLSearchParams(searchParams);
+    if (!!name?.trim()) {
+      const params = new URLSearchParams(searchParams);
 
-    if (value) {
-      params.set(name, value);
+      if (value) {
+        params.set(name, value);
+      } else {
+        params.delete(name);
+      }
+
+      let newRoute = `${pathname}?${params.toString()}`;
+      push(newRoute);
     } else {
-      params.delete(name);
+      return;
     }
-
-    let newRoute = `${pathname}?${params.toString()}`;
-    push(newRoute);
   };
 
-  const handleDeleteQuery = () => {
+  const handleDeleteQuery = (value: string) => {
     const params = new URLSearchParams(searchParams);
 
-    if (params?.has(name)) {
-      params.delete(name);
+    if (params?.has(value)) {
+      params.delete(value);
     }
 
     let newRoute = `${pathname}?${params.toString()}`;
@@ -66,20 +70,27 @@ export const useHandleSearchParams = (
   };
 
   useEffect(() => {
-    if (setValue) {
-      const params = new URLSearchParams(searchParams);
+    if (!!name?.trim()) {
+      if (setValue) {
+        const params = new URLSearchParams(searchParams);
 
-      if (!params.has(name)) {
-        setValue("");
-      } else {
-        setValue(searchParams.get(name)?.toString()!);
+        if (!params.has(name)) {
+          setValue("");
+        } else {
+          setValue(searchParams.get(name)?.toString()!);
+        }
       }
+    } else {
+      return;
     }
   });
 
   return {
     handleSetQuery,
     handleDeleteQuery,
+    replace,
+    push,
+    pathname,
     searchParams,
   };
 };

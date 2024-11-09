@@ -112,3 +112,10 @@ export type MailConversationHeaderProps = {
   starred: boolean;
   label: MailLabel;
 };
+
+export type DeleteSearchQueryProps = {
+  value: string;
+  title: string;
+  paramValue: string;
+  handleDeleteQuery: (value: string) => void;
+};

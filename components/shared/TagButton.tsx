@@ -22,7 +22,7 @@ type TagButtonProps = {
     | "favorite"
     | null
     | undefined;
-  buttonColor: string;
+  buttonColor?: string;
   removeHandler: () => void;
 };
 
