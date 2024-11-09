@@ -57,9 +57,9 @@ const MailContainer = () => {
     <div className="p-3 rounded-[16px] bg-light2 dark:bg-dark3 flex flex-col xl:flex-row gap-3">
       <MailContainerMobileHeader
         folderMails={folderMails}
-        setFolderMails={setFolderMails}
-        setActiveConversation={setActiveConversation}
         activeLabel={pageParams?.get("label")}
+        activeConversation={activeConversation}
+        setActiveConversation={setActiveConversation}
       />
       <div className="max-xl:hidden flex gap-3">
         <div className="min-w-[230px]">

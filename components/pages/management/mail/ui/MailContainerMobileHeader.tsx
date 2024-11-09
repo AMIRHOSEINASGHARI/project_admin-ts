@@ -27,9 +27,9 @@ const HiddenTags = () => (
 
 const MailContainerMobileHeader = ({
   folderMails,
-  setActiveConversation,
-  setFolderMails,
   activeLabel,
+  activeConversation,
+  setActiveConversation,
 }: MailContainerMobileHeaderProps) => {
   return (
     <div className="xl:hidden flex items-center gap-1">
@@ -58,9 +58,9 @@ const MailContainerMobileHeader = ({
             </div>
             <MailFolders
               folderMails={folderMails}
-              setFolderMails={setFolderMails}
-              setActiveConversation={setActiveConversation}
               activeLabel={activeLabel}
+              activeConversation={activeConversation}
+              setActiveConversation={setActiveConversation}
             />
           </SheetContent>
         </Sheet>
