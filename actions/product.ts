@@ -41,21 +41,18 @@ export const getLatestProducts = async () => {
   }
 };
 
-export const getProducts = async (
-  searchParams: Promise<{
-    page: string;
-    search?: string;
-    stock?: "in-stock" | "out-of-stock";
-    discount?: "has-discount" | "no-discount";
-    category?: string;
-    published?: "publish" | "draft";
-  }>
-) => {
+export const getProducts = async (searchParams: {
+  page: string;
+  search?: string;
+  stock?: "in-stock" | "out-of-stock";
+  discount?: "has-discount" | "no-discount";
+  category?: string;
+  published?: "publish" | "draft";
+}) => {
   try {
     await connectDB();
 
-    const { page, search, stock, discount, category, published } =
-      await searchParams;
+    const { page, search, stock, discount, category, published } = searchParams;
 
     let query = {};
     let filters: {

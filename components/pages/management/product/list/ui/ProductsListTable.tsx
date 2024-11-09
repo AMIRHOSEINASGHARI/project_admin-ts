@@ -8,14 +8,14 @@ import { ProductsListParams } from "@/types/components";
 // cmp
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { TableCell, TableRow } from "@/components/ui/table";
 import moment from "moment";
 import ProductTableActions from "./ProductTableActions";
 
 const ProductsListTable = async ({
   searchParams,
 }: {
-  searchParams: Promise<ProductsListParams>;
+  searchParams: ProductsListParams;
 }) => {
   const data = await getProducts(searchParams);
 

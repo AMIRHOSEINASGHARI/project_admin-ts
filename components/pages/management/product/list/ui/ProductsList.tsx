@@ -1,3 +1,5 @@
+// react
+import { Suspense } from "react";
 // types
 import { ProductsListParams } from "@/types/components";
 // cmp
@@ -12,14 +14,19 @@ import {
 import FilteringProducts from "./FilteringProducts";
 import PaginationProducts from "./PaginationProducts";
 import ProductsListTable from "./ProductsListTable";
-import { Suspense } from "react";
 import LoaderBar from "@/components/shared/LoaderBar";
 
-const ProductsList = async ({
-  searchParams,
-}: {
+const ProductsList = async (props: {
   searchParams: Promise<ProductsListParams>;
 }) => {
+  const searchParams = await props.searchParams;
+  const search = searchParams?.search || "";
+  const page = searchParams?.page || "";
+  const category = searchParams?.category || "";
+  const stock = searchParams?.stock || "";
+  const published = searchParams?.published || "";
+  const discount = searchParams?.discount || "";
+
   const tableHeads = [
     "Product",
     "Created at",
@@ -44,6 +51,7 @@ const ProductsList = async ({
         </TableHeader>
         <TableBody>
           <Suspense
+            key={search + page + category + stock + published + discount}
             fallback={
               <TableRow>
                 <TableCell
