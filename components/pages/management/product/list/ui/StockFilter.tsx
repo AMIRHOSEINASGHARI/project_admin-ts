@@ -19,7 +19,7 @@ const StockFilter = () => {
 
   return (
     <Select value={stock} onValueChange={(e) => handleSetQuery(e)}>
-      <SelectTrigger className="py-[15px] px-[14px] flex flex-1 min-w-[250px] rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
+      <SelectTrigger className="py-[15px] px-[14px] flex flex-1 rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
         <SelectValue placeholder="Stock" />
       </SelectTrigger>
       <SelectContent>

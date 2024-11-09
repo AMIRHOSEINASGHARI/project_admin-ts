@@ -21,7 +21,7 @@ const CategoryFilter = () => {
 
   return (
     <Select onValueChange={(e) => handleSetQuery(e)} value={category}>
-      <SelectTrigger className="py-[15px] px-[14px] flex flex-1 min-w-[250px] xl:w-1/2 rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
+      <SelectTrigger className="py-[15px] px-[14px] flex flex-1 rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
         <SelectValue placeholder="Category" />
       </SelectTrigger>
       <SelectContent>
