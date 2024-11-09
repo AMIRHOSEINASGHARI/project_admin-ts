@@ -1,5 +1,9 @@
 "use client";
 
+// react
+import { useEffect, useState } from "react";
+// next
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 // constants
 import { productCategory } from "@/constants";
 // cmp
@@ -12,8 +16,36 @@ import {
 } from "@/components/ui/select";
 
 const CategoryFilter = () => {
+  const [category, setCategory] = useState("");
+
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { push } = useRouter();
+
+  const handleCategory = (category: string) => {
+    const params = new URLSearchParams(searchParams);
+
+    if (category) {
+      params.set("category", category);
+    } else {
+      params.delete("category");
+    }
+
+    push(`${pathname}?${params.toString()}`);
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams);
+
+    if (!params.has("category")) {
+      setCategory("");
+    } else {
+      setCategory(searchParams.get("category")?.toString()!);
+    }
+  }, [searchParams]);
+
   return (
-    <Select>
+    <Select onValueChange={(e) => handleCategory(e)} value={category}>
       <SelectTrigger className="py-[15px] px-[14px] flex flex-1 rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
         <SelectValue placeholder="Category" />
       </SelectTrigger>
