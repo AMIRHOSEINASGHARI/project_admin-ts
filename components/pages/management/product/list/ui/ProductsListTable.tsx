@@ -107,9 +107,7 @@ const ProductsListTable = async ({
     <>
       {tableRows.map((item) => (
         <TableRow key={item.key}>
-          <TableCell className="min-w-[250px] max-w-[300px]">
-            {item.product}
-          </TableCell>
+          <TableCell className="min-w-[300px]">{item.product}</TableCell>
           <TableCell className="min-w-[180px]">{item.createdAt}</TableCell>
           <TableCell className="min-w-[100px] max-w-[110px]">
             {item.stock}

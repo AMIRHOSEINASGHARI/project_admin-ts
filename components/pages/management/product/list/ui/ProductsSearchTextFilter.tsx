@@ -1,7 +1,7 @@
 "use client";
 
 // react
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // hooks
 import { useHandleSearchParams } from "@/hooks";
 // debounce
@@ -20,6 +20,16 @@ const ProductsSearchTextFilter = () => {
   const handleSearch = useDebouncedCallback((term: string) => {
     handleSetQuery(term);
   }, 300);
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams);
+
+    if (!params.has("search")) {
+      setQuery("");
+    } else {
+      setQuery(searchParams.get("search")?.toString()!);
+    }
+  }, [searchParams]);
 
   return (
     <div className="relative flex flex-1">
