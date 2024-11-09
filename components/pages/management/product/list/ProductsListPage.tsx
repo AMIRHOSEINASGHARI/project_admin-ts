@@ -1,9 +1,7 @@
 // next
 import Link from "next/link";
-// actions
-import { getProducts } from "@/actions/product";
 // types
-import { PageSearchParams } from "@/types/components";
+import { ProductsListParams } from "@/types/components";
 // constants
 import { products_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // cmp
@@ -14,15 +12,11 @@ import ProductsList from "./ui/ProductsList";
 // icons
 import { PlusRegular, SolareExportBoldDuotone } from "@/components/svg";
 
-const ProductsListPage = async ({
+const ProductsListPage = ({
   searchParams,
 }: {
-  searchParams: PageSearchParams;
+  searchParams: Promise<ProductsListParams>;
 }) => {
-  const data = await getProducts(searchParams);
-
-  // TODO: Exporting products functionality
-
   return (
     <>
       <PageHeading text="List" />
@@ -42,7 +36,7 @@ const ProductsListPage = async ({
           </Link>
         </Button>
       </div>
-      <ProductsList products={data?.products} />
+      <ProductsList searchParams={searchParams} />
     </>
   );
 };

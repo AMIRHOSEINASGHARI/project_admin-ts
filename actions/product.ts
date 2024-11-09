@@ -41,20 +41,21 @@ export const getLatestProducts = async () => {
   }
 };
 
-export const getProducts = async (searchParams: {
-  page?: number;
-  search?: string;
-  stock?: "in-stock" | "out-of-stock";
-  discount?: "has-discount" | "no-discount";
-  sort?: number;
-  category?: string;
-  published?: boolean;
-}) => {
+export const getProducts = async (
+  searchParams: Promise<{
+    page: string;
+    search?: string;
+    stock?: "in-stock" | "out-of-stock";
+    discount?: "has-discount" | "no-discount";
+    category?: string;
+    published?: "publish" | "draft";
+  }>
+) => {
   try {
     await connectDB();
 
-    const { page, search, stock, discount, sort, category, published } =
-      searchParams;
+    const { page, search, stock, discount, category, published } =
+      await searchParams;
 
     let query = {};
     let filters: {
@@ -84,13 +85,13 @@ export const getProducts = async (searchParams: {
     }
     // product publish status filter
     if (published) {
-      published === true
+      published === "publish"
         ? (filters.published = true)
         : (filters.published = false);
     }
 
-    const pageNumber = page || 1;
-    const perPage = 10;
+    const pageNumber = +page || 1;
+    const perPage = 5;
     const totalProductsWithoutFilter = await ProductModel.countDocuments();
     const totalProducts = await ProductModel.countDocuments({
       ...query,
@@ -99,19 +100,6 @@ export const getProducts = async (searchParams: {
     const totalPages = Math.ceil(totalProducts / perPage);
 
     const products = await ProductModel.find({ ...filters, ...query })
-      .sort({
-        ...(sort == 1
-          ? { createdAt: -1 }
-          : sort == 2
-          ? { createdAt: 1 }
-          : sort == 3
-          ? { price: -1 }
-          : sort == 4
-          ? { price: 1 }
-          : sort == 5
-          ? { orders: -1 }
-          : {}),
-      })
       .skip((pageNumber - 1) * perPage)
       .limit(perPage)
       .lean<ProductType[]>();

@@ -1,3 +1,6 @@
+// types
+import { ProductsListParams } from "@/types/components";
+// cmp
 import ProductsListPage from "@/components/pages/management/product/list/ProductsListPage";
 
 export const dynamic = "force-dynamic";
@@ -5,7 +8,7 @@ export const dynamic = "force-dynamic";
 const ProductsList = ({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<ProductsListParams>;
 }) => {
   return <ProductsListPage searchParams={searchParams} />;
 };

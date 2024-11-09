@@ -112,3 +112,12 @@ export type MailConversationHeaderProps = {
   starred: boolean;
   label: MailLabel;
 };
+
+export type ProductsListParams = {
+  search?: string;
+  stock?: "in-stock" | "out-of-stock";
+  discount?: "has-discount" | "no-discount";
+  published?: "publish" | "draft";
+  category?: string;
+  page: string;
+};
