@@ -46,3 +46,9 @@ export type UserFormData = {
   isVerified: boolean;
   about: string;
 };
+
+export type UsersListParams = {
+  search?: string;
+  role?: string;
+  status?: string;
+};

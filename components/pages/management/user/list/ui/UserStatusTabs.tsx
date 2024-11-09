@@ -1,29 +1,21 @@
 "use client";
 
 // react
-import { useState } from "react";
-// types
-import { AdminType } from "@/types/admin";
+import { useEffect, useState } from "react";
+// hooks
+import { useHandleSearchParams } from "@/hooks";
 // cmp
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import clsx from "clsx";
 
-const UserStatusTabs = ({ admins }: { admins: AdminType[] }) => {
+const UserStatusTabs = () => {
   const [activeTab, setActiveTab] = useState("All");
-
-  const active = admins?.filter((admin) => admin?.status === "Active")?.length;
-  const pending = admins?.filter(
-    (admin) => admin?.status === "Pending"
-  )?.length;
-  const banned = admins?.filter((admin) => admin?.status === "Banned")?.length;
-  const rejected = admins?.filter(
-    (admin) => admin?.status === "Rejected"
-  )?.length;
+  const { handleSetQuery, handleDeleteQuery, searchParams } =
+    useHandleSearchParams("status");
 
   const tabData = [
     {
       title: "All",
-      number: admins?.length || 0,
       value: "All",
       colors:
         "bg-slate-900 text-slate-100 dark:bg-slate-200 dark:text-slate-900",
@@ -31,7 +23,6 @@ const UserStatusTabs = ({ admins }: { admins: AdminType[] }) => {
     },
     {
       title: "Active",
-      number: active || 0,
       value: "Active",
       colors:
         activeTab === "Active" ? "bg-green-500 text-white" : "badge-green",
@@ -39,7 +30,6 @@ const UserStatusTabs = ({ admins }: { admins: AdminType[] }) => {
     },
     {
       title: "Pending",
-      number: pending || 0,
       value: "Pending",
       colors:
         activeTab === "Pending" ? "bg-orange-500 text-white" : "badge-orange",
@@ -47,14 +37,12 @@ const UserStatusTabs = ({ admins }: { admins: AdminType[] }) => {
     },
     {
       title: "Banned",
-      number: banned || 0,
       value: "Banned",
       colors: activeTab === "Banned" ? "bg-rose-500 text-white" : "badge-rose",
       isActive: activeTab === "Banned",
     },
     {
       title: "Rejected",
-      number: rejected || 0,
       value: "Rejected",
       colors:
         activeTab === "Rejected" ? "bg-gray-500 text-white" : "badge-gray",
@@ -62,11 +50,32 @@ const UserStatusTabs = ({ admins }: { admins: AdminType[] }) => {
     },
   ];
 
+  const onValueChange = (value: string) => {
+    setActiveTab(value);
+
+    if (value === "All") {
+      handleDeleteQuery("status");
+      setActiveTab("All");
+    } else {
+      handleSetQuery(value);
+    }
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams);
+
+    if (!params.has("status")) {
+      setActiveTab("All");
+    } else {
+      setActiveTab(searchParams.get("status")?.toString()!);
+    }
+  }, [searchParams]);
+
   return (
     <Tabs
-      defaultValue="All"
       className="w-full"
-      onValueChange={(value) => setActiveTab(value)}
+      value={activeTab}
+      onValueChange={(value) => onValueChange(value)}
     >
       <div className="px-4 border-b-[3px] border-slate-100 dark:border-dark3">
         <TabsList className="gap-8 rounded-none bg-transparent dark:bg-transparent">
@@ -74,23 +83,21 @@ const UserStatusTabs = ({ admins }: { admins: AdminType[] }) => {
             <TabsTrigger
               key={tab.value}
               value={tab.value}
-              className={clsx(
-                "border-b-[3px] border-transparent flex gap-3 px-0 py-3 rounded-none shadow-none",
-                {
-                  "border-black dark:border-white": tab.isActive,
-                }
-              )}
+              className="border-b-[3px] border-transparent flex gap-3 px-0 py-3 rounded-none shadow-none data-[state=active]:border-black data-[state=active]:dark:border-white"
             >
               <span
-                className={clsx("text-small", {
-                  "text-slate-400 dark:text-slate-500": !tab.isActive,
-                })}
+                className={clsx(
+                  `text-small rounded-md h-full px-2 ${tab.colors}`,
+                  {
+                    "text-slate-400 dark:text-slate-500": !tab.isActive,
+                  }
+                )}
               >
                 {tab.title}
               </span>
-              <span className={`rounded-md h-full px-2 ${tab.colors}`}>
+              {/* <span className={`rounded-md h-full px-2 ${tab.colors}`}>
                 {tab.number}
-              </span>
+              </span> */}
             </TabsTrigger>
           ))}
         </TabsList>

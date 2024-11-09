@@ -1,9 +1,7 @@
 // next
 import Link from "next/link";
-// acitons
-import { getAdmins } from "@/actions/admin";
-// utils
-import { jsonParser } from "@/utils/functions";
+// types
+import { UsersListParams } from "@/types/admin";
 // constants
 import { user_list_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // icons
@@ -12,11 +10,13 @@ import { PlusRegular } from "@/components/svg";
 import { Button } from "@/components/ui/button";
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
-import UserListTable from "./ui/UserListTable";
+import UserList from "./ui/UserList";
 
-const UserListPage = async () => {
-  const data = await getAdmins();
-
+const UserListPage = ({
+  searchParams,
+}: {
+  searchParams: Promise<UsersListParams>;
+}) => {
   return (
     <>
       <div className="flex items-center justify-between flex-wrap">
@@ -34,7 +34,7 @@ const UserListPage = async () => {
           </Link>
         </Button>
       </div>
-      <UserListTable admins={jsonParser(data?.admins)} />
+      <UserList searchParams={searchParams} />
     </>
   );
 };

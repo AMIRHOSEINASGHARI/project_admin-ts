@@ -1,5 +1,5 @@
 // types
-import { ProductsListParams } from "@/types/components";
+import { ProductsListParams } from "@/types/product";
 // cmp
 import ProductsListPage from "@/components/pages/management/product/list/ProductsListPage";
 
