@@ -1,9 +1,9 @@
 "use client";
 
 // react
-import { useEffect, useState } from "react";
-// next
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
+// hooks
+import { useHandleSearchParams } from "@/hooks";
 // cmp
 import {
   Select,
@@ -15,35 +15,10 @@ import {
 
 const DiscountFilter = () => {
   const [discount, setDiscount] = useState("");
-
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { push } = useRouter();
-
-  const handleDiscount = (discount: string) => {
-    const params = new URLSearchParams(searchParams);
-
-    if (discount) {
-      params.set("discount", discount);
-    } else {
-      params.delete("discount");
-    }
-
-    push(`${pathname}?${params.toString()}`);
-  };
-
-  useEffect(() => {
-    const params = new URLSearchParams(searchParams);
-
-    if (!params.has("discount")) {
-      setDiscount("");
-    } else {
-      setDiscount(searchParams.get("discount")?.toString()!);
-    }
-  }, [searchParams]);
+  const { handleSetQuery } = useHandleSearchParams("discount", setDiscount);
 
   return (
-    <Select onValueChange={(e) => handleDiscount(e)} value={discount}>
+    <Select onValueChange={(e) => handleSetQuery(e)} value={discount}>
       <SelectTrigger className="py-[15px] px-[14px] flex flex-1 min-w-[250px] rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
         <SelectValue placeholder="discount" />
       </SelectTrigger>

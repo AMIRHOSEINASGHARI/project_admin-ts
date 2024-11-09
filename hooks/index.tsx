@@ -1,5 +1,7 @@
 "use client";
 
+// react
+import { Dispatch, SetStateAction, useEffect } from "react";
 // next
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 // react query
@@ -26,28 +28,35 @@ export const useSession = () => {
   };
 };
 
-export const useHandleSearchParams = (name: string, value: string) => {
+export const useHandleSearchParams = (
+  name: string,
+  setValue?: Dispatch<SetStateAction<string>>
+) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { push, replace } = useRouter();
 
-  const params = new URLSearchParams(searchParams);
-  let newRoute = `${pathname}?${params.toString()}`;
+  const handleSetQuery = (value: string) => {
+    const params = new URLSearchParams(searchParams);
 
-  const handleSetQuery = () => {
     if (value) {
       params.set(name, value);
     } else {
       params.delete(name);
     }
 
+    let newRoute = `${pathname}?${params.toString()}`;
     push(newRoute);
   };
 
   const handleDeleteQuery = () => {
+    const params = new URLSearchParams(searchParams);
+
     if (params?.has(name)) {
       params.delete(name);
     }
+
+    let newRoute = `${pathname}?${params.toString()}`;
 
     if (params.size === 0) {
       newRoute = pathname;
@@ -56,8 +65,21 @@ export const useHandleSearchParams = (name: string, value: string) => {
     replace(newRoute);
   };
 
+  useEffect(() => {
+    if (setValue) {
+      const params = new URLSearchParams(searchParams);
+
+      if (!params.has(name)) {
+        setValue("");
+      } else {
+        setValue(searchParams.get(name)?.toString()!);
+      }
+    }
+  });
+
   return {
     handleSetQuery,
     handleDeleteQuery,
+    searchParams,
   };
 };

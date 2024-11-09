@@ -1,9 +1,9 @@
 "use client";
 
 // react
-import { useEffect, useState } from "react";
-// next
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
+// hooks
+import { useHandleSearchParams } from "@/hooks";
 // cmp
 import {
   Select,
@@ -20,35 +20,10 @@ import {
 
 const PublishFilter = () => {
   const [publish, setPublish] = useState("");
-
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { push } = useRouter();
-
-  const handlePublish = (publish: string) => {
-    const params = new URLSearchParams(searchParams);
-
-    if (publish) {
-      params.set("published", publish);
-    } else {
-      params.delete("published");
-    }
-
-    push(`${pathname}?${params.toString()}`);
-  };
-
-  useEffect(() => {
-    const params = new URLSearchParams(searchParams);
-
-    if (!params.has("published")) {
-      setPublish("");
-    } else {
-      setPublish(searchParams.get("published")?.toString()!);
-    }
-  }, [searchParams]);
+  const { handleSetQuery } = useHandleSearchParams("published", setPublish);
 
   return (
-    <Select onValueChange={(e) => handlePublish(e)} value={publish}>
+    <Select onValueChange={(e) => handleSetQuery(e)} value={publish}>
       <SelectTrigger className="py-[15px] px-[14px] flex flex-1 min-w-[250px] rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
         <SelectValue placeholder="Publish" />
       </SelectTrigger>

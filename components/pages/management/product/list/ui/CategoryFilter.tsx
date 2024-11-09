@@ -1,9 +1,9 @@
 "use client";
 
 // react
-import { useEffect, useState } from "react";
-// next
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
+// hooks
+import { useHandleSearchParams } from "@/hooks";
 // constants
 import { productCategory } from "@/constants";
 // cmp
@@ -17,35 +17,10 @@ import {
 
 const CategoryFilter = () => {
   const [category, setCategory] = useState("");
-
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { push } = useRouter();
-
-  const handleCategory = (category: string) => {
-    const params = new URLSearchParams(searchParams);
-
-    if (category) {
-      params.set("category", category);
-    } else {
-      params.delete("category");
-    }
-
-    push(`${pathname}?${params.toString()}`);
-  };
-
-  useEffect(() => {
-    const params = new URLSearchParams(searchParams);
-
-    if (!params.has("category")) {
-      setCategory("");
-    } else {
-      setCategory(searchParams.get("category")?.toString()!);
-    }
-  }, [searchParams]);
+  const { handleSetQuery } = useHandleSearchParams("category", setCategory);
 
   return (
-    <Select onValueChange={(e) => handleCategory(e)} value={category}>
+    <Select onValueChange={(e) => handleSetQuery(e)} value={category}>
       <SelectTrigger className="py-[15px] px-[14px] flex flex-1 min-w-[250px] xl:w-1/2 rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
         <SelectValue placeholder="Category" />
       </SelectTrigger>

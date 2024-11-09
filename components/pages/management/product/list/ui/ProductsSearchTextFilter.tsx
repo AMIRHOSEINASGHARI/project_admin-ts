@@ -2,8 +2,8 @@
 
 // react
 import { useState } from "react";
-// next
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+// hooks
+import { useHandleSearchParams } from "@/hooks";
 // debounce
 import { useDebouncedCallback } from "use-debounce";
 // cmp
@@ -12,23 +12,13 @@ import { Input } from "@/components/ui/input";
 import { SolarMinimalisticMagniferBoldDuotone } from "@/components/svg";
 
 const ProductsSearchTextFilter = () => {
-  const searchParams = useSearchParams();
+  const { handleSetQuery, searchParams } = useHandleSearchParams("search");
   const [query, setQuery] = useState(
     searchParams.get("search")?.toString() || ""
   );
-  const pathname = usePathname();
-  const { push } = useRouter();
 
   const handleSearch = useDebouncedCallback((term: string) => {
-    const params = new URLSearchParams(searchParams);
-
-    if (term?.trim()) {
-      params.set("search", term);
-    } else {
-      params.delete("search");
-    }
-
-    push(`${pathname}?${params.toString()}`);
+    handleSetQuery(term);
   }, 300);
 
   return (
@@ -38,7 +28,7 @@ const ProductsSearchTextFilter = () => {
         className="w-full h-full pl-[45px]"
         value={query}
         onChange={(e) => {
-          setQuery(e.target.value);
+          setQuery(() => e.target.value);
           handleSearch(e.target.value);
         }}
       />
