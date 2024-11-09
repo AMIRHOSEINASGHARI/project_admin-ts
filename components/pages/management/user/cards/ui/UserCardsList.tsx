@@ -9,10 +9,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import NoData from "@/components/shared/NoData";
 
 const UserCardsList = ({ admins }: { admins: AdminType[] }) => {
-  // todo: better ui for no data
-  if (admins?.length === 0) return "no data";
+  if (admins?.length === 0) return <NoData title="No users found!" />;
 
   return (
     <div className="listGrid1">

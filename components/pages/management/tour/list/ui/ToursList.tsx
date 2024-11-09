@@ -4,6 +4,7 @@ import { TourType } from "@/types/tour";
 import SearchTours from "./SearchTours";
 import FilterTours from "./FilterTours";
 import TourCard from "./TourCard";
+import NoData from "@/components/shared/NoData";
 
 const ToursList = ({ tours }: { tours: TourType[] }) => {
   return (
@@ -13,7 +14,7 @@ const ToursList = ({ tours }: { tours: TourType[] }) => {
         <FilterTours />
       </div>
       {tours?.length === 0 ? (
-        "no data"
+        <NoData title="No tours found!" />
       ) : (
         <div className="listGrid1">
           {tours.map((tour) => (

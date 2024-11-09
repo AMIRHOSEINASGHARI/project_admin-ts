@@ -4,6 +4,7 @@ import { JobType } from "@/types/job";
 import SearchJobs from "./SearchJobs";
 import FilterJobs from "./FilterJobs";
 import JobCard from "./JobCard";
+import NoData from "@/components/shared/NoData";
 
 const JobsList = ({ jobs }: { jobs: JobType[] }) => {
   return (
@@ -13,7 +14,7 @@ const JobsList = ({ jobs }: { jobs: JobType[] }) => {
         <FilterJobs />
       </div>
       {jobs?.length === 0 ? (
-        "no data"
+        <NoData title="No jobs found" />
       ) : (
         <div className="listGrid1">
           {jobs.map((job) => (

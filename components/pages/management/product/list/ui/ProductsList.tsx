@@ -53,10 +53,10 @@ const ProductsList = async (props: {
           <Suspense
             key={search + page + category + stock + published + discount}
             fallback={
-              <TableRow>
+              <TableRow className="hover:bg-transparent dark:hover:bg-transparent">
                 <TableCell
                   colSpan={tableHeads.length}
-                  className="px-[10vw] py-[10vh] hover:bg-transparent dark:hover:bg-transparent"
+                  className="px-[10vw] py-[10vh]"
                 >
                   <LoaderBar />
                 </TableCell>

@@ -11,6 +11,7 @@ import { Progress } from "@/components/ui/progress";
 import { TableCell, TableRow } from "@/components/ui/table";
 import moment from "moment";
 import ProductTableActions from "./ProductTableActions";
+import NoData from "@/components/shared/NoData";
 
 const ProductsListTable = async ({
   searchParams,
@@ -18,6 +19,16 @@ const ProductsListTable = async ({
   searchParams: ProductsListParams;
 }) => {
   const data = await getProducts(searchParams);
+
+  if (data?.products?.length === 0) {
+    return (
+      <TableRow className="hover:bg-transparent dark:hover:bg-transparent">
+        <TableCell colSpan={8} className="p-10">
+          <NoData title="No products found!" />
+        </TableCell>
+      </TableRow>
+    );
+  }
 
   const tableRows = data?.products?.map((product) => {
     const stock =

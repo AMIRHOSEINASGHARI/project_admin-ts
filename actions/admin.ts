@@ -97,7 +97,11 @@ export const createUser = async (data: UserFormData) => {
   try {
     await checkSession();
 
-    const { username } = data;
+    const { username, role } = data;
+
+    if (role.includes("owner")) {
+      throw new Error("User role cannot be owner!");
+    }
 
     const isUsernameExist = await AdminModel.findOne({ username });
 
@@ -164,9 +168,7 @@ export const editUser = async (data: UserFormData & { userId: string }) => {
       about,
     });
 
-    revalidatePath("/user");
-
-    if (isUsernameExist?.role === "OWNER") {
+    if (isUsernameExist?.role === "OWNER" && role === "OWNER") {
       // creating token
       const accessToken = sign(
         {
@@ -190,7 +192,11 @@ export const editUser = async (data: UserFormData & { userId: string }) => {
         sameSite: "lax",
         path: "/",
       });
+    } else if (role.includes("owner")) {
+      throw new Error("User role cannot be owner!");
     }
+
+    revalidatePath("/user");
 
     return {
       message: ResponseMessages.SUCCESSFULLY_UPDATED,
