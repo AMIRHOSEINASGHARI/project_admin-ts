@@ -20,7 +20,7 @@ const UserListTable = async ({
 }: {
   searchParams: UsersListParams;
 }) => {
-  const data = await getAdmins();
+  const data = await getAdmins(searchParams);
 
   if (data?.admins?.length === 0) {
     return (

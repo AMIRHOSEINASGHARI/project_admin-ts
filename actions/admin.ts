@@ -2,19 +2,27 @@
 
 // next
 import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers";
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
 import AdminModel from "@/models/admin";
 // types
-import { AdminStatus, AdminType, UserFormData } from "@/types/admin";
+import {
+  AdminStatus,
+  AdminType,
+  UserFormData,
+  UsersFilters,
+  UsersListParams,
+} from "@/types/admin";
+// jwt
+import { sign } from "jsonwebtoken";
 // utils
 import connectDB from "@/utils/connectDB";
 import { getServerSession } from "@/utils/session";
-import { checkSession } from "./shared";
-import { sign } from "jsonwebtoken";
 import { SECRET_KEY, SESSION_EXPIRATION } from "@/utils/vars";
-import { cookies } from "next/headers";
+// db
+import { checkSession } from "./shared";
 
 export const getCurrentAdmin = async () => {
   try {
@@ -70,14 +78,31 @@ export const getAdmin = async (id: string) => {
   }
 };
 
-export const getAdmins = async () => {
+export const getAdmins = async (searchParams: UsersListParams) => {
   try {
     await connectDB();
 
     const session = getServerSession();
 
+    const { search, role, status } = searchParams;
+
+    let query = {};
+    let filters: UsersFilters = {};
+
+    if (search) {
+      query = { $text: { $search: search } };
+    }
+    if (role) {
+      filters.role = role;
+    }
+    if (status) {
+      filters.status = status;
+    }
+
     const admins = await AdminModel.find({
       _id: { $ne: session?.userId },
+      ...filters,
+      ...query,
     })
       .select("-password")
       .lean<AdminType[]>();

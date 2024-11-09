@@ -52,3 +52,9 @@ export type UsersListParams = {
   role?: string;
   status?: string;
 };
+
+export type UsersFilters = {
+  search?: string;
+  role?: string;
+  status?: string;
+};
