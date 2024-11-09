@@ -99,7 +99,7 @@ const Sidebar = () => {
               pathname={pathname}
             />
             <ul>
-              {menuLinks.slice(14, 18).map((item) => (
+              {menuLinks.slice(13).map((item) => (
                 <SidebarMenuLink
                   key={item.title}
                   title={item.title}
