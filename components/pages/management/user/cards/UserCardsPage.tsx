@@ -2,6 +2,8 @@
 import Link from "next/link";
 // acitons
 import { getAdmins } from "@/actions/admin";
+// types
+import { UsersListParams } from "@/types/admin";
 // constants
 import { user_cards_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // icons
@@ -12,8 +14,12 @@ import PageHeading from "@/components/shared/PageHeading";
 import UserCardsList from "./ui/UserCardsList";
 import { Button } from "@/components/ui/button";
 
-const UserCardsPage = async () => {
-  const data = await getAdmins();
+const UserCardsPage = async ({
+  searchParams,
+}: {
+  searchParams: UsersListParams;
+}) => {
+  const data = await getAdmins(searchParams);
 
   return (
     <>
