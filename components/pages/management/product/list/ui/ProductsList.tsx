@@ -41,7 +41,7 @@ const ProductsList = async (props: {
   return (
     <div className="tableContainer">
       <FilteringProducts />
-      <Table className="border-b border-dashed border-border-light dark:border-border-dark">
+      <Table>
         <TableHeader>
           <TableRow className="border-none">
             {tableHeads.map((item) => (
@@ -67,7 +67,7 @@ const ProductsList = async (props: {
           </Suspense>
         </TableBody>
       </Table>
-      <PaginationProducts />
+      {/* <PaginationProducts /> */}
     </div>
   );
 };

@@ -97,8 +97,8 @@ export const getProducts = async (searchParams: ProductsListParams) => {
     const totalPages = Math.ceil(totalProducts / perPage);
 
     const products = await ProductModel.find({ ...filters, ...query })
-      .skip((pageNumber - 1) * perPage)
-      .limit(perPage)
+      // .skip((pageNumber - 1) * perPage)
+      // .limit(perPage)
       .lean<ProductType[]>();
 
     return {
