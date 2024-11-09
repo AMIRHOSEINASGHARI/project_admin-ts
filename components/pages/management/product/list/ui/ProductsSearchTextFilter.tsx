@@ -32,7 +32,7 @@ const ProductsSearchTextFilter = () => {
   }, 300);
 
   return (
-    <div className="relative flex flex-1">
+    <div className="relative flex flex-1 min-w-[250px] xl:w-1/2">
       <Input
         placeholder="Search..."
         className="w-full h-full pl-[45px]"

@@ -13,20 +13,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const StockFilter = () => {
-  const [stock, setStock] = useState("");
+const DiscountFilter = () => {
+  const [discount, setDiscount] = useState("");
 
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { push } = useRouter();
 
-  const handleStock = (stock: string) => {
+  const handleDiscount = (discount: string) => {
     const params = new URLSearchParams(searchParams);
 
-    if (stock) {
-      params.set("stock", stock);
+    if (discount) {
+      params.set("discount", discount);
     } else {
-      params.delete("stock");
+      params.delete("discount");
     }
 
     push(`${pathname}?${params.toString()}`);
@@ -35,25 +35,24 @@ const StockFilter = () => {
   useEffect(() => {
     const params = new URLSearchParams(searchParams);
 
-    if (!params.has("stock")) {
-      setStock("");
+    if (!params.has("discount")) {
+      setDiscount("");
     } else {
-      setStock(searchParams.get("stock")?.toString()!);
+      setDiscount(searchParams.get("discount")?.toString()!);
     }
   }, [searchParams]);
 
   return (
-    <Select onValueChange={(e) => handleStock(e)} value={stock}>
+    <Select onValueChange={(e) => handleDiscount(e)} value={discount}>
       <SelectTrigger className="py-[15px] px-[14px] flex flex-1 min-w-[250px] rounded-md border border-slate-200 bg-white dark:bg-transparent dark:text-light3 text-sm">
-        <SelectValue placeholder="Stock" />
+        <SelectValue placeholder="discount" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="in-stock">In stock</SelectItem>
-        <SelectItem value="low-stock">Low stock</SelectItem>
-        <SelectItem value="out-of-stock">Out of stock</SelectItem>
+        <SelectItem value="has-discount">Has discount</SelectItem>
+        <SelectItem value="no-discount">No discount</SelectItem>
       </SelectContent>
     </Select>
   );
 };
 
-export default StockFilter;
+export default DiscountFilter;

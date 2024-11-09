@@ -4,14 +4,20 @@ import StockFilter from "./StockFilter";
 import PublishFilter from "./PublishFilter";
 import CategoryFilter from "./CategoryFilter";
 import ProductsSearchTextFilter from "./ProductsSearchTextFilter";
+import DiscountFilter from "./DiscountFilter";
 
 const FilteringProducts = () => {
   return (
-    <View className="p-4 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
-      <ProductsSearchTextFilter />
-      <StockFilter />
-      <PublishFilter />
-      <CategoryFilter />
+    <View className="p-4 space-y-5">
+      <div className="flex flex-wrap gap-5">
+        <ProductsSearchTextFilter />
+        <CategoryFilter />
+      </div>
+      <div className="flex flex-wrap gap-5">
+        <StockFilter />
+        <PublishFilter />
+        <DiscountFilter />
+      </div>
     </View>
   );
 };
