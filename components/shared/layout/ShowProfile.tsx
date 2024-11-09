@@ -8,7 +8,7 @@ import Image from "next/image";
 // constants
 import { images } from "@/constants";
 // hooks
-import useSession from "@/hooks/session";
+import { useSession } from "@/hooks";
 // cmp
 import {
   Sheet,
@@ -45,7 +45,7 @@ const HiddenTags = () => (
 
 const ShowProfile = () => {
   const [open, setOpen] = useState(false);
-  const { data, error, isError, isLoading } = useSession();
+  const { data, isError, isLoading } = useSession();
 
   const onOpenChange = () => {
     setOpen(!open);
