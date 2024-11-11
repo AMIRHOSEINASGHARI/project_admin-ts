@@ -45,7 +45,7 @@ const BlogsListPage = async (props: {
         </div>
       </div>
       <FilteringBlogs />
-      <Suspense fallback={<SuspenseFallback />}>
+      <Suspense key={search + sort + status} fallback={<SuspenseFallback />}>
         <BlogsList searchParams={searchParams} />
       </Suspense>
     </>

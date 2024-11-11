@@ -19,7 +19,9 @@ const FilteringProducts = () => {
         <PublishFilter />
         <DiscountFilter />
       </View>
-      <DeletePageQueries filters={productsPageQueries} />
+      <div className="px-4 pb-4">
+        <DeletePageQueries filters={productsPageQueries} />
+      </div>
     </>
   );
 };

@@ -98,7 +98,7 @@ const SidebarAccordionLinks = ({
                         "bg-light2 dark:bg-dark3 dark:text-white hover:bg-light2 hover:dark:bg-dark3":
                           pathname === innerLink.href &&
                           navColor === "Integrate",
-                        "dark:text-white text-black hover:bg-light2 hover:dark:bg-dark3":
+                        "text-slate-500 dark:text-slate-500 hover:bg-light2 hover:dark:bg-dark3":
                           pathname !== innerLink.href &&
                           navColor === "Integrate",
                         "bg-dark2 dark:bg-dark3 dark:text-white text-white hover:bg-dark3 hover:dark:bg-dark3":

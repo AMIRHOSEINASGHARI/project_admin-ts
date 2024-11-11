@@ -37,8 +37,10 @@ const UserList = async (props: { searchParams: Promise<UsersListParams> }) => {
           <SearchUserByRole />
           <SearchUser />
         </View>
-        <DeletePageQueries filters={usersPageQueries} />
-        <Table className="border-b border-dashed border-border-light dark:border-border-dark">
+        <div className="px-4">
+          <DeletePageQueries filters={usersPageQueries} />
+        </div>
+        <Table>
           <TableHeader>
             <TableRow className="border-none">
               {tableHeads.map((head) => (
