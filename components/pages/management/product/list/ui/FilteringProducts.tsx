@@ -1,3 +1,5 @@
+// constants
+import { productsPageQueries } from "@/constants";
 // cmp
 import View from "@/components/shared/layout/View";
 import StockFilter from "./StockFilter";
@@ -5,7 +7,7 @@ import PublishFilter from "./PublishFilter";
 import CategoryFilter from "./CategoryFilter";
 import ProductsSearchTextFilter from "./ProductsSearchTextFilter";
 import DiscountFilter from "./DiscountFilter";
-import DeleteFilters from "./DeleteFilters";
+import DeletePageQueries from "@/components/shared/DeletePageQueries";
 
 const FilteringProducts = () => {
   return (
@@ -17,7 +19,7 @@ const FilteringProducts = () => {
         <PublishFilter />
         <DiscountFilter />
       </View>
-      <DeleteFilters />
+      <DeletePageQueries filters={productsPageQueries} />
     </>
   );
 };

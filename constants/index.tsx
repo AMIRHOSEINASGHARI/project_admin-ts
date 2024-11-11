@@ -1767,3 +1767,26 @@ export const mails: Mail[] = [
     starred: true,
   },
 ];
+
+export const productsPageQueries = [
+  {
+    value: "search",
+    title: "Search",
+  },
+  {
+    value: "stock",
+    title: "Stock",
+  },
+  {
+    value: "category",
+    title: "Category",
+  },
+  {
+    value: "published",
+    title: "Published",
+  },
+  {
+    value: "discount",
+    title: "Discount",
+  },
+];

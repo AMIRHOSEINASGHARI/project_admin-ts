@@ -7,7 +7,14 @@ import { SolarTrashBold } from "@/components/svg";
 import { Button } from "@/components/ui/button";
 import DeleteSearchQuery from "@/components/shared/DeleteSearchQuery";
 
-const DeleteFilters = () => {
+type DeletePageQueriesProps = {
+  filters: {
+    value: string;
+    title: string;
+  }[];
+};
+
+const DeletePageQueries = ({ filters }: DeletePageQueriesProps) => {
   const { searchParams, handleDeleteQuery, replace, pathname } =
     useHandleSearchParams();
 
@@ -15,35 +22,12 @@ const DeleteFilters = () => {
 
   if (params.size === 0) return null;
 
-  const filters = [
-    {
-      value: "search",
-      title: "Search",
-    },
-    {
-      value: "stock",
-      title: "Stock",
-    },
-    {
-      value: "category",
-      title: "Category",
-    },
-    {
-      value: "published",
-      title: "Published",
-    },
-    {
-      value: "discount",
-      title: "Discount",
-    },
-  ];
-
-  const handleDeleteAll = () => {
-    params.has("search") && params.delete("search");
-    params.has("stock") && params.delete("stock");
-    params.has("category") && params.delete("category");
-    params.has("published") && params.delete("published");
-    params.has("discount") && params.delete("discount");
+  const deleteAllQueries = () => {
+    for (let filter of filters) {
+      if (params.has(filter.value)) {
+        params.delete(filter.value);
+      }
+    }
 
     replace(pathname);
   };
@@ -70,7 +54,7 @@ const DeleteFilters = () => {
       <Button
         type="button"
         className="gap-2 p-1.5 bg-transparent text-rose-500 dark:text-rose-500 hover:bg-rose-100 dark:bg-transparent dark:hover:bg-rose-800/20"
-        onClick={handleDeleteAll}
+        onClick={deleteAllQueries}
       >
         <SolarTrashBold className="text-icon-size" />
         <span className="text-small font-bold">Clear</span>
@@ -79,4 +63,4 @@ const DeleteFilters = () => {
   );
 };
 
-export default DeleteFilters;
+export default DeletePageQueries;
