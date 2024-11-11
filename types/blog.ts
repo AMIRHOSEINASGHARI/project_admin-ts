@@ -36,3 +36,9 @@ export type CreateBlog = {
 export type EditBlog = CreateBlog & {
   id: string;
 };
+
+export type BlogsListParams = {
+  search?: string;
+  status?: string;
+  sort?: string;
+};

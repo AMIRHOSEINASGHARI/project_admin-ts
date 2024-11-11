@@ -11,9 +11,15 @@ import PageHeading from "@/components/shared/PageHeading";
 import BlogsList from "./ui/BlogsList";
 // icons
 import { PlusRegular } from "@/components/svg";
+import { BlogsListParams } from "@/types/blog";
 
-const BlogsListPage = async () => {
-  const data = await getBlogs();
+const BlogsListPage = async (props: {
+  searchParams: Promise<BlogsListParams>;
+}) => {
+  const searchParams = await props.searchParams;
+  const search = searchParams?.search || "";
+  const sort = searchParams?.sort || "";
+  const status = searchParams?.status || "";
 
   return (
     <>
@@ -35,7 +41,7 @@ const BlogsListPage = async () => {
           </Button>
         </div>
       </div>
-      <BlogsList blogs={data?.blogs} />
+      <BlogsList searchParams={searchParams} />
     </>
   );
 };
