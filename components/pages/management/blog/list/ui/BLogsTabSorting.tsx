@@ -6,21 +6,12 @@ import { useState } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import clsx from "clsx";
 
-const BLogsTabSorting = ({
-  all,
-  published,
-  draft,
-}: {
-  all: number;
-  published: number;
-  draft: number;
-}) => {
+const BLogsTabSorting = () => {
   const [activeTab, setActiveTab] = useState("All");
 
   const tabData = [
     {
       title: "All",
-      number: all || 0,
       value: "All",
       colors:
         "bg-slate-900 text-slate-100 dark:bg-slate-200 dark:text-slate-900",
@@ -28,7 +19,6 @@ const BLogsTabSorting = ({
     },
     {
       title: "Published",
-      number: published || 0,
       value: "Published",
       colors:
         activeTab === "Published" ? "bg-blue-600 text-white" : "badge-blue",
@@ -36,7 +26,6 @@ const BLogsTabSorting = ({
     },
     {
       title: "Draft",
-      number: draft || 0,
       value: "Draft",
       colors: activeTab === "Draft" ? "bg-gray-600 text-white" : "badge-gray",
       isActive: activeTab === "Draft",
@@ -63,14 +52,14 @@ const BLogsTabSorting = ({
               )}
             >
               <span
-                className={clsx("text-small", {
-                  "text-slate-400 dark:text-slate-500": !tab.isActive,
-                })}
+                className={clsx(
+                  `text-small rounded-md h-full px-2 ${tab.colors}`,
+                  {
+                    "text-slate-400 dark:text-slate-500": !tab.isActive,
+                  }
+                )}
               >
                 {tab.title}
-              </span>
-              <span className={`rounded-md h-full px-2 ${tab.colors}`}>
-                {tab.number}
               </span>
             </TabsTrigger>
           ))}

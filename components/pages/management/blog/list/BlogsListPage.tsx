@@ -12,6 +12,9 @@ import BlogsList from "./ui/BlogsList";
 // icons
 import { PlusRegular } from "@/components/svg";
 import { BlogsListParams } from "@/types/blog";
+import { Suspense } from "react";
+import SuspenseFallback from "@/components/shared/SuspenseFallback";
+import FilteringBlogs from "./ui/FilteringBlogs";
 
 const BlogsListPage = async (props: {
   searchParams: Promise<BlogsListParams>;
@@ -41,7 +44,10 @@ const BlogsListPage = async (props: {
           </Button>
         </div>
       </div>
-      <BlogsList searchParams={searchParams} />
+      <FilteringBlogs />
+      <Suspense fallback={<SuspenseFallback />}>
+        <BlogsList searchParams={searchParams} />
+      </Suspense>
     </>
   );
 };

@@ -95,9 +95,6 @@ const UserStatusTabs = () => {
               >
                 {tab.title}
               </span>
-              {/* <span className={`rounded-md h-full px-2 ${tab.colors}`}>
-                {tab.number}
-              </span> */}
             </TabsTrigger>
           ))}
         </TabsList>
