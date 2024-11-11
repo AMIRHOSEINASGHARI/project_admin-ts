@@ -1790,3 +1790,18 @@ export const productsPageQueries = [
     title: "Discount",
   },
 ];
+
+export const usersPageQueries = [
+  {
+    value: "status",
+    title: "Status",
+  },
+  {
+    value: "role",
+    title: "Role",
+  },
+  {
+    value: "search",
+    title: "Search",
+  },
+];

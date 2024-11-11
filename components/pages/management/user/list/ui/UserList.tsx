@@ -2,6 +2,8 @@
 import { Suspense } from "react";
 // types
 import { UsersListParams } from "@/types/admin";
+// constants
+import { usersPageQueries } from "@/constants";
 // cmp
 import {
   Table,
@@ -17,6 +19,7 @@ import SearchUser from "./SearchUser";
 import SearchUserByRole from "./SearchUserByRole";
 import LoaderBar from "@/components/shared/LoaderBar";
 import UserListTable from "./UserListTable";
+import DeletePageQueries from "@/components/shared/DeletePageQueries";
 
 const UserList = async (props: { searchParams: Promise<UsersListParams> }) => {
   const searchParams = await props.searchParams;
@@ -34,6 +37,7 @@ const UserList = async (props: { searchParams: Promise<UsersListParams> }) => {
           <SearchUserByRole />
           <SearchUser />
         </View>
+        <DeletePageQueries filters={usersPageQueries} />
         <Table className="border-b border-dashed border-border-light dark:border-border-dark">
           <TableHeader>
             <TableRow className="border-none">
