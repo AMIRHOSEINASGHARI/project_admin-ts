@@ -11,7 +11,7 @@ const BlogsList = async ({
 }: {
   searchParams: BlogsListParams;
 }) => {
-  const data = await getBlogs();
+  const data = await getBlogs(searchParams);
 
   if (data?.blogs?.length === 0) {
     return <NoData title="No blogs found!" />;

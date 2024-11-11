@@ -39,6 +39,11 @@ export type EditBlog = CreateBlog & {
 
 export type BlogsListParams = {
   search?: string;
-  status?: string;
-  sort?: string;
+  status?: "Published" | "Draft";
+  sort?: "Latest" | "Oldest";
+};
+
+export type BlogsFilters = {
+  search?: string;
+  published?: boolean;
 };

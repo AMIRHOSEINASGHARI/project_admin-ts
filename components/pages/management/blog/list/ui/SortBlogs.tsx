@@ -35,7 +35,6 @@ const SortBlogs = () => {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="Latest">{!open && "Sort by "}Latest</SelectItem>
-          <SelectItem value="Popular">{!open && "Sort by "}Popular</SelectItem>
           <SelectItem value="Oldest">{!open && "Sort by "}Oldest</SelectItem>
         </SelectContent>
       </Select>

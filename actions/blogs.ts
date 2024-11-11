@@ -6,7 +6,13 @@ import { revalidatePath } from "next/cache";
 import AdminModel from "@/models/admin";
 import BlogModel from "@/models/blog";
 // types
-import { BlogType, CreateBlog, EditBlog } from "@/types/blog";
+import {
+  BlogsFilters,
+  BlogsListParams,
+  BlogType,
+  CreateBlog,
+  EditBlog,
+} from "@/types/blog";
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
 // actions
@@ -14,15 +20,41 @@ import { checkSession } from "./shared";
 // utils
 import connectDB from "@/utils/connectDB";
 
-export const getBlogs = async () => {
+export const getBlogs = async (searchParams: BlogsListParams) => {
   try {
     await connectDB();
 
-    const blogs = await BlogModel.find()
+    const { search, sort, status } = searchParams;
+
+    let query = {};
+    let filters: BlogsFilters = {};
+
+    if (search) {
+      query = { $text: { $search: search } };
+    }
+    if (status === "Published") {
+      filters.published = true;
+    } else if (status === "Draft") {
+      filters.published = false;
+    }
+
+    const blogs = await BlogModel.find({
+      ...query,
+      ...filters,
+    })
       .populate({
         path: "createdBy",
         model: AdminModel,
       })
+      .sort(
+        sort === "Latest"
+          ? {
+              createdAt: -1,
+            }
+          : {
+              createdAt: 1,
+            }
+      )
       .lean<BlogType[]>();
 
     return {
