@@ -2,6 +2,8 @@
 
 // react
 import { useState } from "react";
+// hooks
+import { useHandleSearchParams } from "@/hooks";
 // cmp
 import {
   Select,
@@ -12,7 +14,8 @@ import {
 
 const SortBlogs = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const [value, setValue] = useState<string>("Latest");
+  const [sort, setSort] = useState<string>("Latest");
+  const { handleSetQuery } = useHandleSearchParams("published", setSort);
 
   const onOpenChange = () => {
     setOpen(!open);
@@ -24,11 +27,11 @@ const SortBlogs = () => {
         defaultValue="Latest"
         open={open}
         onOpenChange={onOpenChange}
-        value={value}
-        onValueChange={(e) => setValue(e)}
+        onValueChange={(e) => handleSetQuery(e)}
+        value={sort}
       >
         <SelectTrigger className="h-fit min-w-[150px] flex flex-1 rounded-md border-none bg-white dark:bg-transparent dark:text-light3 text-sm">
-          Sort by: {value}
+          Sort by: {sort}
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="Latest">{!open && "Sort by "}Latest</SelectItem>
