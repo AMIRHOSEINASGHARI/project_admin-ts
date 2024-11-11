@@ -1805,3 +1805,18 @@ export const usersPageQueries = [
     title: "Search",
   },
 ];
+
+export const blogsPageQueries = [
+  {
+    value: "search",
+    title: "Search",
+  },
+  {
+    value: "sort",
+    title: "Sort",
+  },
+  {
+    value: "status",
+    title: "Status",
+  },
+];

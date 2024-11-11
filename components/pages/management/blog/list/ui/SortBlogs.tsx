@@ -15,7 +15,7 @@ import {
 const SortBlogs = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [sort, setSort] = useState<string>("Latest");
-  const { handleSetQuery } = useHandleSearchParams("published", setSort);
+  const { handleSetQuery } = useHandleSearchParams("sort", setSort);
 
   const onOpenChange = () => {
     setOpen(!open);

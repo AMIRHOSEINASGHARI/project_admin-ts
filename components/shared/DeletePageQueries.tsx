@@ -33,7 +33,7 @@ const DeletePageQueries = ({ filters }: DeletePageQueriesProps) => {
   };
 
   return (
-    <div className="px-4 pb-4 flex flex-wrap items-center gap-4">
+    <div className="flex flex-wrap items-center gap-4">
       {filters.map(({ value, title }) => {
         if (!params.has(value)) {
           return null;

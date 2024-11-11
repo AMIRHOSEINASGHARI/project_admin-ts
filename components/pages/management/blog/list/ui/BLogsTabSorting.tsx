@@ -59,7 +59,7 @@ const BLogsTabSorting = () => {
 
   return (
     <Tabs
-      className="w-full my-8"
+      className="w-full"
       value={activeTab}
       onValueChange={(value) => onValueChange(value)}
     >
