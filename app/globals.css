@@ -133,6 +133,9 @@
 .pages_spaces {
   @apply text-dark1 dark:text-light1 pt-[90px] pl-[350px] max-md:px-4 md:pr-12 max-lg:pb-[50px] lg:mb-[200px] min-h-screen transition-all duration-150 max-w-[1600px] mx-auto;
 }
+.pages_spaces2 {
+  @apply text-dark1 dark:text-light1 w-full pt-[90px] pl-12 max-md:px-4 md:pr-12 max-lg:pb-[50px] lg:mb-[200px] min-h-screen transition-all duration-150 max-w-[1200px] mx-auto;
+}
 .icon {
   @apply text-icon-size text-icon-light dark:text-icon-dark;
 }

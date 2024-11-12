@@ -5,10 +5,16 @@ import { redirect } from "next/navigation";
 // utils
 import { getServerSession } from "@/utils/session";
 // cmp
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import AppSidebar from "@/components/shared/layout/app-sidebar";
 import Navbar from "@/components/shared/layout/Navbar";
 import Sidebar from "@/components/shared/layout/Sidebar";
+import { cookies } from "next/headers";
 
 const PagesLayout = async ({ children }: { children: React.ReactNode }) => {
+  const cookieStore = cookies();
+  const defaultOpen = cookieStore.get("sidebar:state")?.value === "true";
+
   const session = getServerSession();
 
   if (!session) {
@@ -27,11 +33,13 @@ const PagesLayout = async ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <div>
-      <Navbar />
-      <Sidebar />
-      <div className="pages_spaces">{children}</div>
-    </div>
+    <SidebarProvider defaultOpen={defaultOpen}>
+      <AppSidebar />
+      <main className="w-full">
+        <Navbar />
+        <div className="pages_spaces2">{children}</div>
+      </main>
+    </SidebarProvider>
   );
 };
 
