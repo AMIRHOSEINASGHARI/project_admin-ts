@@ -36,7 +36,7 @@ import { Card } from "@/components/ui/card";
 import clsx from "clsx";
 
 const AuthForm = () => {
-  const router = useRouter();
+  const { replace } = useRouter();
   const [passwordType, setPasswordType] = useState<"password" | "text">(
     "password"
   );
@@ -56,7 +56,7 @@ const AuthForm = () => {
     mutate(values, {
       onSuccess: (data) => {
         toast.success(data?.message);
-        router.push("/dashboard");
+        replace("/dashboard");
       },
       onError: (error: any) => {
         toast.error(error.message);

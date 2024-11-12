@@ -1,13 +1,9 @@
 // next
 import Link from "next/link";
 // constants
-import { menuLinks, sidebar_accordionList } from "@/constants";
+import { menuLinks } from "@/constants";
 // icons
-import {
-  LogoRegular,
-  SolarAltArrowDownLineDuotone,
-  SolarAltArrowRightLineDuotone,
-} from "@/components/svg";
+import { LogoRegular, SolarAltArrowRightLineDuotone } from "@/components/svg";
 // cmp
 import {
   Sidebar,
@@ -18,11 +14,6 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import {
@@ -81,22 +72,14 @@ const AppSidebar = () => {
             <CollapsibleContent>
               <SidebarGroupContent>
                 <SidebarMenu>
-                  {sidebar_accordionList.map((item) => (
+                  {menuLinks.slice(7).map((item) => (
                     <SidebarMenuLink
                       key={item.value}
-                      image={item.trigger.image}
-                      link={item.value}
-                      title={item.trigger.title}
-                      isCollapsible
-                      innerLinks={item.innerLinks}
-                    />
-                  ))}
-                  {menuLinks.slice(13).map((item) => (
-                    <SidebarMenuLink
                       image={item.image}
-                      link={item.link}
+                      link={item.value}
                       title={item.title}
-                      key={item.link}
+                      isCollapsible={item.isCollapsible}
+                      innerLinks={item.innerLinks ? item.innerLinks : null}
                     />
                   ))}
                 </SidebarMenu>

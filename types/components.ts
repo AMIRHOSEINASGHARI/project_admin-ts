@@ -13,14 +13,10 @@ export type PageSearchParams = {
 
 export type MenuLinksProps = {
   title: string;
-  pathname?: string;
-  navColor?: NavColor | null;
   link: string;
   image: JSX.Element;
-  isLink?: boolean;
   isCollapsible?: boolean;
-  onClick?: () => void;
-  innerLinks?: { href: string; title: string }[];
+  innerLinks?: { href: string; title: string }[] | null;
 };
 
 export type ProfileTabsListProps = {

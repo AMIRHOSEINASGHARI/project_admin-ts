@@ -73,7 +73,7 @@ import { Linkedin } from "lucide-react";
 import { fakeUsers } from "@/mock/users";
 import { JobBenefits } from "@/types/job";
 // types
-import { File, Mail } from "@/types/shared";
+import { File, Mail, MenuLink } from "@/types/shared";
 
 export const images = {
   authLogin: "/images/auth-login.png",
@@ -90,109 +90,68 @@ export const images = {
   emptyFolder: "/images/folder-empty.svg",
 };
 
-export const menuLinks = [
+export const menuLinks: MenuLink[] = [
   {
     title: "Dashboard",
     image: <SolarHomeAngleBoldDuotone />,
     link: "/dashboard",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/dashboard",
   },
   {
     title: "Ecommerce",
     image: <SolarBagBoldDuotone />,
     link: "/ecommerce",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/ecommerce",
   },
   {
     title: "Analytics",
     image: <SolarAnalyticsBoldDuotone />,
     link: "/analytics",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/analytics",
   },
   {
     title: "Banking",
     image: <SolarGarageBoldDuotone />,
     link: "/banking",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/banking",
   },
   {
     title: "Booking",
     image: <SolarBook2BoldDuotone />,
     link: "/booking",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/booking",
   },
   {
     title: "File",
     image: <SolarFileTextBoldDuotone />,
     link: "/file",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/file",
   },
   {
     title: "Course",
     image: <SolarMonitorBoldDuotone />,
     link: "/course",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/course",
   },
   {
     title: "User",
     image: <SolarUserCircleBoldDuotone />,
     link: "/user/list",
-  },
-  {
-    title: "Product",
-    image: <SolarHanger2BoldDuotone />,
-    link: "/product/list",
-  },
-  {
-    title: "Order",
-    image: <SolarCartLarge4BoldDuotone />,
-    link: "/order/list",
-  },
-  {
-    title: "Blog",
-    image: <SolarTextFieldFocusBoldDuotone />,
-    link: "/blog/list",
-  },
-  {
-    title: "Job",
-    image: <SolarMoneyBagBoldDuotone />,
-    link: "/job/list",
-  },
-  {
-    title: "Tour",
-    image: <SolarGolfBoldDuotone />,
-    link: "/tour/list",
-  },
-  {
-    title: "File manager",
-    image: <SolarDocumentAddBoldDuotone />,
-    link: "/file-manager",
-  },
-  {
-    title: "Mail",
-    image: <SolarLetterOpenedBoldDuotone />,
-    link: "/mail",
-  },
-  {
-    title: "Chat",
-    image: <SolarChatSquareCallBoldDuotone />,
-    link: "/chat",
-  },
-  {
-    title: "Kanban",
-    image: <SolarChecklistMinimalisticBoldDuotone />,
-    link: "/kanban",
-  },
-];
-
-export const sidebar_Accordions = [
-  {
-    value: "Overview",
-    list: menuLinks.slice(0, 7),
-  },
-  {
-    value: "Management",
-    list: menuLinks.slice(7, 18),
-  },
-];
-
-export const sidebar_accordionList = [
-  {
-    trigger: menuLinks[7],
-    value: "/user",
+    isCollapsible: true,
     innerLinks: [
       {
         href: "/user/profile",
@@ -215,10 +174,13 @@ export const sidebar_accordionList = [
         title: "Account",
       },
     ],
+    value: "/user",
   },
   {
-    trigger: menuLinks[8],
-    value: "/product",
+    title: "Product",
+    image: <SolarHanger2BoldDuotone />,
+    link: "/product/list",
+    isCollapsible: true,
     innerLinks: [
       {
         href: "/product/list",
@@ -233,20 +195,26 @@ export const sidebar_accordionList = [
         title: "Create",
       },
     ],
+    value: "/product",
   },
   {
-    trigger: menuLinks[9],
-    value: "/order",
+    title: "Order",
+    image: <SolarCartLarge4BoldDuotone />,
+    link: "/order/list",
+    isCollapsible: true,
     innerLinks: [
       {
         href: "/order/list",
         title: "List",
       },
     ],
+    value: "/order",
   },
   {
-    trigger: menuLinks[10],
-    value: "/blog",
+    title: "Blog",
+    image: <SolarTextFieldFocusBoldDuotone />,
+    link: "/blog/list",
+    isCollapsible: true,
     innerLinks: [
       {
         href: "/blog/list",
@@ -257,10 +225,13 @@ export const sidebar_accordionList = [
         title: "Create",
       },
     ],
+    value: "/blog",
   },
   {
-    trigger: menuLinks[11],
-    value: "/job",
+    title: "Job",
+    image: <SolarMoneyBagBoldDuotone />,
+    link: "/job/list",
+    isCollapsible: true,
     innerLinks: [
       {
         href: "/job/list",
@@ -271,10 +242,13 @@ export const sidebar_accordionList = [
         title: "Create",
       },
     ],
+    value: "/job",
   },
   {
-    trigger: menuLinks[12],
-    value: "/tour",
+    title: "Tour",
+    image: <SolarGolfBoldDuotone />,
+    link: "/tour/list",
+    isCollapsible: true,
     innerLinks: [
       {
         href: "/tour/list",
@@ -285,6 +259,39 @@ export const sidebar_accordionList = [
         title: "Create",
       },
     ],
+    value: "/tour",
+  },
+  {
+    title: "File manager",
+    image: <SolarDocumentAddBoldDuotone />,
+    link: "/file-manager",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/file-manager",
+  },
+  {
+    title: "Mail",
+    image: <SolarLetterOpenedBoldDuotone />,
+    link: "/mail",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/mail",
+  },
+  {
+    title: "Chat",
+    image: <SolarChatSquareCallBoldDuotone />,
+    link: "/chat",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/chat",
+  },
+  {
+    title: "Kanban",
+    image: <SolarChecklistMinimalisticBoldDuotone />,
+    link: "/kanban",
+    isCollapsible: false,
+    innerLinks: null,
+    value: "/kanban",
   },
 ];
 

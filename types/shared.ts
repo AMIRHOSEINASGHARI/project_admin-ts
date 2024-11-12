@@ -114,3 +114,14 @@ export type FakeUser = {
   isVerified: boolean;
   location: string;
 };
+
+export type SidebarMenuInnerLink = { title: string; href: string };
+
+export type MenuLink = {
+  title: string;
+  image: JSX.Element;
+  link: string;
+  isCollapsible: boolean;
+  innerLinks: SidebarMenuInnerLink[] | null;
+  value: string;
+};

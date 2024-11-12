@@ -36,7 +36,7 @@ const SidebarMenuLink = ({
 }: MenuLinksProps) => {
   const pathname = usePathname();
   const { navColor } = useNavColor();
-  const { isMobile, setOpenMobile } = useSidebar();
+  const { isMobile, setOpenMobile, state } = useSidebar();
   const [open, setOpen] = useState(false);
 
   const onOpenChange = (newOpen: boolean) => {
@@ -79,24 +79,26 @@ const SidebarMenuLink = ({
             </SidebarMenuButton>
           </CollapsibleTrigger>
           <CollapsibleContent>
-            <SidebarMenuSub>
-              {innerLinks?.map((inner) => (
-                <SidebarMenuSubItem key={inner.href}>
-                  <SidebarMenuSubButton
-                    asChild
-                    isActive={pathname === inner.href}
-                    className={clsx({
-                      "data-[active=true]:text-white data-[active=true]:bg-dark3":
-                        pathname === inner.href && navColor === "Apparent",
-                      "text-icon-light dark:text-icon-dark hover:bg-dark2 hover:text-white dark:hover:bg-dark3":
-                        pathname !== inner.href && navColor === "Apparent",
-                    })}
-                  >
-                    <Link href={inner.href}>{inner.title}</Link>
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-              ))}
-            </SidebarMenuSub>
+            {innerLinks && (
+              <SidebarMenuSub>
+                {innerLinks?.map((inner) => (
+                  <SidebarMenuSubItem key={inner.href}>
+                    <SidebarMenuSubButton
+                      asChild
+                      isActive={pathname === inner.href}
+                      className={clsx({
+                        "data-[active=true]:text-white data-[active=true]:bg-dark3":
+                          pathname === inner.href && navColor === "Apparent",
+                        "text-icon-light dark:text-icon-dark hover:bg-dark2 hover:text-white dark:hover:bg-dark3":
+                          pathname !== inner.href && navColor === "Apparent",
+                      })}
+                    >
+                      <Link href={inner.href}>{inner.title}</Link>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                ))}
+              </SidebarMenuSub>
+            )}
           </CollapsibleContent>
         </SidebarMenuItem>
       </Collapsible>
