@@ -62,9 +62,9 @@ const SidebarMenuLink = ({
           <CollapsibleTrigger asChild>
             <SidebarMenuButton
               className={clsx("flex justify-between w-full group/collapsible", {
-                "data-[active=true]:text-primary-5 data-[active=true]:dark:bg-primary-6 data-[active=true]:bg-primary-6 data-[active=true]:dark:text-primary-5":
+                "data-[active=true]:text-primary-5 data-[active=true]:dark:bg-primary-6 data-[active=true]:bg-primary-6 data-[active=true]:dark:text-primary-5 data-[active=true]:hover:bg-primary-6 data-[active=true]:hover:text-primary-5":
                   pathname?.includes(link) && navColor === "Apparent",
-                "hover:bg-dark3 hover:text-white dark:hover:text-white":
+                "hover:bg-dark3 hover:text-white dark:hover:text-white data-[state=open]:hover:bg-dark3 data-[state=open]:hover:text-white":
                   !pathname?.includes(link) && navColor === "Apparent",
                 "dark:hover:bg-dark3 dark:hover:text-white":
                   !pathname?.includes(link) && navColor === "Integrate",
@@ -88,7 +88,7 @@ const SidebarMenuLink = ({
                     className={clsx({
                       "data-[active=true]:text-white data-[active=true]:bg-dark3":
                         pathname === inner.href && navColor === "Apparent",
-                      "text-icon-light dark:text-icon-dark":
+                      "text-icon-light dark:text-icon-dark hover:bg-dark2 hover:text-white dark:hover:bg-dark3":
                         pathname !== inner.href && navColor === "Apparent",
                     })}
                   >
