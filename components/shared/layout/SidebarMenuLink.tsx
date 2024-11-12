@@ -1,48 +1,132 @@
+"use client";
+
+// react
+import { useEffect, useState } from "react";
 // next
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 // types
 import { MenuLinksProps } from "@/types/components";
+// providers
+import { useNavColor } from "@/providers/ThemeProvider";
+// icons
+import { SolarAltArrowRightLineDuotone } from "@/components/svg";
 // cmp
+import {
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  useSidebar,
+} from "@/components/ui/sidebar";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import clsx from "clsx";
 
 const SidebarMenuLink = ({
   title,
-  pathname,
-  navColor,
   link,
   image,
-  isLink = true,
-  onClick,
+  isCollapsible = false,
+  innerLinks,
 }: MenuLinksProps) => {
-  const styles = clsx("rounded-lg ml-2 mb-1 Transition", {
-    "bg-primary-4 text-primary-1 dark:bg-primary-6 dark:text-primary-5 font-medium":
-      pathname.includes(link) && navColor === "Integrate",
-    "text-icon-light dark:text-icon-dark hover:dark:bg-dark2 hover:bg-light3":
-      !pathname.includes(link) && navColor === "Integrate",
-    "text-slate-400 hover:bg-slate-600/30 dark:hover:bg-slate-600/30":
-      !pathname.includes(link) && navColor === "Apparent",
-    "text-primary-5 dark:bg-primary-6 bg-primary-6 dark:text-primary-5 font-medium":
-      pathname.includes(link) && navColor === "Apparent",
-  });
+  const pathname = usePathname();
+  const { navColor } = useNavColor();
+  const { isMobile, setOpenMobile } = useSidebar();
+  const [open, setOpen] = useState(false);
 
-  return (
-    <li className={styles}>
-      {isLink ? (
-        <Link
-          href={link}
-          className="flex items-center gap-[15px] p-[10px]"
-          onClick={onClick}
+  const onOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+  };
+
+  useEffect(() => {
+    if (pathname.includes(link)) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  }, [pathname, link]);
+
+  if (isCollapsible) {
+    return (
+      <Collapsible
+        className="group/collapsible"
+        open={open}
+        onOpenChange={onOpenChange}
+      >
+        <SidebarMenuItem>
+          <CollapsibleTrigger asChild>
+            <SidebarMenuButton
+              className={clsx("flex justify-between w-full group/collapsible", {
+                "data-[active=true]:text-primary-5 data-[active=true]:dark:bg-primary-6 data-[active=true]:bg-primary-6 data-[active=true]:dark:text-primary-5":
+                  pathname?.includes(link) && navColor === "Apparent",
+                "hover:bg-dark3 hover:text-white dark:hover:text-white":
+                  !pathname?.includes(link) && navColor === "Apparent",
+                "dark:hover:bg-dark3 dark:hover:text-white":
+                  !pathname?.includes(link) && navColor === "Integrate",
+              })}
+              isActive={pathname.includes(link)}
+            >
+              <div className="flex items-center gap-3">
+                <div className="text-icon-size">{image}</div>
+                <span>{title}</span>
+              </div>
+              <SolarAltArrowRightLineDuotone className="group-data-[state=open]/collapsible:rotate-90" />
+            </SidebarMenuButton>
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            <SidebarMenuSub>
+              {innerLinks?.map((inner) => (
+                <SidebarMenuSubItem key={inner.href}>
+                  <SidebarMenuSubButton
+                    asChild
+                    isActive={pathname === inner.href}
+                    className={clsx({
+                      "data-[active=true]:text-white data-[active=true]:bg-dark3":
+                        pathname === inner.href && navColor === "Apparent",
+                      "text-icon-light dark:text-icon-dark":
+                        pathname !== inner.href && navColor === "Apparent",
+                    })}
+                  >
+                    <Link href={inner.href}>{inner.title}</Link>
+                  </SidebarMenuSubButton>
+                </SidebarMenuSubItem>
+              ))}
+            </SidebarMenuSub>
+          </CollapsibleContent>
+        </SidebarMenuItem>
+      </Collapsible>
+    );
+  } else {
+    return (
+      <SidebarMenuItem
+        onClick={() => {
+          isMobile && setOpenMobile(false);
+        }}
+      >
+        <SidebarMenuButton
+          asChild
+          className={clsx("w-full h-full", {
+            "data-[active=true]:text-primary-5 data-[active=true]:dark:bg-primary-6 data-[active=true]:bg-primary-6 data-[active=true]:dark:text-primary-5":
+              pathname?.includes(link) && navColor === "Apparent",
+            "hover:bg-dark3 hover:text-white dark:hover:text-white":
+              !pathname?.includes(link) && navColor === "Apparent",
+            "dark:hover:bg-dark3 dark:hover:text-white":
+              !pathname?.includes(link) && navColor === "Integrate",
+          })}
+          isActive={pathname.includes(link)}
         >
-          <div className="text-icon-size">{image}</div>
-          <span className="text-sm">{title}</span>
-        </Link>
-      ) : (
-        <div className="flex items-center gap-[15px] p-[10px]">
-          <div className="text-icon-size">{image}</div>
-          <span className="text-sm">{title}</span>
-        </div>
-      )}
-    </li>
-  );
+          <Link href={link}>
+            <div className="text-icon-size">{image}</div>
+            <span>{title}</span>
+          </Link>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+    );
+  }
 };
 export default SidebarMenuLink;
