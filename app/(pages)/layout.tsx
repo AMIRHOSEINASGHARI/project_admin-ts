@@ -2,14 +2,13 @@
 import React from "react";
 // next
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 // utils
 import { getServerSession } from "@/utils/session";
 // cmp
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/shared/layout/app-sidebar";
 import Navbar from "@/components/shared/layout/Navbar";
-import Sidebar from "@/components/shared/layout/Sidebar";
-import { cookies } from "next/headers";
 
 const PagesLayout = async ({ children }: { children: React.ReactNode }) => {
   const cookieStore = cookies();
