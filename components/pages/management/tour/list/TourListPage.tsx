@@ -2,6 +2,8 @@
 import Link from "next/link";
 // actions
 import { getTours } from "@/actions/tour";
+// types
+import { ToursListParams } from "@/types/tour";
 // constants
 import { tour_list_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // icons
@@ -11,9 +13,14 @@ import { Button } from "@/components/ui/button";
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
 import ToursList from "./ui/ToursList";
+import { Suspense } from "react";
+import SuspenseFallback from "@/components/shared/SuspenseFallback";
 
-const TourListPage = async () => {
-  const data = await getTours();
+const TourListPage = async (props: {
+  searchParams: Promise<ToursListParams>;
+}) => {
+  const searchParams = await props.searchParams;
+  const search = searchParams?.search || "";
 
   return (
     <>
@@ -34,7 +41,9 @@ const TourListPage = async () => {
           </Button>
         </div>
       </div>
-      <ToursList tours={data?.tours} />
+      <Suspense key={search} fallback={<SuspenseFallback />}>
+        <ToursList searchParams={searchParams} />
+      </Suspense>
     </>
   );
 };

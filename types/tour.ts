@@ -39,3 +39,7 @@ export type CreateTour = {
 export type EditTour = CreateTour & {
   id: string;
 };
+
+export type ToursListParams = {
+  search?: string;
+};
