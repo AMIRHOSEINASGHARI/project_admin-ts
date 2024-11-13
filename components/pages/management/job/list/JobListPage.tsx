@@ -1,9 +1,11 @@
+// react
+import { Suspense } from "react";
 // next
 import Link from "next/link";
-// actions
-import { getJobs } from "@/actions/job";
 // constants
 import { job_list_page_breadcrumb_data } from "@/constants/breadcrumbs";
+// types
+import { JobsListParams } from "@/types/job";
 // icons
 import { PlusRegular } from "@/components/svg";
 // cmp
@@ -11,9 +13,13 @@ import { Button } from "@/components/ui/button";
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
 import JobsList from "./ui/JobsList";
+import SuspenseFallback from "@/components/shared/SuspenseFallback";
 
-const JobListPage = async () => {
-  const data = await getJobs();
+const JobListPage = async (props: {
+  searchParams: Promise<JobsListParams>;
+}) => {
+  const searchParams = await props.searchParams;
+  const search = searchParams?.search || "";
 
   return (
     <>
@@ -34,7 +40,9 @@ const JobListPage = async () => {
           </Button>
         </div>
       </div>
-      <JobsList jobs={data?.jobs} />
+      <Suspense key={search} fallback={<SuspenseFallback />}>
+        <JobsList searchParams={searchParams} />
+      </Suspense>
     </>
   );
 };

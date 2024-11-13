@@ -59,3 +59,7 @@ export type CreateJob = JobProperties & {
 export type EditJob = CreateJob & {
   id: string;
 };
+
+export type JobsListParams = {
+  search?: string;
+};
