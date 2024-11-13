@@ -59,7 +59,7 @@ const SidebarMenuLink = ({
     }
   }, [pathname, link]);
 
-  if (isCollapsible && state === "expanded") {
+  if ((isCollapsible && state === "expanded") || (isCollapsible && isMobile)) {
     return (
       <Collapsible
         className="group/collapsible"
@@ -106,7 +106,7 @@ const SidebarMenuLink = ({
     );
   }
 
-  if (isCollapsible && state === "collapsed") {
+  if (isCollapsible && state === "collapsed" && !isMobile) {
     return (
       <CollapsibleMenu
         image={image}
@@ -134,22 +134,33 @@ const SidebarMenuLink = ({
         <Link
           href={link}
           data-nav-color={navColor}
-          data-isActive={pathname?.includes(link)}
+          data-isactive={pathname?.includes(link)}
           data-state={state}
-          className="
-             group w-full h-full flex rounded-lg Transition
-           data-[nav-color=Integrate]:data-[isActive=false]:hover:bg-light2 data-[nav-color=Integrate]:data-[isActive=false]:dark:text-icon-dark data-[nav-color=Integrate]:data-[isActive=false]:text-icon-dark3 data-[nav-color=Integrate]:data-[isActive=false]:dark:hover:bg-dark3 data-[nav-color=Integrate]:data-[isActive=false]:dark:hover:text-white
-             data-[nav-color=Integrate]:data-[isActive=true]:bg-primary-4 data-[nav-color=Integrate]:data-[isActive=true]:dark:bg-primary-6 data-[nav-color=Integrate]:data-[isActive=true]:text-primary-2 data-[nav-color=Integrate]:data-[isActive=true]:dark:text-primary-4
-             data-[nav-color=Apparent]:data-[isActive=true]:text-primary-5 data-[nav-color=Apparent]:data-[isActive=true]:dark:bg-primary-6 data-[nav-color=Apparent]:data-[isActive=true]:bg-primary-6 data-[nav-color=Apparent]:data-[isActive=true]:dark:text-primary-5
-           data-[nav-color=Apparent]:data-[isActive=false]:text-icon-dark data-[nav-color=Apparent]:data-[isActive=false]:dark:text-icon-dark data-[nav-color=Apparent]:data-[isActive=false]:hover:bg-dark3 data-[nav-color=Apparent]:data-[isActive=false]:dark:hover:bg-dark3 data-[nav-color=Apparent]:data-[isActive=false]:hover:text-white data-[nav-color=Apparent]:data-[isActive=false]:dark:hover:text-white
-             p-2 gap-1 items-center data-[state=expanded]:py-2.5 data-[state=expanded]:px-3 data-[state=expanded]:gap-3
-             data-[state=collapsed]:flex-col data-[state=collapsed]:justify-center
-          "
+          className={clsx({
+            "p-2 gap-1 items-center data-[state=expanded]:py-2.5 data-[state=expanded]:px-3 data-[state=expanded]:gap-3 data-[state=collapsed]:flex-col data-[state=collapsed]:justify-center":
+              !isMobile,
+            "items-center py-2.5 px-3 gap-3": isMobile,
+            "group w-full h-full flex rounded-lg Transition data-[nav-color=Integrate]:data-[isactive=false]:hover:bg-light2 data-[nav-color=Integrate]:data-[isactive=false]:dark:text-icon-dark data-[nav-color=Integrate]:data-[isactive=false]:text-icon-dark3 data-[nav-color=Integrate]:data-[isactive=false]:dark:hover:bg-dark3 data-[nav-color=Integrate]:data-[isactive=false]:dark:hover:text-white data-[nav-color=Integrate]:data-[isactive=true]:bg-primary-4 data-[nav-color=Integrate]:data-[isactive=true]:dark:bg-primary-6 data-[nav-color=Integrate]:data-[isactive=true]:text-primary-2 data-[nav-color=Integrate]:data-[isactive=true]:dark:text-primary-4 data-[nav-color=Apparent]:data-[isactive=true]:text-primary-5 data-[nav-color=Apparent]:data-[isactive=true]:dark:bg-primary-6 data-[nav-color=Apparent]:data-[isactive=true]:bg-primary-6 data-[nav-color=Apparent]:data-[isactive=true]:dark:text-primary-5 data-[nav-color=Apparent]:data-[isactive=false]:text-icon-dark data-[nav-color=Apparent]:data-[isactive=false]:dark:text-icon-dark data-[nav-color=Apparent]:data-[isactive=false]:hover:bg-dark3 data-[nav-color=Apparent]:data-[isactive=false]:dark:hover:bg-dark3 data-[nav-color=Apparent]:data-[isactive=false]:hover:text-white data-[nav-color=Apparent]:data-[isactive=false]:dark:hover:text-white":
+              true,
+          })}
         >
-          <div className="group-data-[state=expanded]:text-icon-size group-data-[state=collapsed]:text-xl group-data-[isActive=false]:group-data-[nav-color=Integrate]:text-icon-light dark:group-data-[isActive=false]:group-data-[nav-color=Integrate]:text-icon-dark">
+          <div
+            className={clsx({
+              "group-data-[state=expanded]:text-icon-size group-data-[state=collapsed]:text-xl group-data-[isactive=false]:group-data-[nav-color=Integrate]:text-icon-light dark:group-data-[isactive=false]:group-data-[nav-color=Integrate]:text-icon-dark":
+                !isMobile,
+              "text-icon-size group-data-[isactive=false]:group-data-[nav-color=Integrate]:text-icon-light dark:group-data-[isactive=false]:group-data-[nav-color=Integrate]:text-icon-dark":
+                isMobile,
+            })}
+          >
             {image}
           </div>
-          <span className="whitespace-nowrap group-data-[state=expanded]:text-small group-data-[state=collapsed]:text-x-small">
+          <span
+            className={clsx({
+              "whitespace-nowrap group-data-[state=expanded]:text-small group-data-[state=collapsed]:text-x-small":
+                !isMobile,
+              "whitespace-nowrap text-small": isMobile,
+            })}
+          >
             {title}
           </span>
         </Link>
@@ -166,8 +177,8 @@ const InnerLink = ({ href, title, pathname, navColor }: InnerLinkProps) => {
       <Link
         href={href}
         data-nav-color={navColor}
-        data-isActive={pathname === href}
-        className="w-full block px-2 py-1 rounded-lg Transition data-[nav-color=Integrate]:data-[isActive=true]:bg-light3 dark:data-[nav-color=Integrate]:data-[isActive=true]:bg-dark2 data-[nav-color=Integrate]:data-[isActive=false]:text-icon-light dark:data-[nav-color=Integrate]:data-[isActive=false]:text-icon-dark data-[nav-color=Apparent]:data-[isActive=true]:bg-dark3 data-[nav-color=Apparent]:data-[isActive=true]:text-white dark:data-[nav-color=Apparent]:data-[isActive=true]:bg-dark1 data-[nav-color=Apparent]:data-[isActive=false]:text-icon-light dark:data-[nav-color=Apparent]:data-[isActive=false]:text-icon-dark"
+        data-isactive={pathname === href}
+        className="w-full block px-2 py-1 rounded-lg Transition data-[nav-color=Integrate]:data-[isactive=true]:bg-light3 dark:data-[nav-color=Integrate]:data-[isactive=true]:bg-dark2 data-[nav-color=Integrate]:data-[isactive=false]:text-icon-light dark:data-[nav-color=Integrate]:data-[isactive=false]:text-icon-dark data-[nav-color=Apparent]:data-[isactive=true]:bg-dark3 data-[nav-color=Apparent]:data-[isactive=true]:text-white dark:data-[nav-color=Apparent]:data-[isactive=true]:bg-dark1 data-[nav-color=Apparent]:data-[isactive=false]:text-icon-light dark:data-[nav-color=Apparent]:data-[isactive=false]:text-icon-dark"
       >
         {title}
       </Link>
@@ -198,19 +209,19 @@ const CollapsibleMenu = ({
         <li className="flex items-center justify-center w-full h-full relative cursor-pointer">
           <div
             data-nav-color={navColor}
-            data-isActive={pathname.includes(link)}
+            data-isactive={pathname.includes(link)}
             data-state={state}
             className="
               group w-full h-full flex rounded-lg Transition
-            data-[nav-color=Integrate]:data-[isActive=false]:hover:bg-light2 data-[nav-color=Integrate]:data-[isActive=false]:dark:text-icon-dark data-[nav-color=Integrate]:data-[isActive=false]:text-icon-dark3 data-[nav-color=Integrate]:data-[isActive=false]:dark:hover:bg-dark3 data-[nav-color=Integrate]:data-[isActive=false]:dark:hover:text-white
-              data-[nav-color=Integrate]:data-[isActive=true]:bg-primary-4 data-[nav-color=Integrate]:data-[isActive=true]:dark:bg-primary-6 data-[nav-color=Integrate]:data-[isActive=true]:text-primary-2 data-[nav-color=Integrate]:data-[isActive=true]:dark:text-primary-4
-              data-[nav-color=Apparent]:data-[isActive=true]:text-primary-5 data-[nav-color=Apparent]:data-[isActive=true]:dark:bg-primary-6 data-[nav-color=Apparent]:data-[isActive=true]:bg-primary-6 data-[nav-color=Apparent]:data-[isActive=true]:dark:text-primary-5
-            data-[nav-color=Apparent]:data-[isActive=false]:text-icon-dark data-[nav-color=Apparent]:data-[isActive=false]:dark:text-icon-dark data-[nav-color=Apparent]:data-[isActive=false]:hover:bg-dark3 data-[nav-color=Apparent]:data-[isActive=false]:dark:hover:bg-dark3 data-[nav-color=Apparent]:data-[isActive=false]:hover:text-white data-[nav-color=Apparent]:data-[isActive=false]:dark:hover:text-white
+            data-[nav-color=Integrate]:data-[isactive=false]:hover:bg-light2 data-[nav-color=Integrate]:data-[isactive=false]:dark:text-icon-dark data-[nav-color=Integrate]:data-[isactive=false]:text-icon-dark3 data-[nav-color=Integrate]:data-[isactive=false]:dark:hover:bg-dark3 data-[nav-color=Integrate]:data-[isactive=false]:dark:hover:text-white
+              data-[nav-color=Integrate]:data-[isactive=true]:bg-primary-4 data-[nav-color=Integrate]:data-[isactive=true]:dark:bg-primary-6 data-[nav-color=Integrate]:data-[isactive=true]:text-primary-2 data-[nav-color=Integrate]:data-[isactive=true]:dark:text-primary-4
+              data-[nav-color=Apparent]:data-[isactive=true]:text-primary-5 data-[nav-color=Apparent]:data-[isactive=true]:dark:bg-primary-6 data-[nav-color=Apparent]:data-[isactive=true]:bg-primary-6 data-[nav-color=Apparent]:data-[isactive=true]:dark:text-primary-5
+            data-[nav-color=Apparent]:data-[isactive=false]:text-icon-dark data-[nav-color=Apparent]:data-[isactive=false]:dark:text-icon-dark data-[nav-color=Apparent]:data-[isactive=false]:hover:bg-dark3 data-[nav-color=Apparent]:data-[isactive=false]:dark:hover:bg-dark3 data-[nav-color=Apparent]:data-[isactive=false]:hover:text-white data-[nav-color=Apparent]:data-[isactive=false]:dark:hover:text-white
               p-2 gap-1 items-center data-[state=expanded]:py-2.5 data-[state=expanded]:px-3 data-[state=expanded]:gap-3
               data-[state=collapsed]:flex-col data-[state=collapsed]:justify-center
             "
           >
-            <div className="group-data-[state=expanded]:text-icon-size group-data-[state=collapsed]:text-xl group-data-[isActive=false]:group-data-[nav-color=Integrate]:text-icon-light dark:group-data-[isActive=false]:group-data-[nav-color=Integrate]:text-icon-dark">
+            <div className="group-data-[state=expanded]:text-icon-size group-data-[state=collapsed]:text-xl group-data-[isactive=false]:group-data-[nav-color=Integrate]:text-icon-light dark:group-data-[isactive=false]:group-data-[nav-color=Integrate]:text-icon-dark">
               {image}
             </div>
             <span className="whitespace-nowrap group-data-[state=expanded]:text-small group-data-[state=collapsed]:text-x-small">
