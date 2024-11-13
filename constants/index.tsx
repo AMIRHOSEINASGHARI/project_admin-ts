@@ -1377,25 +1377,25 @@ export const profilePage_tabs_data = [
   {
     value: "profile",
     title: "Profile",
-    icon: <SolarUserCdBoldDuotone className="icon" />,
+    icon: <SolarUserCdBoldDuotone className="text-icon-size" />,
     content: <ProfileTab />,
   },
   {
     value: "followers",
     title: "Followers",
-    icon: <SolarHeartBold className="icon" />,
+    icon: <SolarHeartBold className="text-icon-size" />,
     content: <FollowersTab />,
   },
   {
     value: "friends",
     title: "Friends",
-    icon: <SolarUsersGroupRoundedBoldDuotone className="icon" />,
+    icon: <SolarUsersGroupRoundedBoldDuotone className="text-icon-size" />,
     content: <FriendsTab />,
   },
   {
     value: "gallery",
     title: "Gallery",
-    icon: <SolarImages className="icon" />,
+    icon: <SolarImages className="text-icon-size" />,
     content: <GalleryTab />,
   },
 ];
