@@ -14,6 +14,7 @@ import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
 import JobsList from "./ui/JobsList";
 import SuspenseFallback from "@/components/shared/SuspenseFallback";
+import FilteringJobsList from "./ui/FilteringJobsList";
 
 const JobListPage = async (props: {
   searchParams: Promise<JobsListParams>;
@@ -40,6 +41,7 @@ const JobListPage = async (props: {
           </Button>
         </div>
       </div>
+      <FilteringJobsList />
       <Suspense key={search} fallback={<SuspenseFallback />}>
         <JobsList searchParams={searchParams} />
       </Suspense>
