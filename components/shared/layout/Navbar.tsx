@@ -9,26 +9,17 @@ import {
   SolarBellBingBoldDuotone,
   SolarMinimalisticMagniferBoldDuotone,
 } from "@/components/svg";
+import NavbarSearch from "./NavbarSearch";
 
 const Navbar = () => {
   return (
-    <header className="backdrop-blur-[5px] bg-white/70 dark:bg-dark1/70 border-b border-border-light dark:border-border-dark fixed z-30 left-0 top-0 right-0 p-4 pl-[280px] lg:pl-[270px] max-md:pl-4 md:pr-12">
+    <header className="backdrop-blur-[5px] bg-white/70 dark:bg-dark1/70 border-b border-border-light dark:border-border-dark fixed z-30 left-0 top-0 right-0 py-4 max-xl:px-4 xl:px-12">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-[8px]">
-          <div className="md:hidden flex items-center justify-center">
+          <div className="xl:hidden flex items-center justify-center">
             <MobileNav />
           </div>
-          <div className="md:pl-[70px]">
-            <Button
-              variant="icon"
-              className="gap-3 md:hover:bg-transparent dark:md:hover:bg-transparent"
-            >
-              <SolarMinimalisticMagniferBoldDuotone />
-              <span className="text-small text-slate-500 max-md:hidden">
-                Search...
-              </span>
-            </Button>
-          </div>
+          <NavbarSearch />
         </div>
         <div className="flex items-center gap-1">
           <Button variant="icon">

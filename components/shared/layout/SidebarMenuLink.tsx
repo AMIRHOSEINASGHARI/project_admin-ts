@@ -181,8 +181,6 @@ const InnerLink = ({
   isMobile,
   setOpenMobile,
 }: InnerLinkProps) => {
-  console.log(isMobile);
-
   return (
     <li>
       <Link
@@ -217,6 +215,10 @@ const CollapsibleMenu = ({
     setOpen(!open);
   };
 
+  const onClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Popover open={open} onOpenChange={onOpenChange}>
       <PopoverTrigger asChild>
@@ -246,7 +248,7 @@ const CollapsibleMenu = ({
         </li>
       </PopoverTrigger>
       <PopoverContent side="right" className="min-w-[100px] w-[200px] text-sm">
-        <ul className="space-y-1">
+        <ul className="space-y-1" onClick={onClose}>
           {innerLinks?.map((inner) => (
             <InnerLink
               key={inner.href}
