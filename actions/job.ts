@@ -25,9 +25,7 @@ export const getJobs = async (searchParams: JobsListParams) => {
       query = { $text: { $search: search } };
     }
 
-    const jobs = await JobModel.find({
-      ...query,
-    }).lean<JobType[]>();
+    const jobs = await JobModel.find({ ...query }).lean<JobType[]>();
 
     return {
       jobs,

@@ -4,7 +4,6 @@ import { getTours } from "@/actions/tour";
 import { ToursListParams } from "@/types/tour";
 // cmp
 import SearchTours from "./SearchTours";
-import FilterTours from "./FilterTours";
 import TourCard from "./TourCard";
 import NoData from "@/components/shared/NoData";
 
@@ -13,14 +12,10 @@ const ToursList = async ({
 }: {
   searchParams: ToursListParams;
 }) => {
-  const data = await getTours();
+  const data = await getTours(searchParams);
 
   return (
-    <div>
-      <div className="flex items-center flex-wrap max-xl:gap-4 xl:flex-nowrap justify-between w-full mb-8">
-        <SearchTours />
-        <FilterTours />
-      </div>
+    <>
       {data?.tours?.length === 0 ? (
         <NoData title="No tours found!" />
       ) : (
@@ -30,7 +25,7 @@ const ToursList = async ({
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 };
 

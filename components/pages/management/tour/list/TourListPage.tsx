@@ -1,7 +1,7 @@
+// react
+import { Suspense } from "react";
 // next
 import Link from "next/link";
-// actions
-import { getTours } from "@/actions/tour";
 // types
 import { ToursListParams } from "@/types/tour";
 // constants
@@ -13,8 +13,8 @@ import { Button } from "@/components/ui/button";
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
 import ToursList from "./ui/ToursList";
-import { Suspense } from "react";
 import SuspenseFallback from "@/components/shared/SuspenseFallback";
+import FilteringToursList from "./ui/FilteringToursList";
 
 const TourListPage = async (props: {
   searchParams: Promise<ToursListParams>;
@@ -41,6 +41,7 @@ const TourListPage = async (props: {
           </Button>
         </div>
       </div>
+      <FilteringToursList />
       <Suspense key={search} fallback={<SuspenseFallback />}>
         <ToursList searchParams={searchParams} />
       </Suspense>

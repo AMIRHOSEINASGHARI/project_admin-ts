@@ -8,7 +8,7 @@ import { ResponseCodes, ResponseMessages } from "@/enums";
 import TourModel from "@/models/tour";
 import AdminModel from "@/models/admin";
 // types
-import { CreateTour, EditTour, TourType } from "@/types/tour";
+import { CreateTour, EditTour, ToursListParams, TourType } from "@/types/tour";
 // actions
 import { checkSession } from "./shared";
 // utils
@@ -81,11 +81,19 @@ export const editTour = async (data: EditTour) => {
   }
 };
 
-export const getTours = async () => {
+export const getTours = async (searchParams: ToursListParams) => {
   try {
     await connectDB();
 
-    const tours = await TourModel.find().lean<TourType[]>();
+    const { search } = searchParams;
+
+    let query = {};
+
+    if (search) {
+      query = { $text: { $search: search } };
+    }
+
+    const tours = await TourModel.find({ ...query }).lean<TourType[]>();
 
     return {
       tours,
