@@ -45,7 +45,7 @@ const AppSidebar = () => {
             </SidebarGroupLabel>
             <CollapsibleContent>
               <SidebarGroupContent>
-                <SidebarMenu>
+                <SidebarMenu className="space-y-.5">
                   {menuLinks.slice(0, 7).map((item) => (
                     <SidebarMenuLink
                       image={item.image}
@@ -71,7 +71,7 @@ const AppSidebar = () => {
             </SidebarGroupLabel>
             <CollapsibleContent>
               <SidebarGroupContent>
-                <SidebarMenu>
+                <SidebarMenu className="space-y-.5">
                   {menuLinks.slice(7).map((item) => (
                     <SidebarMenuLink
                       key={item.value}

@@ -2,7 +2,7 @@
 import { Dispatch, SetStateAction } from "react";
 // types
 import { AdminRole, AdminType } from "./admin";
-import { Mail, MailLabel, NavColor } from "./shared";
+import { Mail, MailLabel, NavColor, SidebarMenuInnerLink } from "./shared";
 import { JobEmployment, JobExperience, JobSalary, JobType } from "./job";
 import { TourType } from "./tour";
 import { ProductType } from "./product";
@@ -16,7 +16,7 @@ export type MenuLinksProps = {
   link: string;
   image: JSX.Element;
   isCollapsible?: boolean;
-  innerLinks?: { href: string; title: string }[] | null;
+  innerLinks?: SidebarMenuInnerLink[] | null;
 };
 
 export type ProfileTabsListProps = {
@@ -116,4 +116,21 @@ export type DeleteSearchQueryProps = {
   title: string;
   paramValue: string;
   handleDeleteQuery: (value: string) => void;
+};
+
+export type InnerLinkProps = {
+  href: string;
+  title: string;
+  navColor: NavColor | null;
+  pathname: string;
+};
+
+export type CollapsibleMenuProps = {
+  image: JSX.Element;
+  title: string;
+  navColor: NavColor | null;
+  pathname: string;
+  state: "expanded" | "collapsed";
+  link: string;
+  innerLinks: SidebarMenuInnerLink[] | null | undefined;
 };

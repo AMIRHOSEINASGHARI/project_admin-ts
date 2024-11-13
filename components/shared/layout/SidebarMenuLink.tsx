@@ -6,7 +6,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 // types
-import { MenuLinksProps } from "@/types/components";
+import {
+  CollapsibleMenuProps,
+  InnerLinkProps,
+  MenuLinksProps,
+} from "@/types/components";
 // providers
 import { useNavColor } from "@/providers/ThemeProvider";
 // icons
@@ -16,8 +20,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
   useSidebar,
 } from "@/components/ui/sidebar";
 import {
@@ -25,6 +27,12 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
 import clsx from "clsx";
 
 const SidebarMenuLink = ({
@@ -51,7 +59,7 @@ const SidebarMenuLink = ({
     }
   }, [pathname, link]);
 
-  if (isCollapsible) {
+  if (isCollapsible && state === "expanded") {
     return (
       <Collapsible
         className="group/collapsible"
@@ -82,20 +90,13 @@ const SidebarMenuLink = ({
             {innerLinks && (
               <SidebarMenuSub>
                 {innerLinks?.map((inner) => (
-                  <SidebarMenuSubItem key={inner.href}>
-                    <SidebarMenuSubButton
-                      asChild
-                      isActive={pathname === inner.href}
-                      className={clsx({
-                        "data-[active=true]:text-white data-[active=true]:bg-dark3":
-                          pathname === inner.href && navColor === "Apparent",
-                        "text-icon-light dark:text-icon-dark hover:bg-dark2 hover:text-white dark:hover:bg-dark3":
-                          pathname !== inner.href && navColor === "Apparent",
-                      })}
-                    >
-                      <Link href={inner.href}>{inner.title}</Link>
-                    </SidebarMenuSubButton>
-                  </SidebarMenuSubItem>
+                  <InnerLink
+                    key={inner.href}
+                    href={inner.href}
+                    title={inner.title}
+                    pathname={pathname}
+                    navColor={navColor}
+                  />
                 ))}
               </SidebarMenuSub>
             )}
@@ -103,32 +104,135 @@ const SidebarMenuLink = ({
         </SidebarMenuItem>
       </Collapsible>
     );
-  } else {
+  }
+
+  if (isCollapsible && state === "collapsed") {
     return (
-      <SidebarMenuItem
+      <CollapsibleMenu
+        image={image}
+        title={title}
+        state={state}
+        link={link}
+        pathname={pathname}
+        navColor={navColor}
+        innerLinks={innerLinks}
+      />
+    );
+  }
+
+  if (!isCollapsible) {
+    return (
+      <li
         onClick={() => {
-          isMobile && setOpenMobile(false);
+          isMobile ? setOpenMobile(false) : null;
         }}
+        className={clsx(
+          state === "collapsed" &&
+            "flex items-center justify-center w-full h-full"
+        )}
       >
-        <SidebarMenuButton
-          asChild
-          className={clsx("w-full h-full", {
-            "data-[active=true]:text-primary-5 data-[active=true]:dark:bg-primary-6 data-[active=true]:bg-primary-6 data-[active=true]:dark:text-primary-5":
-              pathname?.includes(link) && navColor === "Apparent",
-            "hover:bg-dark3 hover:text-white dark:hover:text-white":
-              !pathname?.includes(link) && navColor === "Apparent",
-            "dark:hover:bg-dark3 dark:hover:text-white":
-              !pathname?.includes(link) && navColor === "Integrate",
-          })}
-          isActive={pathname.includes(link)}
+        <Link
+          href={link}
+          data-nav-color={navColor}
+          data-isActive={pathname?.includes(link)}
+          data-state={state}
+          className="
+             group w-full h-full flex rounded-lg Transition
+           data-[nav-color=Integrate]:data-[isActive=false]:hover:bg-light2 data-[nav-color=Integrate]:data-[isActive=false]:dark:text-icon-dark data-[nav-color=Integrate]:data-[isActive=false]:text-icon-dark3 data-[nav-color=Integrate]:data-[isActive=false]:dark:hover:bg-dark3 data-[nav-color=Integrate]:data-[isActive=false]:dark:hover:text-white
+             data-[nav-color=Integrate]:data-[isActive=true]:bg-primary-4 data-[nav-color=Integrate]:data-[isActive=true]:dark:bg-primary-6 data-[nav-color=Integrate]:data-[isActive=true]:text-primary-2 data-[nav-color=Integrate]:data-[isActive=true]:dark:text-primary-4
+             data-[nav-color=Apparent]:data-[isActive=true]:text-primary-5 data-[nav-color=Apparent]:data-[isActive=true]:dark:bg-primary-6 data-[nav-color=Apparent]:data-[isActive=true]:bg-primary-6 data-[nav-color=Apparent]:data-[isActive=true]:dark:text-primary-5
+           data-[nav-color=Apparent]:data-[isActive=false]:text-icon-dark data-[nav-color=Apparent]:data-[isActive=false]:dark:text-icon-dark data-[nav-color=Apparent]:data-[isActive=false]:hover:bg-dark3 data-[nav-color=Apparent]:data-[isActive=false]:dark:hover:bg-dark3 data-[nav-color=Apparent]:data-[isActive=false]:hover:text-white data-[nav-color=Apparent]:data-[isActive=false]:dark:hover:text-white
+             p-2 gap-1 items-center data-[state=expanded]:py-2.5 data-[state=expanded]:px-3 data-[state=expanded]:gap-3
+             data-[state=collapsed]:flex-col data-[state=collapsed]:justify-center
+          "
         >
-          <Link href={link}>
-            <div className="text-icon-size">{image}</div>
-            <span>{title}</span>
-          </Link>
-        </SidebarMenuButton>
-      </SidebarMenuItem>
+          <div className="group-data-[state=expanded]:text-icon-size group-data-[state=collapsed]:text-xl group-data-[isActive=false]:group-data-[nav-color=Integrate]:text-icon-light dark:group-data-[isActive=false]:group-data-[nav-color=Integrate]:text-icon-dark">
+            {image}
+          </div>
+          <span className="whitespace-nowrap group-data-[state=expanded]:text-small group-data-[state=collapsed]:text-x-small">
+            {title}
+          </span>
+        </Link>
+      </li>
     );
   }
 };
+
 export default SidebarMenuLink;
+
+const InnerLink = ({ href, title, pathname, navColor }: InnerLinkProps) => {
+  return (
+    <li>
+      <Link
+        href={href}
+        data-nav-color={navColor}
+        data-isActive={pathname === href}
+        className="w-full block px-2 py-1 rounded-lg Transition data-[nav-color=Integrate]:data-[isActive=true]:bg-light3 dark:data-[nav-color=Integrate]:data-[isActive=true]:bg-dark2 data-[nav-color=Integrate]:data-[isActive=false]:text-icon-light dark:data-[nav-color=Integrate]:data-[isActive=false]:text-icon-dark data-[nav-color=Apparent]:data-[isActive=true]:bg-dark3 data-[nav-color=Apparent]:data-[isActive=true]:text-white dark:data-[nav-color=Apparent]:data-[isActive=true]:bg-dark1 data-[nav-color=Apparent]:data-[isActive=false]:text-icon-light dark:data-[nav-color=Apparent]:data-[isActive=false]:text-icon-dark"
+      >
+        {title}
+      </Link>
+    </li>
+  );
+};
+
+const CollapsibleMenu = ({
+  image,
+  title,
+  pathname,
+  navColor,
+  state,
+  link,
+  innerLinks,
+}: CollapsibleMenuProps) => {
+  const [open, setOpen] = useState(false);
+
+  if (state !== "collapsed") return null;
+
+  const onOpenChange = () => {
+    setOpen(!open);
+  };
+
+  return (
+    <Popover open={open} onOpenChange={onOpenChange}>
+      <PopoverTrigger asChild>
+        <li className="flex items-center justify-center w-full h-full relative cursor-pointer">
+          <div
+            data-nav-color={navColor}
+            data-isActive={pathname.includes(link)}
+            data-state={state}
+            className="
+              group w-full h-full flex rounded-lg Transition
+            data-[nav-color=Integrate]:data-[isActive=false]:hover:bg-light2 data-[nav-color=Integrate]:data-[isActive=false]:dark:text-icon-dark data-[nav-color=Integrate]:data-[isActive=false]:text-icon-dark3 data-[nav-color=Integrate]:data-[isActive=false]:dark:hover:bg-dark3 data-[nav-color=Integrate]:data-[isActive=false]:dark:hover:text-white
+              data-[nav-color=Integrate]:data-[isActive=true]:bg-primary-4 data-[nav-color=Integrate]:data-[isActive=true]:dark:bg-primary-6 data-[nav-color=Integrate]:data-[isActive=true]:text-primary-2 data-[nav-color=Integrate]:data-[isActive=true]:dark:text-primary-4
+              data-[nav-color=Apparent]:data-[isActive=true]:text-primary-5 data-[nav-color=Apparent]:data-[isActive=true]:dark:bg-primary-6 data-[nav-color=Apparent]:data-[isActive=true]:bg-primary-6 data-[nav-color=Apparent]:data-[isActive=true]:dark:text-primary-5
+            data-[nav-color=Apparent]:data-[isActive=false]:text-icon-dark data-[nav-color=Apparent]:data-[isActive=false]:dark:text-icon-dark data-[nav-color=Apparent]:data-[isActive=false]:hover:bg-dark3 data-[nav-color=Apparent]:data-[isActive=false]:dark:hover:bg-dark3 data-[nav-color=Apparent]:data-[isActive=false]:hover:text-white data-[nav-color=Apparent]:data-[isActive=false]:dark:hover:text-white
+              p-2 gap-1 items-center data-[state=expanded]:py-2.5 data-[state=expanded]:px-3 data-[state=expanded]:gap-3
+              data-[state=collapsed]:flex-col data-[state=collapsed]:justify-center
+            "
+          >
+            <div className="group-data-[state=expanded]:text-icon-size group-data-[state=collapsed]:text-xl group-data-[isActive=false]:group-data-[nav-color=Integrate]:text-icon-light dark:group-data-[isActive=false]:group-data-[nav-color=Integrate]:text-icon-dark">
+              {image}
+            </div>
+            <span className="whitespace-nowrap group-data-[state=expanded]:text-small group-data-[state=collapsed]:text-x-small">
+              {title}
+            </span>
+          </div>
+          <SolarAltArrowRightLineDuotone className="absolute top-3 right-2" />
+        </li>
+      </PopoverTrigger>
+      <PopoverContent side="right" className="min-w-[100px] w-[200px] text-sm">
+        <ul className="space-y-1">
+          {innerLinks?.map((inner) => (
+            <InnerLink
+              key={inner.href}
+              href={inner.href}
+              title={inner.title}
+              pathname={pathname}
+              navColor={navColor}
+            />
+          ))}
+        </ul>
+      </PopoverContent>
+    </Popover>
+  );
+};

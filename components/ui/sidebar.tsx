@@ -27,7 +27,7 @@ const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 const SIDEBAR_WIDTH = "300px";
 const SIDEBAR_WIDTH_MOBILE = "300px";
-const SIDEBAR_WIDTH_ICON = "90px";
+const SIDEBAR_WIDTH_ICON = "100px";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
 type SidebarContext = {
@@ -180,7 +180,6 @@ const Sidebar = React.forwardRef<
     ref
   ) => {
     const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
-    const pathname = usePathname();
     const { navColor } = useNavColor();
 
     const sidebarBGColor =
@@ -419,7 +418,7 @@ const SidebarContent = React.forwardRef<
       ref={ref}
       data-sidebar="content"
       className={cn(
-        "sidebarscroll flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden",
+        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto sidebarscroll",
         className
       )}
       {...props}
@@ -436,7 +435,10 @@ const SidebarGroup = React.forwardRef<
     <div
       ref={ref}
       data-sidebar="group"
-      className={cn("relative flex w-full min-w-0 flex-col px-4", className)}
+      className={cn(
+        "relative flex w-full min-w-0 flex-col px-4 group-data-[state=collapsed]:px-1",
+        className
+      )}
       {...props}
     />
   );
@@ -527,7 +529,7 @@ const SidebarMenuItem = React.forwardRef<
 SidebarMenuItem.displayName = "SidebarMenuItem";
 
 const sidebarMenuButtonVariants = cva(
-  "peer/menu-button flex w-full h-full items-center gap-3 py-2.5 px-3 overflow-hidden rounded-[8px] text-left text-sm outline-none ring-sidebar-ring transition-[width,height,padding] hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-primary-4 dark:data-[active=true]:bg-primary-6 data-[active=true]:font-medium text-icon-light dark:text-icon-dark data-[active=true]:text-primary-1 dark:data-[active=true]:text-primary-5 data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+  "peer/menu-button flex w-full h-full items-center gap-3 py-2.5 px-3 overflow-hidden rounded-[8px] text-left text-sm outline-none ring-sidebar-ring Transition hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-primary-4 dark:data-[active=true]:bg-primary-6 data-[active=true]:font-medium text-icon-light dark:text-icon-dark data-[active=true]:text-primary-1 dark:data-[active=true]:text-primary-5 data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
   {
     variants: {
       variant: {
