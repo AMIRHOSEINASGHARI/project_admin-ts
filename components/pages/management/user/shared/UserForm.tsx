@@ -76,29 +76,29 @@ const UserForm = ({ type, user }: UserFormPorps) => {
     };
 
     if (type === "create") {
-      mutateCreate(formData, {
-        onSuccess: (data) => {
-          toast.success(data?.message);
-          router.push("/user/list");
-        },
-        onError: (error: any) => {
-          toast.error(error.message);
-        },
-      });
+      // mutateCreate(formData, {
+      //   onSuccess: (data) => {
+      //     toast.success(data?.message);
+      //     router.push("/user/list");
+      //   },
+      //   onError: (error: any) => {
+      //     toast.error(error.message);
+      //   },
+      // });
     }
     if (type === "edit") {
-      mutateEdit(
-        { ...formData, userId: user?._id },
-        {
-          onSuccess: (data) => {
-            toast.success(data?.message);
-            router.push("/user/list");
-          },
-          onError: (error: any) => {
-            toast.error(error.message);
-          },
-        }
-      );
+      // mutateEdit(
+      //   { ...formData, userId: user?._id },
+      //   {
+      //     onSuccess: (data) => {
+      //       toast.success(data?.message);
+      //       router.push("/user/list");
+      //     },
+      //     onError: (error: any) => {
+      //       toast.error(error.message);
+      //     },
+      //   }
+      // );
     }
   };
 

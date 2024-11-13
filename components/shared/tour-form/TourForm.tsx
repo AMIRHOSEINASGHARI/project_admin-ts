@@ -94,29 +94,17 @@ const TourForm = ({ type, tour }: TourFormProps) => {
 
   const formDefaultValues = {
     name: tour ? tour?.name : "",
-    content: tour
-      ? tour?.content
-      : "<h6><strong>Description</strong></h6><p>Occaecati est et illo quibusdam accusamus qui. Incidunt aut et molestiae ut facere aut. Est quidem iusto praesentium excepturi harum nihil tenetur facilis. Ut omnis voluptates nihil accusantium doloribus eaque debitis.</p><h6><strong>Highlights</strong></h6><ul><li><p>A fermentum in morbi pretium aliquam adipiscing donec tempus.</p></li><li><p>Vulputate placerat amet pulvinar lorem nisl.</p></li><li><p>Consequat feugiat habitant gravida quisque elit bibendum id adipiscing sed.</p></li><li><p>Etiam duis lobortis in fames ultrices commodo nibh.</p></li></ul><h6><strong>Program</strong></h6><p><strong>Day 1</strong></p><p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p><p><strong>Day 2</strong></p><p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p><p><strong>Day 3</strong></p><p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>",
+    content: tour ? tour?.content : "",
     images: tour ? tour?.images : images,
     price: tour ? tour?.price : "",
     discount: tour ? tour?.discount : "",
     published: tour ? tour?.published : true,
-    tags: tour
-      ? tour?.tags
-      : ["Technology", "Health and Wellness", "Travel", "Finance", "Education"],
-    services: tour
-      ? tour?.services
-      : [
-          "Audio guide",
-          "Food and drinks",
-          "Lunch",
-          "Private tour",
-          "Special activities",
-        ],
+    tags: tour ? tour?.tags : [],
+    services: tour ? tour?.services : [],
     tourGuide: tour ? tour?.tourGuide?._id : "",
     startDate,
     endDate,
-    duration: tour ? tour?.duration : "4 days 3 nights",
+    duration: tour ? tour?.duration : "",
     destination: tour ? tour?.destination : "",
   };
 

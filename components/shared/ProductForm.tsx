@@ -100,35 +100,35 @@ const ProductForm = ({ type, product }: ProductFormProps) => {
     };
 
     if (type === "create") {
-      mutateCreate(formData, {
-        onSuccess: (data) => {
-          toast.success(data?.message);
-          router.push("/product/list");
-        },
-        onError: (error: any) => {
-          toast.error(error.message);
-        },
-      });
+      // mutateCreate(formData, {
+      //   onSuccess: (data) => {
+      //     toast.success(data?.message);
+      //     router.push("/product/list");
+      //   },
+      //   onError: (error: any) => {
+      //     toast.error(error.message);
+      //   },
+      // });
 
       return;
     }
 
     if (type === "edit") {
-      mutateEdit(
-        {
-          ...formData,
-          id: product?._id,
-        },
-        {
-          onSuccess: (data) => {
-            toast.success(data?.message);
-            router.push(`/product/${product?._id}`);
-          },
-          onError: (error: any) => {
-            toast.error(error.message);
-          },
-        }
-      );
+      // mutateEdit(
+      //   {
+      //     ...formData,
+      //     id: product?._id,
+      //   },
+      //   {
+      //     onSuccess: (data) => {
+      //       toast.success(data?.message);
+      //       router.push(`/product/${product?._id}`);
+      //     },
+      //     onError: (error: any) => {
+      //       toast.error(error.message);
+      //     },
+      //   }
+      // );
     }
   };
 

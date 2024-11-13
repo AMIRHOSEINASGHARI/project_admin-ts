@@ -48,15 +48,15 @@ const TableActions = ({ id, status }: { id: string; status: AdminStatus }) => {
 
   const handleUser = (value: AdminStatus | "Delete") => {
     if (value === "Delete") {
-      mutateDelete(id, {
-        onSuccess: (data) => {
-          toast.success(data?.message);
-          onClose();
-        },
-        onError: (error: any) => {
-          toast.error(error.message);
-        },
-      });
+      // mutateDelete(id, {
+      //   onSuccess: (data) => {
+      //     toast.success(data?.message);
+      //     onClose();
+      //   },
+      //   onError: (error: any) => {
+      //     toast.error(error.message);
+      //   },
+      // });
     } else {
       if (value === status) {
         onClose();

@@ -119,32 +119,32 @@ const JobForm = ({ type, job }: JobFormProps) => {
     };
 
     if (type === "create") {
-      mutateCreate(formData, {
-        onSuccess: (data) => {
-          toast.success(data?.message);
-          router.push("/job/list");
-        },
-        onError: (error: any) => {
-          toast.error(error.message);
-        },
-      });
+      // mutateCreate(formData, {
+      //   onSuccess: (data) => {
+      //     toast.success(data?.message);
+      //     router.push("/job/list");
+      //   },
+      //   onError: (error: any) => {
+      //     toast.error(error.message);
+      //   },
+      // });
 
       return;
     }
 
     if (type === "edit") {
-      mutateEdit(
-        { ...formData, id: job?._id },
-        {
-          onSuccess: (data) => {
-            toast.success(data?.message);
-            router.push(`/job/${job?._id}`);
-          },
-          onError: (error: any) => {
-            toast.error(error.message);
-          },
-        }
-      );
+      // mutateEdit(
+      //   { ...formData, id: job?._id },
+      //   {
+      //     onSuccess: (data) => {
+      //       toast.success(data?.message);
+      //       router.push(`/job/${job?._id}`);
+      //     },
+      //     onError: (error: any) => {
+      //       toast.error(error.message);
+      //     },
+      //   }
+      // );
     }
   };
 

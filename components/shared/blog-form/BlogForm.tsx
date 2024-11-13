@@ -88,35 +88,35 @@ const BlogForm = ({ page, blog }: BlogFormProps) => {
     }
 
     if (page === "add") {
-      mutateCreate(values, {
-        onSuccess: (data) => {
-          toast.success(data?.message);
-          router.push("/blog/list");
-        },
-        onError: (error: any) => {
-          toast.error(error.message);
-        },
-      });
+      // mutateCreate(values, {
+      //   onSuccess: (data) => {
+      //     toast.success(data?.message);
+      //     router.push("/blog/list");
+      //   },
+      //   onError: (error: any) => {
+      //     toast.error(error.message);
+      //   },
+      // });
 
       return;
     }
 
     if (page === "edit") {
-      mutateEdit(
-        {
-          ...values,
-          id: blog?._id,
-        },
-        {
-          onSuccess: (data) => {
-            toast.success(data?.message);
-            router.push(`/blog/${blog?._id}`);
-          },
-          onError: (error: any) => {
-            toast.error(error.message);
-          },
-        }
-      );
+      // mutateEdit(
+      //   {
+      //     ...values,
+      //     id: blog?._id,
+      //   },
+      //   {
+      //     onSuccess: (data) => {
+      //       toast.success(data?.message);
+      //       router.push(`/blog/${blog?._id}`);
+      //     },
+      //     onError: (error: any) => {
+      //       toast.error(error.message);
+      //     },
+      //   }
+      // );
     }
   };
 
