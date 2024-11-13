@@ -123,6 +123,8 @@ export type InnerLinkProps = {
   title: string;
   navColor: NavColor | null;
   pathname: string;
+  isMobile?: boolean;
+  setOpenMobile?: (open: boolean) => void;
 };
 
 export type CollapsibleMenuProps = {

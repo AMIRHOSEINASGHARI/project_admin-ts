@@ -96,6 +96,8 @@ const SidebarMenuLink = ({
                     title={inner.title}
                     pathname={pathname}
                     navColor={navColor}
+                    isMobile={isMobile}
+                    setOpenMobile={setOpenMobile}
                   />
                 ))}
               </SidebarMenuSub>
@@ -171,7 +173,16 @@ const SidebarMenuLink = ({
 
 export default SidebarMenuLink;
 
-const InnerLink = ({ href, title, pathname, navColor }: InnerLinkProps) => {
+const InnerLink = ({
+  href,
+  title,
+  pathname,
+  navColor,
+  isMobile,
+  setOpenMobile,
+}: InnerLinkProps) => {
+  console.log(isMobile);
+
   return (
     <li>
       <Link
@@ -179,6 +190,9 @@ const InnerLink = ({ href, title, pathname, navColor }: InnerLinkProps) => {
         data-nav-color={navColor}
         data-isactive={pathname === href}
         className="w-full block px-2 py-1 rounded-lg Transition data-[nav-color=Integrate]:data-[isactive=true]:bg-light3 dark:data-[nav-color=Integrate]:data-[isactive=true]:bg-dark2 data-[nav-color=Integrate]:data-[isactive=false]:text-icon-light dark:data-[nav-color=Integrate]:data-[isactive=false]:text-icon-dark data-[nav-color=Apparent]:data-[isactive=true]:bg-dark3 data-[nav-color=Apparent]:data-[isactive=true]:text-white dark:data-[nav-color=Apparent]:data-[isactive=true]:bg-dark1 data-[nav-color=Apparent]:data-[isactive=false]:text-icon-light dark:data-[nav-color=Apparent]:data-[isactive=false]:text-icon-dark"
+        onClick={() => {
+          isMobile && setOpenMobile ? setOpenMobile(false) : null;
+        }}
       >
         {title}
       </Link>
