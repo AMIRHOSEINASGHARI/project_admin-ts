@@ -9,7 +9,7 @@ import NoData from "@/components/shared/NoData";
 // import FilterJobs from "./FilterJobs";
 
 const JobsList = async ({ searchParams }: { searchParams: JobsListParams }) => {
-  const data = await getJobs();
+  const data = await getJobs(searchParams);
 
   return (
     <div>

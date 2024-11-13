@@ -7,17 +7,27 @@ import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
 import JobModel from "@/models/job";
 // types
-import { CreateJob, EditJob, JobType } from "@/types/job";
+import { CreateJob, EditJob, JobsListParams, JobType } from "@/types/job";
 // actions
 import { checkSession } from "./shared";
 // utils
 import connectDB from "@/utils/connectDB";
 
-export const getJobs = async () => {
+export const getJobs = async (searchParams: JobsListParams) => {
   try {
     await connectDB();
 
-    const jobs = await JobModel.find().lean<JobType[]>();
+    const { search } = searchParams;
+
+    let query = {};
+
+    if (search) {
+      query = { $text: { $search: search } };
+    }
+
+    const jobs = await JobModel.find({
+      ...query,
+    }).lean<JobType[]>();
 
     return {
       jobs,
