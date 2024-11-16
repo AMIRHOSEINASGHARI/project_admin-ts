@@ -15,8 +15,12 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
+
 export const metadata: Metadata = {
-  title: "Onlineshop Dashboard",
+  title: {
+    template: "%s | OnlineShop",
+    default: "Dashboard | OnlineShop",
+  },
 };
 
 export default function RootLayout({

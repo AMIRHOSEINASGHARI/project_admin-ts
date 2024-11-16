@@ -1,3 +1,5 @@
+// actions
+import { getJob } from "@/actions/job";
 // types
 import { PageParams } from "@/types/pages";
 // cmp
@@ -8,3 +10,16 @@ const Job = ({ params: { id } }: PageParams) => {
 };
 
 export default Job;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const id = (await params).id;
+  const data = await getJob(id);
+
+  return {
+    title: data?.job?.title,
+  };
+}
