@@ -1,16 +1,11 @@
-// icons
-import {
-  SolarBellBingBoldDuotone,
-  SolarMinimalisticMagniferBoldDuotone,
-} from "@/components/svg";
 // cmp
-import { Button } from "@/components/ui/button";
 import MobileNav from "./MobileNav";
 import ShowProfile from "./ShowProfile";
 import AppearanceSettings from "./AppearanceSettings";
 import FullscreenToggle from "../FullscreenToggle";
 import NavbarSearch from "./NavbarSearch";
 import Contacts from "./Contacts";
+import Notifications from "./Notifications";
 
 const Navbar = () => {
   return (
@@ -23,9 +18,7 @@ const Navbar = () => {
           <NavbarSearch />
         </div>
         <div className="flex items-center gap-1">
-          <Button variant="icon">
-            <SolarBellBingBoldDuotone />
-          </Button>
+          <Notifications />
           <Contacts />
           <FullscreenToggle />
           <AppearanceSettings />

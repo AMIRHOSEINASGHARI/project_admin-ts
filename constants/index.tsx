@@ -67,6 +67,10 @@ import {
   SolarChatRoundDotsBoldDuotone,
   SolarLetterBoldDuotone,
   SolarCloudUploadBoldDuotone,
+  IcOrder,
+  IcChat,
+  IcMail,
+  IcDelivery,
 } from "@/components/svg";
 import { Linkedin } from "lucide-react";
 // mock
@@ -74,6 +78,7 @@ import { fakeUsers } from "@/mock/users";
 import { JobBenefits } from "@/types/job";
 // types
 import { File, Mail, MenuLink } from "@/types/shared";
+import { Button } from "@/components/ui/button";
 
 export const images = {
   authLogin: "/images/auth-login.png",
@@ -1825,5 +1830,288 @@ export const blogsPageQueries = [
   {
     value: "status",
     title: "Status",
+  },
+];
+
+export const navbar_notifications = [
+  {
+    id: "1",
+    imageUrl: "/images/avatars/avatar_1.jpg",
+    svg: null,
+    imageType: "jpg",
+    type: "Communications",
+    date: "22 minutes",
+    text: "Deja Brady sent you a friend request",
+    isRead: false,
+    innerContent: null,
+    actions: (
+      <div className="flex items-center gap-2">
+        <Button className="py-1.5 px-2 font-medium text-sm">Accept</Button>
+        <Button
+          variant="outline"
+          className="bg-transparent dark:bg-transparent py-1.5 px-2 font-medium text-sm"
+        >
+          Decline
+        </Button>
+      </div>
+    ),
+  },
+  {
+    id: "2",
+    imageUrl: "/images/avatars/avatar_2.jpg",
+    svg: null,
+    imageType: "jpg",
+    type: "Project UI",
+    date: "a day",
+    text: "Jayvon Hull mentioned you in Minimal UI",
+    isRead: false,
+    innerContent:
+      "@Jaydon Frankie feedback by asking questions or just leave a note of appreciation.",
+    actions: (
+      <div className="flex items-center gap-2">
+        <Button className="py-1.5 px-2 font-medium text-sm">Reply</Button>
+      </div>
+    ),
+  },
+  {
+    id: "3",
+    imageUrl: "/images/avatars/avatar_3.jpg",
+    svg: null,
+    imageType: "jpg",
+    type: "File manager",
+    date: "2 days",
+    text: "Lainey Davidson added file to File manager",
+    isRead: false,
+    innerContent: "",
+    actions: null,
+  },
+  {
+    id: "4",
+    imageUrl: "/images/avatars/avatar_4.jpg",
+    svg: null,
+    imageType: "jpg",
+    type: "File manager",
+    date: "3 days",
+    text: "Giana Brandt request a payment of $200",
+    isRead: true,
+    innerContent: "",
+    actions: (
+      <div className="flex items-center gap-2">
+        <Button className="py-1.5 px-2 font-medium text-sm">Pay</Button>
+        <Button
+          variant="outline"
+          className="bg-transparent dark:bg-transparent py-1.5 px-2 font-medium text-sm"
+        >
+          Decline
+        </Button>
+      </div>
+    ),
+  },
+  {
+    id: "5",
+    imageUrl: "/images/avatars/avatar_5.jpg",
+    svg: null,
+    imageType: "jpg",
+    type: "File manager",
+    date: "4 days",
+    text: "Angelique Morse added new tags to File manager",
+    isRead: true,
+    innerContent: "",
+    actions: null,
+  },
+  {
+    id: "6",
+    imageUrl: null,
+    svg: <IcOrder />,
+    imageType: "svg",
+    type: "Order",
+    date: "5 days",
+    text: "Your order is placed waiting for shipping",
+    isRead: true,
+    innerContent: "",
+    actions: null,
+  },
+  {
+    id: "7",
+    imageUrl: null,
+    svg: <IcChat />,
+    imageType: "svg",
+    type: "Order",
+    date: "6 days",
+    text: "Delivery processing your order is being shepped",
+    isRead: true,
+    innerContent: "",
+    actions: null,
+  },
+  {
+    id: "8",
+    imageUrl: null,
+    svg: <IcMail />,
+    imageType: "svg",
+    type: "Communications",
+    date: "7 days",
+    text: "You have 5 unread messages",
+    isRead: false,
+    innerContent: "",
+    actions: null,
+  },
+  {
+    id: "9",
+    imageUrl: null,
+    svg: <IcDelivery />,
+    imageType: "svg",
+    type: "Communications",
+    date: "8 days",
+    text: "You have new mail",
+    isRead: false,
+    innerContent: "",
+    actions: null,
+  },
+];
+
+export const navbar_searchItems = [
+  {
+    link: "/dashboard",
+    title: "Dashboard",
+  },
+  {
+    link: "/ecommerce",
+    title: "Ecommerce",
+  },
+  {
+    link: "/analytics",
+    title: "Analytics",
+  },
+  {
+    link: "/banking",
+    title: "Banking",
+  },
+  {
+    link: "/booking",
+    title: "Booking",
+  },
+  {
+    link: "/file",
+    title: "File",
+  },
+  {
+    link: "/course",
+    title: "Course",
+  },
+  {
+    link: "/user/profile",
+    title: "Profile",
+  },
+  {
+    link: "/user/cards",
+    title: "Cards",
+  },
+  {
+    link: "/user/list",
+    title: "List",
+  },
+  {
+    link: "/user/create",
+    title: "Create",
+  },
+  {
+    link: "/user/account",
+    title: "Account",
+  },
+  {
+    link: "/user/670e5cc5bbd3b1e38a9f4f97/edit",
+    title: "Edit",
+  },
+  {
+    link: "/user/670e5cc5bbd3b1e38a9f4f97",
+    title: "Details",
+  },
+  {
+    link: "/product/list",
+    title: "List",
+  },
+  {
+    link: "/product/cards",
+    title: "Cards",
+  },
+  {
+    link: "/product/create",
+    title: "Create",
+  },
+  {
+    link: "/product/66f34d60840c98a1dc0ca0b4/edit",
+    title: "Edit",
+  },
+  {
+    link: "/product/66f34d60840c98a1dc0ca0b4",
+    title: "Details",
+  },
+  {
+    link: "/order/list",
+    title: "Orders",
+  },
+  {
+    link: "/blog/list",
+    title: "List",
+  },
+  {
+    link: "/blog/create",
+    title: "Create",
+  },
+  {
+    link: "/blog/66f69fb7326d6b448096a3a0/edit",
+    title: "Edit",
+  },
+  {
+    link: "/blog/66f69fb7326d6b448096a3a0",
+    title: "Details",
+  },
+  {
+    link: "/job/list",
+    title: "List",
+  },
+  {
+    link: "/job/create",
+    title: "Create",
+  },
+  {
+    link: "/job/6713a7bf8600deb0f7c4c5c4/edit",
+    title: "Edit",
+  },
+  {
+    link: "/job/6713a7bf8600deb0f7c4c5c4",
+    title: "Details",
+  },
+  {
+    link: "/tour/list",
+    title: "List",
+  },
+  {
+    link: "/tour/create",
+    title: "Create",
+  },
+  {
+    link: "/tour/6715f759ca3975e8bbf7ce49/edit",
+    title: "Edit",
+  },
+  {
+    link: "/tour/6715f759ca3975e8bbf7ce49",
+    title: "Details",
+  },
+  {
+    link: "/file-manager",
+    title: "File manager",
+  },
+  {
+    link: "/mail",
+    title: "Mail",
+  },
+  {
+    link: "/chat",
+    title: "Chat",
+  },
+  {
+    link: "/kanban",
+    title: "Kanban",
   },
 ];

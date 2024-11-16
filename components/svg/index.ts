@@ -254,3 +254,8 @@ export { default as IcTxt } from "../../public/icons/files/ic-txt.svg";
 export { default as IcVideo } from "../../public/icons/files/ic-video.svg";
 export { default as IcWord } from "../../public/icons/files/ic-word.svg";
 export { default as IcZip } from "../../public/icons/files/ic-zip.svg";
+// notif-types icons
+export { default as IcChat } from "../../public/icons/notif-types/ic-chat.svg";
+export { default as IcDelivery } from "../../public/icons/notif-types/ic-delivery.svg";
+export { default as IcMail } from "../../public/icons/notif-types/ic-mail.svg";
+export { default as IcOrder } from "../../public/icons/notif-types/ic-order.svg";
