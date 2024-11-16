@@ -1,15 +1,16 @@
+// icons
+import {
+  SolarBellBingBoldDuotone,
+  SolarMinimalisticMagniferBoldDuotone,
+} from "@/components/svg";
 // cmp
 import { Button } from "@/components/ui/button";
 import MobileNav from "./MobileNav";
 import ShowProfile from "./ShowProfile";
 import AppearanceSettings from "./AppearanceSettings";
 import FullscreenToggle from "../FullscreenToggle";
-// icons
-import {
-  SolarBellBingBoldDuotone,
-  SolarMinimalisticMagniferBoldDuotone,
-} from "@/components/svg";
 import NavbarSearch from "./NavbarSearch";
+import Contacts from "./Contacts";
 
 const Navbar = () => {
   return (
@@ -25,6 +26,7 @@ const Navbar = () => {
           <Button variant="icon">
             <SolarBellBingBoldDuotone />
           </Button>
+          <Contacts />
           <FullscreenToggle />
           <AppearanceSettings />
           <ShowProfile />
