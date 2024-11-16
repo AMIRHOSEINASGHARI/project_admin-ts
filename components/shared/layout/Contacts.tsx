@@ -24,7 +24,7 @@ const Contacts = () => {
         <div className="bg-white p-2 dark:bg-dark3 absolute z-10 top-0 left-0 w-full">
           <h6 className="h6">Contacts (20)</h6>
         </div>
-        <View className="flex flex-col gap-2 overflow-auto w-full h-full mt-[40px]">
+        <View className="flex flex-col gap-2 overflow-auto hideScrollBar w-full h-full mt-[40px] pb-[40px]">
           {fakeUsers.map(({ id, image, name, email }) => (
             <Button
               key={id}
