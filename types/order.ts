@@ -40,3 +40,9 @@ export type OrdersListParams = {
   startDate?: string;
   endDate?: string;
 };
+
+export type OrdersFilters = {
+  search?: string;
+  status?: OrderStatus;
+  createdAt?: { $gte: Date; $lte: Date };
+};

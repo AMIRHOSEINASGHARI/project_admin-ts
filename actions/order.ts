@@ -1,7 +1,7 @@
 "use server";
 
 // types
-import { OrdersListParams, OrderType } from "@/types/order";
+import { OrdersFilters, OrdersListParams, OrderType } from "@/types/order";
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
@@ -10,12 +10,36 @@ import ProductModel from "@/models/product";
 import UserModel from "@/models/user";
 // utils
 import connectDB from "@/utils/connectDB";
+// mongoose
+import mongoose from "mongoose";
 
 export const getOrders = async (searchParams: OrdersListParams) => {
   try {
     await connectDB();
 
-    const orders = await OrderModel.find()
+    const { search, status, startDate, endDate } = searchParams;
+
+    let query = {};
+    let filters: OrdersFilters = {};
+
+    if (search) {
+      if (mongoose.Types.ObjectId.isValid(search)) {
+        query = { _id: search };
+      } else {
+        query = { $text: { $search: search } };
+      }
+    }
+    if (status) {
+      filters.status = status;
+    }
+    if (startDate && endDate) {
+      filters.createdAt = {
+        $gte: new Date(startDate),
+        $lte: new Date(endDate),
+      };
+    }
+
+    const orders = await OrderModel.find({ ...query, ...filters })
       .populate({
         path: "userId",
         model: UserModel,

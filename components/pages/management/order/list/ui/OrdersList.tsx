@@ -30,6 +30,7 @@ import {
   SolarAltArrowDownLineDuotone,
   SolarAltArrowUpLineDuotone,
 } from "@/components/svg";
+import NoData from "@/components/shared/NoData";
 
 const OrdersList = ({ orders }: { orders: OrderType[] }) => {
   const [rowMoreDetails, setRowMoreDetails] = useState<{
@@ -141,60 +142,70 @@ const OrdersList = ({ orders }: { orders: OrderType[] }) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {tableRows?.map((item) => (
-          <Fragment key={item.key}>
-            <TableRow>
-              <TableCell className="w-[100px]">{item.order}</TableCell>
-              <TableCell className="min-w-[260px]">{item.user}</TableCell>
-              <TableCell className="min-w-[150px]">{item.date}</TableCell>
-              <TableCell className="min-w-[100px]">{item.items}</TableCell>
-              <TableCell className="min-w-[100px]">
-                ${item.price?.toLocaleString()}
-              </TableCell>
-              <TableCell className="w-[60px]">{item.status}</TableCell>
-              <TableCell className="w-[50px]">{item.actions}</TableCell>
-            </TableRow>
-            {rowMoreDetails?.show && rowMoreDetails?.id === item?.key && (
-              <TableRow className="bg-light2 dark:bg-dark3">
-                <TableCell colSpan={tableHeads.length}>
-                  <div className="rounded-xl overflow-hidden flex flex-col gap-0.5">
-                    {rowMoreDetails?.data?.map((item) => (
-                      <div
-                        key={item?._id}
-                        className="bg-white dark:bg-dark2 p-3 flex items-center justify-between"
-                      >
-                        <div className="flex items-center gap-3">
-                          <Image
-                            src={item?.productId?.images[0]}
-                            width={100}
-                            height={100}
-                            alt="product"
-                            priority
-                            className="w-[45px] h-[45px]"
-                          />
-                          <div className="flex flex-col">
-                            <p className="truncate">{item?.productId?.title}</p>
-                            <Link
-                              href={`/product/${item?.productId?._id}`}
-                              className="text-slate-500 w-fit underline font-light"
-                              target="_blank"
-                            >
-                              #{shorterText(item?.productId?._id, 7, false)}
-                            </Link>
+        {tableRows?.length !== 0 ? (
+          tableRows?.map((item) => (
+            <Fragment key={item.key}>
+              <TableRow>
+                <TableCell className="w-[100px]">{item.order}</TableCell>
+                <TableCell className="min-w-[260px]">{item.user}</TableCell>
+                <TableCell className="min-w-[150px]">{item.date}</TableCell>
+                <TableCell className="min-w-[100px]">{item.items}</TableCell>
+                <TableCell className="min-w-[100px]">
+                  ${item.price?.toLocaleString()}
+                </TableCell>
+                <TableCell className="w-[60px]">{item.status}</TableCell>
+                <TableCell className="w-[50px]">{item.actions}</TableCell>
+              </TableRow>
+              {rowMoreDetails?.show && rowMoreDetails?.id === item?.key && (
+                <TableRow className="bg-light2 dark:bg-dark3">
+                  <TableCell colSpan={tableHeads.length}>
+                    <div className="rounded-xl overflow-hidden flex flex-col gap-0.5">
+                      {rowMoreDetails?.data?.map((item) => (
+                        <div
+                          key={item?._id}
+                          className="bg-white dark:bg-dark2 p-3 flex items-center justify-between"
+                        >
+                          <div className="flex items-center gap-3">
+                            <Image
+                              src={item?.productId?.images[0]}
+                              width={100}
+                              height={100}
+                              alt="product"
+                              priority
+                              className="w-[45px] h-[45px]"
+                            />
+                            <div className="flex flex-col">
+                              <p className="truncate">
+                                {item?.productId?.title}
+                              </p>
+                              <Link
+                                href={`/product/${item?.productId?._id}`}
+                                className="text-slate-500 w-fit underline font-light"
+                                target="_blank"
+                              >
+                                #{shorterText(item?.productId?._id, 7, false)}
+                              </Link>
+                            </div>
+                          </div>
+                          <div className="w-[150px] flex items-center justify-between">
+                            <span>&#10005;{item?.quantity}</span>
+                            <span>${item?.cost}</span>
                           </div>
                         </div>
-                        <div className="w-[150px] flex items-center justify-between">
-                          <span>&#10005;{item?.quantity}</span>
-                          <span>${item?.cost}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </TableCell>
-              </TableRow>
-            )}
-          </Fragment>
-        ))}
+                      ))}
+                    </div>
+                  </TableCell>
+                </TableRow>
+              )}
+            </Fragment>
+          ))
+        ) : (
+          <TableRow className="hover:bg-transparent dark:hover:bg-transparent">
+            <TableCell colSpan={tableHeads.length} className="p-10">
+              <NoData title="No orders found!" />
+            </TableCell>
+          </TableRow>
+        )}
       </TableBody>
     </Table>
   );
