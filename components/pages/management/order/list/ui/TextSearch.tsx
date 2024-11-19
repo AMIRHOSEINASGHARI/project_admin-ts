@@ -1,7 +1,11 @@
-import { Input } from "@/components/ui/input";
+// react
+import { useEffect, useState } from "react";
+// hooks
 import { useHandleSearchParams } from "@/hooks";
-import React, { useEffect, useState } from "react";
+// debounce
 import { useDebouncedCallback } from "use-debounce";
+// cmp
+import { Input } from "@/components/ui/input";
 
 const TextSearch = () => {
   const { handleSetQuery, searchParams } = useHandleSearchParams("search");

@@ -1,6 +1,10 @@
 "use client";
 
-import { useState } from "react";
+// react
+import { useEffect, useState } from "react";
+// hooks
+import { useHandleSearchParams } from "@/hooks";
+// cmp
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -17,6 +21,32 @@ import { SolarCalendarBoldDuotone } from "@/components/svg";
 const CalendarSearch = () => {
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
+  const {
+    handleSetQuery: handleSetStartQuery,
+    searchParams: startSearchParams,
+  } = useHandleSearchParams("startDate");
+  const { handleSetQuery: handleSetEndQuery, searchParams: endSearchParams } =
+    useHandleSearchParams("endDate");
+
+  useEffect(() => {
+    const startParams = new URLSearchParams(startSearchParams);
+
+    if (!startParams.has("startDate")) {
+      setStartDate(undefined);
+    } else {
+      setStartDate(new Date(startSearchParams.get("startDate")?.toString()!));
+    }
+  }, [startSearchParams]);
+
+  useEffect(() => {
+    const endParams = new URLSearchParams(endSearchParams);
+
+    if (!endParams.has("endDate")) {
+      setEndDate(undefined);
+    } else {
+      setEndDate(new Date(endSearchParams.get("endDate")?.toString()!));
+    }
+  }, [endSearchParams]);
 
   return (
     <View variant="flex-gap" className="w-full xl:w-[40%]">
@@ -43,7 +73,10 @@ const CalendarSearch = () => {
           <Calendar
             mode="single"
             selected={startDate}
-            onSelect={setStartDate}
+            onSelect={(date) => {
+              setStartDate(date);
+              handleSetStartQuery(date?.toJSON()!);
+            }}
             initialFocus
           />
         </PopoverContent>
@@ -71,7 +104,10 @@ const CalendarSearch = () => {
           <Calendar
             mode="single"
             selected={endDate}
-            onSelect={setEndDate}
+            onSelect={(date) => {
+              setEndDate(date);
+              handleSetEndQuery(date?.toJSON()!);
+            }}
             initialFocus
           />
         </PopoverContent>
