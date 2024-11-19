@@ -1,13 +1,36 @@
 // react
-import { useState } from "react";
-// types
-import { OrderType } from "@/types/order";
+import { useEffect, useState } from "react";
+// hooks
+import { useHandleSearchParams } from "@/hooks";
 // cmp
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import clsx from "clsx";
 
 const OrdersTabs = () => {
   const [activeTab, setActiveTab] = useState("All");
+  const { handleSetQuery, handleDeleteQuery, searchParams } =
+    useHandleSearchParams("status");
+
+  const onValueChange = (value: string) => {
+    setActiveTab(value);
+
+    if (value === "All") {
+      handleDeleteQuery("status");
+      setActiveTab("All");
+    } else {
+      handleSetQuery(value);
+    }
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams);
+
+    if (!params.has("status")) {
+      setActiveTab("All");
+    } else {
+      setActiveTab(searchParams.get("status")?.toString()!);
+    }
+  }, [searchParams]);
 
   const tabData = [
     {
@@ -49,9 +72,9 @@ const OrdersTabs = () => {
 
   return (
     <Tabs
-      defaultValue="All"
       className="w-full"
-      onValueChange={(value) => setActiveTab(value)}
+      value={activeTab}
+      onValueChange={(value) => onValueChange(value)}
     >
       <div className="px-4 border-b-[3px] border-slate-100 dark:border-dark3">
         <TabsList className="gap-8 rounded-none bg-transparent dark:bg-transparent">
