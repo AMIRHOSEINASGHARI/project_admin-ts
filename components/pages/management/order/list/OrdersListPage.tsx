@@ -1,17 +1,15 @@
-// actions
-import { getOrders } from "@/actions/order";
-// utils
-import { jsonParser } from "@/utils/functions";
+// react
+import { Suspense } from "react";
 // constants
 import { orders_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // cmp
 import CustomBreadcrumb from "@/components/shared/CustomBreadcrumb";
 import PageHeading from "@/components/shared/PageHeading";
-import OrdersList from "./ui/OrdersList";
+import SuspenseFallback from "@/components/shared/SuspenseFallback";
+import OrdersTable from "./ui/OrdersTable";
+import FilteringOrders from "./ui/FilteringOrders";
 
 const OrdersListPage = async () => {
-  const data = await getOrders();
-
   return (
     <>
       <PageHeading text="List" />
@@ -19,7 +17,12 @@ const OrdersListPage = async () => {
         data={orders_page_breadcrumb_data}
         breadcrumbPage="List"
       />
-      <OrdersList orders={jsonParser(data?.orders)} />
+      <div className="tableContainer">
+        <FilteringOrders />
+        <Suspense fallback={<SuspenseFallback />}>
+          <OrdersTable />
+        </Suspense>
+      </div>
     </>
   );
 };

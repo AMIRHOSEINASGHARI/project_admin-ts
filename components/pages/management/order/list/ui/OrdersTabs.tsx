@@ -6,26 +6,12 @@ import { OrderType } from "@/types/order";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import clsx from "clsx";
 
-const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
+const OrdersTabs = () => {
   const [activeTab, setActiveTab] = useState("All");
-
-  const pending = orders?.filter(
-    (order) => order?.status === "Pending"
-  )?.length;
-  const completed = orders?.filter(
-    (order) => order?.status === "Completed"
-  )?.length;
-  const canceled = orders?.filter(
-    (order) => order?.status === "Canceled"
-  )?.length;
-  const refunded = orders?.filter(
-    (order) => order?.status === "Refunded"
-  )?.length;
 
   const tabData = [
     {
       title: "All",
-      number: orders?.length || 0,
       value: "All",
       colors:
         "bg-slate-900 text-slate-100 dark:bg-slate-200 dark:text-slate-900",
@@ -33,7 +19,6 @@ const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
     },
     {
       title: "Pending",
-      number: pending || 0,
       value: "Pending",
       colors:
         activeTab === "Pending" ? "bg-orange-500 text-white" : "badge-orange",
@@ -41,7 +26,6 @@ const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
     },
     {
       title: "Completed",
-      number: completed || 0,
       value: "Completed",
       colors:
         activeTab === "Completed" ? "bg-green-500 text-white" : "badge-green",
@@ -49,7 +33,6 @@ const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
     },
     {
       title: "Canceled",
-      number: canceled || 0,
       value: "Canceled",
       colors:
         activeTab === "Canceled" ? "bg-rose-500 text-white" : "badge-rose",
@@ -57,7 +40,6 @@ const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
     },
     {
       title: "Refunded",
-      number: refunded || 0,
       value: "Refunded",
       colors:
         activeTab === "Refunded" ? "bg-gray-600 text-white" : "badge-gray",
@@ -77,22 +59,17 @@ const OrdersTabs = ({ orders }: { orders: OrderType[] }) => {
             <TabsTrigger
               key={tab.value}
               value={tab.value}
-              className={clsx(
-                "border-b-[3px] border-transparent flex gap-3 px-0 py-3 rounded-none shadow-none",
-                {
-                  "border-black dark:border-white": tab.isActive,
-                }
-              )}
+              className="border-b-[3px] border-transparent flex gap-3 px-0 py-3 rounded-none shadow-none data-[state=active]:border-black data-[state=active]:dark:border-white"
             >
               <span
-                className={clsx("text-small", {
-                  "text-slate-400 dark:text-slate-500": !tab.isActive,
-                })}
+                className={clsx(
+                  `text-small rounded-md h-full px-2 ${tab.colors}`,
+                  {
+                    "text-slate-400 dark:text-slate-500": !tab.isActive,
+                  }
+                )}
               >
                 {tab.title}
-              </span>
-              <span className={`rounded-md h-full px-2 ${tab.colors}`}>
-                {tab.number}
               </span>
             </TabsTrigger>
           ))}
