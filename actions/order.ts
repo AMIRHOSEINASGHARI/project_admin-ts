@@ -1,7 +1,7 @@
 "use server";
 
 // types
-import { OrderType } from "@/types/order";
+import { OrdersListParams, OrderType } from "@/types/order";
 // enums
 import { ResponseCodes, ResponseMessages } from "@/enums";
 // models
@@ -10,10 +10,8 @@ import ProductModel from "@/models/product";
 import UserModel from "@/models/user";
 // utils
 import connectDB from "@/utils/connectDB";
-// actions
-import { checkSession } from "./shared";
 
-export const getOrders = async () => {
+export const getOrders = async (searchParams: OrdersListParams) => {
   try {
     await connectDB();
 

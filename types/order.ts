@@ -33,3 +33,10 @@ export interface OrderType extends Document {
   summary: OrderSummaryType;
   createdAt: Date;
 }
+
+export type OrdersListParams = {
+  search?: string;
+  status?: OrderStatus;
+  startDate?: string;
+  endDate?: string;
+};

@@ -1,5 +1,7 @@
 // react
 import { Suspense } from "react";
+// types
+import { OrdersListParams } from "@/types/order";
 // constants
 import { orders_page_breadcrumb_data } from "@/constants/breadcrumbs";
 // cmp
@@ -9,7 +11,15 @@ import SuspenseFallback from "@/components/shared/SuspenseFallback";
 import OrdersTable from "./ui/OrdersTable";
 import FilteringOrders from "./ui/FilteringOrders";
 
-const OrdersListPage = async () => {
+const OrdersListPage = async (props: {
+  searchParams: Promise<OrdersListParams>;
+}) => {
+  const searchParams = await props.searchParams;
+  const search = searchParams?.search || "";
+  const status = searchParams?.status || "";
+  const startDate = searchParams?.startDate || "";
+  const endDate = searchParams?.endDate || "";
+
   return (
     <>
       <PageHeading text="List" />
@@ -19,8 +29,11 @@ const OrdersListPage = async () => {
       />
       <div className="tableContainer">
         <FilteringOrders />
-        <Suspense fallback={<SuspenseFallback />}>
-          <OrdersTable />
+        <Suspense
+          key={search + status + startDate + endDate}
+          fallback={<SuspenseFallback />}
+        >
+          <OrdersTable searchParams={searchParams} />
         </Suspense>
       </div>
     </>
