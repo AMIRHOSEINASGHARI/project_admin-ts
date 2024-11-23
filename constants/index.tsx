@@ -1833,6 +1833,25 @@ export const blogsPageQueries = [
   },
 ];
 
+export const ordersPageQueries = [
+  {
+    title: "Search",
+    value: "search",
+  },
+  {
+    title: "Status",
+    value: "status",
+  },
+  {
+    title: "Start date",
+    value: "startDate",
+  },
+  {
+    title: "End date",
+    value: "endDate",
+  },
+];
+
 export const navbar_notifications = [
   {
     id: "1",

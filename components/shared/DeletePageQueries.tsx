@@ -2,6 +2,8 @@
 
 // hooks
 import { useHandleSearchParams } from "@/hooks";
+// lib
+import { cn } from "@/lib/utils";
 // cmp
 import { SolarTrashBold } from "@/components/svg";
 import { Button } from "@/components/ui/button";
@@ -12,9 +14,10 @@ type DeletePageQueriesProps = {
     value: string;
     title: string;
   }[];
+  className?: string;
 };
 
-const DeletePageQueries = ({ filters }: DeletePageQueriesProps) => {
+const DeletePageQueries = ({ filters, className }: DeletePageQueriesProps) => {
   const { searchParams, handleDeleteQuery, replace, pathname } =
     useHandleSearchParams();
 
@@ -33,7 +36,7 @@ const DeletePageQueries = ({ filters }: DeletePageQueriesProps) => {
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-4">
+    <div className={cn("flex flex-wrap items-center gap-4", className)}>
       {filters.map(({ value, title }) => {
         if (!params.has(value)) {
           return null;

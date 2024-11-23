@@ -1,11 +1,14 @@
 "use client";
 
+// constants
+import { ordersPageQueries } from "@/constants";
 // cmp
 import View from "@/components/shared/layout/View";
 import OrdersTabs from "./OrdersTabs";
 import CalendarSearch from "./CalendarSearch";
 import TextSearch from "./TextSearch";
 import OtherActions from "./OtherActions";
+import DeletePageQueries from "@/components/shared/DeletePageQueries";
 
 const FilteringOrders = () => {
   return (
@@ -18,6 +21,7 @@ const FilteringOrders = () => {
           <OtherActions />
         </div>
       </View>
+      <DeletePageQueries className="px-4 pb-4" filters={ordersPageQueries} />
     </>
   );
 };
